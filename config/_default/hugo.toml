@@ -1,5 +1,5 @@
 defaultContentLanguage = 'ja'
-baseURL = 'https://oracle-japan.github.io/ocitutorials/'
+baseURL = 'https://t-utsunom.github.io/'
 # languageCode = 'ja'
 title = 'OCIチュートリアル'
 theme = "hugo-geekdoc"
@@ -14,7 +14,7 @@ disablePathToLower = true
 # Required if you want to render robots.txt template
 enableRobotsTXT = true
 enableGitInfo = true
-geekdocRepo = "https://github.com/oracle-japan/ocitutorials"
+geekdocRepo = "https://github.com/t-utsunom/test_tutorial"
 disableKinds = ["taxonomy", "term"]
 
 # Needed for mermaid shortcodes
