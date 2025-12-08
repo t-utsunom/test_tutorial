@@ -4,7 +4,6 @@ description: "OCI Functionsは、Oracle Cloud Infrastructure(OCI)上で提供さ
 tags:
 - サーバレス
 - コンピュート
-weight: 44
 ---
 
 このハンズオンでは、想定したメモリ使用率を超える仮想マシン (VM) のシェイプをOCI Functionsを利用して動的に変更する手順を記載します。

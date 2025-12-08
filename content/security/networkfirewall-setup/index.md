@@ -1,14 +1,18 @@
 ---
 title: "OCI Network Firewallを構築する"
 description: "本チュートリアルでは「OCI Network Firewall」を構築し、動作を確認します。"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 脆弱性・脅威検知
-- 初期設定
+ - security
+
+
 images:
-- security/networkfirewall-setup/nfw13.png
+- "security/networkfirewall-setup/nfw32.png"
+header:
+ overlay_image: "/security/networkfirewall-setup/nfw32.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 <!-- 

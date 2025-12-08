@@ -4,7 +4,6 @@ description: "Fn Projectは、開発者エクスペリエンス重視なFaaSを�
 tags:
 - サーバレス
 - コンテナ
-weight: 40
 ---
 Fn Projectは、開発者エクスペリエンス重視なFaaSを構築するためのプラットフォームです。  
 このハンズオンでは、Fn Projectの環境構築から動作確認までの手順を記します。

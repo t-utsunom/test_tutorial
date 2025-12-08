@@ -4,7 +4,6 @@ description: "Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供
 tags:
 - サーバレス
 - データベース
-weight: 46
 ---
 
 [Oracle NoSQL Database Cloud Service](https://www.oracle.com/database/nosql-cloud.html)は、大容量データを高速に処理するフルマネージドデータベースクラウドサービスです。ドキュメント、カラムナー、キーと値のペアなどのデータ・モデルをサポートし、すべてのトランザクションはACIDに準拠しています。
@@ -160,17 +159,17 @@ Oracle OCIコンソールの左上にあるハンバーガーメニューをク�
 
 ![image-20200422164625788](nosql-database-01.png)
 
-[リソース]⇒[列]の情報が表示されます。
+[リソース]⇒[表]の情報が表示されます。
 
-[データの探索]をクリックします。
+[表の行]をクリックします。
 
 ![image-20200422165142504](nosql-database-02.png)
 
-[データの探索]の情報が表示され、[実行]をクリックするとテーブルの検索が実行されます。
+[表の行]の情報が表示され、[問合せの実行]をクリックして、検索が実行されます。
 
 ![image-20200422165548576](nosql-database-03.png)
 
-[Oracle NoSQL Database]⇒[表]の画面で、右側のケバブメニューの[削除]をクリックして、Oracle Functionsにより作成されたテーブルを削除します。
+[NoSQLデータベース]の画面で、右側の[削除]をクリックして、Oracle Functionsにより作成されたテーブルが削除されます。
 
 ![image-20200422165804835](nosql-database-04.png)
 

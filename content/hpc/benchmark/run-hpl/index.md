@@ -1,11 +1,12 @@
 ---
 title: "HPL実行方法（BM.Optimized3.36編）"
-description: "本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。"
-weight: "2110"
-tags:
-- hpc
-params:
-  author: Tsutomu Miyashita
+description: "本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスBM.Optimized3.36をノード間接続するHPCクラスタで、標準ベンチマークのHPLを実行する方法を解説します。"
+order: "2110"
+layout: single
+
+header:
+  overlay_filter: rgba(34, 66, 55, 0.7)
+#link: https://community.oracle.com/tech/welcome/discussion/4474261/
 ---
 <style>
 table, th, td {
@@ -19,7 +20,7 @@ table, th, td {
 本ドキュメントで解説する **[HPL](https://www.netlib.org/benchmark/hpl/)** の実行は、 **[Intel oneAPI Math Kernel Library for Linux](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html#gs.jwmn3t)** に含まれる **HPL** の実装である **[Intel Distribution for LINPACK Benchmark](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2023-1/intel-distribution-for-linpack-benchmark.html)** を、 **[Intel MPI Library](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html#gs.jwmodq)** と共に使用します。  
 なお、 **Intel oneAPI Math Kernel Library for Linux** と **Intel MPI Library** は、 **[Intel oneAPI HPC Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit.html#gs.jwmpak)** に含まれているものを使用します。
 
-**HPL** を実行するHPCクラスタは、計算ノードに **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** を使用し、 **HPL** の性能向上を目的に **NUMA nodes per socket** （以降 **NPS** と呼称します。）が **2** （以降 **NPS2** と呼称します。）で **Simultanious Multi Threading** （以降 **SMT** と呼称します。）が無効となるようBIOSで設定、2インスタンスを **[クラスタ・ネットワーク](../../#5-1-クラスタネットワーク)** で接続した構成とします。
+**HPL** を実行するHPCクラスタは、計算ノードに **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** を使用し、 **HPL** の性能向上を目的に **NUMA nodes per socket** （以降 **NPS** と呼称します。）が **2** （以降 **NPS2** と呼称します。）で **Simultanious Multi Threading** （以降 **SMT** と呼称します。）が無効となるようBIOSで設定、2インスタンスを **[クラスタ・ネットワーク](/ocitutorials/hpc/#5-1-クラスタネットワーク)** で接続した構成とします。
 
 以上より、本ドキュメントで解説する **HPL** 実行は、以下の手順を経て行います。
 
@@ -48,12 +49,12 @@ table, th, td {
 ***
 # 1. HPCクラスタ構築
 
-本章は、 **[OCI HPCチュートリアル集](../../#1-oci-hpcチュートリアル集)** のカテゴリ **[HPCクラスタ](../../#1-1-hpcクラスタ)** のチュートリアルの手順に従う等により、HPCクラスタを構築します。  
-この際、 **NPS** を **NPS2** とし **SMT** を無効化するようBIOSを設定した（※1）2ノードの **BM.Optimized3.36** を計算ノードに使用し、そのOSに **Oracle Linux** 8.10ベースのHPC **[クラスタネットワーキングイメージ](../../#5-13-クラスタネットワーキングイメージ)** （※2）を使用します。
+本章は、 **[OCI HPCチュートリアル集](/ocitutorials/hpc/#1-oci-hpcチュートリアル集)** のカテゴリ **[HPCクラスタ](/ocitutorials/hpc/#1-1-hpcクラスタ)** のチュートリアルの手順に従う等により、HPCクラスタを構築します。  
+この際、 **NPS** を **NPS2** とし **SMT** を無効化するようBIOSを設定した（※1）2ノードの **BM.Optimized3.36** を計算ノードに使用し、そのOSに **Oracle Linux** 8.10ベースのHPC **[クラスタネットワーキングイメージ](/ocitutorials/hpc/#5-13-クラスタネットワーキングイメージ)** （※2）を使用します。
 
-※1）**NPS** と **SMT** の設定方法は、 **[OCI HPCパフォーマンス関連情報](../../#2-oci-hpcパフォーマンス関連情報)** の **[パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法](../../benchmark/bios-setting/)** を参照してください。
+※1）**NPS** と **SMT** の設定方法は、 **[OCI HPCパフォーマンス関連情報](/ocitutorials/hpc/#2-oci-hpcパフォーマンス関連情報)** の **[パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法](/ocitutorials/hpc/benchmark/bios-setting/)** を参照してください。
 
-※2）**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](../../tech-knowhow/osimage-for-cluster/)** の **[1. クラスタネットワーキングイメージ一覧](../../tech-knowhow/osimage-for-cluster/#1-クラスタネットワーキングイメージ一覧)** のイメージ **No.12** です。
+※2）**[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/)** の **[1. クラスタネットワーキングイメージ一覧](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-クラスタネットワーキングイメージ一覧)** のイメージ **No.12** です。
 
 ***
 # 2. Intel oneAPI HPC Toolkitインストール
@@ -65,7 +66,8 @@ table, th, td {
 ```sh
 $ sudo yum-config-manager --add-repo https://yum.repos.intel.com/oneapi
 $ sudo rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
-$ sudo dnf install -y intel-basekit intel-hpckit
+$ sudo dnf install -y intel-basekit
+$ sudo dnf install -y intel-hpckit
 ```
 
 ***
@@ -85,33 +87,32 @@ $ cp -pR /opt/intel/oneapi/mkl/latest/share/mkl/benchmarks/mp_linpack /dest_dir/
 ※3）HPLを実行する際のパラメータ値を指定する設定ファイルです。
 
 | ファイル中の<br>行・カラム | パラメータ       | 設定値     | 備考                                                                          |
-| :-------------: | :---------: | ------: | :---------------------------------------------------------------------------: |
+| :-------------: | :---------: | ------: | --------------------------------------------------------------------------- |
 | 6行目<br>1カラム目       | 問題サイズN      | 353,280 | 作成直後の計算ノード空きメモリサイズ490 GiBに10 GiB程度の余裕を<br>持たせて算出                                |
 | 8行目<br>1カラム目       | ブロックサイズNB   | 384     | **Intel oneAPI Math Kernel Library for Linux**ドキュメントに記載の<br>AVX-512搭載プロセッサ用推奨値 |
 | 11行目<br>1カラム目      | プロセスグリッドのP値 | 2       | 使用するMPIプロセス数8からPxQを2x4に設定                                                   |
 | 12行目<br>1カラム目      | プロセスグリッドのQ値 | 4       | 使用するMPIプロセス数8からPxQを2x4に設定                                                   |
 
-次に、以下コマンドを **HPL** 実行ユーザで **/dest_dir/mp_linpack** ディレクトリで実行します。
-
-```sh
-$ cp runme_intel64_dynamic.txt runme_intel64_dynamic
-$ cp runme_intel64_prv.txt runme_intel64_prv
-$ chmod 755 ./runme_intel64_dynamic ./runme_intel64_prv
-```
-
-次に、先にコピーして作成したファイル **runme_intel64_dynamic** 中の **MPI** 関連パラメータを、以下のように設定します。
+次に、 **Intel Distribution for LINPACK Benchmark** 実行用ディレクトリ（ **/dest_dir/mp_linpack** ）直下のファイル **runme_intel64_dynamic** 中の **MPI** 関連パラメータを、以下のように設定します。
 
 | ファイル中の行 | パラメータ        | 設定値 | 備考                                 |
 | :-----: | :----------: | --: | :--------------------------------: |
 | 20行目    | MPI_PROC_NUM | 8   | NUMAノード当たり1 MPIプロセス・2ノードトータルで8プロセス |
 | 25行目    | MPI_PER_NODE | 4   | NUMAノード当たり1 MPIプロセス・ノード当たり4プロセス    |
 
+次に、以下コマンドを **HPL** 実行ユーザで実行します。
+
+```sh
+$ cd /dest_dir/mp_linpack
+$ cp runme_intel64_prv.txt runme_intel64_prv
+```
+
 ***
 # 4. HPL実行
 
 本章は、先に設定した **HPL** と **MPI** の実行パラメータを使用し、 **HPL** を実行します。
 
-**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードのホスト名リスト作成方法](../../tech-knowhow/compute-host-list/)** の手順に従い、 **HPL** を実行する全ての計算ノードのホスト名を記載したホストリストファイルを、 **HPL** 実行ユーザのホームディレクトリ直下に **hostlist.txt** として作成します。
+**[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードのホスト名リスト作成方法](/ocitutorials/hpc/tech-knowhow/compute-host-list/)** の手順に従い、 **HPL** を実行する全ての計算ノードのホスト名を記載したホストリストファイルを、 **HPL** 実行ユーザのホームディレクトリ直下に **hostlist.txt** として作成します。
 
 次に、 **/etc/fstab** ファイルのスワップ領域を指定する行を以下のようにコメントとし、以降のOS再起動でスワップ領域が無効化されるようにします。
 

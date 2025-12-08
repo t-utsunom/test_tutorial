@@ -1,11 +1,18 @@
 ---
 title: "OCIのBase Database ServiceでOperations Insightsを有効化する"
 description: "パフォーマンスの悪いSQL文の特定や、Oracle DatabaseのCPU、メモリーの割当てなどのリソース配分の意思決定に時間がかかっていませんか？Operations Insightsを使用すると、問題のあるSQL文やOracle Databaseのリソースの使用状況、需要予測などを行うことが出来ます。"
-weight: "120"
+order: "150"
+layout: single
 tags:
-- 運用管理・監視
+ - management
+
+
 images:
-- management/dbcs_operations_insights/DB_OperationsInsights17.png
+- "management/dbcs_operations_insights/DB_OperationsInsights16.png"
+header:
+ overlay_image: "/management/dbcs_operations_insights/DB_OperationsInsights16.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 OCI Observability & Managementのサービスの1つ、Operations Insightsでは、Oracle Databaseのデータを長期保存し、機械学習による分析でリソースの需要分析と将来値の予測、パフォーマンス問題を検出することができます。Operations Insightsを利用することで、リソース配分の最適化によるコストの削減、パフォーマンスの向上などを図ることが可能です。

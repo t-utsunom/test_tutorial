@@ -1,11 +1,12 @@
 ---
 title: "ベアメタルインスタンスのNVMe SSDローカルディスク領域ファイルシステム作成方法"
 description: "高速スクラッチ領域として利用することを想定したNVMe SSDローカルディスクを内蔵するHPCクラスタ向けベアメタルシェイプBM.Optimized3.36やGPUクラスタ向けベアメタルシェイプBM.GPU4.8/BM.GPU.A100-v2.8/BM.GPU.H100.8は、NVMe SSDローカルディスクをOSのファイルシステムとして利用するための設定をユーザ自身が行う必要があります。本テクニカルTipsは、このファイルシステム作成方法を解説します。"
-weight: "321"
-tags:
-- hpc
-params:
-  author: Tsutomu Miyashita
+order: "321"
+layout: single
+
+header:
+  overlay_filter: rgba(34, 66, 55, 0.7)
+#link: https://community.oracle.com/tech/welcome/discussion/4474261/
 ---
 
 ***
@@ -15,7 +16,7 @@ NVMe SSDローカルディスクにファイルシステムを作成する方法
 
 本テクニカルTipsが前提とするOSは、 **Oracle Linux** です。
 
-なお 、ここで解説するファイルシステム作成手順は、 **[OCI HPCチュートリアル集](../../#1-oci-hpcチュートリアル集)** で紹介する構築手順に含まれるため、これらチュートリアルの手順に従ってHPCクラスタやGPUクラスタを構築する場合は、改めて実施する必要はありません。
+なお 、ここで解説するファイルシステム作成手順は、 **[OCI HPCチュートリアル集](/ocitutorials/hpc/#1-oci-hpcチュートリアル集)** で紹介する構築手順に含まれるため、これらチュートリアルの手順に従ってHPCクラスタやGPUクラスタを構築する場合は、改めて実施する必要はありません。
 
 ***
 # 1. BM.Optimized3.36用ファイルシステム作成手順

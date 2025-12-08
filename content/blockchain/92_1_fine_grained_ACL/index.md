@@ -3,7 +3,6 @@ title: "Fine-Grained Access Control Libraryの使い方"
 description: "この文書は Oracle Blockchain Platformに付属するサンプル・ライブラリであるFine-Grained Access Control Libraryの使い方を説明します。"
 images:
 - "blockchain/92_1_fine_grained_ACL/FGACL_use_image.png"
-weight: 91
 ---
 
 この文書は Oracle Blockchain Platformに付属する、Chaincode上／オンチェーンで確実かつ柔軟、きめ細やかなアクセス制御を実現するためのサンプル・ライブラリであるFine-Grained Access Control Libraryの使い方を説明するチュートリアルです。

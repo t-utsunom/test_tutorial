@@ -1,13 +1,18 @@
 ---
 title: "エッジポリシーのWeb Application Firewallのログを分析する"
 description: "本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。"
-weight: "102"
+order: "100"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 分析
+ - intermediate
+
+
 images:
-- security/waf-v1-loganalytics/edgelog39.png
+- "security/waf-v1-setup/edge1.png"
+header:
+ overlay_image: "/security/waf-v1-setup/edge1.png"
+ overlay_filter: rgba(34, 66,55, 0.7)
+weight: 102
 ---
 
 OCIでは、OCI Load Balancerに直接デプロイするWAF、”WAFポリシー”と、お客様のアプリケーションのドメインに構築するWAF、”エッジポリシー”の2種類のWAFを提供しています。

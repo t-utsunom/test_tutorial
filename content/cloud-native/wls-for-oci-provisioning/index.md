@@ -3,8 +3,6 @@ title: "WebLogic Server for OCIをプロビジョニングしてみよう"
 description: "OCIが提供するWebLogic Server for OCIのプロビジョニングを体験していただけるコンテンツです。"
 tags:
 - アプリケーション開発
-- 初期設定
-weight: 80
 ---
 
 前提条件

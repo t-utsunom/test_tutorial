@@ -1,11 +1,11 @@
 ---
 title: "Stack Monitoringでプロセス監視を設定する"
 description: "Stack Monitoring ではプロセスベースのカスタム・リソースが利用できます。プロセスベースのカスタム・リソースを利用することで、プロセスが使用しているCPUやメモリーの使用率を監視できます。"
-weight: "110"
-images:
-- management/stack_monitoring_process_set/image4.png
+order: "110"
+layout: single
 tags:
- - 運用管理・監視
+ - management
+
 ---
 
 

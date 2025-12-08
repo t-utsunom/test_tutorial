@@ -4,7 +4,6 @@ description: "このハンズオンでは、OCI API GatewayとOracle Functions�
 tags:
 - サーバレス
 - アプリケーション開発
-weight: 42
 ---
 
 このハンズオンでは、OCI API GatewayとOracle Functionsを組み合わせて、簡単なアプリケーションを開発する手順をご紹介します。

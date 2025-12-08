@@ -3,7 +3,6 @@ title: "Fabricのアイデンティティ関連の操作や設定"
 description: "この文書はOracle Blockchain PlatformでHyperledger Fabricのプロトコルにおけるアイデンティティ、およびアイデンティティを構成する証明書および秘密鍵に関連する操作、設定などを説明します。"
 images:
 - "blockchain/05_1_fabric_identity/channel_ledger_tx.png"
-weight: 50
 ---
 
 Oracle Blockchain Platform（OBP）でHyperledger Fabricのプロトコルにおけるアイデンティティ、およびアイデンティティを構成する証明書および秘密鍵に関連する操作、設定などを説明します。

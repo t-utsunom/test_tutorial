@@ -5,7 +5,6 @@ tags:
 - コンテナ
 - アプリケーション開発
 - 運用管理・監視
-weight: 24
 ---
 
 このハンズオンでは、Oracle Container Engine for Kubernetes（以下OKE）上に、マイクロサービスアプリケーションをデプロイします。そして、OCIのObservabilityサービスを利用して、モニタリング、ロギング、トレーシングを実践的に学びます。

@@ -4,7 +4,6 @@ description: "フルマネージドのサービスメッシュサービスであ
 tags:
 - コンテナ
 - ネットワーク
-weight: 60
 ---
 
 Oracle Cloud Infrastructure(OCI) Service Meshはインフラストラクチャ・レイヤーで、セキュリティ、トラフィック制御、およびオブザーバビリティ機能をアプリケーションに提供します。  

@@ -2,10 +2,15 @@
 title: "ファイル・ストレージでファイル共有ストレージを構築する"
 description: "ファイル・ストレージでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、HPC/GPUクラスタから利用することが可能な高可用性ファイル共有ストレージを、OCIのマネージドNFSサービスであるファイル・ストレージを使用してOCIコンソールから構築することが出来るようになります。"
 weight: "1310"
-tags:
-- hpc
-params:
-  author: Tsutomu Miyashita
+layout: single
+
+
+images:
+- "hpc/spinup-nfs-server-fss/architecture_diagram.png"
+header:
+  overlay_image: "/hpc/spinup-nfs-server-fss/architecture_diagram.png"
+  overlay_filter: rgba(34, 66, 55, 0.7)
+#link: https://community.oracle.com/tech/welcome/discussion/4474261/
 ---
 
 ***
@@ -22,7 +27,7 @@ params:
 ※1）アップグレードで選択可能なHigh Performanceタイプの **マウント・ターゲット** の詳細は、 **[ここ](https://docs.oracle.com/ja-jp/iaas/Content/File/Tasks/managingmounttargets.htm#performance)** を参照してください。
 
 これに対しマネージドブロックボリュームサービスの **ブロック・ボリューム** は、ベア・メタル・インスタンスと組み合わせることで **ファイル・ストレージ** よりもコストパフォーマンスの高いファイル共有ストレージを構築することが出来ますが、システム構築や運用は圧倒的に **ファイル・ストレージ** が容易です。  
-**ファイル・ストレージ** とブロック・ボリュームNFSサーバの比較詳細は、 **[OCI HPCテクニカルTips集](../#3-oci-hpcテクニカルtips集)** の **[HPC/GPUクラスタ向けファイル共有ストレージの最適な構築手法](../tech-knowhow/howto-configure-sharedstorage/)** を参照してください。
+**ファイル・ストレージ** とブロック・ボリュームNFSサーバの比較詳細は、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[HPC/GPUクラスタ向けファイル共有ストレージの最適な構築手法](/ocitutorials/hpc/tech-knowhow/howto-configure-sharedstorage/)** を参照してください。
 
 以上を踏まえて本チュートリアルは、 **ファイル・ストレージ** を使用するファイル共有ストレージを構築、ファイル共有クライアントとなる計算/GPUノードからこの領域をマウントし、必要に応じて **マウント・ターゲット** のアップグレードを適用するまでの手順を解説します。
 
@@ -39,7 +44,7 @@ params:
 
 本章は、ファイル共有ストレージのファイル共有クライアントとなるHPC/GPUノードを含む、HPC/GPUクラスタを構築します。
 
-この構築手順は、 **[OCI HPCチュートリアル集](../#1-oci-hpcチュートリアル集)** の **[HPCクラスタ](../#1-1-hpcクラスタ)** カテゴリや **[機械学習環境](../#1-2-機械学習環境)** カテゴリの各チュートリアルから、自身の要件に合うHPC/GPUクラスタの構築手法を選択して参照してください。
+この構築手順は、 **[OCI HPCチュートリアル集](/ocitutorials/hpc/#1-oci-hpcチュートリアル集)** の **[HPCクラスタ](/ocitutorials/hpc/#1-1-hpcクラスタ)** カテゴリや **[機械学習環境](/ocitutorials/hpc/#1-2-機械学習環境)** カテゴリの各チュートリアルから、自身の要件に合うHPC/GPUクラスタの構築手法を選択して参照してください。
 
 ***
 # 2. ファイル共有ストレージ環境構築
@@ -61,7 +66,7 @@ OCIコンソールにログインし、 **ストレージ** → **マウント�
 
 次に、表示される以下画面で、対象の **マウント・ターゲット** をクリックします。
 
-![画面ショット](console_page01.png)
+   ![画面ショット](console_page01.png)
 
 次に、表示される以下画面の **マウント・ターゲット情報** タブの **マウント・ターゲット・スループット** フィールドの **編集** ボタンをクリックします。  
 

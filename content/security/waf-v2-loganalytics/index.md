@@ -1,13 +1,18 @@
 ---
 title: "OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallのログを分析する"
 description: "本チュートリアルでは、「OCIのLoad BalancerにアタッチするタイプのWeb Application Firewallを構築する」の続編として、WAFポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。"
-weight: "112"
+order: "100"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 分析
+ - intermediate
+
+
 images:
-- security/waf-v2-loganalytics/waflog19.png
+- "security/waf-v2-setup/wafv2-19.png"
+header:
+ overlay_image: "/security/waf-v2-setup/wafv2-19.png"
+ overlay_filter: rgba(34, 66,55, 0.7)
+weight: 112
 ---
 
 OCIでは、OCI Load Balancerに直接デプロイするWAF、”WAFポリシー”と、お客様のアプリケーションのドメインに構築するWAF、”エッジポリシー”の2種類のWAFを提供しています。

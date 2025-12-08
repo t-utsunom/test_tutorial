@@ -1,12 +1,18 @@
 ---
 title: "Vaultを作成し 顧客管理の鍵をインポートする"
 description: "VaultサービスでVaultを作成し、暗号鍵の作成とインポートを行います。"
-weight: "120"
+order: "120"
+layout: single
 tags:
-- セキュリティ
-- ストレージ
+ - intermediate
+
+
 images:
-- security/vault-setup/vault-setup09.png
+- "security/vault-setup/vault-setup02.png"
+header:
+ overlay_image: "/security/vault-setup/vault-setup02.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 

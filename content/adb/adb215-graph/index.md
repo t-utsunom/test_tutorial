@@ -1,5 +1,10 @@
 ---
 title: "215 : Graph Studioで金融取引の分析を行う"
+tags: 
+    - graph
+    - PGQL
+    - oraclecloud
+    - autonomous_database
 description: "Graph Studioのユーザー作成から、分析用のクエリまで、基本的な流れを学習しましょう。"
 tags:
 - データベース
