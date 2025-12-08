@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
   <meta name="description" content="HPC/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。" />
 
   <title>Slurmによるリソース管理・ジョブ管理システム構築方法 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,21 +35,21 @@
     content="Slurmによるリソース管理・ジョブ管理システム構築方法"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/architecture_diagram.png" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="HPC/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Slurmによるリソース管理・ジョブ管理システム構築方法" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/architecture_diagram.png" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="HPC/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。" />
 
 
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "Slurmによるリソース管理・ジョブ管理システム構築方法",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/",
       "headline": "Slurmによるリソース管理・ジョブ管理システム構築方法",
       "description": "HPC\/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC\/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC\/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC\/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/architecture_diagram.png",
-      "wordCount" : "1367",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "1438",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,85 +93,85 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="Slurmによるリソース管理・ジョブ管理システム構築方法">
   <meta property="og:description" content="HPC/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/architecture_diagram.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/architecture_diagram.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="Slurmによるリソース管理・ジョブ管理システム構築方法">
   <meta name="twitter:description" content="HPC/GPUクラスタのリソース管理・ジョブ管理は、ジョブスケジューラを活用することでこれを効率的かつ柔軟に運用することが可能です。近年のHPC/機械学習ワークロードの大規模化は、MPI等を使ったノード間並列ジョブの重要性を増大させ、このような大規模ジョブを様々な運用ポリシーに沿って処理出来る機能をジョブスケジューラに求めています。オープンソースのジョブスケジューラSlurmは、この要求を満足出来る代表的なジョブスケジューラとして現在人気を集めています。本テクニカルTipsは、HPC/機械学習ワークロードの実行に最適なベアメタルインスタンスを高帯域・低遅延RDMAインターコネクトサービスのクラスタ・ネットワークで接続するHPC/GPUクラスタで、リソース管理・ジョブ管理システムをSlurmで構築する方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
     <li><a href="#1-前提システム">1. 前提システム</a></li>
@@ -315,32 +323,22 @@
         <li><a href="#2-0-概要">2-0. 概要</a></li>
         <li><a href="#2-1-munge-インストールセットアップ">2-1. munge インストール・セットアップ</a></li>
         <li><a href="#2-2-mariadb-インストールセットアップ">2-2. MariaDB インストール・セットアップ</a></li>
-        <li><a href="#2-3-openmpiインストール">2-3. OpenMPIインストール</a></li>
-        <li><a href="#2-4-openpmixインストール">2-4. OpenPMIxインストール</a></li>
-        <li><a href="#2-5-openucxインストール">2-5. OpenUCXインストール</a></li>
-        <li><a href="#2-6-slurm-rpmパッケージ作成">2-6. Slurm rpmパッケージ作成</a></li>
-        <li><a href="#2-7-slurm-rpmパッケージインストールセットアップ">2-7. Slurm rpmパッケージインストール・セットアップ</a></li>
-        <li><a href="#2-8-slurm設定ファイル作成">2-8. Slurm設定ファイル作成</a></li>
-        <li><a href="#2-9-slurmサービス起動">2-9. Slurmサービス起動</a></li>
-        <li><a href="#2-10-slurm利用に必要な環境変数設定">2-10. Slurm利用に必要な環境変数設定</a></li>
+        <li><a href="#2-3-openpmixインストール">2-3. OpenPMIxインストール</a></li>
+        <li><a href="#2-4-openucxインストール">2-4. OpenUCXインストール</a></li>
+        <li><a href="#2-5-slurm-rpmパッケージ作成">2-5. Slurm RPMパッケージ作成</a></li>
+        <li><a href="#2-6-slurm-rpmパッケージインストールセットアップ">2-6. Slurm RPMパッケージインストール・セットアップ</a></li>
+        <li><a href="#2-7-slurm設定ファイル作成">2-7. Slurm設定ファイル作成</a></li>
+        <li><a href="#2-8-slurmサービス起動">2-8. Slurmサービス起動</a></li>
+        <li><a href="#2-9-slurm利用に必要な環境変数設定">2-9. Slurm利用に必要な環境変数設定</a></li>
       </ul>
     </li>
     <li><a href="#3-稼働確認">3. 稼働確認</a></li>
   </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
-  
-</section>
 </nav>
-
-
+      
+    </section>
+  
+</nav>
 
         </aside>
         
@@ -390,7 +388,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Slurmによるリソース管理・ジョブ管理システム構築方法</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Slurmによるリソース管理・ジョブ管理システム構築方法</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -410,24 +408,32 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
     <style>
 table, th, td {
-    font-size: 70%;
+    font-size: 80%;
 }
 </style>
-<hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -466,15 +472,21 @@ table, th, td {
   href="https://openucx.org/"
 >UCX</a></strong> を取り込んだ <strong>Slurm</strong> 環境を構築し、初期化処理時間の効果を検証すべく、 <strong><a
   class="gdoc-markdown__link"
-  href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html"
->Intel MPI Benchmarks</a></strong> PingPongのレイテンシに着目して比較・検証を実施します。</p>
-<hr>
+  href="https://mvapich.cse.ohio-state.edu/benchmarks/"
+>OSU Micro-Benchmarks</a></strong> で2ノード間のレイテンシと4ノード間のMPI_Init所要時間に着目して比較・検証を実施します。</p>
+<p>なお、 <strong>Ubuntu</strong> をOSとするNVIDIA製GPUを複数搭載するベアメタルインスタンスのGPUリソース管理やジョブ管理を <strong>Slurm</strong> で行う環境の構築方法は、 <strong><a
+  class="gdoc-markdown__link"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+>OCI HPCテクニカルTips集</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../setup-slurm-cluster-withubuntu/"
+>Slurmによるリソース管理・ジョブ管理システム構築方法(Ubuntu OS編)</a></strong> を参照してください。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="1-前提システム"
     >
         1. 前提システム
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#1-前提システム" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 前提システム" aria-label="アンカー先: 1. 前提システム" href="#1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#1-前提システム" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 前提システム" aria-label="アンカー先: 1. 前提システム" href="#1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -496,38 +508,38 @@ table, th, td {
   <tbody>
       <tr>
           <td style="text-align: center">Slurm<br>マネージャ</td>
-          <td style="text-align: center">任意の仮想マシン<br>（※2）</td>
-          <td style="text-align: center"><strong>Oracle Linux</strong> 8.10<br>（※6）</td>
+          <td style="text-align: center">任意の仮想マシン<br></td>
+          <td style="text-align: center"><strong>Oracle Linux</strong> 9.5<br>（※5）</td>
           <td style="text-align: center">1</td>
           <td style="text-align: center">プライベート</td>
-          <td style="text-align: center"><strong>slurmctld</strong> と <strong>slurmdbd</strong> が稼働するSlurm管理ノード</td>
+          <td style="text-align: center">・ <strong>slurmctld</strong> と <strong>slurmdbd</strong> が<br>稼働するSlurm管理ノード</td>
       </tr>
       <tr>
           <td style="text-align: center">Slurm<br>クライアント</td>
-          <td style="text-align: center">任意の仮想マシン<br>（※2）</td>
-          <td style="text-align: center"><strong>Oracle Linux</strong> 8.10<br>（※6）</td>
+          <td style="text-align: center">任意の仮想マシン<br></td>
+          <td style="text-align: center"><strong>Oracle Linux</strong> 9.5<br>（※5）</td>
           <td style="text-align: center">1</td>
           <td style="text-align: center">プライベート</td>
-          <td style="text-align: center">アプリケーション開発用フロントエンドノード<br><strong>Slurm</strong> にジョブを投入するジョブサブミッションクライアント</td>
+          <td style="text-align: center">・アプリケーション開発用<br>フロントエンドノード<br>・ <strong>Slurm</strong> にジョブを投入する<br>ジョブサブミッションクライアント</td>
       </tr>
       <tr>
           <td style="text-align: center">計算ノード</td>
           <td style="text-align: center"><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
->クラスタ・ネットワーク</a></strong><br>対応ベアメタルシェイプ<br>（※3）</td>
-          <td style="text-align: center"><strong>Oracle Linux</strong> 8.10<br>（※6）</td>
-          <td style="text-align: center">2ノード以上<br>（※3）</td>
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+>クラスタ・ネットワーク</a></strong> 対応<br>ベアメタルシェイプ（※2）</td>
+          <td style="text-align: center"><strong>Oracle Linux</strong> 9.5<br>（※5）</td>
+          <td style="text-align: center">2ノード以上<br>（※2）</td>
           <td style="text-align: center">プライベート<br> <strong>クラスタ・ネットワーク</strong></td>
-          <td style="text-align: center"><strong>slurmd</strong> が稼働するジョブ実行ノード</td>
+          <td style="text-align: center">・ <strong>slurmd</strong> が稼働するジョブ実行ノード</td>
       </tr>
       <tr>
           <td style="text-align: center">NFSサーバ</td>
-          <td style="text-align: center">-<br>（※4）</td>
+          <td style="text-align: center">-<br>（※3）</td>
           <td style="text-align: center">-</td>
           <td style="text-align: center">1</td>
           <td style="text-align: center">プライベート</td>
-          <td style="text-align: center">ジョブ投入ユーザのホームディレクトリをNFSでサービス（※5）</td>
+          <td style="text-align: center">・ジョブ投入ユーザのホームディレクトリを<br>NFSでサービス（※4）</td>
       </tr>
   </tbody>
 </table> </div>
@@ -536,48 +548,70 @@ table, th, td {
   alt="画面ショット"
   
 /></p>
-<p>※2）本テクニカルTipsは、 <strong><a
-  class="gdoc-markdown__link"
-  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#flexible"
->VM.Optimized3.Flex</a></strong> を使用します。<br>
-※3）本テクニカルTipsは、 <strong>クラスタ・ネットワーク</strong> に接続された2ノードの <strong><a
+<p>※2）本テクニカルTipsは、 <strong>クラスタ・ネットワーク</strong> に接続された4ノードの <strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized"
 >BM.Optimized3.36</a></strong> を、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+  href="../../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
 >OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/bios-setting/"
+  href="../../benchmark/bios-setting/"
 >パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法</a></strong> の手順に従い、 <strong>Simultanious Multi Threading</strong> （以降 <strong>SMT</strong> と呼称）を無効化して使用します。<br>
-※4）<strong>ファイル・ストレージ</strong> やベア・メタル・インスタンスNFSサーバ等、任意の手法で構築されたNFSサーバです。NFSでサービスするファイル共有ストレージ構築方法は、 <strong><a
+※3）<strong>ファイル・ストレージ</strong> やベア・メタル・インスタンスNFSサーバ等、任意の手法で構築されたNFSサーバです。NFSでサービスするファイル共有ストレージ構築方法は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-configure-sharedstorage/"
+  href="../../tech-knowhow/howto-configure-sharedstorage/"
 >HPC/GPUクラスタ向けファイル共有ストレージの最適な構築手法</a></strong> を参照してください。<br>
-※5）NFSサーバがサービスするジョブ投入ユーザのホームディレクトリは、Slurmクライアントと計算ノードでNFSマウントします。<br>
-※6）<strong>Oracle Linux</strong> 8.10ベースのHPC <strong><a
+※4）NFSサーバがサービスするジョブ投入ユーザのホームディレクトリは、Slurmクライアントと計算ノードでNFSマウントします。<br>
+※5）<strong>Oracle Linux</strong> 9.5ベースのHPC <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+  href="../../#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
 >クラスタネットワーキングイメージ</a></strong> で、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/"
+  href="../../tech-knowhow/osimage-for-cluster/"
 >クラスタネットワーキングイメージの選び方</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
->1. クラスタネットワーキングイメージ一覧</a></strong> のイメージ <strong>No.12</strong> です。Slurmマネージャは、計算ノードにインストールする <strong>Slurm</strong> のRPMをビルドするため、Slurmクライアントは、計算ノードのアプリケーション開発環境の役割を担うため、計算ノードと同じOSを採用します。</p>
-<p>計算ノードの構築手順は、 <strong><a
+  href="../../tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
+>1. クラスタネットワーキングイメージ一覧</a></strong> のイメージ <strong>No.13</strong> です。Slurmマネージャは、計算ノードにインストールする <strong>Slurm</strong> のRPMをビルドするため、Slurmクライアントは、計算ノードのアプリケーション開発環境の役割を担うため、計算ノードと同じOSを採用します。</p>
+<p>Slurmクライアントは、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+>OCI HPCテクニカルTips集</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../build-openmpi-ol9/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）</a></strong> の手順に従い、 <strong>OpenMPI</strong> をインストールします。</p>
+<p>計算ノードは、 <strong><a
+  class="gdoc-markdown__link"
+  href="../../#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
 >OCI HPCチュートリアル集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/spinup-cluster-network/"
->HPCクラスタを構築する(基礎インフラ手動構築編)</a></strong> が参考になります。</p>
+  href="../../spinup-cluster-network/"
+>HPCクラスタを構築する(基礎インフラ手動構築編)</a></strong> の手順に従う等で <strong><a
+  class="gdoc-markdown__link"
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+>クラスタ・ネットワーク</a></strong> に接続するHPCクラスタを構築し、 <strong><a
+  class="gdoc-markdown__link"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+>OCI HPCテクニカルTips集</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../build-openmpi-ol9/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）</a></strong> の手順に従い、 <strong>OpenMPI</strong> を計算ノードにインストールします。</p>
+<p>またSlurmクライアントと計算ノードは、<strong><a
+  class="gdoc-markdown__link"
+  href="../../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+>OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../../benchmark/run-omb/"
+>OSU Micro-Benchmarks実行方法（BM.Optimized3.36編）</a></strong> の手順に従い、 <strong><a
+  class="gdoc-markdown__link"
+  href="#3-%e7%a8%bc%e5%83%8d%e7%a2%ba%e8%aa%8d"
+>3. 稼働確認</a></strong> で使用する <strong>OSU Micro-Benchmarks</strong> をインストールします。</p>
 <p>本テクニカルTipsの各サブシステムのホスト名は、以下とします。<br>
 以降の章では、これらのホスト名を自身の環境に置き換えて使用して下さい。</p>
 <div class="table-wrap"> <table>
@@ -598,18 +632,17 @@ table, th, td {
       </tr>
       <tr>
           <td style="text-align: center">計算ノード</td>
-          <td style="text-align: center">inst-aaaaa-x9<br>inst-bbbbb-x9</td>
+          <td style="text-align: center">inst-aaaaa-x9<br>inst-bbbbb-x9<br>inst-ccccc-x9<br>inst-ddddd-x9</td>
       </tr>
   </tbody>
 </table> </div>
-<p>また、各サブシステムのセキュリティーに関するOS設定は、 <strong>firewalld</strong> を停止し、 <strong>SElinux</strong> をDisableにします。</p>
-<hr>
+<p>また、各サブシステムのセキュリティーに関するOS設定は、 <strong>firewalld</strong> を停止し、 <strong>SELinux</strong> をDisabledにします。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="2-環境構築"
     >
         2. 環境構築
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-環境構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 環境構築" aria-label="アンカー先: 2. 環境構築" href="#2-%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-環境構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 環境構築" aria-label="アンカー先: 2. 環境構築" href="#2-%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -618,27 +651,26 @@ table, th, td {
     >
         2-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、既にデプロイされている <strong><a
+<p>本章は、既に作成されている <strong><a
   class="gdoc-markdown__link"
   href="#1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"
->1. 前提システム</a></strong> で解説したシステム上で、 <strong>Slurm</strong> 環境を構築する手順を解説します。</p>
-<p><strong>Slurm</strong> のインストールは、多数の計算ノードに効率よくインストールする必要から、rpmbuildで作成するrpmパッケージによるインストール方法を採用します。</p>
-<p>本テクニカルTipsは、以下のソフトウェアバージョンを前提とします。</p>
+>1. 前提システム</a></strong> で解説したシステム上で、 <strong>Slurm</strong> 環境を構築します。</p>
+<p><strong>Slurm</strong> のインストールは、多数の計算ノードに効率よくインストールする必要から、rpmbuildで作成するRPMパッケージによるインストール方法を採用します。</p>
+<p>本テクニカルTipsは、各ソフトウェアに以下を使用します。</p>
 <ul>
-<li><strong>Slurm</strong> ： 24.11.0</li>
-<li><strong>OpenMPI</strong> ： 5.0.6</li>
+<li><strong>Slurm</strong> ： 25.05.3</li>
 <li><strong>PMIx</strong> ： <strong><a
   class="gdoc-markdown__link"
   href="https://openpmix.github.io/"
->OpenPMIx</a></strong> 5.0.4</li>
-<li><strong>UCX</strong> : <strong><a
+>OpenPMIx</a></strong> 5.0.8</li>
+<li><strong>UCX</strong> ： <strong><a
   class="gdoc-markdown__link"
   href="https://openucx.readthedocs.io/en/master/index.html#"
->OpenUCX</a></strong> 1.17.0</li>
+>OpenUCX</a></strong> 1.19.0</li>
 </ul>
 <p>また、 <strong>Slurm</strong> のプロセス間通信の認証に <strong><a
   class="gdoc-markdown__link"
@@ -649,16 +681,42 @@ table, th, td {
 >MariaDB</a></strong> を使用します。</p>
 <p>以上より、本章で解説する環境構築は、以下の手順に沿って行います。</p>
 <ol>
-<li><strong>munge</strong> インストール・セットアップ</li>
-<li><strong>MariaDB</strong> インストール・セットアップ</li>
-<li><strong>OpenMPI</strong> インストール</li>
-<li><strong>OpenPMIx</strong> インストール</li>
-<li><strong>OpenUCX</strong> インストール</li>
-<li><strong>Slurm</strong> rpmパッケージ作成</li>
-<li><strong>Slurm</strong> rpmパッケージインストール・セットアップ</li>
-<li><strong>Slurm</strong> 設定ファイル作成</li>
-<li><strong>Slurm</strong> サービス起動</li>
-<li><strong>Slurm</strong> 利用に必要な環境変数設定</li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-1-munge-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97"
+>mungeインストール・セットアップ</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-2-mariadb-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97"
+>MariaDBインストール・セットアップ</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-3-openpmix%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab"
+>OpenPMIxインストール</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-4-openucx%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab"
+>OpenUCXインストール</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-5-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e4%bd%9c%e6%88%90"
+>Slurm RPMパッケージ作成</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-6-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97"
+>Slurm RPMパッケージインストール・セットアップ</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-7-slurm%e8%a8%ad%e5%ae%9a%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e4%bd%9c%e6%88%90"
+>Slurm設定ファイル作成</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-8-slurm%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e8%b5%b7%e5%8b%95"
+>Slurmサービス起動</a></strong></li>
+<li><strong><a
+  class="gdoc-markdown__link"
+  href="#2-9-slurm%e5%88%a9%e7%94%a8%e3%81%ab%e5%bf%85%e8%a6%81%e3%81%aa%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e8%a8%ad%e5%ae%9a"
+>Slurm利用に必要な環境変数設定</a></strong></li>
 </ol>
 <p>なお、各ソフトウェアと <strong>Slurm</strong> サービスは、以下のサブシステムにインストールします。</p>
 <div class="table-wrap"> <table>
@@ -686,20 +744,14 @@ table, th, td {
       <tr>
           <td style="text-align: center"><strong>OpenPMIx</strong></td>
           <td style="text-align: center">〇</td>
-          <td style="text-align: center">〇</td>
-          <td style="text-align: center">〇</td>
+          <td style="text-align: center">〇（※6）</td>
+          <td style="text-align: center">〇（※6）</td>
       </tr>
       <tr>
           <td style="text-align: center"><strong>OpenUCX</strong></td>
           <td style="text-align: center">〇</td>
-          <td style="text-align: center">〇</td>
-          <td style="text-align: center">〇</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><strong>OpenMPI</strong></td>
-          <td style="text-align: center">-</td>
-          <td style="text-align: center">〇</td>
-          <td style="text-align: center">〇</td>
+          <td style="text-align: center">〇（※6）</td>
+          <td style="text-align: center">〇（※6）</td>
       </tr>
       <tr>
           <td style="text-align: center"><strong>slurmctld</strong></td>
@@ -727,21 +779,25 @@ table, th, td {
       </tr>
   </tbody>
 </table> </div>
+<p>※6）<strong><a
+  class="gdoc-markdown__link"
+  href="#1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0"
+>1. 前提システム</a></strong> の構築手順により既にインストールされています。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="2-1-munge-インストールセットアップ"
     >
         2-1. munge インストール・セットアップ
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-1-munge-インストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. munge インストール・セットアップ" aria-label="アンカー先: 2-1. munge インストール・セットアップ" href="#2-1-munge-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-1-munge-インストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. munge インストール・セットアップ" aria-label="アンカー先: 2-1. munge インストール・セットアップ" href="#2-1-munge-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、Slurmマネージャ、Slurmクライアント、及び全ての計算ノードに <strong>munge</strong> をインストール・セットアップします。</p>
 <p>以下コマンドを対象となる全ノードのopcユーザで実行し、 <strong>munge</strong> プロセス起動ユーザを作成します。</p>
-<pre tabindex="0"><code>$ sudo useradd -m -d /var/lib/munge -s /sbin/nologin -u 5001 munge
-</code></pre><p>次に、以下コマンドを対象となる全ノードのopcユーザで実行し、 <strong>munge</strong> をインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum-config-manager --enable ol8_codeready_builder
-</span></span><span class="line"><span class="cl">$ sudo dnf install -y munge munge-libs munge-devel
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo useradd -m -d /var/lib/munge -s /sbin/nologin -u <span class="m">5001</span> munge
+</span></span></code></pre></div><p>次に、以下コマンドを対象となる全ノードのopcユーザで実行し、 <strong>munge</strong> をインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum-config-manager --enable ol9_codeready_builder
+</span></span><span class="line"><span class="cl">$ sudo dnf install -y munge munge-libs
 </span></span></code></pre></div><p>次に、以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>munge</strong> キーファイル（ <strong>munge.key</strong> ）を作成します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo /usr/sbin/create-munge-key
 </span></span><span class="line"><span class="cl">Generating a pseudo-random key using /dev/urandom completed.
@@ -764,16 +820,16 @@ table, th, td {
     >
         2-2. MariaDB インストール・セットアップ
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-2-mariadb-インストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. MariaDB インストール・セットアップ" aria-label="アンカー先: 2-2. MariaDB インストール・セットアップ" href="#2-2-mariadb-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-2-mariadb-インストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. MariaDB インストール・セットアップ" aria-label="アンカー先: 2-2. MariaDB インストール・セットアップ" href="#2-2-mariadb-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、Slurmマネージャに <strong>MariaDB</strong> をインストール・セットアップします。</p>
 <p>以下コマンドをopcユーザで実行し、 <strong>MariaDB</strong> をインストールします。</p>
-<pre tabindex="0"><code>$ sudo dnf install -y mariadb-server mariadb-devel
-</code></pre><p>次に、 <strong>MariaDB</strong> の設定ファイル（ <strong>mariadb-server.cnf</strong> ）の[mysqld]フィールドに以下の記述を追加します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo diff /etc/my.cnf.d/mariadb-server.cnf_org /etc/my.cnf.d/mariadb-server.cnf
-</span></span><span class="line"><span class="cl">20a21,22
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo dnf install -y mariadb-server
+</span></span></code></pre></div><p>次に、 <strong>MariaDB</strong> の設定ファイル（ <strong>mariadb-server.cnf</strong> ）の <strong>[mysqld]</strong> フィールドに以下の記述を追加します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo diff /etc/my.cnf.d/mariadb-server.cnf_org  /etc/my.cnf.d/mariadb-server.cnf
+</span></span><span class="line"><span class="cl">21a22,23
 </span></span><span class="line"><span class="cl">&gt; <span class="nv">innodb_buffer_pool_size</span><span class="o">=</span>4096M
 </span></span><span class="line"><span class="cl">&gt; <span class="nv">innodb_lock_wait_timeout</span><span class="o">=</span><span class="m">900</span>
 </span></span><span class="line"><span class="cl">$
@@ -787,7 +843,8 @@ table, th, td {
 <li>ユーザ（slurm）に対するデータベース（slurm_acct_db）への全権限付与</li>
 </ul>
 <p>以下コマンドをopcユーザで実行します。<br>
-なお、 <strong>MariaDB</strong> に対して入力するコマンドは、 <strong>MariaDB</strong> のプロンプト（ <strong>MariaDB [(none)]&gt;</strong> ）に続く文字列です。</p>
+なお、 <strong>MariaDB</strong> に対して入力するコマンドは、 <strong>MariaDB</strong> のプロンプト（ <strong>MariaDB [(none)]&gt;</strong> ）に続く文字列です。<br>
+また、コマンド中の <strong>passcord</strong> は、自身の設定するパスワードに置き換えます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo mysql
 </span></span><span class="line"><span class="cl">Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
 </span></span><span class="line"><span class="cl">Your MariaDB connection id is <span class="m">8</span>
@@ -812,11 +869,11 @@ table, th, td {
 </span></span><span class="line"><span class="cl">MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILEGES<span class="p">;</span>
 </span></span><span class="line"><span class="cl">Query OK, <span class="m">0</span> rows affected <span class="o">(</span>0.000 sec<span class="o">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; Ctrl-C -- exit!
-</span></span><span class="line"><span class="cl">Aborted
+</span></span><span class="line"><span class="cl">MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">Bye
 </span></span><span class="line"><span class="cl">$
-</span></span></code></pre></div><p>なお、コマンド中の <strong>passcord</strong> は、自身の設定するパスワードに置き換えます。</p>
-<p>次に、以下コマンドをopcユーザで実行し、先に登録したデータベースとユーザが正しく登録されていることを確認します。</p>
+</span></span></code></pre></div><p>次に、以下コマンドをopcユーザで実行し、先に登録したデータベースとユーザが正しく登録されていることを確認します。<br>
+なお、コマンド中の <strong>passcord</strong> は、自身の設定したパスワードに置き換えます。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mysql --user<span class="o">=</span>slurm --password<span class="o">=</span>passcord slurm_acct_db -e <span class="s1">&#39;show databases;&#39;</span>
 </span></span><span class="line"><span class="cl">+--------------------+
 </span></span><span class="line"><span class="cl"><span class="p">|</span> Database           <span class="p">|</span>
@@ -825,30 +882,12 @@ table, th, td {
 </span></span><span class="line"><span class="cl"><span class="p">|</span> slurm_acct_db      <span class="p">|</span>
 </span></span><span class="line"><span class="cl">+--------------------+
 </span></span><span class="line"><span class="cl">$
-</span></span></code></pre></div><p>なお、コマンド中の <strong>passcord</strong> は、自身の設定したパスワードに置き換えます。</p>
-<div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-3-openmpiインストール"
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="2-3-openpmixインストール"
     >
-        2-3. OpenMPIインストール
+        2-3. OpenPMIxインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-3-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. OpenMPIインストール" aria-label="アンカー先: 2-3. OpenMPIインストール" href="#2-3-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
-        <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-    </a>
-</div>
-<p><strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
->OCI HPCテクニカルTips集</a></strong> の <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
->Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法</a></strong> に従い、Slurmクライアントと全ての計算ノードに <strong>OpenMPI</strong> をインストールします。<br>
-これにより、これらのノードに <strong>OpenPMIx</strong> と <strong>OpenUCX</strong> もインストールされます。</p>
-<div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-4-openpmixインストール"
-    >
-        2-4. OpenPMIxインストール
-    </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-4-openpmixインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-4. OpenPMIxインストール" aria-label="アンカー先: 2-4. OpenPMIxインストール" href="#2-4-openpmix%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-3-openpmixインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. OpenPMIxインストール" aria-label="アンカー先: 2-3. OpenPMIxインストール" href="#2-3-openpmix%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -856,104 +895,105 @@ table, th, td {
 <p>以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>OpenPMIx</strong> を <strong>/opt</strong> ディレクトリにインストールします。<br>
 なお、makeコマンドの並列数は当該ノードのコア数に合わせて調整します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo dnf install -y ncurses-devel openssl-devel gcc-c++ gcc-gfortran
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
+</span></span><span class="line"><span class="cl">$ mkdir ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span>  wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
 </span></span><span class="line"><span class="cl">$ tar -xvf ./libevent-2.1.12-stable.tar.gz
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> libevent-2.1.12-stable<span class="p">;</span> ./configure --prefix<span class="o">=</span>/opt/libevent
-</span></span><span class="line"><span class="cl">$ make -j <span class="m">36</span> <span class="o">&amp;&amp;</span> sudo make install
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> wget https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.2.tar.gz
-</span></span><span class="line"><span class="cl">$ tar -xvf ./hwloc-2.11.2.tar.gz
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> hwloc-2.11.2<span class="p">;</span> ./configure --prefix<span class="o">=</span>/opt/hwloc
-</span></span><span class="line"><span class="cl">$ make -j <span class="m">36</span> <span class="o">&amp;&amp;</span> sudo make install
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> wget https://github.com/openpmix/openpmix/releases/download/v5.0.4/pmix-5.0.4.tar.gz
-</span></span><span class="line"><span class="cl">$ tar -xvf ./pmix-5.0.4.tar.gz
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> pmix-5.0.4<span class="p">;</span> ./configure --prefix<span class="o">=</span>/opt/pmix --with-libevent<span class="o">=</span>/opt/libevent --with-hwloc<span class="o">=</span>/opt/hwloc
-</span></span><span class="line"><span class="cl">$ make -j <span class="m">36</span> <span class="o">&amp;&amp;</span> sudo make install
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> libevent-2.1.12-stable <span class="o">&amp;&amp;</span> ./configure --prefix<span class="o">=</span>/opt/libevent
+</span></span><span class="line"><span class="cl">$ make -j <span class="m">16</span> <span class="o">&amp;&amp;</span> sudo make install
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> wget https://download.open-mpi.org/release/hwloc/v2.12/hwloc-2.12.2.tar.gz
+</span></span><span class="line"><span class="cl">$ tar -xvf ./hwloc-2.12.2.tar.gz
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> hwloc-2.12.2 <span class="o">&amp;&amp;</span> ./configure --prefix<span class="o">=</span>/opt/hwloc
+</span></span><span class="line"><span class="cl">$ make -j <span class="m">16</span> <span class="o">&amp;&amp;</span> sudo make install
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> wget https://github.com/openpmix/openpmix/releases/download/v5.0.8/pmix-5.0.8.tar.gz
+</span></span><span class="line"><span class="cl">$ tar -xvf ./pmix-5.0.8.tar.gz
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> pmix-5.0.8 <span class="o">&amp;&amp;</span> ./configure --prefix<span class="o">=</span>/opt/pmix --with-libevent<span class="o">=</span>/opt/libevent --with-hwloc<span class="o">=</span>/opt/hwloc
+</span></span><span class="line"><span class="cl">$ make -j <span class="m">16</span> <span class="o">&amp;&amp;</span> sudo make install
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-5-openucxインストール"
+    <h2 id="2-4-openucxインストール"
     >
-        2-5. OpenUCXインストール
+        2-4. OpenUCXインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-5-openucxインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-5. OpenUCXインストール" aria-label="アンカー先: 2-5. OpenUCXインストール" href="#2-5-openucx%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-4-openucxインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-4. OpenUCXインストール" aria-label="アンカー先: 2-4. OpenUCXインストール" href="#2-4-openucx%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、Slurmマネージャに <strong>OpenUCX</strong> をインストールします。</p>
 <p>以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>OpenUCX</strong> を <strong>/opt</strong> ディレクトリにインストールします。<br>
 なお、makeコマンドの並列数は当該ノードのコア数に合わせて調整します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> wget https://github.com/openucx/ucx/releases/download/v1.17.0/ucx-1.17.0.tar.gz
-</span></span><span class="line"><span class="cl">$ tar -xvf ./ucx-1.17.0.tar.gz
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ucx-1.17.0<span class="p">;</span> ./contrib/configure-release --prefix<span class="o">=</span>/opt/ucx
-</span></span><span class="line"><span class="cl">$ make -j <span class="m">36</span> <span class="o">&amp;&amp;</span> sudo make install
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> wget https://github.com/openucx/ucx/releases/download/v1.19.0/ucx-1.19.0.tar.gz
+</span></span><span class="line"><span class="cl">$ tar -xvf ./ucx-1.19.0.tar.gz
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ucx-1.19.0 <span class="o">&amp;&amp;</span> ./contrib/configure-release --prefix<span class="o">=</span>/opt/ucx
+</span></span><span class="line"><span class="cl">$ make -j <span class="m">16</span> <span class="o">&amp;&amp;</span> sudo make install
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-6-slurm-rpmパッケージ作成"
+    <h2 id="2-5-slurm-rpmパッケージ作成"
     >
-        2-6. Slurm rpmパッケージ作成
+        2-5. Slurm RPMパッケージ作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-6-slurm-rpmパッケージ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-6. Slurm rpmパッケージ作成" aria-label="アンカー先: 2-6. Slurm rpmパッケージ作成" href="#2-6-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-5-slurm-rpmパッケージ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-5. Slurm RPMパッケージ作成" aria-label="アンカー先: 2-5. Slurm RPMパッケージ作成" href="#2-5-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、Slurmマネージャでrpmパッケージを作成します。</p>
-<p>以下コマンドをSlurmマネージャのopcユーザで実行し、前提rpmパッケージをインストールします。</p>
-<pre tabindex="0"><code>$ sudo dnf install -y rpm-build pam-devel perl readline-devel autoconf automake
-</code></pre><p>次に、以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>Slurm</strong> rpmパッケージを作成します。</p>
-<pre tabindex="0"><code>$ cd ~; wget https://download.schedmd.com/slurm/slurm-24.11.0.tar.bz2
-$ rpmbuild --define &#39;_prefix /opt/slurm&#39; --define &#39;_slurm_sysconfdir /opt/slurm/etc&#39; --define &#39;_with_pmix --with-pmix=/opt/pmix&#39; --define &#39;_with_ucx --with-ucx=/opt/ucx&#39; -ta ./slurm-24.11.0.tar.bz2
-</code></pre><p>作成されたパッケージは、以下のディレクトリに配置されるので、これらの全ファイルを他のサブシステムにコピーします。</p>
-<pre tabindex="0"><code>$ ls -1 ~/rpmbuild/RPMS/x86_64/
-slurm-24.11.0-1.el8.x86_64.rpm
-slurm-contribs-24.11.0-1.el8.x86_64.rpm
-slurm-devel-24.11.0-1.el8.x86_64.rpm
-slurm-example-configs-24.11.0-1.el8.x86_64.rpm
-slurm-libpmi-24.11.0-1.el8.x86_64.rpm
-slurm-openlava-24.11.0-1.el8.x86_64.rpm
-slurm-pam_slurm-24.11.0-1.el8.x86_64.rpm
-slurm-perlapi-24.11.0-1.el8.x86_64.rpm
-slurm-sackd-24.11.0-1.el8.x86_64.rpm
-slurm-slurmctld-24.11.0-1.el8.x86_64.rpm
-slurm-slurmd-24.11.0-1.el8.x86_64.rpm
-slurm-slurmdbd-24.11.0-1.el8.x86_64.rpm
-slurm-torque-24.11.0-1.el8.x86_64.rpm
-$
-</code></pre><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-7-slurm-rpmパッケージインストールセットアップ"
+<p>本章は、SlurmマネージャでRPMパッケージを作成します。</p>
+<p>以下コマンドをSlurmマネージャのopcユーザで実行し、前提RPMパッケージをインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum-config-manager --enable ol9_codeready_builder
+</span></span><span class="line"><span class="cl">$ sudo dnf install -y mariadb-devel munge-devel pam-devel readline-devel dbus-devel
+</span></span></code></pre></div><p>次に、以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>Slurm</strong> RPMパッケージを作成します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> wget https://download.schedmd.com/slurm/slurm-25.05.3.tar.bz2
+</span></span><span class="line"><span class="cl">$ rpmbuild --define <span class="s1">&#39;_prefix /opt/slurm&#39;</span> --define <span class="s1">&#39;_slurm_sysconfdir /opt/slurm/etc&#39;</span> --define <span class="s1">&#39;_with_pmix --with-pmix=/opt/pmix&#39;</span> --define <span class="s1">&#39;_with_ucx --with-ucx=/opt/ucx&#39;</span> -ta ./slurm-25.05.3.tar.bz2
+</span></span></code></pre></div><p>作成されたパッケージは、以下のディレクトリに配置されるので、これらの全ファイルを他のサブシステムにコピーします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ ls -1 ~/rpmbuild/RPMS/x86_64/
+</span></span><span class="line"><span class="cl">slurm-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-contribs-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-devel-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-example-configs-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-libpmi-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-openlava-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-pam_slurm-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-perlapi-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-sackd-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-slurmctld-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-slurmd-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-slurmdbd-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">slurm-torque-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="2-6-slurm-rpmパッケージインストールセットアップ"
     >
-        2-7. Slurm rpmパッケージインストール・セットアップ
+        2-6. Slurm RPMパッケージインストール・セットアップ
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-7-slurm-rpmパッケージインストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-7. Slurm rpmパッケージインストール・セットアップ" aria-label="アンカー先: 2-7. Slurm rpmパッケージインストール・セットアップ" href="#2-7-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-6-slurm-rpmパッケージインストールセットアップ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-6. Slurm RPMパッケージインストール・セットアップ" aria-label="アンカー先: 2-6. Slurm RPMパッケージインストール・セットアップ" href="#2-6-slurm-rpm%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、先に作成した <strong>Slurm</strong> rpmパッケージを各サブシステムにインストールし、必要なセットアップ作業を実施します。</p>
-<p>以下コマンドをSlurmマネージャのopcユーザで実行し、Slurmマネージャに必要な <strong>Slurm</strong> rpmパッケージのインストール・セットアップを行います。</p>
-<pre tabindex="0"><code>$ cd ~/rpmbuild/RPMS/x86_64
-$ sudo rpm -ivh ./slurm-24.11.0-1.el8.x86_64.rpm ./slurm-slurmctld-24.11.0-1.el8.x86_64.rpm ./slurm-slurmdbd-24.11.0-1.el8.x86_64.rpm ./slurm-perlapi-24.11.0-1.el8.x86_64.rpm
-$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u 5000 slurm
-$ sudo mkdir /var/spool/slurmctld; sudo chown slurm:slurm /var/spool/slurmctld
-$ sudo mkdir /var/spool/slurmd; sudo chown slurm:slurm /var/spool/slurmd
-$ sudo mkdir /var/log/slurm; sudo chown slurm:slurm /var/log/slurm
-$ sudo mkdir /opt/slurm/etc; sudo chown slurm:slurm /opt/slurm/etc
-$ sudo su - slurm
-$ echo &#34;export PATH=/opt/slurm/sbin:/opt/slurm/bin:\$PATH&#34; | tee -a ~/.bashrc
-$ source ~/.bashrc
-</code></pre><p>次に、以下コマンドを全ての計算ノードのopcユーザで <strong>Slurm</strong> rpmパッケージをコピーしたディレクトリで実行し、計算ノードに必要な <strong>Slurm</strong> rpmパッケージのインストール・セットアップを行います。</p>
-<pre tabindex="0"><code>$ sudo dnf install -y mariadb-devel
-$ sudo rpm -ivh ./slurm-24.11.0-1.el8.x86_64.rpm ./slurm-slurmd-24.11.0-1.el8.x86_64.rpm ./slurm-perlapi-24.11.0-1.el8.x86_64.rpm
-$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u 5000 slurm
-$ sudo mkdir /var/spool/slurmd; sudo chown slurm:slurm /var/spool/slurmd
-$ sudo mkdir /var/log/slurm; sudo chown slurm:slurm /var/log/slurm
-$ sudo mkdir /opt/slurm/etc; sudo chown slurm:slurm /opt/slurm/etc
-</code></pre><p>次に、以下コマンドをSlurmクライアントのopcユーザで <strong>Slurm</strong> rpmパッケージをコピーしたディレクトリで実行し、Slurmクライアントに必要な <strong>Slurm</strong> rpmパッケージのインストール・セットアップを行います。</p>
-<pre tabindex="0"><code>$ sudo dnf install -y mariadb-devel
-$ sudo rpm -ivh ./slurm-24.11.0-1.el8.x86_64.rpm ./slurm-perlapi-24.11.0-1.el8.x86_64.rpm
-$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u 5000 slurm
-$ sudo mkdir /opt/slurm/etc; sudo chown slurm:slurm /opt/slurm/etc
-</code></pre><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-8-slurm設定ファイル作成"
+<p>本章は、先に作成した <strong>Slurm</strong> RPMパッケージを各サブシステムにインストールし、必要なセットアップ作業を実施します。</p>
+<p>以下コマンドをSlurmマネージャのopcユーザで実行し、Slurmマネージャに必要な <strong>Slurm</strong> RPMパッケージのインストール・セットアップを行います。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/rpmbuild/RPMS/x86_64/ <span class="o">&amp;&amp;</span> sudo rpm -ivh ./slurm-25.05.3-1.el9.x86_64.rpm ./slurm-slurmctld-25.05.3-1.el9.x86_64.rpm ./slurm-slurmdbd-25.05.3-1.el9.x86_64.rpm ./slurm-perlapi-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u <span class="m">5000</span> slurm
+</span></span><span class="line"><span class="cl">$ sudo mkdir /var/spool/slurmctld <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /var/spool/slurmctld
+</span></span><span class="line"><span class="cl">$ sudo mkdir /var/spool/slurmd <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /var/spool/slurmd
+</span></span><span class="line"><span class="cl">$ sudo mkdir /var/log/slurm <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /var/log/slurm
+</span></span><span class="line"><span class="cl">$ sudo mkdir /opt/slurm/etc <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /opt/slurm/etc
+</span></span><span class="line"><span class="cl">$ sudo su - slurm
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;export PATH=/opt/slurm/sbin:/opt/slurm/bin:\$PATH&#34;</span> <span class="p">|</span> tee -a ~/.bashrc
+</span></span></code></pre></div><p>次に、以下コマンドを全ての計算ノードのopcユーザで <strong>Slurm</strong> RPMパッケージをコピーしたディレクトリで実行し、計算ノードに必要な <strong>Slurm</strong> RPMパッケージのインストール・セットアップを行います。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum-config-manager --enable ol9_codeready_builder
+</span></span><span class="line"><span class="cl">$ sudo dnf install -y mariadb-devel
+</span></span><span class="line"><span class="cl">$ sudo rpm -ivh ./slurm-25.05.3-1.el9.x86_64.rpm ./slurm-slurmd-25.05.3-1.el9.x86_64.rpm ./slurm-perlapi-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u <span class="m">5000</span> slurm
+</span></span><span class="line"><span class="cl">$ sudo mkdir /var/spool/slurmd <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /var/spool/slurmd
+</span></span><span class="line"><span class="cl">$ sudo mkdir /var/log/slurm <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /var/log/slurm
+</span></span><span class="line"><span class="cl">$ sudo mkdir /opt/slurm/etc <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /opt/slurm/etc
+</span></span></code></pre></div><p>次に、以下コマンドをSlurmクライアントのopcユーザで <strong>Slurm</strong> RPMパッケージをコピーしたディレクトリで実行し、Slurmクライアントに必要な <strong>Slurm</strong> RPMパッケージのインストール・セットアップを行います。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum-config-manager --enable ol9_codeready_builder
+</span></span><span class="line"><span class="cl">$ sudo dnf install -y mariadb-devel
+</span></span><span class="line"><span class="cl">$ sudo rpm -ivh ./slurm-25.05.3-1.el9.x86_64.rpm ./slurm-perlapi-25.05.3-1.el9.x86_64.rpm
+</span></span><span class="line"><span class="cl">$ sudo useradd -m -d /var/lib/slurm -s /bin/bash -u <span class="m">5000</span> slurm
+</span></span><span class="line"><span class="cl">$ sudo mkdir /opt/slurm/etc <span class="o">&amp;&amp;</span> sudo chown slurm:slurm /opt/slurm/etc
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="2-7-slurm設定ファイル作成"
     >
-        2-8. Slurm設定ファイル作成
+        2-7. Slurm設定ファイル作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-8-slurm設定ファイル作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-8. Slurm設定ファイル作成" aria-label="アンカー先: 2-8. Slurm設定ファイル作成" href="#2-8-slurm%e8%a8%ad%e5%ae%9a%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-7-slurm設定ファイル作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-7. Slurm設定ファイル作成" aria-label="アンカー先: 2-7. Slurm設定ファイル作成" href="#2-7-slurm%e8%a8%ad%e5%ae%9a%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -987,7 +1027,7 @@ $ sudo mkdir /opt/slurm/etc; sudo chown slurm:slurm /opt/slurm/etc
 </span></span><span class="line"><span class="cl"><span class="nv">AccountingStorageHost</span><span class="o">=</span>slurm-srv
 </span></span><span class="line"><span class="cl"><span class="nv">AccountingStoragePort</span><span class="o">=</span><span class="m">7004</span>
 </span></span><span class="line"><span class="cl"><span class="nv">MpiDefault</span><span class="o">=</span>pmix
-</span></span><span class="line"><span class="cl"><span class="nv">NodeName</span><span class="o">=</span>inst-aaaaa-x9,inst-bbbbb-x9 <span class="nv">CPUs</span><span class="o">=</span><span class="m">36</span> <span class="nv">Boards</span><span class="o">=</span><span class="m">1</span> <span class="nv">SocketsPerBoard</span><span class="o">=</span><span class="m">2</span> <span class="nv">CoresPerSocket</span><span class="o">=</span><span class="m">18</span> <span class="nv">ThreadsPerCore</span><span class="o">=</span><span class="m">1</span> <span class="nv">RealMemory</span><span class="o">=</span><span class="m">500000</span> <span class="nv">TmpDisk</span><span class="o">=</span><span class="m">10000</span> <span class="nv">State</span><span class="o">=</span>UNKNOWN
+</span></span><span class="line"><span class="cl"><span class="nv">NodeName</span><span class="o">=</span>inst-aaaaa-x9,inst-bbbbb-x9,inst-ccccc-x9,inst-ddddd-x9 <span class="nv">CPUs</span><span class="o">=</span><span class="m">36</span> <span class="nv">Boards</span><span class="o">=</span><span class="m">1</span> <span class="nv">SocketsPerBoard</span><span class="o">=</span><span class="m">2</span> <span class="nv">CoresPerSocket</span><span class="o">=</span><span class="m">18</span> <span class="nv">ThreadsPerCore</span><span class="o">=</span><span class="m">1</span> <span class="nv">RealMemory</span><span class="o">=</span><span class="m">500000</span> <span class="nv">TmpDisk</span><span class="o">=</span><span class="m">10000</span> <span class="nv">State</span><span class="o">=</span>UNKNOWN
 </span></span><span class="line"><span class="cl"><span class="nv">PartitionName</span><span class="o">=</span>sltest <span class="nv">Nodes</span><span class="o">=</span>ALL <span class="nv">Default</span><span class="o">=</span>YES <span class="nv">MaxTime</span><span class="o">=</span>INFINITE <span class="nv">State</span><span class="o">=</span>UP
 </span></span><span class="line"><span class="cl"><span class="nv">TaskPlugin</span><span class="o">=</span>task/affinity
 </span></span></code></pre></div><p>なお、 <strong>SlurmctldHost</strong> 、 <strong>AccountingStorageHost</strong> 、及び <strong>NodeName</strong> の設定値は、自身の環境に合わせて修正します。</p>
@@ -1020,107 +1060,125 @@ $ sudo mkdir /opt/slurm/etc; sudo chown slurm:slurm /opt/slurm/etc
 </span></span><span class="line"><span class="cl"><span class="nv">StorageLoc</span><span class="o">=</span>slurm_acct_db
 </span></span></code></pre></div><p>なお、 <strong>DbdHost</strong> と <strong>StoragePass</strong> の設定値は、自身の環境に合わせて修正します。</p>
 <p>[ <strong>mpi.conf</strong> ]</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">PMIxDirectConn</span><span class="o">=</span><span class="nb">true</span>
-</span></span><span class="line"><span class="cl"><span class="nv">PMIxDirectConnEarly</span><span class="o">=</span><span class="nb">true</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">PMIxDirectConnEarly</span><span class="o">=</span><span class="nb">true</span>
 </span></span><span class="line"><span class="cl"><span class="nv">PMIxDirectConnUCX</span><span class="o">=</span><span class="nb">true</span>
-</span></span><span class="line"><span class="cl"><span class="nv">PMIxNetDevicesUCX</span><span class="o">=</span>mlx5_0:0
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-9-slurmサービス起動"
+    <h2 id="2-8-slurmサービス起動"
     >
-        2-9. Slurmサービス起動
+        2-8. Slurmサービス起動
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-9-slurmサービス起動" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-9. Slurmサービス起動" aria-label="アンカー先: 2-9. Slurmサービス起動" href="#2-9-slurm%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e8%b5%b7%e5%8b%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-8-slurmサービス起動" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-8. Slurmサービス起動" aria-label="アンカー先: 2-8. Slurmサービス起動" href="#2-8-slurm%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e8%b5%b7%e5%8b%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong>Slurm</strong> の各systemdサービスを対象のサブシステムで起動します。</p>
 <p>以下コマンドを全ての計算ノードのopcユーザで実行し、 <strong>slurmd</strong> を起動します。</p>
-<pre tabindex="0"><code>$ sudo systemctl enable --now slurmd
-</code></pre><p>次に、以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>slurmdbd</strong> と <strong>slurmctld</strong> を起動します。</p>
-<pre tabindex="0"><code>$ sudo systemctl enable --now slurmdbd
-$ sudo systemctl start slurmctld
-</code></pre><p><strong>slurmctld</strong> は、全ての計算ノードの <strong>slurmd</strong> 起動完了後に起動する必要があるため、手動起動を想定して自動起動設定は行いません。</p>
-<p>次に、以下コマンドをSlurmマネージャのslurmユーザで実行し、全ての計算ノードがアイドルになっていることを確認します。</p>
-<pre tabindex="0"><code>$ sinfo
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-sltest*      up   infinite      2   idle inst-aaaaa-x9,inst-bbbbb-x9
-$
-</code></pre><p>次に、以下コマンドをSlurmマネージャのslurmユーザで実行し、 <strong>PMIx</strong> が利用可能になっていることを確認します。</p>
-<pre tabindex="0"><code>$ srun --mpi=list
-MPI plugin types are...
-	none
-	cray_shasta
-	pmi2
-	pmix
-specific pmix plugin versions available: pmix_v5
-$
-</code></pre><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-10-slurm利用に必要な環境変数設定"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo systemctl <span class="nb">enable</span> --now slurmd
+</span></span></code></pre></div><p>次に、以下コマンドをSlurmマネージャのopcユーザで実行し、 <strong>slurmdbd</strong> と <strong>slurmctld</strong> を起動します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo systemctl <span class="nb">enable</span> --now slurmdbd
+</span></span><span class="line"><span class="cl">$ sudo systemctl <span class="nb">enable</span> --now slurmctld
+</span></span></code></pre></div><p>次に、以下コマンドをSlurmマネージャのslurmユーザで実行し、全ての計算ノードがアイドルになっていることを確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sinfo
+</span></span><span class="line"><span class="cl">PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+</span></span><span class="line"><span class="cl">sltest*      up   infinite      <span class="m">4</span>   idle inst-aaaaa-x9,inst-bbbbb-x9,inst-ccccc-x9,inst-ddddd-x9
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><p>次に、以下コマンドをSlurmマネージャのslurmユーザで実行し、 <strong>PMIx</strong> が利用可能になっていることを確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ srun --mpi<span class="o">=</span>list
+</span></span><span class="line"><span class="cl">MPI plugin types are...
+</span></span><span class="line"><span class="cl">	none
+</span></span><span class="line"><span class="cl">	cray_shasta
+</span></span><span class="line"><span class="cl">	pmi2
+</span></span><span class="line"><span class="cl">	pmix
+</span></span><span class="line"><span class="cl">specific pmix plugin versions available: pmix_v5
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="2-9-slurm利用に必要な環境変数設定"
     >
-        2-10. Slurm利用に必要な環境変数設定
+        2-9. Slurm利用に必要な環境変数設定
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#2-10-slurm利用に必要な環境変数設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-10. Slurm利用に必要な環境変数設定" aria-label="アンカー先: 2-10. Slurm利用に必要な環境変数設定" href="#2-10-slurm%e5%88%a9%e7%94%a8%e3%81%ab%e5%bf%85%e8%a6%81%e3%81%aa%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#2-9-slurm利用に必要な環境変数設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-9. Slurm利用に必要な環境変数設定" aria-label="アンカー先: 2-9. Slurm利用に必要な環境変数設定" href="#2-9-slurm%e5%88%a9%e7%94%a8%e3%81%ab%e5%bf%85%e8%a6%81%e3%81%aa%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドをSlurmクライアントのジョブ投入ユーザで実行し、 <strong>Slurm</strong> を利用するための環境変数を設定します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;export PATH=/opt/slurm/sbin:/opt/slurm/bin:\$PATH&#34;</span> <span class="p">|</span> tee -a ~/.bashrc
-</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;export UCX_NET_DEVICES=mlx5_2:1&#34;</span> <span class="p">|</span> tee -a ~/.bashrc
-</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> ~/.bashrc
-</span></span></code></pre></div><p>ここで設定している環境変数 <strong>UCX_NET_DEVICES</strong> は、 <strong>Slurm</strong> から実行する <strong>OpenMPI</strong> のジョブがそのノード間通信を  <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
->クラスタ・ネットワーク</a></strong> に接続するNIC（RDMAリンク名 <strong>mlx5_2/1</strong> ）を介して行うことを指示しています。<br>
-またこの環境変数は、 <strong>OpenPMIx</strong> がMPIプロセス制御に <strong>OpenUCX</strong> を使用することも指示しているため、 <strong>srun</strong> でジョブを実行する際に設定する必要があります。</p>
-<hr>
-<div class="flex align-center gdoc-page__anchorwrap">
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="3-稼働確認"
     >
         3. 稼働確認
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/#3-稼働確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 稼働確認" aria-label="アンカー先: 3. 稼働確認" href="#3-%e7%a8%bc%e5%83%8d%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster/#3-稼働確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 稼働確認" aria-label="アンカー先: 3. 稼働確認" href="#3-%e7%a8%bc%e5%83%8d%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、構築した <strong>Slurm</strong> 環境の稼働確認と <strong>PMIx</strong> の効果を確認するため、ジョブ投入ユーザで <strong><a
-  class="gdoc-markdown__link"
-  href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html"
->Intel MPI Benchmarks</a></strong> を実行するバッチジョブを <strong>srun</strong> で起動する場合と <strong>mpirun</strong> で起動する場合の2種類実行し、その結果を比較します。<br>
-またこのジョブの終了後、そのアカウンティング情報を取得できることを確認します。</p>
-<p><strong>srun</strong> を利用する場合（ <strong>srun.sh</strong> ）と <strong>mpiexec</strong> を利用する場合（ <strong>mpirun.sh</strong> ）で、以下のように<strong>Intel MPI Benchmarks</strong> を実行する2種類のジョブスクリプトをジョブ投入ユーザのホームディレクトリ直下に作成します。</p>
-<p>[ <strong>srun.sh</strong> ]</p>
+<p>本章は、構築した <strong>Slurm</strong> 環境の稼働確認と <strong>PMIx</strong> の効果を確認するため、 <strong>OSU Micro-Benchmarks</strong> で2ノード間のレイテンシと4ノード間のMPI_Init所要時間をバッチジョブとインタラクティブで計測し、その結果を比較します。<br>
+またこのバッチジョブがアカウンティング情報に記録されていることを確認します。</p>
+<p>以下のスクリプトをファイル名 <strong>srun.sh</strong> で作成します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#SBATCH -p sltest</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -n 2</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 2</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -J ping_ping</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -n 144</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 4</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -J srun</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o stdout.%J</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e stderr.%J</span>
-</span></span><span class="line"><span class="cl">srun /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 28:28 pingpong
-</span></span></code></pre></div><p>[ <strong>mpirun.sh</strong> ]</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#SBATCH -p sltest</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -n 2</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 2</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -J ping_ping</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o stdout.%J</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e stderr.%J</span>
-</span></span><span class="line"><span class="cl">mpirun -n <span class="m">2</span> -N <span class="m">1</span> /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 28:28 pingpong
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">module load openmpi omb
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Start osu_latency&#34;</span>
+</span></span><span class="line"><span class="cl">srun -n <span class="m">2</span> -N <span class="m">2</span> osu_latency -x <span class="m">1000</span> -i <span class="m">10000</span> -m 1:1
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Start osu_init&#34;</span>
+</span></span><span class="line"><span class="cl">srun osu_init
 </span></span></code></pre></div><p>次に、以下コマンドをSlurmクライアントのジョブ投入ユーザで実行し、バッチジョブの投入とその結果確認を行います。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> sbatch srun.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sbatch srun.sh
 </span></span><span class="line"><span class="cl">Submitted batch job <span class="m">3</span>
-</span></span><span class="line"><span class="cl">$ grep -A <span class="m">2</span> usec stdout.3
-</span></span><span class="line"><span class="cl">       <span class="c1">#bytes #repetitions      t[usec]   Mbytes/sec</span>
-</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         1.47         0.00
-</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>     21925.54     12243.05
-</span></span><span class="line"><span class="cl">$ sbatch mpirun.sh
-</span></span><span class="line"><span class="cl">Submitted batch job <span class="m">4</span>
-</span></span><span class="line"><span class="cl">$ grep -A <span class="m">3</span> usec stdout.4
-</span></span><span class="line"><span class="cl">       <span class="c1">#bytes #repetitions      t[usec]   Mbytes/sec</span>
-</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         1.67         0.00
-</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>     21955.08     12226.58
+</span></span><span class="line"><span class="cl">$ cat stdout.3
+</span></span><span class="line"><span class="cl">Start osu_latency
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># OSU MPI Latency Test v7.5</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Datatype: MPI_CHAR.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Size       Avg Latency(us)</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span>                       1.51
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Start osu_init
+</span></span><span class="line"><span class="cl"><span class="c1"># OSU MPI Init Test v7.5</span>
+</span></span><span class="line"><span class="cl">nprocs: 144, min: <span class="m">2032</span> ms, max: <span class="m">2054</span> ms, avg: <span class="m">2048</span> ms
 </span></span><span class="line"><span class="cl">$
-</span></span></code></pre></div><p>この結果より、 <strong>srun</strong> を利用することでMPI通信の初期化処理に要する時間が短縮され、レイテンシが <strong>0.2 μ秒</strong> 改善されていることがわかります。</p>
+</span></span></code></pre></div><p>次に、以下のコマンドを計算ノードのうちの1ノードでジョブ投入ユーザで実行し、インタラクティブに <strong>mpirun</strong> で起動する場合の結果を確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ module load openmpi omb
+</span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">2</span> -N <span class="m">1</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 -x PATH osu_latency -x <span class="m">1000</span> -i <span class="m">10000</span> -m 1:1
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-xsyjo-x9-ol905:263038<span class="o">]</span> SET <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># OSU MPI Latency Test v7.5</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Datatype: MPI_CHAR.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Size       Avg Latency(us)</span>
+</span></span><span class="line"><span class="cl"><span class="m">1</span>                       1.67
+</span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">144</span> -N <span class="m">36</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 -x PATH osu_init
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-ntoae-x9-ol810:52203<span class="o">]</span> SET <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1
+</span></span><span class="line"><span class="cl"><span class="c1"># OSU MPI Init Test v7.5</span>
+</span></span><span class="line"><span class="cl">nprocs: 144, min: <span class="m">2163</span> ms, max: <span class="m">2215</span> ms, avg: <span class="m">2182</span> ms
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><p>この結果より、2ノード間のレイテンシが約 <strong>0.2 μ秒</strong> 改善されていることがわかります。<br>
+4ノード間のMPI_Init所要時間は、目立った差異が見られませんが、16ノード576MPIプロセスでその差を比較した場合は、以下のように <strong>20パーセント</strong> 程度の性能向上が見られます。</p>
+<div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th style="text-align: right">4ノード間のMPI_Init所要時間</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">バッチジョブ</td>
+          <td style="text-align: right">3,878 ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">インタラクティブ</td>
+          <td style="text-align: right">4,981 ms</td>
+      </tr>
+  </tbody>
+</table> </div>
 <p>次に、以下コマンドをSlurmクライアントのジョブ投入ユーザで実行し、終了したジョブのアカウンティング情報を取得できることを確認します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sacct -j <span class="m">3</span> -o JobID,User,AllocCPUS,Start,End
 </span></span><span class="line"><span class="cl">JobID             User  AllocCPUS               Start                 End 
@@ -1132,1642 +1190,2602 @@ $
 </span></span></code></pre></div>
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+          
+          
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+          
+            
+            
+          
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
         
+        
+
+        
+        
 
         
 
         
+
+        
           
         
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2791,7 +3809,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2817,6 +3844,15 @@ $
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2839,8 +3875,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2863,7 +3908,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2887,7 +3941,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2911,7 +3974,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2935,8 +4007,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2959,7 +4040,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2983,7 +4073,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3008,6 +4107,15 @@ $
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -3031,8 +4139,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3055,7 +4172,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3079,7 +4205,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3103,7 +4238,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3127,8 +4271,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3151,7 +4304,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3175,7 +4337,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3201,6 +4372,15 @@ $
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3223,8 +4403,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3247,7 +4436,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3267,11 +4465,20 @@ $
 
         
           
+        
+
+        
         
+      
+    
+
+  
+    
 
-        
-        
+    
       
+    
+
     
       
       
@@ -3295,7 +4502,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3321,6 +4537,15 @@ $
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3343,8 +4568,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4058,7 +5292,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4082,7 +5325,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4106,7 +5358,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4202,8 +5463,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4250,7 +5520,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4274,7 +5553,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4323,15 +5611,6 @@ $
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4356,15 +5635,30 @@ $
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5733,10 +7027,76 @@ $
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5767,7 +7127,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5791,8 +7160,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5815,7 +7193,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5839,7 +7226,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5865,6 +7261,15 @@ $
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5887,8 +7292,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5910,6 +7324,12 @@ $
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5935,8 +7355,19 @@ $
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5959,7 +7390,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5983,7 +7423,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6011,9 +7460,12 @@ $
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6037,8 +7489,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6061,11 +7522,9 @@ $
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6364,9 +7823,12 @@ $
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6390,12 +7852,10 @@ $
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7217,16 +8677,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7650,12 +9101,9 @@ $
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7679,10 +9127,12 @@ $
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7736,16 +9186,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7771,15 +9212,6 @@ $
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7802,17 +9234,8 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7835,16 +9258,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7868,16 +9282,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7901,16 +9306,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7934,17 +9330,8 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7967,16 +9354,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8004,12 +9382,9 @@ $
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -8033,9 +9408,11 @@ $
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -8066,16 +9443,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8099,16 +9467,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8134,9 +9493,27 @@ $
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -8162,18 +9539,7 @@ $
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8291,7 +9657,13 @@ $
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8317,7 +9689,18 @@ $
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8340,6 +9723,12 @@ $
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8365,7 +9754,18 @@ $
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8389,8 +9789,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8413,7 +9822,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8441,9 +9859,12 @@ $
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8467,12 +9888,10 @@ $
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8502,8 +9921,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8526,7 +9954,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8550,7 +9987,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8574,7 +10020,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8622,8 +10077,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8645,6 +10109,12 @@ $
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8694,7 +10164,18 @@ $
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8746,9 +10227,12 @@ $
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8772,18 +10256,7 @@ $
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8811,9 +10284,12 @@ $
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8837,11 +10313,9 @@ $
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8986,16 +10460,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9019,7 +10484,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9043,16 +10517,7 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9133,8 +10598,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9190,7 +10664,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9212,7 +10695,13 @@ $
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9238,17 +10727,8 @@ $
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9265,15 +10745,15 @@ $
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9374,31 +10854,7 @@ $
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10782,7 +12238,29 @@ $
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10891,7 +12369,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11035,8 +12522,17 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -11131,7 +12627,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11179,7 +12684,16 @@ $
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11228,6 +12742,15 @@ $
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -11269,11 +12792,11 @@ $
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/slurm-tips/"
-      title="Slurmによるリソース管理・ジョブ管理システム運用Tips"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/build-openmpi-ol9/"
+      title="Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      Slurmによるリソース管理・ジョブ管理システム運用Tips
+      Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）
     </a>
   
 </span>
@@ -11281,17 +12804,18 @@ $
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
-      title="Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/setup-slurm-cluster-withubuntu/"
+      title="Slurmによるリソース管理・ジョブ管理システム構築方法(Ubuntu OS編)"
     >
-      Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法
+      Slurmによるリソース管理・ジョブ管理システム構築方法(Ubuntu OS編)
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11335,7 +12859,7 @@ $
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

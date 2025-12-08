@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
-  <meta name="description" content="本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
+  <meta name="description" content="本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
 
   <title>Intel MPI Benchmarks実行方法 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,22 +35,22 @@
     content="Intel MPI Benchmarks実行方法"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta property="og:description" content="本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="og:description" content="本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Intel MPI Benchmarks実行方法" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta name="twitter:description" content="本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta name="twitter:description" content="本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。" />
 
 
   <script type="application/ld+json">
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "Intel MPI Benchmarks実行方法",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/",
       "headline": "Intel MPI Benchmarks実行方法",
-      "description": "本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png",
-      "wordCount" : "1171",
+      "description": "本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "1264",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,87 +93,87 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="Intel MPI Benchmarks実行方法">
-  <meta property="og:description" content="本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。">
+  <meta property="og:description" content="本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="Intel MPI Benchmarks実行方法">
-  <meta name="twitter:description" content="本ドキュメントは、HPCワークロードの実行に最適な、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでHPCワークロード向けベアメタルインスタンスをノード間接続するHPCクラスタで、標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。">
+  <meta name="twitter:description" content="本ドキュメントは、高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベア・メタル・シェイプBM.Optimized3.36をノード間接続するHPCクラスタで、MPI通信性能を計測する標準ベンチマークのIntel MPI Benchmarksを実行する方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
 
 
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    <nav id="TableOfContents">
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
     <li><a href="#1-openmpiでintel-mpi-benchmarksを実行する場合">1. OpenMPIでIntel MPI Benchmarksを実行する場合</a>
@@ -315,7 +323,6 @@
         <li><a href="#1-1-openmpiインストール">1-1. OpenMPIインストール</a></li>
         <li><a href="#1-2-intel-mpi-benchmarksインストール">1-2. Intel MPI Benchmarksインストール</a></li>
         <li><a href="#1-3-intel-mpi-benchmarks実行">1-3. Intel MPI Benchmarks実行</a></li>
-        <li><a href="#1-3-0-概要">1-3-0. 概要</a></li>
         <li><a href="#1-3-1-1ノード内全コアを使用するalltoall">1-3-1. 1ノード内全コアを使用するAlltoall</a></li>
         <li><a href="#1-3-2-2ノード間のpingpong">1-3-2. 2ノード間のPingPong</a></li>
         <li><a href="#1-3-3-4ノード間のallreduce">1-3-3. 4ノード間のAllreduce</a></li>
@@ -328,20 +335,10 @@
         <li><a href="#2-2-ホストリストファイル作成">2-2. ホストリストファイル作成</a></li>
         <li><a href="#2-3-intel-mpi-benchmarks実行">2-3. Intel MPI Benchmarks実行</a></li>
       </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
+      
+    </section>
   
-</section>
 </nav>
-
-
 
         </aside>
         
@@ -391,7 +388,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Intel MPI Benchmarks実行方法</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Intel MPI Benchmarks実行方法</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -411,25 +408,34 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
     <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本ドキュメントで解説する <strong><a
   class="gdoc-markdown__link"
-  href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html"
+  href="https://github.com/intel/mpi-benchmarks"
 >Intel MPI Benchmarks</a></strong> の実行は、 <strong>GitHub</strong> から提供される <strong>Intel MPI Benchmarks</strong> を <strong><a
   class="gdoc-markdown__link"
   href="https://www.open-mpi.org/"
@@ -446,57 +452,60 @@
 <li>2ノード間のPingPong</li>
 <li>4ノード間のAllreduce</li>
 </ol>
-<p>本ドキュメントで <strong>Intel MPI Benchmarks</strong> を実行するHPCクラスタは、HPCワークロード向けベアメタルシェイプ <strong><a
+<p>本ドキュメントで <strong>Intel MPI Benchmarks</strong> を実行するHPCクラスタは、第3世代 <strong>Intel Xeon</strong> プロセッサを搭載するベア・メタル・シェイプ <strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized"
 >BM.Optimized3.36</a></strong> 4インスタンスを <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> で接続した構成とし、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
+  href="../../#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
 >OCI HPCチュートリアル集</a></strong> のカテゴリ <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#1-1-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf"
->HPCクラスタ</a></strong> のチュートリアルの手順に従う等により、ノード間でMPIが実行できるよう予め構築しておきます。</p>
+  href="../../#1-1-hpcgpu%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf"
+>HPC/GPUクラスタ</a></strong> のチュートリアルの手順に従う等により、ノード間でMPIが実行できるよう予め構築しておきます。</p>
 <p>本ドキュメントは、以下の環境で <strong>Intel MPI Benchmarks</strong> PingPongを実行し、以下の性能が出ています。</p>
 <p>[実行環境]</p>
 <ul>
 <li>シェイプ : <strong>BM.Optimized3.36</strong> （搭載コア数36）</li>
-<li>OS ： <strong>Oracle Linux</strong> 8.10ベースのHPC <strong><a
+<li>OS ： <strong>Oracle Linux</strong> 8.10 / 9.5ベースのHPC <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+  href="../../#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
 >クラスタネットワーキングイメージ</a></strong> （※1）</li>
-<li><strong>OpenMPI</strong> ： 5.0.6（※2）</li>
+<li><strong>OpenMPI</strong> ： 5.0.8（※2）</li>
 <li><strong>Intel MPI Library</strong> ： 2021.3.0</li>
-<li><strong>Intel MPI Benchmarks</strong> ： 2021.7</li>
+<li><strong>Intel MPI Benchmarks</strong> ： 2021.10</li>
 </ul>
 <p>※1）<strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/"
+  href="../../tech-knowhow/osimage-for-cluster/"
 >クラスタネットワーキングイメージの選び方</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
->1. クラスタネットワーキングイメージ一覧</a></strong> のイメージ <strong>No.12</strong> です。<br>
+  href="../../tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
+>1. クラスタネットワーキングイメージ一覧</a></strong> のイメージ <strong>No.12</strong> / <strong>No.13</strong> です。<br>
 ※2） <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
->Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法</a></strong> に従って構築された <strong>OpenMPI</strong> です。</p>
+  href="../../tech-knowhow/build-openmpi/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 8編）</a></strong> / <strong><a
+  class="gdoc-markdown__link"
+  href="../../tech-knowhow/build-openmpi-ol9/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）</a></strong> に従って構築された <strong>OpenMPI</strong> です。</p>
 <p>[実行結果（ <strong>OpenMPI</strong> ）]</p>
 <ul>
-<li>レイテンシ: 1.66 usec</li>
-<li>帯域幅（256 MiBメッセージサイズ）: 12,225 MB/s</li>
+<li>レイテンシ: 1.68 usec</li>
+<li>帯域幅（256 MiBメッセージサイズ）: 12,238 MB/s</li>
 </ul>
 <p>[実行結果（ <strong>Intel MPI Library</strong> ）]</p>
 <ul>
-<li>レイテンシ: 1.60 usec</li>
-<li>帯域幅（256 MiBメッセージサイズ）: 12,277 MB/s</li>
+<li>レイテンシ: 1.68 usec</li>
+<li>帯域幅（256 MiBメッセージサイズ）: 12,236 MB/s</li>
 </ul>
 <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
@@ -504,7 +513,7 @@
     >
         1. OpenMPIでIntel MPI Benchmarksを実行する場合
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-openmpiでintel-mpi-benchmarksを実行する場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. OpenMPIでIntel MPI Benchmarksを実行する場合" aria-label="アンカー先: 1. OpenMPIでIntel MPI Benchmarksを実行する場合" href="#1-openmpi%e3%81%a7intel-mpi-benchmarks%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-openmpiでintel-mpi-benchmarksを実行する場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. OpenMPIでIntel MPI Benchmarksを実行する場合" aria-label="アンカー先: 1. OpenMPIでIntel MPI Benchmarksを実行する場合" href="#1-openmpi%e3%81%a7intel-mpi-benchmarks%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -513,12 +522,11 @@
     >
         1-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、 <strong>OpenMPI</strong> を使用して <strong>Intel MPI Benchmarks</strong> を実行する方法を解説します。<br>
-具体的には、以下の作業を実施します。</p>
+<p>本章は、 <strong>OpenMPI</strong> を使用して <strong>Intel MPI Benchmarks</strong> を実行する方法を、以下の順に解説します。</p>
 <ol>
 <li><strong>OpenMPI</strong> インストール</li>
 <li><strong>Intel MPI Benchmarks</strong> インストール</li>
@@ -529,84 +537,89 @@
     >
         1-1. OpenMPIインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-1-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. OpenMPIインストール" aria-label="アンカー先: 1-1. OpenMPIインストール" href="#1-1-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-1-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. OpenMPIインストール" aria-label="アンカー先: 1-1. OpenMPIインストール" href="#1-1-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
->Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法</a></strong> に従い、  <strong>Intel MPI Benchmarks</strong> を実行する全てのノードに <strong>OpenMPI</strong> をインストールします。</p>
+  href="../../tech-knowhow/build-openmpi/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 8編）</a></strong> か <strong><a
+  class="gdoc-markdown__link"
+  href="../../tech-knowhow/build-openmpi-ol9/"
+>Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）</a></strong> に従い、  <strong>Intel MPI Benchmarks</strong> を実行する全てのノードに <strong>OpenMPI</strong> をインストールします。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="1-2-intel-mpi-benchmarksインストール"
     >
         1-2. Intel MPI Benchmarksインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-2-intel-mpi-benchmarksインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. Intel MPI Benchmarksインストール" aria-label="アンカー先: 1-2. Intel MPI Benchmarksインストール" href="#1-2-intel-mpi-benchmarks%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-2-intel-mpi-benchmarksインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. Intel MPI Benchmarksインストール" aria-label="アンカー先: 1-2. Intel MPI Benchmarksインストール" href="#1-2-intel-mpi-benchmarks%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>以下コマンドを <strong>Intel MPI Benchmarks</strong> を実行する全てのノードのopcユーザで実行し、 <strong>Intel MPI Benchmarks</strong> をインストールします。<br>
-なお、makeコマンドの並列数は当該ノードのコア数に合わせて調整します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~<span class="p">;</span> wget https://github.com/intel/mpi-benchmarks/archive/refs/tags/IMB-v2021.7.tar.gz
-</span></span><span class="line"><span class="cl">$ tar -xvf ./IMB-v2021.7.tar.gz
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> mpi-benchmarks-IMB-v2021.7<span class="p">;</span> <span class="nb">export</span> <span class="nv">CXX</span><span class="o">=</span>/opt/openmpi-5.0.6/bin/mpicxx<span class="p">;</span> <span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>/opt/openmpi-5.0.6/bin/mpicc<span class="p">;</span> make -j <span class="m">36</span> all
-</span></span><span class="line"><span class="cl">$ sudo mkdir -p /opt/openmpi-5.0.6/tests/imb
-</span></span><span class="line"><span class="cl">$ sudo cp ./IMB* /opt/openmpi-5.0.6/tests/imb/
+<p>以下コマンドを <strong>Intel MPI Benchmarks</strong> を実行する全てのノードのopcユーザで実行し、 <strong>Intel MPI Benchmarks</strong> を <strong>/opt/openmpi/tests/imb</strong> ディレクトリにインストールします。<br>
+なおmakeコマンドの並列数は、当該ノードのコア数に合わせて調整します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mkdir ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/<span class="sb">`</span>hostname<span class="sb">`</span> <span class="o">&amp;&amp;</span> wget https://github.com/intel/mpi-benchmarks/archive/refs/tags/IMB-v2021.10.tar.gz
+</span></span><span class="line"><span class="cl">$ tar -xvf ./IMB-v2021.10.tar.gz
+</span></span><span class="line"><span class="cl">$ module load openmpi
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> mpi-benchmarks-IMB-v2021.10 <span class="o">&amp;&amp;</span> make -j <span class="m">36</span> <span class="nv">CC</span><span class="o">=</span>mpicc <span class="nv">CXX</span><span class="o">=</span>mpicxx all
+</span></span><span class="line"><span class="cl">$ sudo mkdir -p /opt/openmpi/tests/imb <span class="o">&amp;&amp;</span> sudo cp ./IMB* /opt/openmpi/tests/imb/
+</span></span></code></pre></div><p>次に、以下のファイルを <strong>/usr/share/Modules/modulefiles/imb</strong> で作成します。<br>
+このファイルは、 <strong>Environment modules</strong> にモジュール名 <strong>imb</strong> を登録し、これをロードすることで <strong>Intel MPI Benchmarks</strong> 利用環境の設定が可能になります</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#%Module1.0</span>
+</span></span><span class="line"><span class="cl"><span class="c1">##</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Intel MPI Benchmarks for OpenMPI</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">proc ModulesHelp <span class="o">{</span> <span class="o">}</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        puts stderr <span class="s2">&#34;Intel MPI Benchmarks for OpenMPI\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">module-whatis <span class="s2">&#34;Intel MPI Benchmarks for OpenMPI&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> pkg_root  /opt/openmpi/tests/imb
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> ver       2021.10
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">prepend-path PATH <span class="nv">$pkg_root</span>
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="1-3-intel-mpi-benchmarks実行"
     >
         1-3. Intel MPI Benchmarks実行
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-3-intel-mpi-benchmarks実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. Intel MPI Benchmarks実行" aria-label="アンカー先: 1-3. Intel MPI Benchmarks実行" href="#1-3-intel-mpi-benchmarks%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-3-intel-mpi-benchmarks実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. Intel MPI Benchmarks実行" aria-label="アンカー先: 1-3. Intel MPI Benchmarks実行" href="#1-3-intel-mpi-benchmarks%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="1-3-0-概要"
-    >
-        1-3-0. 概要
-    </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-0. 概要" aria-label="アンカー先: 1-3-0. 概要" href="#1-3-0-%e6%a6%82%e8%a6%81">
-        <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-    </a>
-</div>
-<p>本章は、以下3種類の <strong>Intel MPI Benchmarks</strong> 実行方法を解説します。</p>
-<ol>
-<li>1ノード内全コアを使用するAlltoall</li>
-<li>2ノード間のPingPong</li>
-<li>4ノード間のAllreduce</li>
-</ol>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="1-3-1-1ノード内全コアを使用するalltoall"
     >
         1-3-1. 1ノード内全コアを使用するAlltoall
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-3-1-1ノード内全コアを使用するalltoall" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-1. 1ノード内全コアを使用するAlltoall" aria-label="アンカー先: 1-3-1. 1ノード内全コアを使用するAlltoall" href="#1-3-1-1%e3%83%8e%e3%83%bc%e3%83%89%e5%86%85%e5%85%a8%e3%82%b3%e3%82%a2%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8balltoall">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-3-1-1ノード内全コアを使用するalltoall" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-1. 1ノード内全コアを使用するAlltoall" aria-label="アンカー先: 1-3-1. 1ノード内全コアを使用するAlltoall" href="#1-3-1-1%e3%83%8e%e3%83%bc%e3%83%89%e5%86%85%e5%85%a8%e3%82%b3%e3%82%a2%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8balltoall">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドを対象ノードで <strong>Intel MPI Benchmarks</strong> 実行ユーザで実行します。<br>
 ここでは、1ノード36プロセスのAlltoall所要時間をメッセージサイズ32 MiBで計測しています。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mpirun -n <span class="m">36</span> /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin <span class="m">36</span> alltoall
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ module load openmpi imb
+</span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">36</span> IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin <span class="m">36</span> alltoall
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.7, MPI-1 part</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.10, MPI-1 part</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Fri Dec 13 16:41:35 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Wed Oct 15 11:44:25 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Machine               : x86_64</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># System                : Linux</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 4.18.0-553.8.1.el8_10.x86_64</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP Tue Jul 2 05:18:08 PDT 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 5.14.0-503.40.1.el9_5.x86_64</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP PREEMPT_DYNAMIC Wed Apr 30 02:45:06 PDT 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Version           : 3.1</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Thread Environment: </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Calling sequence was: </span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 alltoall </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 alltoall </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Minimum message length in bytes:   0</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Maximum message length in bytes:   33554432</span>
@@ -626,8 +639,8 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># #processes = 36 </span>
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
 </span></span><span class="line"><span class="cl">       <span class="c1">#bytes #repetitions  t_min[usec]  t_max[usec]  t_avg[usec]</span>
-</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         0.03         0.05         0.03
-</span></span><span class="line"><span class="cl">     <span class="m">33554432</span>            <span class="m">1</span>    368774.69    377145.91    373427.99
+</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         0.03         0.03         0.03
+</span></span><span class="line"><span class="cl">     <span class="m">33554432</span>            <span class="m">1</span>    404586.22    415032.49    410026.69
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># All processes entering MPI_Finalize</span>
@@ -638,28 +651,30 @@
     >
         1-3-2. 2ノード間のPingPong
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-3-2-2ノード間のpingpong" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-2. 2ノード間のPingPong" aria-label="アンカー先: 1-3-2. 2ノード間のPingPong" href="#1-3-2-2%e3%83%8e%e3%83%bc%e3%83%89%e9%96%93%e3%81%aepingpong">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-3-2-2ノード間のpingpong" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-2. 2ノード間のPingPong" aria-label="アンカー先: 1-3-2. 2ノード間のPingPong" href="#1-3-2-2%e3%83%8e%e3%83%bc%e3%83%89%e9%96%93%e3%81%aepingpong">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドを <strong>Intel MPI Benchmarks</strong> を実行するユーザで何れか1ノードで実行します。<br>
-ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは <strong>1.66 usec</strong> ）、帯域幅は256 MiBメッセージの帯域幅（ <strong>12,225.03 MB/s</strong> ）を以ってその結果とします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mpirun -n <span class="m">2</span> -N <span class="m">1</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 28:28 pingpong
+ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは <strong>1.68 usec</strong> ）、帯域幅は256 MiBメッセージの帯域幅（ <strong>12,237.89 MB/s</strong> ）を以ってその結果とします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ module load openmpi imb
+</span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">2</span> -N <span class="m">1</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 -x PATH IMB-MPI1 -msglog 28:28 pingpong
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-vvb7u-x9-ol905:12579<span class="o">]</span> SET <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.7, MPI-1 part</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.10, MPI-1 part</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Thu Jun 20 11:35:05 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Wed Oct 15 11:43:04 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Machine               : x86_64</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># System                : Linux</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 4.18.0-513.11.0.1.el8_9.x86_64</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP Thu Jan 11 11:30:45 PST 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 5.14.0-503.40.1.el9_5.x86_64</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP PREEMPT_DYNAMIC Wed Apr 30 02:45:06 PDT 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Version           : 3.1</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Thread Environment: </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Calling sequence was: </span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># /opt/openmpi-5.0.3/tests/imb/IMB-MPI1 -msglog 28:28 pingpong </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># IMB-MPI1 -msglog 28:28 pingpong </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Minimum message length in bytes:   0</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Maximum message length in bytes:   268435456</span>
@@ -679,8 +694,8 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># #processes = 2 </span>
 </span></span><span class="line"><span class="cl"><span class="c1">#---------------------------------------------------</span>
 </span></span><span class="line"><span class="cl">       <span class="c1">#bytes #repetitions      t[usec]   Mbytes/sec</span>
-</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         1.66         0.00
-</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>     21957.85     12225.03
+</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         1.68         0.00
+</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>     21934.78     12237.89
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># All processes entering MPI_Finalize</span>
@@ -691,28 +706,30 @@
     >
         1-3-3. 4ノード間のAllreduce
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#1-3-3-4ノード間のallreduce" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-3. 4ノード間のAllreduce" aria-label="アンカー先: 1-3-3. 4ノード間のAllreduce" href="#1-3-3-4%e3%83%8e%e3%83%bc%e3%83%89%e9%96%93%e3%81%aeallreduce">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#1-3-3-4ノード間のallreduce" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-3. 4ノード間のAllreduce" aria-label="アンカー先: 1-3-3. 4ノード間のAllreduce" href="#1-3-3-4%e3%83%8e%e3%83%bc%e3%83%89%e9%96%93%e3%81%aeallreduce">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドを <strong>Intel MPI Benchmarks</strong> を実行するユーザで何れか1ノードで実行します。<br>
 ここでは、4ノード144プロセス（ノードあたり36プロセス）を使用したAllreduceの所要時間をメッセージサイズ256 MiBで計測しています。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mpirun -n <span class="m">144</span> -N <span class="m">36</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 /opt/openmpi-5.0.6/tests/imb/IMB-MPI1 -msglog 28:28 -npmin <span class="m">144</span> allreduce
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ module load openmpi imb
+</span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">144</span> -N <span class="m">36</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 -x PATH IMB-MPI1 -msglog 28:28 -npmin <span class="m">144</span> allreduce
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-ztgl1-x9-ol810:215912<span class="o">]</span> SET <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.7, MPI-1 part</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    Intel(R) MPI Benchmarks 2021.10, MPI-1 part</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Thu Jun 20 11:40:32 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Date                  : Fri Sep  5 15:12:34 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Machine               : x86_64</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># System                : Linux</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 4.18.0-513.11.0.1.el8_9.x86_64</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP Thu Jan 11 11:30:45 PST 2024</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Release               : 4.18.0-553.54.1.el8_10.x86_64</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Version               : #1 SMP Wed May 28 02:12:15 PDT 2025</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Version           : 3.1</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># MPI Thread Environment: </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Calling sequence was: </span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># /opt/openmpi-5.0.3/tests/imb/IMB-MPI1 -msglog 28:28 -npmin 144 allreduce </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># IMB-MPI1 -msglog 28:28 -npmin 144 allreduce </span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Minimum message length in bytes:   0</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Maximum message length in bytes:   268435456</span>
@@ -732,8 +749,8 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># #processes = 144 </span>
 </span></span><span class="line"><span class="cl"><span class="c1">#----------------------------------------------------------------</span>
 </span></span><span class="line"><span class="cl">       <span class="c1">#bytes #repetitions  t_min[usec]  t_max[usec]  t_avg[usec]</span>
-</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         0.03         0.04         0.03
-</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>    307115.36    326712.51    319229.75
+</span></span><span class="line"><span class="cl">            <span class="m">0</span>         <span class="m">1000</span>         0.03         0.03         0.03
+</span></span><span class="line"><span class="cl">    <span class="m">268435456</span>            <span class="m">1</span>    403874.11    433311.53    422165.51
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># All processes entering MPI_Finalize</span>
@@ -745,7 +762,7 @@
     >
         2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#2-intel-mpi-libraryでintel-mpi-benchmarksを実行する場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合" aria-label="アンカー先: 2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合" href="#2-intel-mpi-library%e3%81%a7intel-mpi-benchmarks%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#2-intel-mpi-libraryでintel-mpi-benchmarksを実行する場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合" aria-label="アンカー先: 2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合" href="#2-intel-mpi-library%e3%81%a7intel-mpi-benchmarks%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -754,7 +771,7 @@
     >
         2-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -770,7 +787,7 @@
     >
         2-1. Intel oneAPI HPC Toolkitインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#2-1-intel-oneapi-hpc-toolkitインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. Intel oneAPI HPC Toolkitインストール" aria-label="アンカー先: 2-1. Intel oneAPI HPC Toolkitインストール" href="#2-1-intel-oneapi-hpc-toolkit%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#2-1-intel-oneapi-hpc-toolkitインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. Intel oneAPI HPC Toolkitインストール" aria-label="アンカー先: 2-1. Intel oneAPI HPC Toolkitインストール" href="#2-1-intel-oneapi-hpc-toolkit%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -783,23 +800,23 @@
     >
         2-2. ホストリストファイル作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#2-2-ホストリストファイル作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. ホストリストファイル作成" aria-label="アンカー先: 2-2. ホストリストファイル作成" href="#2-2-%e3%83%9b%e3%82%b9%e3%83%88%e3%83%aa%e3%82%b9%e3%83%88%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#2-2-ホストリストファイル作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. ホストリストファイル作成" aria-label="アンカー先: 2-2. ホストリストファイル作成" href="#2-2-%e3%83%9b%e3%82%b9%e3%83%88%e3%83%aa%e3%82%b9%e3%83%88%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/compute-host-list/"
+  href="../../tech-knowhow/compute-host-list/"
 >計算/GPUノードのホスト名リスト作成方法</a></strong> の手順に従い、 <strong>Intel MPI Benchmarks</strong> を実行する全てのノードのホスト名を記載したホストリストファイルを <strong>Intel MPI Benchmarks</strong> を実行するユーザのホームディレクトリ直下に <strong>hostlist.txt</strong> として作成します。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="2-3-intel-mpi-benchmarks実行"
     >
         2-3. Intel MPI Benchmarks実行
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-imb/#2-3-intel-mpi-benchmarks実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. Intel MPI Benchmarks実行" aria-label="アンカー先: 2-3. Intel MPI Benchmarks実行" href="#2-3-intel-mpi-benchmarks%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-imb/#2-3-intel-mpi-benchmarks実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. Intel MPI Benchmarks実行" aria-label="アンカー先: 2-3. Intel MPI Benchmarks実行" href="#2-3-intel-mpi-benchmarks%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -923,1319 +940,2145 @@
 </span></span></code></pre></div>
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
         
 
         
@@ -2246,7 +3089,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2270,8 +3122,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2294,7 +3155,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2318,7 +3188,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2343,6 +3222,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2366,8 +3254,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2386,12 +3283,21 @@
 
         
           
+        
+
         
+        
+      
+    
+
+  
+    
 
-        
-        
+    
       
     
+
+    
       
       
 
@@ -2414,7 +3320,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2438,7 +3353,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2463,6 +3387,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2486,8 +3419,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2510,7 +3452,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2534,7 +3485,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2558,7 +3518,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2582,8 +3551,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2606,7 +3584,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2630,7 +3617,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2656,6 +3652,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2678,8 +3683,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2702,7 +3716,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2726,7 +3749,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2750,7 +3782,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2774,8 +3815,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2798,7 +3848,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2822,7 +3881,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2847,6 +3915,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2870,8 +3947,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2894,7 +3980,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2918,7 +4013,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2942,7 +4046,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2966,8 +4079,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2990,7 +4112,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3014,7 +4145,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3040,6 +4180,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3062,7 +4211,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3086,8 +4244,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3110,7 +4277,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3134,7 +4310,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3151,6 +4336,9 @@
         
 
         
+          
+          
+        
 
         
           
@@ -3181,6 +4369,11 @@
         
         
 
+        
+          
+            
+            
+          
         
 
         
@@ -3849,7 +5042,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3873,7 +5075,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3897,7 +5108,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3993,8 +5213,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4041,7 +5270,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4065,7 +5303,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4114,15 +5361,6 @@
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4147,15 +5385,30 @@
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5524,10 +6777,76 @@
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5558,7 +6877,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5582,8 +6910,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5606,7 +6943,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5630,7 +6976,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5656,6 +7011,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5678,8 +7042,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5701,6 +7074,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5726,8 +7105,19 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5750,7 +7140,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5774,7 +7173,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5802,9 +7210,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5828,8 +7239,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5852,11 +7272,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6155,9 +7573,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6181,12 +7602,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7008,16 +8427,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7441,12 +8851,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7470,10 +8877,12 @@
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7527,16 +8936,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7562,15 +8962,6 @@
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7593,17 +8984,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7626,16 +9008,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7659,16 +9032,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7692,16 +9056,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7725,17 +9080,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7758,16 +9104,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7795,12 +9132,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7824,9 +9158,11 @@
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -7857,16 +9193,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7890,16 +9217,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7925,9 +9243,27 @@
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -7953,18 +9289,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8082,7 +9407,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8108,7 +9439,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8131,6 +9473,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8156,7 +9504,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8180,8 +9539,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8204,7 +9572,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8232,9 +9609,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8258,12 +9638,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8293,8 +9671,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8317,7 +9704,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8341,7 +9737,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8365,7 +9770,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8413,8 +9827,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8436,6 +9859,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8485,7 +9914,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8537,9 +9977,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8563,18 +10006,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8602,9 +10034,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8628,11 +10063,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8777,16 +10210,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8810,7 +10234,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8834,16 +10267,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8924,8 +10348,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8981,7 +10414,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9003,7 +10445,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9029,17 +10477,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9056,15 +10495,15 @@
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9165,31 +10604,7 @@
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10573,7 +11988,29 @@
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10682,7 +12119,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10826,8 +12272,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10922,7 +12377,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10970,7 +12434,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11019,6 +12492,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -11060,11 +12542,11 @@
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/benchmark/run-hpl-e5/"
-      title="HPL実行方法（BM.Standard.E5.192編）"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/run-stream-e6/"
+      title="STREAM実行方法（BM.Standard.E6.256編）"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      HPL実行方法（BM.Standard.E5.192編）
+      STREAM実行方法（BM.Standard.E6.256編）
     </a>
   
 </span>
@@ -11072,17 +12554,18 @@
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/benchmark/run-nccltests-h100/"
-      title="NCCL Tests実行方法（BM.GPU.H100.8編）"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/run-omb-hpc/"
+      title="OSU Micro-Benchmarks実行方法（BM.Optimized3.36編）"
     >
-      NCCL Tests実行方法（BM.GPU.H100.8編）
+      OSU Micro-Benchmarks実行方法（BM.Optimized3.36編）
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11126,7 +12609,7 @@
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

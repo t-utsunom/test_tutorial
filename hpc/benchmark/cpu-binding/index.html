@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
-  <meta name="description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
+  <meta name="description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
 
   <title>パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編） | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,22 +35,22 @@
     content="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta property="og:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="og:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta name="twitter:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta name="twitter:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。" />
 
 
   <script type="application/ld+json">
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/",
       "headline": "パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）",
-      "description": "NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png",
-      "wordCount" : "8105",
+      "description": "NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "8108",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,87 +93,87 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）">
-  <meta property="og:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。">
+  <meta property="og:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）">
-  <meta name="twitter:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、HPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。">
+  <meta name="twitter:description" content="NUMAアーキテクチャを採用するインスタンスに於けるMPIやOpenMPの並列プログラム実行は、生成されるプロセスやスレッドをどのようにインスタンスのコアに割当てるかでその性能が大きく変動するため、その配置を意識してアプリケーションを実行することが求められます。このため、使用するシェイプに搭載されるプロセッサのアーキテクチャやアプリケーションの特性に合わせて意図したとおりにプロセスやスレッドをコアに配置するために必要な、MPI実装、OpenMP実装、及びジョブスケジューラが有するコア割当て制御機能に精通している必要があります。本パフォーマンス関連Tipsは、MPI実装にOpenMPI、OpenMP実装にGNUコンパイラ、及びジョブスケジューラにSlurmを取り上げ、クラスタ・ネットワーク対応のHPCワークロード向けベア・メタル・シェイプBM.Optimized3.36でこれらのコア割当て機能を駆使してプロセス・スレッドのコア割当てを行う方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
 
 
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    <nav id="TableOfContents">
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a>
       <ul>
@@ -337,20 +345,10 @@
           </ul>
         </li>
       </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
+      
+    </section>
   
-</section>
 </nav>
-
-
 
         </aside>
         
@@ -400,7 +398,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -420,19 +418,33 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
-    <hr>
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
+    <style>
+table, th, td {
+    font-size: 80%;
+}
+</style>
+<hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -441,16 +453,16 @@
     >
         0-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#0-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-0. 概要" aria-label="アンカー先: 0-0. 概要" href="#0-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#0-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-0. 概要" aria-label="アンカー先: 0-0. 概要" href="#0-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本パフォーマンス関連Tipsは、NUMA（Non-Umiform Memory Access）アーキテクチャを採用するインスタンスに於ける並列プログラムの実行時性能に大きく影響する、MPIが生成するプロセスとOpenMPが生成するスレッドのコア割当てについて、アプリケーション性能に有利となる典型的なパターンを例に挙げ、以下の観点でその実行方法を解説します。</p>
-<ol>
-<li><strong><a
+<p>本パフォーマンス関連Tipsは、NUMA（Non-Umiform Memory Access）アーキテクチャを採用する第3世代 <strong>Intel Xeon</strong> プロセッサを搭載するベア・メタル・シェイプ <strong><a
   class="gdoc-markdown__link"
-  href="#1-prrte%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6"
->PRRTEを使用するプロセス・スレッドのコア割当て</a></strong><br>
+  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized"
+>BM.Optimized3.36</a></strong> を使用するインスタンスで、並列プログラムの実行時性能に大きく影響するMPIが生成するプロセスとOpenMPが生成するスレッドのコア割当てについて、アプリケーション性能に有利となる典型的なパターンを例に挙げ、以下の観点でその実行方法を解説します。</p>
+<ol>
+<li>PRRTEを使用するプロセス・スレッドのコア割当て<br>
 この割当て方法は、 <strong><a
   class="gdoc-markdown__link"
   href="https://www.open-mpi.org/"
@@ -459,20 +471,14 @@
   href="https://github.com/openpmix/prrte"
 >PRRTE</a></strong> のMPIプロセスのコア割当て機能と、 <strong>GNUコンパイラ</strong> のOpenMPスレッドのコア割当て機能を組合せて、意図したプロセス・スレッドのコア割当てを実現します。<br>
 この方法は、ジョブスケジューラを使用せずに <strong>mpirun</strong> を使用してMPI並列アプリケーションをインタラクティブに実行する場合に使用します。</li>
-<li><strong><a
-  class="gdoc-markdown__link"
-  href="#2-slurm%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6"
->Slurmを使用するプロセス・スレッドのコア割当て</a></strong><br>
+<li>Slurmを使用するプロセス・スレッドのコア割当て<br>
 この割当て方法は、 <strong><a
   class="gdoc-markdown__link"
   href="https://slurm.schedmd.com/"
 >Slurm</a></strong> のMPIプロセスのコア割当て機能と、 <strong>GNUコンパイラ</strong> のOpenMPスレッドのコア割当て機能を組合せて、意図したプロセス・スレッドのコア割当てを実現します。<br>
 この方法は、 <strong>Slurm</strong> のジョブスケジューラ環境で <strong>srun</strong> を使用してMPI並列アプリケーションを実行する場合に使用します。</li>
 </ol>
-<p>また <strong><a
-  class="gdoc-markdown__link"
-  href="#3-%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95"
->最後の章</a></strong> では、プロセス・スレッドのコア割当てが想定通りに行われているかどうかを確認する方法と、この方法を使用して本パフォーマンス関連Tipsで紹介したコア割当てを行った際の出力例を紹介します。</p>
+<p>また最後の章では、プロセス・スレッドのコア割当てが想定通りに行われているかどうかを確認する方法と、この方法を使用して本パフォーマンス関連Tipsで紹介したコア割当てを行った際の出力例を紹介します。</p>
 <p>なお、プロセス・スレッドのコア割当て同様に並列プログラムの実行時性能に大きく影響するメモリ割り当ては、割当てられるコアと同一NUMAノード内のメモリを割り当てることにより多くのケースで性能が最大となることから、以下のように <strong>- -localalloc</strong> オプションを付与した <strong>numactl</strong> コマンドの使用を前提とし、本パフォーマンス関連Tipsの実行例を記載します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ numactl --localalloc a.out
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
@@ -480,21 +486,18 @@
     >
         0-1. 前提システム
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#0-1-前提システム" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-1. 前提システム" aria-label="アンカー先: 0-1. 前提システム" href="#0-1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#0-1-前提システム" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-1. 前提システム" aria-label="アンカー先: 0-1. 前提システム" href="#0-1-%e5%89%8d%e6%8f%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>プロセス・スレッドのコア割当ては、使用するインスタンスのNUMAアーキテクチャやNUMAノードの構成方法に影響を受けますが、本パフォーマンス関連Tipsでは <strong>Intel Ice Lake</strong> プロセッサを搭載する <strong><a
-  class="gdoc-markdown__link"
-  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized"
->BM.Optimized3.36</a></strong> を使用し、NUMAノード構成に <strong>NUMA nodes per socket</strong> （以降 <strong>NPS</strong> と呼称します。）が <strong>1</strong> （これがデフォルトで、以降 <strong>NPS1</strong> と呼称します。）と <strong>2</strong> （以降 <strong>NPS2</strong> と呼称します。）の場合を取り上げ（※1）、それぞれに関するコア割当て方法を解説します。</p>
+<p>プロセス・スレッドのコア割当ては、使用するインスタンスのNUMAアーキテクチャやNUMAノードの構成方法に影響を受けますが、本パフォーマンス関連Tipsでは <strong>Intel Ice Lake</strong> プロセッサを搭載する <strong>BM.Optimized3.36</strong> を使用し、NUMAノード構成に <strong>NUMA nodes per socket</strong> （以降 <strong>NPS</strong> と呼称します。）が <strong>1</strong> （これがデフォルトで、以降 <strong>NPS1</strong> と呼称します。）と <strong>2</strong> （以降 <strong>NPS2</strong> と呼称します。）の場合を取り上げ（※1）、それぞれに関するコア割当て方法を解説します。</p>
 <p>また使用する <strong>BM.Optimized3.36</strong> は、 <strong>Simultanious Multi Threading</strong> （以降 <strong>SMT</strong> と呼称します。）を無効化（デフォルトは有効です。）しています。（※1）</p>
 <p>※1）<strong>NPS</strong> と <strong>SMT</strong> の設定方法は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+  href="../../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
 >OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/bios-setting/"
+  href="../../benchmark/bios-setting/"
 >パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法</a></strong> を参照してください。</p>
 <p>以下は、 <strong>BM.Optimized3.36</strong> のアーキテクチャ図です。</p>
 <p><img
@@ -512,7 +515,7 @@
     >
         0-2. コア割当てパターン
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#0-2-コア割当てパターン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2. コア割当てパターン" aria-label="アンカー先: 0-2. コア割当てパターン" href="#0-2-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#0-2-コア割当てパターン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2. コア割当てパターン" aria-label="アンカー先: 0-2. コア割当てパターン" href="#0-2-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -538,7 +541,7 @@
           <td style="text-align: center">-</td>
           <td style="text-align: center">ノード間通信性能を考慮してプロセスを<br><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> 接続用NIC側の<br>ソケットに配置</td>
       </tr>
       <tr>
@@ -741,7 +744,7 @@
     >
         1. PRRTEを使用するプロセス・スレッドのコア割当て
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#1-prrteを使用するプロセススレッドのコア割当て" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. PRRTEを使用するプロセス・スレッドのコア割当て" aria-label="アンカー先: 1. PRRTEを使用するプロセス・スレッドのコア割当て" href="#1-prrte%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#1-prrteを使用するプロセススレッドのコア割当て" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. PRRTEを使用するプロセス・スレッドのコア割当て" aria-label="アンカー先: 1. PRRTEを使用するプロセス・スレッドのコア割当て" href="#1-prrte%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -750,16 +753,16 @@
     >
         1-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
+  href="../../tech-knowhow/build-openmpi/"
 >Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法</a></strong> に従って構築された <strong>OpenMPI</strong> に含まれる <strong>PRRTE</strong> を使用し、 <strong><a
   class="gdoc-markdown__link"
   href="#0-2-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3"
@@ -787,7 +790,7 @@
     >
         1-1. 各コア割当てパターンのオプション・環境変数組合せ
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#1-1-各コア割当てパターンのオプション環境変数組合せ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 各コア割当てパターンのオプション・環境変数組合せ" aria-label="アンカー先: 1-1. 各コア割当てパターンのオプション・環境変数組合せ" href="#1-1-%e5%90%84%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e7%b5%84%e5%90%88%e3%81%9b">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#1-1-各コア割当てパターンのオプション環境変数組合せ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 各コア割当てパターンのオプション・環境変数組合せ" aria-label="アンカー先: 1-1. 各コア割当てパターンのオプション・環境変数組合せ" href="#1-1-%e5%90%84%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e7%b5%84%e5%90%88%e3%81%9b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1044,7 +1047,7 @@
     >
         2. Slurmを使用するプロセス・スレッドのコア割当て
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#2-slurmを使用するプロセススレッドのコア割当て" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Slurmを使用するプロセス・スレッドのコア割当て" aria-label="アンカー先: 2. Slurmを使用するプロセス・スレッドのコア割当て" href="#2-slurm%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#2-slurmを使用するプロセススレッドのコア割当て" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Slurmを使用するプロセス・スレッドのコア割当て" aria-label="アンカー先: 2. Slurmを使用するプロセス・スレッドのコア割当て" href="#2-slurm%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1053,29 +1056,29 @@
     >
         2-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/"
+  href="../../tech-knowhow/setup-slurm-cluster/"
 >Slurmによるリソース管理・ジョブ管理システム構築方法</a></strong> に従って構築された <strong>Slurm</strong> ジョブスケジューラ環境で、 <strong><a
   class="gdoc-markdown__link"
   href="#0-2-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3"
 >0-2. コア割当てパターン</a></strong> に記載のコア割当てを実現する方法を解説します。<br>
 ここで <strong>NPS1</strong> と <strong>NPS2</strong> のコア割当てパターンは、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/slurm-tips/"
+  href="../../tech-knowhow/slurm-tips/"
 >Slurmによるリソース管理・ジョブ管理システム運用Tips</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/slurm-tips/#3-%e3%83%98%e3%83%86%e3%83%ad%e3%82%b8%e3%83%8b%e3%82%a2%e3%82%b9%e7%92%b0%e5%a2%83%e4%b8%8b%e3%81%ae%e3%83%91%e3%83%bc%e3%83%86%e3%82%a3%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9f%e8%a8%88%e7%ae%97gpu%e3%83%8e%e3%83%bc%e3%83%89%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e5%88%b6%e5%be%a1"
+  href="../../tech-knowhow/slurm-tips/#3-%e3%83%98%e3%83%86%e3%83%ad%e3%82%b8%e3%83%8b%e3%82%a2%e3%82%b9%e7%92%b0%e5%a2%83%e4%b8%8b%e3%81%ae%e3%83%91%e3%83%bc%e3%83%86%e3%82%a3%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9f%e8%a8%88%e7%ae%97gpu%e3%83%8e%e3%83%bc%e3%83%89%e5%89%b2%e3%82%8a%e5%bd%93%e3%81%a6%e5%88%b6%e5%be%a1"
 >3. ヘテロジニアス環境下のパーティションを使った計算/GPUノード割り当て制御</a></strong> に従って構築したパーティション <strong>nps1</strong> と <strong>nps2</strong> で実行することを前提とします。</p>
 <p>以降で解説するコア割当て方法は、以下の <strong>srun</strong> コマンドオプションと <strong>GNUコンパイラ</strong> 環境変数を組合せて実現します。</p>
 <p>[ <strong>srun</strong> オプション]</p>
@@ -1102,7 +1105,7 @@
     >
         2-1. 各コア割当てパターンのオプション・環境変数組合せ
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#2-1-各コア割当てパターンのオプション環境変数組合せ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 各コア割当てパターンのオプション・環境変数組合せ" aria-label="アンカー先: 2-1. 各コア割当てパターンのオプション・環境変数組合せ" href="#2-1-%e5%90%84%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e7%b5%84%e5%90%88%e3%81%9b">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#2-1-各コア割当てパターンのオプション環境変数組合せ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 各コア割当てパターンのオプション・環境変数組合せ" aria-label="アンカー先: 2-1. 各コア割当てパターンのオプション・環境変数組合せ" href="#2-1-%e5%90%84%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e7%b5%84%e5%90%88%e3%81%9b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1379,7 +1382,7 @@
     >
         3. プロセス・スレッドのコア割当て確認方法
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#3-プロセススレッドのコア割当て確認方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. プロセス・スレッドのコア割当て確認方法" aria-label="アンカー先: 3. プロセス・スレッドのコア割当て確認方法" href="#3-%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#3-プロセススレッドのコア割当て確認方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. プロセス・スレッドのコア割当て確認方法" aria-label="アンカー先: 3. プロセス・スレッドのコア割当て確認方法" href="#3-%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%81%ae%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1388,7 +1391,7 @@
     >
         3-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-0. 概要" aria-label="アンカー先: 3-0. 概要" href="#3-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-0. 概要" aria-label="アンカー先: 3-0. 概要" href="#3-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1501,7 +1504,7 @@
     >
         3-1. コア割当て確認結果
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#3-1-コア割当て確認結果" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. コア割当て確認結果" aria-label="アンカー先: 3-1. コア割当て確認結果" href="#3-1-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e7%a2%ba%e8%aa%8d%e7%b5%90%e6%9e%9c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#3-1-コア割当て確認結果" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. コア割当て確認結果" aria-label="アンカー先: 3-1. コア割当て確認結果" href="#3-1-%e3%82%b3%e3%82%a2%e5%89%b2%e5%bd%93%e3%81%a6%e7%a2%ba%e8%aa%8d%e7%b5%90%e6%9e%9c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1511,7 +1514,7 @@
     >
         3-1-1. PRRTE
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#3-1-1-prrte" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1-1. PRRTE" aria-label="アンカー先: 3-1-1. PRRTE" href="#3-1-1-prrte">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#3-1-1-prrte" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1-1. PRRTE" aria-label="アンカー先: 3-1-1. PRRTE" href="#3-1-1-prrte">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -2050,7 +2053,7 @@
     >
         3-1-2. Slurm
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/cpu-binding/#3-1-2-slurm" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1-2. Slurm" aria-label="アンカー先: 3-1-2. Slurm" href="#3-1-2-slurm">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding/#3-1-2-slurm" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1-2. Slurm" aria-label="アンカー先: 3-1-2. Slurm" href="#3-1-2-slurm">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -2587,1992 +2590,3070 @@
 </span></span></code></pre></div>
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
         
+        
+
+        
 
         
 
@@ -4582,7 +5663,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4606,7 +5696,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4630,8 +5729,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4654,7 +5762,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4678,7 +5795,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4704,6 +5830,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -4726,7 +5861,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4750,8 +5894,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4774,7 +5927,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4798,7 +5960,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5178,6 +6349,9 @@
         
 
         
+          
+          
+        
 
         
           
@@ -5208,6 +6382,11 @@
         
         
 
+        
+          
+            
+            
+          
         
 
         
@@ -5513,7 +6692,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5537,7 +6725,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5561,7 +6758,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5657,8 +6863,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5705,7 +6920,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5729,7 +6953,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5778,15 +7011,6 @@
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -5811,15 +7035,30 @@
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -7188,10 +8427,76 @@
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -7222,7 +8527,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7246,8 +8560,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7270,7 +8593,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7294,7 +8626,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7320,6 +8661,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -7342,8 +8692,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7365,6 +8724,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -7390,8 +8755,19 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7414,7 +8790,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7438,7 +8823,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7466,9 +8860,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -7492,8 +8889,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7516,11 +8922,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -7819,9 +9223,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -7845,12 +9252,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8672,16 +10077,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9105,12 +10501,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -9134,10 +10527,12 @@
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -9191,16 +10586,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9226,15 +10612,6 @@
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -9257,17 +10634,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9290,16 +10658,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9323,16 +10682,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9356,16 +10706,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9389,17 +10730,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9422,16 +10754,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9459,12 +10782,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -9488,9 +10808,11 @@
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9521,16 +10843,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9554,16 +10867,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9589,9 +10893,27 @@
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -9617,18 +10939,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9746,7 +11057,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9772,7 +11089,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9795,6 +11123,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -9820,7 +11154,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9844,8 +11189,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9868,7 +11222,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9896,9 +11259,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -9922,12 +11288,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -9957,8 +11321,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9981,7 +11354,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10005,7 +11387,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10029,7 +11420,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10077,8 +11477,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10100,6 +11509,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -10149,7 +11564,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10201,9 +11627,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -10227,18 +11656,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -10266,9 +11684,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -10292,11 +11713,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -10441,16 +11860,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -10474,7 +11884,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10498,16 +11917,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -10588,8 +11998,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10645,7 +12064,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10667,7 +12095,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -10693,17 +12127,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -10720,15 +12145,15 @@
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -10829,31 +12254,7 @@
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -12237,7 +13638,29 @@
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -12346,7 +13769,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -12490,8 +13922,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -12586,7 +14027,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -12634,7 +14084,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -12683,6 +14142,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -12724,11 +14192,11 @@
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/benchmark/bios-setting/"
-      title="パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/openmpi-perftips/"
+      title="OpenMPIのMPI通信性能に影響するパラメータとその関連Tips"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法
+      OpenMPIのMPI通信性能に影響するパラメータとその関連Tips
     </a>
   
 </span>
@@ -12736,17 +14204,18 @@
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/"
-      title="ファイル共有ストレージ向けバックアップ環境の最適な構築手法"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/cpu-binding-e5/"
+      title="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Standard.E5.192編）"
     >
-      ファイル共有ストレージ向けバックアップ環境の最適な構築手法
+      パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Standard.E5.192編）
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -12790,7 +14259,7 @@
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

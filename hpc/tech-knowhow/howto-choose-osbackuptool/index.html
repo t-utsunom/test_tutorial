@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
   <meta name="description" content="HPC/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。" />
 
   <title>ファイル共有ストレージ向けバックアップ環境の最適な構築手法 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,21 +35,21 @@
     content="ファイル共有ストレージ向けバックアップ環境の最適な構築手法"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="HPC/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ファイル共有ストレージ向けバックアップ環境の最適な構築手法" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="HPC/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。" />
 
 
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "ファイル共有ストレージ向けバックアップ環境の最適な構築手法",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/",
       "headline": "ファイル共有ストレージ向けバックアップ環境の最適な構築手法",
       "description": "HPC\/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
       "wordCount" : "915",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,85 +93,85 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="ファイル共有ストレージ向けバックアップ環境の最適な構築手法">
   <meta property="og:description" content="HPC/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="ファイル共有ストレージ向けバックアップ環境の最適な構築手法">
   <meta name="twitter:description" content="HPC/GPUクラスタを運用する際必須となるファイル共有ストレージは、コストパフォーマンスを考慮するとベア・メタル・インスタンスとブロック・ボリューム等のストレージサービスで構築することになりますが、そのバックアップ環境は自身で構築する必要があり、バックアップを格納するストレージはその安価な容量単価からオブジェクト・ストレージやブロック・ボリュームのより低いコストが有力な選択肢になります。本テクニカルTipsは、ファイル共有ストレージのバックアップを容量単価の安価なストレージに取得することを念頭に、自身のバックアップ要件に沿った最適なバックアップ環境構築手法を選定する方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
     <li><a href="#1-バックアップ環境前提条件">1. バックアップ環境前提条件</a>
@@ -329,20 +337,11 @@
     <li><a href="#3-バックアップリストア性能">3. バックアップ・リストア性能</a></li>
     <li><a href="#4-ランニングコスト">4. ランニングコスト</a></li>
   </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
-  
-</section>
 </nav>
-
-
+      
+    </section>
+  
+</nav>
 
         </aside>
         
@@ -392,7 +391,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>ファイル共有ストレージ向けバックアップ環境の最適な構築手法</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>ファイル共有ストレージ向けバックアップ環境の最適な構築手法</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -412,12 +411,21 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
     <style>
 table, th, td {
     font-size: 80%;
@@ -429,7 +437,7 @@ table, th, td {
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -512,7 +520,7 @@ table, th, td {
     >
         1. バックアップ環境前提条件
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-バックアップ環境前提条件" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. バックアップ環境前提条件" aria-label="アンカー先: 1. バックアップ環境前提条件" href="#1-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83%e5%89%8d%e6%8f%90%e6%9d%a1%e4%bb%b6">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-バックアップ環境前提条件" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. バックアップ環境前提条件" aria-label="アンカー先: 1. バックアップ環境前提条件" href="#1-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83%e5%89%8d%e6%8f%90%e6%9d%a1%e4%bb%b6">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -521,7 +529,7 @@ table, th, td {
     >
         1-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -536,28 +544,28 @@ table, th, td {
     >
         1-1. 検証環境
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-1-検証環境" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 検証環境" aria-label="アンカー先: 1-1. 検証環境" href="#1-1-%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-1-検証環境" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 検証環境" aria-label="アンカー先: 1-1. 検証環境" href="#1-1-%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>各バックアップ環境は、ストレージに <strong>ブロック・ボリューム</strong> を使用しこれを <strong>ベア・メタル・インスタンス</strong> にアタッチする方法（以降&quot;ブロック・ボリュームNFSサーバ”と呼称）でNFSでサービスするファイル共有ストレージをバックアップする前提で、何れも <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
+  href="../../#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
 >OCI HPCチュートリアル集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/spinup-nfs-server/"
+  href="../../spinup-nfs-server/"
 >ブロック・ボリュームでファイル共有ストレージを構築する</a></strong> の手順に従い構築されたファイル共有ストレージと <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/spinup-backup-server/"
+  href="../../spinup-backup-server/"
 >ベア・メタル・インスタンスNFSサーバ向けバックアップサーバを構築する</a></strong> の手順に従い構築されたバックアップ環境を使用し、ここで構築したバックアップサーバでバックアップツールを実行します。</p>
 <p><img
-  src="/ocitutorials/hpc/spinup-backup-server/architecture_diagram_os.png"
+  src="../../spinup-backup-server/architecture_diagram_os.png"
   alt="システム構成図OS"
   
 /></p>
 <center><u>バックアップ格納ストレージに <strong>オブジェクト・ストレージ</strong> を使用する場合</u></center><br>
 <p><img
-  src="/ocitutorials/hpc/spinup-backup-server/architecture_diagram_bv.png"
+  src="../../spinup-backup-server/architecture_diagram_bv.png"
   alt="システム構成図BV"
   
 /></p>
@@ -566,7 +574,7 @@ table, th, td {
 <p><strong>OCI CLI</strong> のインストールは、以下の <strong>OCI</strong> 公式マニュアルに従い行います。<br>
 なお、 <strong>OCI CLI</strong> の実行時認証は、チュートリアルに従って構築されたバックアップサーバが <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-15-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b7%e3%83%91%e3%83%ab"
+  href="../../#5-15-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b7%e3%83%91%e3%83%ab"
 >インスタンス・プリンシパル</a></strong> 認証の設定を完了しているため、これを使用します。</p>
 <p><strong><a
   class="gdoc-markdown__link"
@@ -577,7 +585,7 @@ table, th, td {
 </span></span></code></pre></div><p>次に、以下コマンドをバックアップサーバのopcユーザで実行し、バックアップに使用する <strong>オブジェクト・ストレージ</strong> の <strong>バケット</strong> を <strong>/mnt/os</strong> にマウントします。<br>
 なお、 <strong>OCIFS</strong> の実行時認証は、チュートリアルに従って構築されたバックアップサーバが <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-15-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b7%e3%83%91%e3%83%ab"
+  href="../../#5-15-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b7%e3%83%91%e3%83%ab"
 >インスタンス・プリンシパル</a></strong> 認証の設定を完了しているため、これを使用します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo mkdir /mnt/os
 </span></span><span class="line"><span class="cl">$ sudo ocifs --auth<span class="o">=</span>instance_principal --cache<span class="o">=</span>/var/tmp/ocifs-cache bucket_name /mnt/os
@@ -587,7 +595,7 @@ table, th, td {
     >
         1-2. ソフトウェアバージョン
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-2-ソフトウェアバージョン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. ソフトウェアバージョン" aria-label="アンカー先: 1-2. ソフトウェアバージョン" href="#1-2-%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-2-ソフトウェアバージョン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. ソフトウェアバージョン" aria-label="アンカー先: 1-2. ソフトウェアバージョン" href="#1-2-%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -603,7 +611,7 @@ table, th, td {
     >
         1-3. バックアップ・リストア時指定のオプション
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-バックアップリストア時指定のオプション" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. バックアップ・リストア時指定のオプション" aria-label="アンカー先: 1-3. バックアップ・リストア時指定のオプション" href="#1-3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%99%82%e6%8c%87%e5%ae%9a%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-バックアップリストア時指定のオプション" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. バックアップ・リストア時指定のオプション" aria-label="アンカー先: 1-3. バックアップ・リストア時指定のオプション" href="#1-3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%99%82%e6%8c%87%e5%ae%9a%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -612,7 +620,7 @@ table, th, td {
     >
         1-3-0. 概要
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-0. 概要" aria-label="アンカー先: 1-3-0. 概要" href="#1-3-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-0. 概要" aria-label="アンカー先: 1-3-0. 概要" href="#1-3-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -622,7 +630,7 @@ table, th, td {
     >
         1-3-1. バックアップ環境No. 1
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-1-バックアップ環境no-1" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-1. バックアップ環境No. 1" aria-label="アンカー先: 1-3-1. バックアップ環境No. 1" href="#1-3-1-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-1">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-1-バックアップ環境no-1" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-1. バックアップ環境No. 1" aria-label="アンカー先: 1-3-1. バックアップ環境No. 1" href="#1-3-1-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-1">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -637,7 +645,7 @@ table, th, td {
     >
         1-3-2. バックアップ環境No. 2
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-2-バックアップ環境no-2" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-2. バックアップ環境No. 2" aria-label="アンカー先: 1-3-2. バックアップ環境No. 2" href="#1-3-2-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-2">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-2-バックアップ環境no-2" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-2. バックアップ環境No. 2" aria-label="アンカー先: 1-3-2. バックアップ環境No. 2" href="#1-3-2-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-2">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -655,7 +663,7 @@ table, th, td {
     >
         1-3-3. バックアップ環境No. 3
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-3-バックアップ環境no-3" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-3. バックアップ環境No. 3" aria-label="アンカー先: 1-3-3. バックアップ環境No. 3" href="#1-3-3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-3-バックアップ環境no-3" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-3. バックアップ環境No. 3" aria-label="アンカー先: 1-3-3. バックアップ環境No. 3" href="#1-3-3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -670,7 +678,7 @@ table, th, td {
     >
         1-3-4. バックアップ環境No. 4
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-4-バックアップ環境no-4" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-4. バックアップ環境No. 4" aria-label="アンカー先: 1-3-4. バックアップ環境No. 4" href="#1-3-4-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-4">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#1-3-4-バックアップ環境no-4" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3-4. バックアップ環境No. 4" aria-label="アンカー先: 1-3-4. バックアップ環境No. 4" href="#1-3-4-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e7%92%b0%e5%a2%83no-4">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -686,7 +694,7 @@ table, th, td {
     >
         2. バックアップ・リストア時の制約事項
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#2-バックアップリストア時の制約事項" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. バックアップ・リストア時の制約事項" aria-label="アンカー先: 2. バックアップ・リストア時の制約事項" href="#2-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%99%82%e3%81%ae%e5%88%b6%e7%b4%84%e4%ba%8b%e9%a0%85">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#2-バックアップリストア時の制約事項" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. バックアップ・リストア時の制約事項" aria-label="アンカー先: 2. バックアップ・リストア時の制約事項" href="#2-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%99%82%e3%81%ae%e5%88%b6%e7%b4%84%e4%ba%8b%e9%a0%85">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -812,7 +820,7 @@ table, th, td {
     >
         3. バックアップ・リストア性能
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#3-バックアップリストア性能" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. バックアップ・リストア性能" aria-label="アンカー先: 3. バックアップ・リストア性能" href="#3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%80%a7%e8%83%bd">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#3-バックアップリストア性能" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. バックアップ・リストア性能" aria-label="アンカー先: 3. バックアップ・リストア性能" href="#3-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e6%80%a7%e8%83%bd">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -911,7 +919,7 @@ table, th, td {
     >
         4. ランニングコスト
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-choose-osbackuptool/#4-ランニングコスト" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. ランニングコスト" aria-label="アンカー先: 4. ランニングコスト" href="#4-%e3%83%a9%e3%83%b3%e3%83%8b%e3%83%b3%e3%82%b0%e3%82%b3%e3%82%b9%e3%83%88">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-choose-osbackuptool/#4-ランニングコスト" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. ランニングコスト" aria-label="アンカー先: 4. ランニングコスト" href="#4-%e3%83%a9%e3%83%b3%e3%83%8b%e3%83%b3%e3%82%b0%e3%82%b3%e3%82%b9%e3%83%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -962,12 +970,12 @@ table, th, td {
 
   </article>
 
-
           
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
 
 
 
@@ -1047,759 +1055,7 @@ table, th, td {
         
       
     
-      
-      
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
   
     
 
@@ -1834,38 +1090,6 @@ table, th, td {
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
     
 
     
@@ -1899,9 +1123,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -1925,11 +1152,735 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -2159,6 +2110,47 @@ table, th, td {
         
       
     
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2182,6 +2174,343 @@ table, th, td {
         
         
       
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2231,29 +2560,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2279,29 +2593,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2327,29 +2626,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2375,29 +2659,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2423,29 +2692,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2471,29 +2725,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2519,29 +2758,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2567,29 +2791,14 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2615,317 +2824,14 @@ table, th, td {
         
       
     
-      
-      
 
-      
-        
-        
-        
-        
+  
+    
 
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
-      
-      
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2953,6 +2859,15 @@ table, th, td {
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2983,6 +2898,1203 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3005,7 +4117,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3031,6 +4152,15 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3053,8 +4183,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3077,7 +4216,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3097,11 +4245,20 @@ table, th, td {
 
         
           
+        
+
+        
         
+      
+    
+
+  
+    
 
-        
-        
+    
       
+    
+
     
       
       
@@ -3125,7 +4282,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3151,6 +4317,15 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3173,8 +4348,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3888,7 +5072,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3912,7 +5105,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3936,7 +5138,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4032,8 +5243,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4080,7 +5300,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4104,7 +5333,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4153,15 +5391,6 @@ table, th, td {
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4186,15 +5415,30 @@ table, th, td {
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5563,10 +6807,76 @@ table, th, td {
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5597,7 +6907,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5621,8 +6940,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5645,7 +6973,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5669,7 +7006,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5695,6 +7041,15 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5717,8 +7072,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5740,6 +7104,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5765,8 +7135,19 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5789,7 +7170,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5813,7 +7203,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5841,9 +7240,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5867,8 +7269,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5891,11 +7302,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6194,9 +7603,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6220,12 +7632,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7047,16 +8457,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7480,12 +8881,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7509,10 +8907,12 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7566,16 +8966,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7601,15 +8992,6 @@ table, th, td {
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7632,17 +9014,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7665,16 +9038,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7698,16 +9062,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7731,16 +9086,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7764,17 +9110,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7797,16 +9134,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7834,12 +9162,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7863,9 +9188,11 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -7896,16 +9223,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7929,16 +9247,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7964,9 +9273,27 @@ table, th, td {
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -7992,18 +9319,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8121,7 +9437,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8147,7 +9469,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8170,6 +9503,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8195,7 +9534,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8219,8 +9569,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8243,7 +9602,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8271,9 +9639,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8297,12 +9668,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8332,8 +9701,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8356,7 +9734,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8380,7 +9767,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8404,7 +9800,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8452,8 +9857,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8475,6 +9889,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8524,7 +9944,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8576,9 +10007,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8602,18 +10036,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8641,9 +10064,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8667,11 +10093,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8816,16 +10240,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8849,7 +10264,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8873,16 +10297,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8963,8 +10378,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9020,7 +10444,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9042,7 +10475,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9068,17 +10507,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9095,15 +10525,15 @@ table, th, td {
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9204,31 +10634,7 @@ table, th, td {
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10612,7 +12018,29 @@ table, th, td {
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10721,7 +12149,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10865,8 +12302,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10961,7 +12407,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11009,7 +12464,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11058,6 +12522,15 @@ table, th, td {
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -11099,11 +12572,11 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/benchmark/cpu-binding/"
-      title="パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/boot-volume-extension/"
+      title="計算/GPUノードのブート・ボリューム動的拡張方法"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      パフォーマンスを考慮したプロセス・スレッドのコア割当て指定方法（BM.Optimized3.36編）
+      計算/GPUノードのブート・ボリューム動的拡張方法
     </a>
   
 </span>
@@ -11111,17 +12584,18 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/bv-sharedstorage-recovery/"
-      title="ブロック・ボリュームを使用するNFSサーバのインスタンス障害からの復旧方法"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/compute-name-resolution/"
+      title="計算/GPUノードの効果的な名前解決方法"
     >
-      ブロック・ボリュームを使用するNFSサーバのインスタンス障害からの復旧方法
+      計算/GPUノードの効果的な名前解決方法
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11165,7 +12639,7 @@ table, th, td {
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
   <meta name="description" content="複数ノードに跨るHPC/機械学習ワークロードを実行するHPC/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。" />
 
   <title>クラスタ・ネットワーク統計情報の取得方法 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,21 +35,21 @@
     content="クラスタ・ネットワーク統計情報の取得方法"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="複数ノードに跨るHPC/機械学習ワークロードを実行するHPC/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="クラスタ・ネットワーク統計情報の取得方法" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="複数ノードに跨るHPC/機械学習ワークロードを実行するHPC/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。" />
 
 
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "クラスタ・ネットワーク統計情報の取得方法",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/",
       "headline": "クラスタ・ネットワーク統計情報の取得方法",
       "description": "複数ノードに跨るHPC\/機械学習ワークロードを実行するHPC\/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
       "wordCount" : "266",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,85 +93,85 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="クラスタ・ネットワーク統計情報の取得方法">
   <meta property="og:description" content="複数ノードに跨るHPC/機械学習ワークロードを実行するHPC/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="クラスタ・ネットワーク統計情報の取得方法">
   <meta name="twitter:description" content="複数ノードに跨るHPC/機械学習ワークロードを実行するHPC/GPUクラスタは、ノード間通信に使用するクラスタ・ネットワークが想定通りに使用されて初めてその性能を発揮することが出来ます。ここで、インスタンスを **クラスタ・ネットワーク** に接続するNIC（NVIDIA Mellanox ConnectX）は、これを介して通信する際の様々な統計情報を記録するハードウェアカウンタを備えており、インスタンスのOS上でこれらを取得することが可能です。本テクニカルTipsは、クラスタ・ネットワークに接続するインスタンスでクラスタ・ネットワークの利用状況や問題判別に役立つ統計情報を取得する方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,27 +312,18 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
     <li><a href="#1-クラスタネットワーク関連統計情報取得">1. クラスタ・ネットワーク関連統計情報取得</a></li>
   </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
-  
-</section>
 </nav>
-
-
+      
+    </section>
+  
+</nav>
 
         </aside>
         
@@ -374,7 +373,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>クラスタ・ネットワーク統計情報の取得方法</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>クラスタ・ネットワーク統計情報の取得方法</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -394,25 +393,34 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
     <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> 対応シェイプ（ <strong><a
   class="gdoc-markdown__link"
   href="https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/Compute/Tasks/managingclusternetworks.htm#supported-shapes"
@@ -428,28 +436,28 @@
   href="https://docs.oracle.com/ja-jp/iaas/Content/Monitoring/home.htm"
 >OCIモニタリング</a></strong> から送受信帯域幅として参照する仕組みがあります。（この詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/metric-monitoring/"
+  href="../../tech-knowhow/metric-monitoring/"
 >OCIモニタリングとGrafanaを使用したHPC/GPUクラスタのメトリック監視方法</a></strong> を参照下さい。）</p>
 <p>また輻輳制御関連のエラーカウンタは、 <strong>クラスタ・ネットワーク</strong> が採用する <strong>RoCEv2</strong> の輻輳制御である <strong>ECN</strong> や <strong>DCQCN</strong> に関する制御情報を保持しており、ノード間通信で問題が発生した際の状況把握に有益な情報として利用することが出来ます。（ <strong>クラスタ・ネットワーク</strong> の輻輳制御詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#4-oci-hpc%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1%e3%83%aa%e3%83%b3%e3%82%af%e9%9b%86"
+  href="../../#4-oci-hpc%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1%e3%83%aa%e3%83%b3%e3%82%af%e9%9b%86"
 >OCI HPC関連情報リンク集</a></strong> の  <strong>First Principles: Building a high-performance network in the public cloud</strong> と <strong>Congestion Control for Large-Scale RDMA Deployments</strong> を参照して下さい。）</p>
 <p>次章では、これら統計情報の取得方法を解説します。<br>
 なお本コンテンツの前提とするOSは、ユーティリティ提供方法が <strong>Oracle Cloud Agent</strong> プラグインの <strong>Oracle Linux</strong> 8ベース  <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+  href="../../#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
 >クラスタネットワーキングイメージ</a></strong> です。（この詳細は、<strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/"
+  href="../../tech-knowhow/osimage-for-cluster/"
 >クラスタネットワーキングイメージの選び方</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
+  href="../../tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
 >1. クラスタネットワーキングイメージ一覧</a></strong> を参照して下さい。）</p>
 <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
@@ -457,13 +465,13 @@
     >
         1. クラスタ・ネットワーク関連統計情報取得
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/tech-knowhow/howto-get-cnrelated-statistics/#1-クラスタネットワーク関連統計情報取得" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. クラスタ・ネットワーク関連統計情報取得" aria-label="アンカー先: 1. クラスタ・ネットワーク関連統計情報取得" href="#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e9%96%a2%e9%80%a3%e7%b5%b1%e8%a8%88%e6%83%85%e5%a0%b1%e5%8f%96%e5%be%97">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/tech-knowhow/howto-get-cnrelated-statistics/#1-クラスタネットワーク関連統計情報取得" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. クラスタ・ネットワーク関連統計情報取得" aria-label="アンカー先: 1. クラスタ・ネットワーク関連統計情報取得" href="#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e9%96%a2%e9%80%a3%e7%b5%b1%e8%a8%88%e6%83%85%e5%a0%b1%e5%8f%96%e5%be%97">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> 接続用NICのハードウェアカウンタは、Linuxカーネルがエクスポートするsysfs仮想ファイルシステムを介してその値をアクセスすることが出来、OS再起動によりその値がリセットされます。</p>
 <p>この値は、該当のイベントが発生する毎にその値をカウントアップするため、アプリケーション実行の前後でカウンタ値を読み取りその差を取ることで、アプリケーション実行中のイベント発生数を得ることが出来ます。<br>
 例えば、アプリケーション実行前後で送信データ量を保持するハードウェアカウンタ値を採取しその差を計算することで、アプリケーション実行中に特定のインスタンスから <strong>クラスタ・ネットワーク</strong> に送信された総データ量を得ることが出来ます。<br>
@@ -574,12 +582,12 @@
 
   </article>
 
-
           
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
 
 
 
@@ -659,759 +667,7 @@
         
       
     
-      
-      
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
   
     
 
@@ -1446,38 +702,6 @@
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
     
 
     
@@ -1511,9 +735,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -1537,11 +764,735 @@
 
         
         
-          
-  
-  
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -1771,6 +1722,47 @@
         
       
     
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -1794,6 +1786,343 @@
         
         
       
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -1843,29 +2172,14 @@
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1891,29 +2205,14 @@
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1939,29 +2238,14 @@
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1987,389 +2271,14 @@
         
       
     
-      
-      
 
-      
-        
-        
-        
-        
+  
+    
 
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
-      
-      
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -2397,6 +2306,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2427,6 +2345,1137 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2450,6 +3499,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2473,8 +3531,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2497,7 +3564,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2521,7 +3597,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2545,7 +3630,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2569,8 +3663,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2593,7 +3696,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2617,7 +3729,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2643,6 +3764,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2665,8 +3795,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2689,7 +3828,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2709,11 +3857,20 @@
 
         
           
+        
+
+        
         
+      
+    
+
+  
+    
 
-        
-        
+    
       
+    
+
     
       
       
@@ -2737,7 +3894,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2763,6 +3929,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2785,8 +3960,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3500,7 +4684,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3524,7 +4717,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3548,7 +4750,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3644,8 +4855,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3692,7 +4912,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3716,7 +4945,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3765,15 +5003,6 @@
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -3798,15 +5027,30 @@
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5175,10 +6419,76 @@
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5209,7 +6519,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5233,8 +6552,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5257,7 +6585,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5281,7 +6618,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5307,6 +6653,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5329,8 +6684,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5352,6 +6716,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5377,8 +6747,19 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5401,7 +6782,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5425,7 +6815,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5453,9 +6852,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5479,8 +6881,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5503,11 +6914,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -5806,9 +7215,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5832,12 +7244,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -6659,16 +8069,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7092,12 +8493,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7121,10 +8519,12 @@
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7178,16 +8578,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7213,15 +8604,6 @@
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7244,17 +8626,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7277,16 +8650,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7310,16 +8674,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7343,16 +8698,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7376,17 +8722,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7409,16 +8746,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7446,12 +8774,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7475,9 +8800,11 @@
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -7508,16 +8835,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7541,16 +8859,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7576,9 +8885,27 @@
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -7604,18 +8931,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7733,7 +9049,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -7759,7 +9081,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7782,6 +9115,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -7807,7 +9146,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7831,8 +9181,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7855,7 +9214,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7883,9 +9251,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -7909,12 +9280,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7944,8 +9313,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7968,7 +9346,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7992,7 +9379,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8016,7 +9412,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8064,8 +9469,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8087,6 +9501,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8136,7 +9556,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8188,9 +9619,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8214,18 +9648,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8253,9 +9676,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8279,11 +9705,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8428,16 +9852,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8461,7 +9876,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8485,16 +9909,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8575,8 +9990,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8632,7 +10056,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8654,7 +10087,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8680,17 +10119,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -8707,15 +10137,15 @@
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -8816,31 +10246,7 @@
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10224,7 +11630,29 @@
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10333,7 +11761,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10477,8 +11914,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10573,7 +12019,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10621,7 +12076,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10670,6 +12134,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -10711,11 +12184,11 @@
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/rdma-interface-configure/"
-      title="クラスタ・ネットワーク接続用ネットワークインターフェース作成方法"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/determine-cnrelated-issue/"
+      title="クラスタ・ネットワークに接続する計算/GPUノード作成時の問題判別方法"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      クラスタ・ネットワーク接続用ネットワークインターフェース作成方法
+      クラスタ・ネットワークに接続する計算/GPUノード作成時の問題判別方法
     </a>
   
 </span>
@@ -10723,17 +12196,18 @@
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/tech-knowhow/howto-create-cnenabled-osimage/"
-      title="クラスタ・ネットワーク未対応OSを使ったクラスタ・ネットワーク接続方法"
+      href="/t-utsunom/test_tutorial/hpc/tech-knowhow/nvme-filesystem/"
+      title="ベアメタルインスタンスのNVMe SSDローカルディスク領域ファイルシステム作成方法"
     >
-      クラスタ・ネットワーク未対応OSを使ったクラスタ・ネットワーク接続方法
+      ベアメタルインスタンスのNVMe SSDローカルディスク領域ファイルシステム作成方法
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -10777,7 +12251,7 @@
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

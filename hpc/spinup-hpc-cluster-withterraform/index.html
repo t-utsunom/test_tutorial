@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
   <meta name="description" content="HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。" />
 
   <title>HPCクラスタを構築する(基礎インフラ自動構築編) | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,21 +35,21 @@
     content="HPCクラスタを構築する(基礎インフラ自動構築編)"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/architecture_diagram.png" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="HPCクラスタを構築する(基礎インフラ自動構築編)" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/architecture_diagram.png" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。" />
 
 
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "HPCクラスタを構築する(基礎インフラ自動構築編)",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/",
       "headline": "HPCクラスタを構築する(基礎インフラ自動構築編)",
       "description": "HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/architecture_diagram.png",
-      "wordCount" : "1254",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "1307",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,85 +93,85 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="HPCクラスタを構築する(基礎インフラ自動構築編)">
   <meta property="og:description" content="HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/architecture_diagram.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/architecture_diagram.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="HPCクラスタを構築する(基礎インフラ自動構築編)">
   <meta name="twitter:description" content="HPCクラスタを構築してみましょう。このチュートリアルは、HPCクラスタのノード間接続に最適な高帯域・低遅延RDMA対応RoCEv2採用のクラスタ・ネットワークでベアメタルインスタンスをノード間接続するHPCクラスタを、予め用意されたTerraformスクリプトを活用してリソース・マネージャやTerraform CLIで自動構築します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,66 +312,57 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    <nav id="TableOfContents">
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
-    <li><a href="#0-事前準備">0. 事前準備</a>
-      <ul>
-        <li><a href="#0-0-概要">0-0. 概要</a></li>
-        <li><a href="#0-1-リソースマネージャを使用する方法">0-1. リソース・マネージャを使用する方法</a>
-          <ul>
-            <li><a href="#0-1-1-構成ソースプロバイダ作成">0-1-1. 構成ソース・プロバイダ作成</a></li>
-            <li><a href="#0-1-2-スタック作成">0-1-2. スタック作成</a></li>
-          </ul>
-        </li>
-        <li><a href="#0-2-terraform-cliを使用する方法">0-2. Terraform CLIを使用する方法</a>
-          <ul>
-            <li><a href="#0-2-1-terraform実行環境構築">0-2-1. Terraform実行環境構築</a></li>
-            <li><a href="#0-2-2-terraformスクリプト概要">0-2-2. Terraformスクリプト概要</a></li>
-            <li><a href="#0-2-3-terraformスクリプト作成">0-2-3. Terraformスクリプト作成</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#1-hpcクラスタ構築">1. HPCクラスタ構築</a>
+    <li><a href="#0-概要">0. 概要</a></li>
+    <li><a href="#1-事前準備">1. 事前準備</a>
       <ul>
         <li><a href="#1-0-概要">1-0. 概要</a></li>
-        <li><a href="#1-1-リソースマネージャを使用する方法">1-1. リソース・マネージャを使用する方法</a></li>
-        <li><a href="#1-2-terraform-cliを使用する方法">1-2. Terraform CLIを使用する方法</a></li>
+        <li><a href="#1-1-リソースマネージャを使用する方法">1-1. リソース・マネージャを使用する方法</a>
+          <ul>
+            <li><a href="#1-1-1-構成ソースプロバイダ作成">1-1-1. 構成ソース・プロバイダ作成</a></li>
+            <li><a href="#1-1-2-スタック作成">1-1-2. スタック作成</a></li>
+          </ul>
+        </li>
+        <li><a href="#1-2-terraform-cliを使用する方法">1-2. Terraform CLIを使用する方法</a>
+          <ul>
+            <li><a href="#1-2-1-terraform実行環境構築">1-2-1. Terraform実行環境構築</a></li>
+            <li><a href="#1-2-2-terraformスクリプト概要">1-2-2. Terraformスクリプト概要</a></li>
+            <li><a href="#1-2-3-terraformスクリプト作成">1-2-3. Terraformスクリプト作成</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#2-hpcクラスタ確認">2. HPCクラスタ確認</a>
+    <li><a href="#2-hpcクラスタ構築">2. HPCクラスタ構築</a>
       <ul>
         <li><a href="#2-0-概要">2-0. 概要</a></li>
-        <li><a href="#2-1-bastionノードログイン">2-1. Bastionノードログイン</a></li>
-        <li><a href="#2-2-cloud-init完了確認">2-2. cloud-init完了確認</a></li>
-        <li><a href="#2-3-計算ノードファイルシステム確認">2-3. 計算ノードファイルシステム確認</a></li>
-        <li><a href="#2-4-計算ノードbios設定確認">2-4. 計算ノードBIOS設定確認</a></li>
-        <li><a href="#2-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認">2-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認</a></li>
+        <li><a href="#2-1-リソースマネージャを使用する方法">2-1. リソース・マネージャを使用する方法</a></li>
+        <li><a href="#2-2-terraform-cliを使用する方法">2-2. Terraform CLIを使用する方法</a></li>
       </ul>
     </li>
-    <li><a href="#3-mpiプログラム実行">3. MPIプログラム実行</a></li>
-    <li><a href="#4-hpcクラスタ削除">4. HPCクラスタ削除</a>
+    <li><a href="#3-hpcクラスタ確認">3. HPCクラスタ確認</a>
       <ul>
-        <li><a href="#4-0-概要">4-0. 概要</a></li>
-        <li><a href="#4-1-リソースマネージャを使用する方法">4-1. リソース・マネージャを使用する方法</a></li>
-        <li><a href="#4-2-terraform-cliの場合">4-2. Terraform CLIの場合</a></li>
+        <li><a href="#3-0-概要">3-0. 概要</a></li>
+        <li><a href="#3-1-bastionノードログイン">3-1. Bastionノードログイン</a></li>
+        <li><a href="#3-2-cloud-init完了確認">3-2. cloud-init完了確認</a></li>
+        <li><a href="#3-3-計算ノードファイルシステム確認">3-3. 計算ノードファイルシステム確認</a></li>
+        <li><a href="#3-4-計算ノードbios設定確認">3-4. 計算ノードBIOS設定確認</a></li>
+        <li><a href="#3-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認">3-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認</a></li>
       </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
+    </li>
+    <li><a href="#4-mpiプログラム実行">4. MPIプログラム実行</a></li>
+    <li><a href="#5-hpcクラスタ削除">5. HPCクラスタ削除</a>
+      <ul>
+        <li><a href="#5-0-概要">5-0. 概要</a></li>
+        <li><a href="#5-1-リソースマネージャを使用する方法">5-1. リソース・マネージャを使用する方法</a></li>
+        <li><a href="#5-2-terraform-cliの場合">5-2. Terraform CLIの場合</a></li>
+      </ul>
+      
+    </section>
   
-</section>
 </nav>
-
-
 
         </aside>
         
@@ -413,7 +412,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HPCクラスタを構築する(基礎インフラ自動構築編)</span><meta itemprop='position' content='4' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HPCクラスタを構築する(基礎インフラ自動構築編)</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -433,57 +432,71 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
-    <style>
-table, th, td {
-    font-size: 80%;
-}
-</style>
-<p>このチュートリアルは、HPCクラスタの計算ノードに最適なベアメタルインスタンス（本チュートリアルでは <strong><a
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
+    <hr>
+<div class="flex align-center gdoc-page__anchorwrap">
+    <h1 id="0-概要"
+    >
+        0. 概要
+    </h1>
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+        <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+    </a>
+</div>
+<p>本チュートリアルは、HPCクラスタの計算ノードに最適なベアメタルインスタンスの <strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized"
->BM.Optimized3.36</a></strong> を使用）を <strong><a
+>BM.Optimized3.36 / BM.HPC.E5.144</a></strong> を <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> でノード間接続する、HPCワークロードを実行するためのHPCクラスタを構築する際のベースとなるインフラストラクチャを、予め用意された <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトを活用して自動構築し、そのインターコネクト性能を検証します。<br>
 この自動構築は、 <strong>Terraform</strong> スクリプトを <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
+  href="../#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
 >リソース・マネージャ</a></strong> に読み込ませて作成する <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> を使用する方法と、 <strong>Terraform</strong> 実行環境を用意して <strong>Terraform</strong> CLIを使用する方法から選択することが出来ます。</p>
 <p>このチュートリアルで作成する環境は、ユーザ管理、ホスト名管理、ファイル共有ストレージ、プログラム開発環境、ジョブスケジューラ等、必要なソフトウェア環境をこの上に整備し、ご自身の要件に沿ったHPCクラスタを構築する際の基礎インフラストラクチャとして利用することが可能です。<br>
 なお、これらのクラスタ管理に必要なソフトウェアの導入までを自動化する <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-10-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-10-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >HPCクラスタスタック</a></strong> も利用可能で、詳細は <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
+  href="../#1-oci-hpc%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e9%9b%86"
 >OCI HPCチュートリアル集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/spinup-hpc-cluster"
+  href="../spinup-hpc-cluster"
 >HPCクラスタを構築する(スタティッククラスタ自動構築編)</a></strong> を参照してください。</p>
 <p>本チュートリアルで作成するHPCクラスタ構築用の <strong>Terraform</strong> スクリプトは、そのひな型が <strong>GitHub</strong> のパブリックレポジトリから公開されており、適用すると以下の処理を行います。</p>
 <ul>
-<li>VCNと関連するネットワークリソース構築</li>
-<li>Bastionノード構築</li>
+<li><strong>VCN</strong> と関連するネットワークリソース作成</li>
+<li>Bastionノード作成</li>
 <li>計算ノード用 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-7-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e6%a7%8b%e6%88%90"
+  href="../#5-7-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e6%a7%8b%e6%88%90"
 >インスタンス構成</a></strong> 作成</li>
-<li><strong>クラスタ・ネットワーク</strong> と計算ノード構築</li>
+<li><strong>クラスタ・ネットワーク</strong> と計算ノード作成</li>
 <li>HPCクラスタ内のノード間SSHアクセスに使用するSSH鍵ペア作成・配布</li>
-<li>計算ノードの全ホスト名を記載したホストリストファイル（ <strong>/home/opc/hostlist.txt</strong> ）作成</li>
-<li>構築したBastionノード・計算ノードのホスト名・IPアドレス出力</li>
+<li>計算ノードの全ホスト名を記載したホストリストファイル作成</li>
+<li>作成したBastionノード・計算ノードのホスト名・IPアドレス出力</li>
 </ul>
 <p>Bastionノードは、接続するサブネットをパブリックとプライベートから選択することが可能（※1）で、以下のBastionノードへのログイン方法に合わせて選択します。</p>
 <ul>
@@ -491,7 +504,7 @@ table, th, td {
 <li>拠点間接続経由ログイン -&gt; プライベートサブネット接続</li>
 </ul>
 <p>※1）構築方法に <strong>Terraform</strong> CLIを採用する場合は、パブリックサブネット接続のみ選択可能です。</p>
-<p>またVCNと関連するネットワークリソースは、既存のものを使用することも可能で、この場合はこれらが以下の条件を満たしている必要があります。</p>
+<p>また <strong>VCN</strong> と関連するネットワークリソースは、既存のものを使用することも可能で、この場合はこれらが以下の条件を満たしている必要があります。</p>
 <ul>
 <li>プライベートサブネットが存在する</li>
 <li>パブリックサブネットが存在する（Bastionノードパブリック接続の場合）</li>
@@ -499,40 +512,38 @@ table, th, td {
 <li>プライベートサブネットが <strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/Tasks/manage-plugins.htm"
->Oracle Cloud Agent</a></strong> HPCプラグインの動作条件を満たしている（※2）</li>
+>Oracle Cloud Agent</a></strong> HPC関連プラグインの動作条件を満たしている（※2）</li>
 </ul>
 <p>※2）この詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-connect-clusternetwork/"
+  href="../tech-knowhow/howto-connect-clusternetwork/"
 >クラスタネットワーキングイメージを使ったクラスタ・ネットワーク接続方法</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-connect-clusternetwork/#1-2-%e6%8e%a5%e7%b6%9a%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e3%81%ae%e5%8b%95%e4%bd%9c%e6%9d%a1%e4%bb%b6%e5%85%85%e8%b6%b3%e7%a2%ba%e8%aa%8d"
+  href="../tech-knowhow/howto-connect-clusternetwork/#1-2-%e6%8e%a5%e7%b6%9a%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e3%81%ae%e5%8b%95%e4%bd%9c%e6%9d%a1%e4%bb%b6%e5%85%85%e8%b6%b3%e7%a2%ba%e8%aa%8d"
 >1-2. 接続サブネットの動作条件充足確認</a></strong> を参照してください。</p>
 <p><img
   src="architecture_diagram.png"
   alt="システム構成図（パブリック）"
   
 /></p>
-<center><u>Bastionノードパブリックサブネット接続</u></center><br>
 <p><img
   src="architecture_diagram_private.png"
   alt="システム構成図（プライベート）"
   
 /></p>
-<center><u>Bastionノードプライベートサブネット接続</u></center><br>
-<p>Bastionノード構築は、 <strong><a
+<p>Bastionノード作成は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
->cloud-init</a></strong> 設定ファイル( <strong>cloud-config</strong> )を含み、 <strong>cloud-init</strong> がBastionノードデプロイ時に以下の処理を行います。</p>
+  href="../#5-11-cloud-init"
+>cloud-init</a></strong> 設定ファイル(以降 <strong>cloud-config</strong> と呼称します。)を含み、 <strong>cloud-init</strong> がBastionノード作成時に以下の処理を行います。</p>
 <ul>
 <li>タイムゾーンをJSTに変更</li>
 <li>ホームディレクトリ領域のNFSエクスポート</li>
 <li>計算ノードのDNS名前解決をショートホスト名で行うための <strong>resolv.conf</strong> 修正</li>
 </ul>
-<p>また計算ノード用 <strong>インスタンス構成</strong> は、 <strong>cloud-config</strong> を含み、 <strong>cloud-init</strong> が計算ノードデプロイ時に以下の処理を行います。</p>
+<p>また計算ノード用 <strong>インスタンス構成</strong> は、 <strong>cloud-config</strong> を含み、 <strong>cloud-init</strong> が計算ノード作成時に以下の処理を行います。</p>
 <ul>
 <li>タイムゾーンをJSTに変更</li>
 <li>NVMe SSDローカルディスク領域ファイルシステム作成</li>
@@ -546,113 +557,99 @@ table, th, td {
 <p><strong>注意 :</strong> 本コンテンツ内の画面ショットは、現在のOCIコンソール画面と異なっている場合があります。</p>
 <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="0-事前準備"
+    <h1 id="1-事前準備"
     >
-        0. 事前準備
+        1. 事前準備
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 事前準備" aria-label="アンカー先: 0. 事前準備" href="#0-%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 事前準備" aria-label="アンカー先: 1. 事前準備" href="#1-%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="0-0-概要"
+    <h2 id="1-0-概要"
     >
-        0-0. 概要
+        1-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-0. 概要" aria-label="アンカー先: 0-0. 概要" href="#0-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、HPCクラスタを構築する際事前に用意しておく必要のあるリソースを作成します。<br>
 この手順は、構築手法に <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
+  href="../#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
 >リソース・マネージャ</a></strong> を使用する方法を採用するか、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> CLIを使用する方法を採用するかで異なります。</p>
-<p>[ <strong>リソース・マネージャ</strong> を使用する方法]</p>
+<ol>
+<li>
+<p><strong>リソース・マネージャ</strong> を使用する方法</p>
 <ul>
 <li><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >構成ソース・プロバイダ</a></strong> 作成</li>
 <li><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> 作成</li>
 </ul>
-<p>[ <strong>Terraform</strong> CLIを使用する方法]</p>
+</li>
+<li>
+<p><strong>Terraform</strong> CLIを使用する方法</p>
 <ul>
 <li><strong>Terraform</strong> 実行環境構築</li>
 <li><strong>Terraform</strong> スクリプト作成</li>
 </ul>
+</li>
+</ol>
 <p>以降では、2つの異なる構築手法毎にその手順を解説します。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="0-1-リソースマネージャを使用する方法"
+    <h2 id="1-1-リソースマネージャを使用する方法"
     >
-        0-1. リソース・マネージャを使用する方法
+        1-1. リソース・マネージャを使用する方法
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 0-1. リソース・マネージャを使用する方法" href="#0-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 1-1. リソース・マネージャを使用する方法" href="#1-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h3 id="0-1-1-構成ソースプロバイダ作成"
+    <h3 id="1-1-1-構成ソースプロバイダ作成"
     >
-        0-1-1. 構成ソース・プロバイダ作成
+        1-1-1. 構成ソース・プロバイダ作成
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-1-1-構成ソースプロバイダ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-1-1. 構成ソース・プロバイダ作成" aria-label="アンカー先: 0-1-1. 構成ソース・プロバイダ作成" href="#0-1-1-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-1-1-構成ソースプロバイダ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1-1. 構成ソース・プロバイダ作成" aria-label="アンカー先: 1-1-1. 構成ソース・プロバイダ作成" href="#1-1-1-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、ひな型となる <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
->Terraform</a></strong> スクリプトを <strong>GitHub</strong> パブリックレポジトリから取り込むための <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
->構成ソース・プロバイダ</a></strong> を作成します。</p>
 <p><strong>構成ソース・プロバイダ</strong> の作成は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >ここ</a></strong> を参照してください。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h3 id="0-1-2-スタック作成"
+    <h3 id="1-1-2-スタック作成"
     >
-        0-1-2. スタック作成
+        1-1-2. スタック作成
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-1-2-スタック作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-1-2. スタック作成" aria-label="アンカー先: 0-1-2. スタック作成" href="#0-1-2-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-1-2-スタック作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1-2. スタック作成" aria-label="アンカー先: 1-1-2. スタック作成" href="#1-1-2-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、HPCクラスタを構築するための <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
->リソース・マネージャ</a></strong> 用 <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
->スタック</a></strong> を作成します。</p>
-<ol>
-<li>
-<p>OCIコンソールにログインし、HPCクラスタをデプロイするリージョンを選択後、 <strong>開発者サービス</strong> → <strong>リソース・マネージャ</strong> → <strong>スタック</strong> とメニューを辿ります。</p>
-</li>
-<li>
-<p>表示される以下画面で、<strong>スタックの作成</strong> ボタンをクリックします。</p>
+<p>OCIコンソールにログインし、HPCクラスタを構築するリージョンを選択後、 <strong>開発者サービス</strong> → <strong>リソース・マネージャ</strong> → <strong>スタック</strong> とメニューを辿ります。</p>
+<p>次に、表示される以下画面で、<strong>スタックの作成</strong> ボタンをクリックします。</p>
 <p><img
   src="console_page02.png"
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される以下 <strong>スタック情報</strong> 画面で、以下の情報を入力し、下部の <strong>次</strong> ボタンをクリックします。</p>
+<p>次に、表示される以下 <strong>スタック情報</strong> 画面で、以下の情報を入力し、下部の <strong>次</strong> ボタンをクリックします。</p>
 <ul>
 <li><strong>Terraformの構成のオリジン :</strong> ソース・コード制御システム</li>
 <li><strong>ソースコード管理タイプ :</strong> <strong>GitHub</strong></li>
 <li><strong>構成ソース・プロバイダ :</strong> 先に作成した <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >構成ソース・プロバイダ</a></strong></li>
 <li><strong>リポジトリ :</strong> <strong>tutorial_cn_rm</strong></li>
 <li><strong>ブランチ :</strong> <strong>master</strong></li>
@@ -664,38 +661,41 @@ table, th, td {
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される <strong>変数の構成</strong> 画面で、各画面フィールドに以下の情報を入力し、下部の <strong>次</strong> ボタンをクリックします。<br>
-4.1 <strong>General options</strong> フィールド</p>
+<p>次に、表示される以下 <strong>変数の構成</strong> 画面で、各画面フィールドに以下の情報を入力し、下部の <strong>次</strong> ボタンをクリックします。</p>
 <ul>
-<li><strong>Compartment :</strong> HPCクラスタをデプロイする <strong>コンパートメント</strong></li>
-<li><strong>Availability Domain :</strong> HPCクラスタをデプロイする <strong>可用性ドメイン</strong></li>
+<li>
+<p><strong>General options</strong> フィールド</p>
+<ul>
+<li><strong>Compartment :</strong> HPCクラスタを構築する <strong>コンパートメント</strong></li>
+<li><strong>Availability Domain :</strong> HPCクラスタを構築する <strong>可用性ドメイン</strong></li>
 <li><strong>SSH public key :</strong> Bastionノードにログインする際使用するSSH秘密鍵に対応する公開鍵<br>
 （公開鍵ファイルのアップロード（ <strong>SSHキー・ファイルの選択</strong> ）と公開鍵のフィールドへの貼り付け（ <strong>SSHキーの貼付け</strong> ）が選択可能）</li>
 <li><strong>Private bastion :</strong> Bastionノードをプライベートサブネットに接続するかどうかを指定（デフォルト：パブリックサブネット接続）<br>
 （パブリックサブネットに接続する場合はチェックオフ/プライベートサブネットに接続する場合はチェック）</li>
-<li><strong>Use existing VCN :</strong> 既存のVCNを使用するかどうかを指定（デフォルト：VCNを新規作成）<br>
-（既存のVCNを使用する場合は、チェックすると表示されるVCN・パブリックサブネット・プライベートサブネットの各フィールドにOCIDを指定します。）</li>
+<li><strong>Use existing VCN :</strong> 既存の <strong>VCN</strong> を使用するかどうかを指定（デフォルト： <strong>VCN</strong> を新規作成）<br>
+（既存の <strong>VCN</strong> を使用する場合は、チェックすると表示される <strong>VCN</strong> ・パブリックサブネット・プライベートサブネットの各フィールドにOCIDを指定します。）</li>
+</ul>
+</li>
 </ul>
 <p><img
   src="stack_page02.png"
   alt="画面ショット"
   
-/><br>
-4.2 <strong>Compute/GPU node options</strong> フィールド</p>
+/></p>
+<ul>
+<li>
+<p><strong>Compute/GPU node options</strong> フィールド</p>
 <ul>
 <li><strong>Display name postfix :</strong> 計算ノードホスト名の接尾辞（※3）</li>
-<li><strong>Shape :</strong> <strong>BM.Optimized3.36</strong></li>
+<li><strong>Shape :</strong> <strong>BM.Optimized3.36</strong> / <strong>BM.HPC.E5.144</strong></li>
 <li><strong>Node count :</strong> 計算ノードのノード数（デフォルト：2）</li>
 <li><strong>Image OCID :</strong> 計算ノードのイメージOCID（※4）</li>
 <li><strong>Boot volume size :</strong> 計算ノードのブートボリュームサイズ（デフォルト：100GB）</li>
-<li><strong>cloud-config :</strong> 計算ノードの <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
->cloud-init</a></strong> 設定ファイル( <strong>cloud-config</strong> )（※5）</li>
-<li><strong>NPS for BM.Optimized3.36 :</strong> 計算ノードの <strong>NPS</strong> 設定値 (デフォルト：NPS1) （※6）</li>
+<li><strong>cloud-config :</strong> 計算ノードの <strong>cloud-config</strong> （※5）</li>
+<li><strong>NPS for BM.xxxx.xx :</strong> 計算ノードの <strong>NPS</strong> 設定値 (デフォルト：NPS1) （※6）</li>
 <li><strong>SMT :</strong> 計算ノードの <strong>SMT</strong> 設定値 (デフォルト：有効) （※6）</li>
+</ul>
+</li>
 </ul>
 <p><img
   src="stack_page03.png"
@@ -714,6 +714,11 @@ table, th, td {
   </thead>
   <tbody>
       <tr>
+          <td style="text-align: center">12</td>
+          <td style="text-align: center">8.10</td>
+          <td style="text-align: center">ocid1.image.oc1..aaaaaaaa45plxi2fuhmbze63ynbs3xfigb2iroqpbqxh5qbauw3pbh66ddvq</td>
+      </tr>
+      <tr>
           <td style="text-align: center">1</td>
           <td style="text-align: center">8.9</td>
           <td style="text-align: center">ocid1.image.oc1..aaaaaaaaxiqlqer2ycd7hgto7in7raojq7v5kud6wlakmm7u7q64ai352tzq</td>
@@ -730,62 +735,60 @@ table, th, td {
       </tr>
   </tbody>
 </table> </div>
-<p>※5）以下をテキストファイルとして保存し、ブラウザから読み込みます。</p>
+<p>※5）以下をテキストファイルとして保存し、ブラウザから読み込みます。<br>
+なお既存の <strong>VCN</strong> を使用する場合は、以下の <strong>cloud-config</strong> 中のDNSサーチパスにパブリックサブネット名（<strong>public.vcn.oraclevcn.com</strong>）を追加している箇所を、既存のパブリックサブネット名に変更します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#cloud-config</span>
 </span></span><span class="line"><span class="cl">timezone: Asia/Tokyo
 </span></span><span class="line"><span class="cl">runcmd:
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Mount NVMe local storage</span>
-</span></span><span class="line"><span class="cl">  - vgcreate nvme /dev/nvme0n1
-</span></span><span class="line"><span class="cl">  - lvcreate -l 100%FREE nvme
-</span></span><span class="line"><span class="cl">  - mkfs.xfs -L localscratch /dev/nvme/lvol0
-</span></span><span class="line"><span class="cl">  - mkdir -p /mnt/localdisk
-</span></span><span class="line"><span class="cl">  - <span class="nb">echo</span> <span class="s2">&#34;LABEL=localscratch /mnt/localdisk/ xfs defaults,noatime 0 0&#34;</span> &gt;&gt; /etc/fstab
-</span></span><span class="line"><span class="cl">  - systemctl daemon-reload
-</span></span><span class="line"><span class="cl">  - mount /mnt/localdisk
+</span></span><span class="line"><span class="cl">    - vgcreate nvme /dev/nvme0n1
+</span></span><span class="line"><span class="cl">    - lvcreate -l 100%FREE nvme
+</span></span><span class="line"><span class="cl">    - mkfs.xfs -L localscratch /dev/nvme/lvol0
+</span></span><span class="line"><span class="cl">    - mkdir -p /mnt/localdisk
+</span></span><span class="line"><span class="cl">    - <span class="nb">echo</span> <span class="s2">&#34;LABEL=localscratch /mnt/localdisk/ xfs defaults,noatime 0 0&#34;</span> &gt;&gt; /etc/fstab
+</span></span><span class="line"><span class="cl">    - systemctl daemon-reload
+</span></span><span class="line"><span class="cl">    - mount /mnt/localdisk
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Stop firewalld</span>
-</span></span><span class="line"><span class="cl">  - systemctl disable --now firewalld
+</span></span><span class="line"><span class="cl">    - systemctl disable --now firewalld
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Expand root file system to those set by instance configuration</span>
-</span></span><span class="line"><span class="cl">  - /usr/libexec/oci-growfs -y
+</span></span><span class="line"><span class="cl">    - /usr/libexec/oci-growfs -y
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Add public subnet to DNS search</span>
-</span></span><span class="line"><span class="cl">  - sed -i <span class="s1">&#39;/^search/s/$/ public.vcn.oraclevcn.com/g&#39;</span> /etc/resolv.conf
-</span></span><span class="line"><span class="cl">  - chattr -R +i /etc/resolv.conf
+</span></span><span class="line"><span class="cl">    - sed -i <span class="s1">&#39;/^search/s/$/ public.vcn.oraclevcn.com/g&#39;</span> /etc/resolv.conf
+</span></span><span class="line"><span class="cl">    - chattr -R +i /etc/resolv.conf
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># NFS mount setting</span>
-</span></span><span class="line"><span class="cl">  - <span class="nb">echo</span> <span class="s2">&#34;bastion:/home /home nfs defaults,vers=3 0 0&#34;</span> &gt;&gt; /etc/fstab
-</span></span><span class="line"><span class="cl">  - systemctl daemon-reload
-</span></span><span class="line"><span class="cl">  - mount /home
-</span></span></code></pre></div><p>※6）詳細は、 <strong><a
+</span></span><span class="line"><span class="cl">    - <span class="nb">echo</span> <span class="s2">&#34;bastion:/home /home nfs defaults,vers=3 0 0&#34;</span> &gt;&gt; /etc/fstab
+</span></span><span class="line"><span class="cl">    - systemctl daemon-reload
+</span></span><span class="line"><span class="cl">    - mount /home
+</span></span></code></pre></div><p>※6）計算ノードに <strong>BM.Optimized3.36</strong> を使用する場合の <strong>NPS</strong> / <strong>SMT</strong> 設定値で、 <strong>BM.HPC.E5.144</strong> の場合は指定することが出来ません。<br>
+<strong>NPS</strong> / <strong>SMT</strong> 設定値の詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+  href="../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
 >OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/bios-setting/"
->パフォーマンスに関連するベア・メタル・インスタンスのBIOS設定方法</a></strong> を参照してください。</p>
-<p>※7）<strong><a
+  href="../benchmark/bios-setting/"
+>パフォーマンスに関連するベア・メタル・インスタンスのBIOS設定方法</a></strong> を参照してください。<br>
+※7）<strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/"
+  href="../tech-knowhow/osimage-for-cluster/"
 >クラスタネットワーキングイメージの選び方</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
+  href="../tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
 >1. クラスタネットワーキングイメージ一覧</a></strong> のイメージNo.です。</p>
-</li>
-<li>
-<p>表示される <strong>確認</strong> 画面で、これまでの設定項目が意図したものになっているかを確認し、以下 <strong>作成されたスタックで適用を実行しますか。</strong> フィールドの <strong>適用の実行</strong> をチェックオフし、下部の <strong>作成</strong> ボタンをクリックします。</p>
+<p>次に、表示される <strong>確認</strong> 画面で、これまでの設定項目が意図したものになっているかを確認し、以下 <strong>作成されたスタックで適用を実行しますか。</strong> フィールドの <strong>適用の実行</strong> をチェックオフし、下部の <strong>作成</strong> ボタンをクリックします。</p>
 <p><img
   src="stack_page04.png"
   alt="画面ショット"
   
 /></p>
 <p>ここで <strong>適用の実行</strong> をチェックした場合、 <strong>作成</strong> ボタンのクリックと同時に <strong>スタック</strong> の適用が開始され、HPCクラスタの構築が始まりますが、このチュートリアルでは後の章で改めて <strong>スタック</strong> の適用を行います。</p>
-</li>
-</ol>
 <p>これで、以下画面のとおりHPCクラスタ構築用 <strong>スタック</strong> が作成されました。</p>
 <p><img
   src="stack_page05.png"
@@ -793,26 +796,26 @@ table, th, td {
   
 /></p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="0-2-terraform-cliを使用する方法"
+    <h2 id="1-2-terraform-cliを使用する方法"
     >
-        0-2. Terraform CLIを使用する方法
+        1-2. Terraform CLIを使用する方法
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-2-terraform-cliを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2. Terraform CLIを使用する方法" aria-label="アンカー先: 0-2. Terraform CLIを使用する方法" href="#0-2-terraform-cli%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-2-terraform-cliを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. Terraform CLIを使用する方法" aria-label="アンカー先: 1-2. Terraform CLIを使用する方法" href="#1-2-terraform-cli%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h3 id="0-2-1-terraform実行環境構築"
+    <h3 id="1-2-1-terraform実行環境構築"
     >
-        0-2-1. Terraform実行環境構築
+        1-2-1. Terraform実行環境構築
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-2-1-terraform実行環境構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2-1. Terraform実行環境構築" aria-label="アンカー先: 0-2-1. Terraform実行環境構築" href="#0-2-1-terraform%e5%ae%9f%e8%a1%8c%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-2-1-terraform実行環境構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2-1. Terraform実行環境構築" aria-label="アンカー先: 1-2-1. Terraform実行環境構築" href="#1-2-1-terraform%e5%ae%9f%e8%a1%8c%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> CLIを使用してHPCクラスタのライフサイクル管理を実行する <strong>Terraform</strong> 実行環境を構築します。<br>
 この実行環境は、インターネットに接続された <strong>Linux</strong> ・ <strong>Windows</strong> ・ <strong>Mac</strong> の何れかのOSが稼働している端末であればよく、以下のような選択肢が考えられます。</p>
 <ul>
@@ -838,17 +841,17 @@ table, th, td {
   href="https://docs.oracle.com/ja-jp/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm"
 >ここ</a></strong> を参照してください。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h3 id="0-2-2-terraformスクリプト概要"
+    <h3 id="1-2-2-terraformスクリプト概要"
     >
-        0-2-2. Terraformスクリプト概要
+        1-2-2. Terraformスクリプト概要
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-2-2-terraformスクリプト概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2-2. Terraformスクリプト概要" aria-label="アンカー先: 0-2-2. Terraformスクリプト概要" href="#0-2-2-terraform%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-2-2-terraformスクリプト概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2-2. Terraformスクリプト概要" aria-label="アンカー先: 1-2-2. Terraformスクリプト概要" href="#1-2-2-terraform%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本チュートリアルで使用するHPCクラスタ構築用の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトは、そのひな型を <strong>GitHub</strong> のパブリックレポジトリで公開しており、以下のファイル群で構成されています。</p>
 <div class="table-wrap"> <table>
   <thead>
@@ -862,15 +865,15 @@ table, th, td {
           <td>cn.tf</td>
           <td><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-7-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e6%a7%8b%e6%88%90"
+  href="../#5-7-%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e6%a7%8b%e6%88%90"
 >インスタンス構成</a></strong> と <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+  href="../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
 >クラスタ・ネットワーク</a></strong> の定義</td>
       </tr>
       <tr>
           <td>outputs.tf</td>
-          <td>構築したリソース情報の出力</td>
+          <td>作成したリソース情報の出力</td>
       </tr>
       <tr>
           <td>terraform.tfvars</td>
@@ -895,23 +898,21 @@ table, th, td {
   </tbody>
 </table> </div>
 <p>これらのうち自身の環境に合わせて修正する箇所は、基本的に <strong>terraform.tfvars</strong> と <strong>provider.tf</strong> に集約しています。</p>
-<p>また、これらのファイルと同じディレクトリに <strong>user_data</strong> ディレクトリが存在し、 <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
->cloud-init</a></strong> 設定ファイル（ <strong>cloud-config</strong> ）を格納しています。<br>
-この <strong>cloud-config</strong> を修正することで、構築するHPCクラスタのOSレベルのカスタマイズをご自身の環境に合わせて追加・変更することも可能でます。</p>
+<p>また、これらのファイルと同じディレクトリに <strong>user_data</strong> ディレクトリが存在し、 <strong>cloud-config</strong> を格納しています。<br>
+この <strong>cloud-config</strong> を修正することで、構築するHPCクラスタのOSレベルのカスタマイズをご自身の環境に合わせて追加・変更することも可能です。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h3 id="0-2-3-terraformスクリプト作成"
+    <h3 id="1-2-3-terraformスクリプト作成"
     >
-        0-2-3. Terraformスクリプト作成
+        1-2-3. Terraformスクリプト作成
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#0-2-3-terraformスクリプト作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0-2-3. Terraformスクリプト作成" aria-label="アンカー先: 0-2-3. Terraformスクリプト作成" href="#0-2-3-terraform%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#1-2-3-terraformスクリプト作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2-3. Terraformスクリプト作成" aria-label="アンカー先: 1-2-3. Terraformスクリプト作成" href="#1-2-3-terraform%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<ol>
-<li>
-<p><strong>Terraform</strong> スクリプトの作成は、まず以下の <strong>GitHub</strong> レポジトリからひな型となる <strong>Terraform</strong> スクリプトを <strong>Terraform</strong> 実行環境にダウンロードしますが、</p>
+<p><strong><a
+  class="gdoc-markdown__link"
+  href="../#5-12-terraform"
+>Terraform</a></strong> スクリプトの作成は、まず以下の <strong>GitHub</strong> レポジトリからひな型となる <strong>Terraform</strong> スクリプトを <strong>Terraform</strong> 実行環境にダウンロードしますが、</p>
 <p><strong><a
   class="gdoc-markdown__link"
   href="https://github.com/fwiw6430/tutorial_cn"
@@ -920,9 +921,7 @@ table, th, td {
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo dnf install -y git
 </span></span><span class="line"><span class="cl">$ git clone https://github.com/fwiw6430/tutorial_cn
 </span></span></code></pre></div><p><strong>GitHub</strong> の <strong>Terraform</strong> スクリプトレポジトリのページからzipファイルを <strong>Terraform</strong> 実行環境にダウンロード・展開することで行います。</p>
-</li>
-<li>
-<p>ダウンロードした <strong>Terraform</strong> スクリプトのうち、 <strong>terraform.tfvars</strong> と <strong>provider.tf</strong> 内の以下 <strong>Terraform</strong> 変数を自身の環境に合わせて修正します。<br>
+<p>次に、ダウンロードした <strong>Terraform</strong> スクリプトのうち、 <strong>terraform.tfvars</strong> と <strong>provider.tf</strong> 内の以下 <strong>Terraform</strong> 変数を自身の環境に合わせて修正します。<br>
 この際、これらファイル内の <strong>Terraform</strong> 変数は、予めコメント（ <strong>#</strong> で始まる行）として埋め込まれていたり、キーワード <strong>xxxx</strong> で仮の値が入力されているため、コメント行を有効化して自身の値に置き換える、等の修正を行います。</p>
 <p>[ <strong>provider.tf</strong> ]</p>
 <div class="table-wrap"> <table>
@@ -965,7 +964,7 @@ table, th, td {
       </tr>
       <tr>
           <td>region</td>
-          <td>HPCクラスタをデプロイする <strong>リージョン</strong> 識別子</td>
+          <td>HPCクラスタを構築する <strong>リージョン</strong> 識別子</td>
           <td><strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/General/Concepts/regions.htm"
@@ -985,15 +984,15 @@ table, th, td {
   <tbody>
       <tr>
           <td>compartment_ocid</td>
-          <td>HPCクラスタをデプロイする <strong>コンパートメント</strong> のOCID</td>
+          <td>HPCクラスタを構築する <strong>コンパートメント</strong> のOCID</td>
           <td style="text-align: center"><strong><a
   class="gdoc-markdown__link"
   href="https://docs.oracle.com/ja-jp/iaas/Content/GSG/Tasks/contactingsupport_topic-Finding_the_OCID_of_a_Compartment.htm"
->ここ</a></strong> を参照</td>
+>ここ</a></strong> を<br>参照</td>
       </tr>
       <tr>
           <td>ad</td>
-          <td>HPCクラスタをデプロイする <strong>可用性ドメイン</strong> 識別子</td>
+          <td>HPCクラスタを構築する <strong>可用性ドメイン</strong> 識別子</td>
           <td style="text-align: center">（※8）</td>
       </tr>
       <tr>
@@ -1003,27 +1002,27 @@ table, th, td {
       </tr>
       <tr>
           <td>exist_vcn</td>
-          <td>既存のVCNを使用するかどうかの指定（true/false）</td>
+          <td>既存の <strong>VCN</strong> を使用するかどうかの指定（true/false）</td>
           <td style="text-align: center">-</td>
       </tr>
       <tr>
           <td>vcn_ocid</td>
-          <td>既存のVCNを使用する場合使用するVCNのOCID（※12）</td>
+          <td>既存の <strong>VCN</strong> を使用する場合使用する <strong>VCN</strong> のOCID（※12）</td>
           <td style="text-align: center">（※13）</td>
       </tr>
       <tr>
           <td>public_ocid</td>
-          <td>既存のVCNを使用する場合使用するパブリックサブネットのOCID（※12）</td>
+          <td>既存の <strong>VCN</strong> を使用する場合使用するパブリックサブネットのOCID（※12）</td>
           <td style="text-align: center">（※13）</td>
       </tr>
       <tr>
           <td>private_ocid</td>
-          <td>既存のVCNを使用する場合使用するプライベートサブネットのOCID（※12）</td>
+          <td>既存の <strong>VCN</strong> を使用する場合使用するプライベートサブネットのOCID（※12）</td>
           <td style="text-align: center">（※13）</td>
       </tr>
       <tr>
           <td>comp_shape</td>
-          <td>計算ノードに使用するシェイプ<br>・ <strong>BM.Optimized3.36</strong></td>
+          <td>計算ノードに使用するシェイプ<br>・ <strong>BM.Optimized3.36</strong> / <strong>BM.HPC.E5.144</strong></td>
           <td style="text-align: center">-</td>
       </tr>
       <tr>
@@ -1043,12 +1042,12 @@ table, th, td {
       </tr>
       <tr>
           <td>comp_nps_x9</td>
-          <td>計算ノードの <strong>NPS</strong> BIOS設定値</td>
+          <td>計算ノードが <strong>BM.Optimized3.36</strong> の場合の <strong>NPS</strong> BIOS設定値（※14）</td>
           <td style="text-align: center">（※10）</td>
       </tr>
       <tr>
           <td>comp_smt</td>
-          <td>計算ノードの <strong>SMT</strong> BIOS設定値</td>
+          <td>計算ノードが <strong>BM.Optimized3.36</strong> の場合の <strong>SMT</strong> BIOS設定値（※14）</td>
           <td style="text-align: center">（※10）</td>
       </tr>
       <tr>
@@ -1071,122 +1070,117 @@ table, th, td {
 /></p>
 <p>※9）コメントとして埋め込まれているOSイメージOCIDから、コメント文の記載を参考に適切なOSイメージOCIDのコメントを外して使用します。詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/"
+  href="../tech-knowhow/osimage-for-cluster/"
 >クラスタネットワーキングイメージの選び方</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
+  href="../tech-knowhow/osimage-for-cluster/#1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e4%b8%80%e8%a6%a7"
 >1. クラスタネットワーキングイメージ一覧</a></strong> を参照してください。<br>
 ※10）詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+  href="../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
 >OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/bios-setting/"
+  href="../benchmark/bios-setting/"
 >パフォーマンスに関連するベア・メタル・インスタンスのBIOS設定方法</a></strong> を参照してください。<br>
 ※11）例えば <strong>x9-ol89</strong> と指定した場合、計算ノードのホスト名は <strong>inst-xxxxx-x9-ol89</strong> となります。（ <strong>xxxxx</strong> はランダムな文字列）<br>
-※12）既存のVCNを使用する場合のみコメントを外して指定します。<br>
-※13）OCIコンソール上で当該VCN・サブネットの詳細画面を表示して確認します。</p>
-</li>
-</ol>
+※12）既存の <strong>VCN</strong> を使用する場合のみコメントを外して指定します。<br>
+※13）OCIコンソール上で当該 <strong>VCN</strong> ・サブネットの詳細画面を表示して確認します。<br>
+※14）計算ノードに <strong>BM.HPC.E5.144</strong> を使用する場合は、この変数を使用しないためコメントのままとします。</p>
 <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="1-hpcクラスタ構築"
+    <h1 id="2-hpcクラスタ構築"
     >
-        1. HPCクラスタ構築
+        2. HPCクラスタ構築
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#1-hpcクラスタ構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. HPCクラスタ構築" aria-label="アンカー先: 1. HPCクラスタ構築" href="#1-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#2-hpcクラスタ構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. HPCクラスタ構築" aria-label="アンカー先: 2. HPCクラスタ構築" href="#2-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="1-0-概要"
+    <h2 id="2-0-概要"
     >
-        1-0. 概要
+        2-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、先に作成した <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> / <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトを使用し、HPCクラスタを構築します。</p>
 <p>この手順は、構築手法に <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
+  href="../#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
 >リソース・マネージャ</a></strong> を使用する方法を採用するか、 <strong>Terraform</strong> CLIを使用する方法を採用するかで異なり、以降では2つの異なる構築手法毎にその手順を解説します。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="1-1-リソースマネージャを使用する方法"
+    <h2 id="2-1-リソースマネージャを使用する方法"
     >
-        1-1. リソース・マネージャを使用する方法
+        2-1. リソース・マネージャを使用する方法
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#1-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 1-1. リソース・マネージャを使用する方法" href="#1-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#2-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 2-1. リソース・マネージャを使用する方法" href="#2-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<ol>
-<li>
 <p>以下 <strong>スタックの詳細</strong> 画面で、 <strong>適用</strong> ボタンをクリックします。</p>
 <p><img
   src="stack_page06.png"
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される以下 <strong>適用</strong> サイドバーで、 <strong>適用</strong> ボタンをクリックします。</p>
+<p>次に、表示される以下 <strong>適用</strong> サイドバーで、 <strong>適用</strong> ボタンをクリックします。</p>
 <p><img
   src="stack_page07.png"
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される以下 <strong>ジョブ詳細</strong> ウィンドウで、左上のステータスが <strong>受入れ済</strong> → <strong>進行中</strong> と遷移すれば、 <strong>スタック</strong> の適用が実施されています。</p>
+<p>次に、表示される以下 <strong>ジョブ詳細</strong> ウィンドウで、左上のステータスが <strong>受入れ済</strong> → <strong>進行中</strong> と遷移すれば、 <strong>スタック</strong> の適用が実施されています。</p>
 <p><img
   src="stack_page08.png"
   alt="画面ショット"
   
 /></p>
-<p>表示される以下 <strong>ログ</strong> フィールドで、リソースのデプロイ状況を確認します。</p>
+<p>次に、表示される以下 <strong>ログ</strong> フィールドで、リソースの作成状況を確認します。</p>
 <p><img
   src="stack_page09.png"
   alt="画面ショット"
   
 /></p>
 <p>この適用が完了するまでの所要時間は、計算ノードのノード数が2ノードの場合で5分程度です。</p>
-<p>ステータスが <strong>成功</strong> となれば、HPCクラスタのデプロイが完了しており、以下のように <strong>ログ</strong> フィールドの最後にBastionノードと計算ノードのホスト名とIPアドレスが出力されます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Outputs:
+<p>ステータスが <strong>成功</strong> となれば、HPCクラスタの構築が完了しており、以下のように <strong>ログ</strong> フィールドの最後にBastionノードと計算ノードのホスト名とIPアドレスが出力されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">Outputs:
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">Bastion_instances_created</span> <span class="o">=</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;bastion&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.1.138&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;public_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;123.456.789.123&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.1.242&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;public_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;158.101.120.164&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-9fhuq-x9-ol8&#34;</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-9fhuq-x9-ol8&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created_e5</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-obsxx-e5-ol81&#34;</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-obsxx-e5-ol81&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.27&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-dz99s-x9-ol8&#34;</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-dz99s-x9-ol8&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.73&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-utyax-e5-ol81&#34;</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-utyax-e5-ol81&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.138&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div></li>
-</ol>
-<div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="1-2-terraform-cliを使用する方法"
+</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created_none5</span> <span class="o">=</span> <span class="o">{}</span>
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="2-2-terraform-cliを使用する方法"
     >
-        1-2. Terraform CLIを使用する方法
+        2-2. Terraform CLIを使用する方法
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#1-2-terraform-cliを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. Terraform CLIを使用する方法" aria-label="アンカー先: 1-2. Terraform CLIを使用する方法" href="#1-2-terraform-cli%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#2-2-terraform-cliを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. Terraform CLIを使用する方法" aria-label="アンカー先: 2-2. Terraform CLIを使用する方法" href="#2-2-terraform-cli%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1196,72 +1190,74 @@ table, th, td {
 </span></span><span class="line"><span class="cl">$ terraform apply --auto-approve
 </span></span></code></pre></div><p>最後のコマンドによる <strong>Terraform</strong> スクリプトの適用完了までの所要時間は、計算ノードのノード数が2ノードの場合で5分程度です。</p>
 <p><strong>Terraform</strong> スクリプトの適用が正常に完了すると、以下のようにコマンド出力の最後にBastionノードと計算ノードのホスト名とIPアドレスが出力されます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Apply complete! Resources: <span class="m">16</span> added, <span class="m">0</span> changed, <span class="m">0</span> destroyed.
-</span></span><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">:
 </span></span><span class="line"><span class="cl">Outputs:
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">Bastion_instances_created</span> <span class="o">=</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;bastion&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.1.138&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;public_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;123.456.789.123&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.1.242&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;public_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;158.101.120.164&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-9fhuq-x9-ol8&#34;</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-9fhuq-x9-ol8&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created_e5</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-obsxx-e5-ol81&#34;</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-obsxx-e5-ol81&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.27&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-dz99s-x9-ol8&#34;</span> <span class="o">=</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-dz99s-x9-ol8&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.73&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;inst-utyax-e5-ol81&#34;</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;display_name&#34;</span> <span class="o">=</span> <span class="s2">&#34;inst-utyax-e5-ol81&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;private_ip&#34;</span> <span class="o">=</span> <span class="s2">&#34;10.0.2.138&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Compute_in_cn_created_none5</span> <span class="o">=</span> <span class="o">{}</span>
 </span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="2-hpcクラスタ確認"
+    <h1 id="3-hpcクラスタ確認"
     >
-        2. HPCクラスタ確認
+        3. HPCクラスタ確認
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-hpcクラスタ確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. HPCクラスタ確認" aria-label="アンカー先: 2. HPCクラスタ確認" href="#2-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-hpcクラスタ確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. HPCクラスタ確認" aria-label="アンカー先: 3. HPCクラスタ確認" href="#3-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-0-概要"
+    <h2 id="3-0-概要"
     >
-        2-0. 概要
+        3-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-0. 概要" aria-label="アンカー先: 2-0. 概要" href="#2-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-0. 概要" aria-label="アンカー先: 3-0. 概要" href="#3-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、デプロイされたHPCクラスタ環境を確認します。</p>
+<p>本章は、構築されたHPCクラスタ環境を確認します。</p>
 <p>この際、作成された計算ノードの全ホスト名を記載したホストリストファイルを使用し、BastionノードからHPCクラスタ内の全計算ノードにSSHでコマンドを発行、その環境を確認します。<br>
 なおこのホストリストファイルは、Bastionノードと全計算ノードに <strong>/home/opc/hostlist.txt</strong> として存在します。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-1-bastionノードログイン"
+    <h2 id="3-1-bastionノードログイン"
     >
-        2-1. Bastionノードログイン
+        3-1. Bastionノードログイン
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-1-bastionノードログイン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. Bastionノードログイン" aria-label="アンカー先: 2-1. Bastionノードログイン" href="#2-1-bastion%e3%83%8e%e3%83%bc%e3%83%89%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-1-bastionノードログイン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. Bastionノードログイン" aria-label="アンカー先: 3-1. Bastionノードログイン" href="#3-1-bastion%e3%83%8e%e3%83%bc%e3%83%89%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>Bastionノードは、パブリックサブネット接続の場合はHPCクラスタ構築完了時に表示されるパブリックIPアドレスに対してインターネット経由SSHログインし、プライベートサブネット接続の場合はHPCクラスタ構築完了時に表示されるプライベートIPアドレスに対して拠点間接続経由SSHログインしますが、これには構築時に指定したSSH公開鍵に対応する秘密鍵を使用して以下コマンドで行います。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ ssh -i path_to_ssh_secret_key opc@123.456.789.123
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-2-cloud-init完了確認"
+    <h2 id="3-2-cloud-init完了確認"
     >
-        2-2. cloud-init完了確認
+        3-2. cloud-init完了確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-2-cloud-init完了確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. cloud-init完了確認" aria-label="アンカー先: 2-2. cloud-init完了確認" href="#2-2-cloud-init%e5%ae%8c%e4%ba%86%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-2-cloud-init完了確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-2. cloud-init完了確認" aria-label="アンカー先: 3-2. cloud-init完了確認" href="#3-2-cloud-init%e5%ae%8c%e4%ba%86%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
+  href="../#5-11-cloud-init"
 >cloud-init</a></strong> は、計算ノードが起動してSSHログインできる状態であっても、その処理が継続している可能性があるため、以下コマンドをBastionノードのopcユーザで実行し、そのステータスが <strong>done</strong> となっていることで <strong>cloud-init</strong> の処理完了を確認します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat /home/opc/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh -oStrictHostKeyChecking<span class="o">=</span>accept-new <span class="nv">$hname</span> <span class="s2">&#34;sudo cloud-init status&#34;</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat ~/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh -oStrictHostKeyChecking<span class="o">=</span>accept-new <span class="nv">$hname</span> <span class="s2">&#34;sudo cloud-init status&#34;</span><span class="p">;</span> <span class="k">done</span>
 </span></span><span class="line"><span class="cl">inst-xxxxx-x9-ol8
 </span></span><span class="line"><span class="cl">Warning: Permanently added <span class="s1">&#39;inst-xxxxx-x9-ol8,10.0.2.159&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
 </span></span><span class="line"><span class="cl">status: <span class="k">done</span>
@@ -1271,16 +1267,16 @@ table, th, td {
 </span></span><span class="line"><span class="cl">$
 </span></span></code></pre></div><p>ステータスが <strong>running</strong> の場合は、 <strong>cloud-init</strong> の処理が継続中のため、処理が完了するまで待ちます。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-3-計算ノードファイルシステム確認"
+    <h2 id="3-3-計算ノードファイルシステム確認"
     >
-        2-3. 計算ノードファイルシステム確認
+        3-3. 計算ノードファイルシステム確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-3-計算ノードファイルシステム確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. 計算ノードファイルシステム確認" aria-label="アンカー先: 2-3. 計算ノードファイルシステム確認" href="#2-3-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-3-計算ノードファイルシステム確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-3. 計算ノードファイルシステム確認" aria-label="アンカー先: 3-3. 計算ノードファイルシステム確認" href="#3-3-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>計算ノードは、以下のようにルートファイルシステムがデフォルトの50 GBから指定したサイズに拡張され、NVMe SSDローカルディスクが <strong>/mnt/localdisk</strong> にマウントされ、Bastionノードの <strong>/home</strong> が <strong>/home</strong> としてマウントされています。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat /home/opc/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;df -h / /mnt/localdisk /home&#34;</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat ~/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;df -h / /mnt/localdisk /home&#34;</span><span class="p">;</span> <span class="k">done</span>
 </span></span><span class="line"><span class="cl">inst-kicav-x9-ol8
 </span></span><span class="line"><span class="cl">Filesystem                  Size  Used Avail Use% Mounted on
 </span></span><span class="line"><span class="cl">/dev/mapper/ocivolume-root   89G   15G   74G  17% /
@@ -1293,16 +1289,17 @@ table, th, td {
 </span></span><span class="line"><span class="cl">bastion:/home                36G  8.5G   28G  24% /home
 </span></span><span class="line"><span class="cl">$
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-4-計算ノードbios設定確認"
+    <h2 id="3-4-計算ノードbios設定確認"
     >
-        2-4. 計算ノードBIOS設定確認
+        3-4. 計算ノードBIOS設定確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-4-計算ノードbios設定確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-4. 計算ノードBIOS設定確認" aria-label="アンカー先: 2-4. 計算ノードBIOS設定確認" href="#2-4-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89bios%e8%a8%ad%e5%ae%9a%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-4-計算ノードbios設定確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-4. 計算ノードBIOS設定確認" aria-label="アンカー先: 3-4. 計算ノードBIOS設定確認" href="#3-4-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89bios%e8%a8%ad%e5%ae%9a%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>以下コマンドをBastionノードのopcユーザで実行し、計算ノードのBIOSで指定した <strong>NPS</strong> と <strong>SMT</strong> 設定が指定したとおりになっていることを確認します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat /home/opc/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;lscpu | grep -i -e numa -e thread&#34;</span><span class="p">;</span> <span class="k">done</span>
+<p>以下コマンドをBastionノードのopcユーザで実行し、計算ノードのBIOSで指定した <strong>NPS</strong> と <strong>SMT</strong> 設定が指定したとおりになっていることを確認します。<br>
+なお本手順は、計算ノードに使用するシェイプが <strong>BM.HPC.E5.144</strong> の場合はスキップします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat ~/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;lscpu | grep -i -e numa -e thread&#34;</span><span class="p">;</span> <span class="k">done</span>
 </span></span><span class="line"><span class="cl">inst-e0tw0-x9-ol87
 </span></span><span class="line"><span class="cl">Thread<span class="o">(</span>s<span class="o">)</span> per core:  <span class="m">2</span>
 </span></span><span class="line"><span class="cl">NUMA node<span class="o">(</span>s<span class="o">)</span>:        <span class="m">2</span>
@@ -1315,123 +1312,107 @@ table, th, td {
 </span></span><span class="line"><span class="cl">NUMA node1 CPU<span class="o">(</span>s<span class="o">)</span>:   18-35,54-71
 </span></span><span class="line"><span class="cl">$
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="2-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認"
+    <h2 id="3-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認"
     >
-        2-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認
+        3-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#2-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認" aria-label="アンカー先: 2-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認" href="#2-5-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e6%8e%a5%e7%b6%9a%e7%94%a8%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9%e8%a8%ad%e5%ae%9a%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#3-5-計算ノードクラスタネットワーク接続用ネットワークインターフェース設定確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認" aria-label="アンカー先: 3-5. 計算ノードクラスタ・ネットワーク接続用ネットワークインターフェース設定確認" href="#3-5-%e8%a8%88%e7%ae%97%e3%83%8e%e3%83%bc%e3%83%89%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e6%8e%a5%e7%b6%9a%e7%94%a8%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9%e8%a8%ad%e5%ae%9a%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドをBastionノードのopcユーザで実行し、計算ノードが <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
->クラスタ・ネットワーク</a></strong> に接続するためのネットワークインターフェースにIPアドレス（以下の例では192.168.0.0/24のサブネット内のIPアドレス）が設定されていることを確認します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat /home/opc/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;ifconfig -a | grep inet | grep -v inet6&#34;</span><span class="p">;</span> <span class="k">done</span>
+  href="../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+>クラスタ・ネットワーク</a></strong> に接続するためのネットワークインターフェース（ <strong>rdma0</strong> ）にIPアドレス（以下の例では10.224.0.0/12のサブネット内のIPアドレス）が設定されていることを確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat ~/hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$hname</span><span class="p">;</span> ssh <span class="nv">$hname</span> <span class="s2">&#34;ip a | grep -e ens300f0np0 -e ens800f0np0 -e eth0 -e rdma0 | grep inet&#34;</span><span class="p">;</span> <span class="k">done</span>
 </span></span><span class="line"><span class="cl">inst-e0tw0-x9-ol87
-</span></span><span class="line"><span class="cl">        inet 10.0.2.141  netmask 255.255.255.0  broadcast 10.0.2.255
-</span></span><span class="line"><span class="cl">        inet 127.0.0.1  netmask 255.0.0.0
-</span></span><span class="line"><span class="cl">        inet 192.168.0.141  netmask 255.255.255.0  broadcast 192.168.0.255
+</span></span><span class="line"><span class="cl">    inet 10.0.2.182/24 brd 10.0.2.255 scope global dynamic eth0
+</span></span><span class="line"><span class="cl">    inet 10.224.0.182/12 brd 10.239.255.255 scope global noprefixroute rdma0
 </span></span><span class="line"><span class="cl">inst-uyopv-x9-ol87
-</span></span><span class="line"><span class="cl">        inet 10.0.2.66  netmask 255.255.255.0  broadcast 10.0.2.255
-</span></span><span class="line"><span class="cl">        inet 127.0.0.1  netmask 255.0.0.0
-</span></span><span class="line"><span class="cl">        inet 192.168.0.66  netmask 255.255.255.0  broadcast 192.168.0.255
+</span></span><span class="line"><span class="cl">    inet 10.0.2.154/24 brd 10.0.2.255 scope global dynamic eth0
+</span></span><span class="line"><span class="cl">    inet 10.224.0.154/12 brd 10.239.255.255 scope global noprefixroute rdma0
 </span></span><span class="line"><span class="cl">$
 </span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="3-mpiプログラム実行"
+    <h1 id="4-mpiプログラム実行"
     >
-        3. MPIプログラム実行
+        4. MPIプログラム実行
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#3-mpiプログラム実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. MPIプログラム実行" aria-label="アンカー先: 3. MPIプログラム実行" href="#3-mpi%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#4-mpiプログラム実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. MPIプログラム実行" aria-label="アンカー先: 4. MPIプログラム実行" href="#4-mpi%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、計算ノードの <strong>HPC<a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+  href="../#5-13-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
 >クラスタネットワーキングイメージ</a></strong> に含まれる <strong><a
   class="gdoc-markdown__link"
   href="https://www.open-mpi.org/"
 >OpenMPI</a></strong> と <strong><a
   class="gdoc-markdown__link"
-  href="https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html"
->Intel MPI Benchmark</a></strong> を使用し、 <strong><a
+  href="https://github.com/intel/mpi-benchmarks"
+>Intel MPI Benchmarks</a></strong> を使用し、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
->クラスタ・ネットワーク</a></strong> のノード間インターコネクト性能を確認します。</p>
-<p>ここでは、 <strong>Intel MPI Benchmark</strong> のPing-Pongを実行します。</p>
-<p><strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
->OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/run-imb/"
->Intel MPI Benchmark実行方法</a></strong> の <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/benchmark/run-imb/#1-openmpi%e3%81%a7intel-mpi-benchmark%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88"
->OpenMPIでIntel MPI Benchmarkを実行する場合</a></strong> の手順に従い、2ノードを使用するPing-Pongを実行します。</p>
-<hr>
+  href="../#5-1-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af"
+>クラスタ・ネットワーク</a></strong> のノード間インターコネクト性能を確認します。<br>
+ここでは、 <strong>Intel MPI Benchmarks</strong> のPing-Pongを実行します。</p>
+<p>以下コマンドを計算ノードのうちの1ノードのopcユーザで実行し、 <strong>クラスタ・ネットワーク</strong> を経由する2ノード間のPing-Pongを実行、その結果に問題が無いことを確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ /usr/mpi/gcc/openmpi-4.1.7rc1/bin/mpirun -n <span class="m">2</span> -N <span class="m">1</span> -hostfile ~/hostlist.txt -x <span class="nv">UCX_NET_DEVICES</span><span class="o">=</span>mlx5_2:1 /usr/mpi/gcc/openmpi-4.1.7rc1/tests/imb/IMB-MPI1 -msglog 27:28 pingpong
+</span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="4-hpcクラスタ削除"
+    <h1 id="5-hpcクラスタ削除"
     >
-        4. HPCクラスタ削除
+        5. HPCクラスタ削除
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#4-hpcクラスタ削除" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. HPCクラスタ削除" aria-label="アンカー先: 4. HPCクラスタ削除" href="#4-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e5%89%8a%e9%99%a4">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#5-hpcクラスタ削除" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. HPCクラスタ削除" aria-label="アンカー先: 5. HPCクラスタ削除" href="#5-hpc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e5%89%8a%e9%99%a4">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="4-0-概要"
+    <h2 id="5-0-概要"
     >
-        4-0. 概要
+        5-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#4-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-0. 概要" aria-label="アンカー先: 4-0. 概要" href="#4-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#5-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-0. 概要" aria-label="アンカー先: 5-0. 概要" href="#5-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、先に作成した <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> / <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトを使用し、HPCクラスタを削除します。</p>
 <p>この手順は、構築手法に <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
+  href="../#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
 >リソース・マネージャ</a></strong> を使用する方法を採用するか、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> CLIを使用する方法を採用するかで異なり、以降では2つの異なる構築手法毎にその手順を解説します。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="4-1-リソースマネージャを使用する方法"
+    <h2 id="5-1-リソースマネージャを使用する方法"
     >
-        4-1. リソース・マネージャを使用する方法
+        5-1. リソース・マネージャを使用する方法
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#4-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 4-1. リソース・マネージャを使用する方法" href="#4-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#5-1-リソースマネージャを使用する方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-1. リソース・マネージャを使用する方法" aria-label="アンカー先: 5-1. リソース・マネージャを使用する方法" href="#5-1-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<ol>
-<li>
 <p>以下 <strong>スタックの詳細</strong> 画面で、 <strong>破棄</strong> ボタンをクリックします。</p>
 <p><img
   src="stack_page10.png"
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される以下 <strong>破棄</strong> サイドバーで、 <strong>破棄</strong> ボタンをクリックします。</p>
+<p>次に、表示される以下 <strong>破棄</strong> サイドバーで、 <strong>破棄</strong> ボタンをクリックします。</p>
 <p><img
   src="stack_page11.png"
   alt="画面ショット"
   
 /></p>
-</li>
-<li>
-<p>表示される以下 <strong>ジョブ詳細</strong> ウィンドウで、左上のステータスが <strong>受入れ済</strong> → <strong>進行中</strong> と遷移すれば、 <strong>スタック</strong> の破棄が実施されています。</p>
+<p>次に、表示される以下 <strong>ジョブ詳細</strong> ウィンドウで、左上のステータスが <strong>受入れ済</strong> → <strong>進行中</strong> と遷移すれば、 <strong>スタック</strong> の破棄が実施されています。</p>
 <p><img
   src="stack_page12.png"
   alt="画面ショット"
@@ -1445,22 +1426,17 @@ table, th, td {
 /></p>
 <p>この破棄が完了するまでの所要時間は、計算ノードのノード数が2ノードの場合で3分程度です。</p>
 <p>ステータスが <strong>成功</strong> となれば、HPCクラスタの削除が完了しています。</p>
-</li>
-</ol>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h2 id="4-2-terraform-cliの場合"
+    <h2 id="5-2-terraform-cliの場合"
     >
-        4-2. Terraform CLIの場合
+        5-2. Terraform CLIの場合
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-hpc-cluster-withterraform/#4-2-terraform-cliの場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-2. Terraform CLIの場合" aria-label="アンカー先: 4-2. Terraform CLIの場合" href="#4-2-terraform-cli%e3%81%ae%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster-withterraform/#5-2-terraform-cliの場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-2. Terraform CLIの場合" aria-label="アンカー先: 5-2. Terraform CLIの場合" href="#5-2-terraform-cli%e3%81%ae%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、 <strong><a
-  class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
->Terraform</a></strong> スクリプトを <strong>Terraform</strong> CLIで破棄し、HPCクラスタを削除します。</p>
-<p><strong>Terraform</strong> 実行環境の <strong>tutorial_cn</strong> ディレクトリで以下コマンドを実行し、削除が正常に完了したことをメッセージから確認します。</p>
+<p><strong>Terraform</strong> 実行環境の <strong>tutorial_cn</strong> ディレクトリで以下コマンドを実行し、HPCクラスタを削除します。<br>
+また、以下のメッセージが表示されることで正常に削除されたことを確認します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ terraform destroy --auto-approve
 </span></span><span class="line"><span class="cl">:
 </span></span><span class="line"><span class="cl">Destroy complete! Resources: <span class="m">18</span> destroyed.
@@ -1470,2335 +1446,3511 @@ table, th, td {
 
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+          
+          
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+          
+            
+            
+          
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
         
 
         
 
         
+
+        
           
         
 
@@ -4396,7 +5548,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4420,7 +5581,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4444,7 +5614,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4540,8 +5719,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4588,7 +5776,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4612,7 +5809,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4661,15 +5867,6 @@ table, th, td {
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4694,15 +5891,30 @@ table, th, td {
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -6071,10 +7283,76 @@ table, th, td {
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -6105,7 +7383,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6129,8 +7416,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6153,7 +7449,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6177,7 +7482,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6203,6 +7517,15 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -6225,8 +7548,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6248,6 +7580,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -6273,8 +7611,19 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6297,7 +7646,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6321,7 +7679,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -6349,9 +7716,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6375,8 +7745,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6399,11 +7778,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6702,9 +8079,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6728,12 +8108,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7555,16 +8933,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7988,12 +9357,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -8017,10 +9383,12 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -8074,16 +9442,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8109,15 +9468,6 @@ table, th, td {
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -8140,17 +9490,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -8173,16 +9514,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8206,16 +9538,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8239,16 +9562,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8272,17 +9586,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -8305,16 +9610,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8342,12 +9638,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -8371,9 +9664,11 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -8404,16 +9699,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8437,16 +9723,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8472,9 +9749,27 @@ table, th, td {
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -8500,18 +9795,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8629,7 +9913,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8655,7 +9945,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8678,6 +9979,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8703,7 +10010,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8727,8 +10045,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8751,7 +10078,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8779,9 +10115,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8805,12 +10144,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8840,8 +10177,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8864,7 +10210,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8888,7 +10243,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8912,7 +10276,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8960,8 +10333,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8983,6 +10365,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -9032,7 +10420,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9084,9 +10483,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -9110,18 +10512,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9149,9 +10540,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -9175,11 +10569,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -9324,16 +10716,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9357,7 +10740,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9381,16 +10773,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9471,8 +10854,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9528,7 +10920,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9550,7 +10951,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9576,17 +10983,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9603,15 +11001,15 @@ table, th, td {
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9712,31 +11110,7 @@ table, th, td {
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -11120,7 +12494,29 @@ table, th, td {
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -11229,7 +12625,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11373,8 +12778,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -11469,7 +12883,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11517,7 +12940,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11566,6 +12998,15 @@ table, th, td {
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -11607,7 +13048,7 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/spinup-cluster-network/"
+      href="/t-utsunom/test_tutorial/hpc/spinup-cluster-network/"
       title="HPCクラスタを構築する(基礎インフラ手動構築編)"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -11619,7 +13060,7 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/spinup-hpc-cluster/"
+      href="/t-utsunom/test_tutorial/hpc/spinup-hpc-cluster/"
       title="HPCクラスタを構築する(スタティッククラスタ自動構築編)"
     >
       HPCクラスタを構築する(スタティッククラスタ自動構築編)
@@ -11628,8 +13069,9 @@ table, th, td {
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11673,7 +13115,7 @@ table, th, td {
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

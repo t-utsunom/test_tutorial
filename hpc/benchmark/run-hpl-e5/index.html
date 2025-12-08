@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
-  <meta name="description" content="本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。" />
+  <meta name="description" content="本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。" />
 
   <title>HPL実行方法（BM.Standard.E5.192編） | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,22 +35,22 @@
     content="HPL実行方法（BM.Standard.E5.192編）"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta property="og:description" content="本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="og:description" content="本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="HPL実行方法（BM.Standard.E5.192編）" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
-  <meta name="twitter:description" content="本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta name="twitter:description" content="本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。" />
 
 
   <script type="application/ld+json">
@@ -59,30 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Hpc",
       "name": "HPL実行方法（BM.Standard.E5.192編）",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/",
       "headline": "HPL実行方法（BM.Standard.E5.192編）",
-      "description": "本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png",
-      "wordCount" : "201",
+      "description": "本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "1004",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,87 +93,87 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="HPL実行方法（BM.Standard.E5.192編）">
-  <meta property="og:description" content="本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。">
+  <meta property="og:description" content="本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="HPL実行方法（BM.Standard.E5.192編）">
-  <meta name="twitter:description" content="本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Standard.E5.192で、標準ベンチマークのHPLを実行する方法を解説します。">
+  <meta name="twitter:description" content="本ドキュメントは、第4世代AMD EPYCプロセッサを搭載するベア・メタル・シェイプBM.Standard.E5.192で、浮動小数点演算性能を計測する標準ベンチマークのHPLを実行する方法を解説します。">
       <meta name="twitter:site" content="@Oracle_Japan">
 
 
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,30 +312,20 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
-    <li><a href="#1-bmstandarde5192のデプロイ">1. BM.Standard.E5.192のデプロイ</a></li>
-    <li><a href="#2-openmpiインストール">2. OpenMPIインストール</a></li>
-    <li><a href="#3-amd-zen-hpl-optimized-for-amd-epyc-processorsインストール">3. AMD Zen HPL optimized for AMD EPYC processorsインストール</a></li>
-    <li><a href="#4-hpl実行">4. HPL実行</a></li>
+    <li><a href="#1-bmstandarde5192インスタンス作成">1. BM.Standard.E5.192インスタンス作成</a></li>
+    <li><a href="#2-amd-hplダウンロードインストール">2. AMD HPLダウンロード・インストール</a></li>
+    <li><a href="#3-hpl実行">3. HPL実行</a></li>
   </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
-  
-</section>
 </nav>
-
-
+      
+    </section>
+  
+</nav>
 
         </aside>
         
@@ -377,7 +375,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HPL実行方法（BM.Standard.E5.192編）</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='5' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>HPL実行方法（BM.Standard.E5.192編）</span><meta itemprop='position' content='6' /></li>
   
 
   
@@ -397,1441 +395,2429 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
-    <p>本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンス <strong><a
-  class="gdoc-markdown__link"
-  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-standard"
->BM.Standard.E5.192</a></strong> で、標準ベンチマークの <strong><a
-  class="gdoc-markdown__link"
-  href="https://www.netlib.org/benchmark/hpl/"
->HPL</a></strong> を実行する方法を解説します。</p>
-<hr>
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
+    <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本ドキュメントで解説する <strong>HPL</strong> の実行は、AMDの <strong>HPL</strong> 実装である <strong><a
+<p>本パフォーマンス関連Tipsで解説する <strong><a
+  class="gdoc-markdown__link"
+  href="https://www.netlib.org/benchmark/hpl/"
+>HPL</a></strong> は、第4世代  <strong>AMD EPYC</strong> プロセッサを搭載するベア・メタル・シェイプ <strong><a
+  class="gdoc-markdown__link"
+  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-standard"
+>BM.Standard.E5.192</a></strong> のインスタンス上で、AMDの <strong>HPL</strong> 実装である <strong><a
   class="gdoc-markdown__link"
   href="https://www.amd.com/en/developer/zen-software-studio/applications/pre-built-applications.html"
->AMD Zen HPL optimized for AMD EPYC processors</a></strong> （本ドキュメントで使用するバージョンは2023_07_18）を <strong><a
+>AMD Zen HPL optimized for AMD EPYC processors</a></strong> （以下 <strong>AMD HPL</strong> と呼称します。）を <strong><a
   class="gdoc-markdown__link"
   href="https://www.open-mpi.org/"
->OpenMPI</a></strong> （本ドキュメントで使用するバージョンは4.1.1）と共に使用します。</p>
-<p><strong>HPL</strong> を実行するインスタンスは、HPCワークロード向けベアメタルシェイプ <strong>BM.Standard.E5.192</strong> 1インスタンスとし、OSは <strong>Oracle Linux</strong> 8を使用します。</p>
+>OpenMPI</a></strong> から起動して実行します。</p>
 <p>以上より、本ドキュメントで解説する <strong>HPL</strong> 実行は、以下の手順を経て行います。</p>
 <ul>
-<li><strong>BM.Standard.E5.192</strong> のデプロイ</li>
-<li><strong>OpenMPI</strong> インストール</li>
-<li><strong>AMD Zen HPL optimized for AMD EPYC processors</strong> インストール</li>
+<li><strong>BM.Standard.E5.192</strong> インスタンス作成</li>
+<li><strong>AMD HPL</strong> ダウンロード・インストール</li>
 <li><strong>HPL</strong> 実行</li>
 </ul>
-<p>本ドキュメントは、以下の環境で <strong>HPL</strong> を実行しており、以下の性能が出ています。</p>
+<p>本パフォーマンス関連Tipsは、以下の環境で <strong>HPL</strong> を実行しており、以下の性能が出ています。</p>
 <p>[実行環境]</p>
 <ul>
-<li>シェイプ: <strong>BM.Standard.E5.192</strong></li>
-<li>OS: <strong>Oracle Linux</strong> 8.8</li>
-<li><strong>HPL</strong> : <strong>AMD Zen HPL optimized for AMD EPYC processors</strong> （バージョン2023_07_18）</li>
-<li>MPI: <strong>OpenMPI</strong> （バージョン4.1.1）</li>
-<li>ノード数: 1</li>
-<li>問題サイズ(N): 423,168</li>
-<li>ブロックサイズ(NB): 384</li>
-<li>プロセスグリッド(PxQ): 1x2</li>
+<li>シェイプ： <strong>BM.Standard.E5.192</strong>
+<ul>
+<li>CPU： <strong>AMD EPYC</strong> 9654ベース x 2（192コア）</li>
+<li>メモリ： DDR5 2.3 TB</li>
+<li>理論性能： 7.3728 TFLOPS（ベース動作周波数2.4 GHz時）</li>
+<li>メモリ帯域： 921.6 GB/s</li>
+<li><strong>Simultanious Multi Threading</strong> （以降 <strong>SMT</strong> と呼称します。）： 無効</li>
+<li><strong>NUMA nodes per socket</strong> （以降 <strong>NPS</strong> と呼称します。）： <strong>1</strong> / <strong>4</strong></li>
+</ul>
+</li>
+<li>ノード数： 1</li>
+<li>OS： <strong>Oracle Linux</strong> 9.5</li>
+<li>MPI：  <strong>OpenMPI</strong> 5.0.6</li>
+<li><strong>HPL</strong>
+<ul>
+<li>バージョン: <strong>AMD HPL</strong> 2024_10_08</li>
+<li>問題サイズ(N)： 523,008</li>
+<li>ブロックサイズ(NB)： 384</li>
+<li>プロセスグリッド(PxQ)： 1x2</li>
+</ul>
+</li>
 </ul>
 <p>[実行結果]</p>
 <ul>
-<li>FLOPS: 7,526 GFLOPS</li>
-<li>所要時間: 6,713秒</li>
-</ul>
-<hr>
-<div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="1-bmstandarde5192のデプロイ"
-    >
-        1. BM.Standard.E5.192のデプロイ
-    </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/#1-bmstandarde5192のデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. BM.Standard.E5.192のデプロイ" aria-label="アンカー先: 1. BM.Standard.E5.192のデプロイ" href="#1-bmstandarde5192%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
-        <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-    </a>
-</div>
-<p>本章は、 <strong>BM.Standard.E5.192</strong> を1インスタンスデプロイします。</p>
-<p>インスタンスのデプロイは、OCIチュートリアル <strong><a
-  class="gdoc-markdown__link"
-  href="https://oracle-japan.github.io/ocitutorials/beginners/creating-compute-instance"
->インスタンスを作成する</a></strong> の手順に従い、以下属性のインスタンスを作成します。</p>
+<li>FLOPS
 <ul>
-<li>イメージ: Oracle Linux 8</li>
-<li>Shape: BM.Standard.E5.192</li>
+<li>7.4578 TFLOPS（ <strong>NPS</strong> が <strong>1</strong> の場合）</li>
+<li>7.4168 TFLOPS（ <strong>NPS</strong> が <strong>4</strong> の場合）</li>
 </ul>
+</li>
+</ul>
+<p>※1） <strong>NPS</strong> の違いによる有意な性能差は見られません。</p>
 <hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="2-openmpiインストール"
+    <h1 id="1-bmstandarde5192インスタンス作成"
     >
-        2. OpenMPIインストール
+        1. BM.Standard.E5.192インスタンス作成
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/#2-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. OpenMPIインストール" aria-label="アンカー先: 2. OpenMPIインストール" href="#2-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/#1-bmstandarde5192インスタンス作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. BM.Standard.E5.192インスタンス作成" aria-label="アンカー先: 1. BM.Standard.E5.192インスタンス作成" href="#1-bmstandarde5192%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、 <strong>OpenMPI</strong> をインストールします。</p>
-<p>以下コマンドを先にデプロイしたインスタンスのopcユーザで実行し、 <strong>OpenMPI</strong> をインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo dnf install -y openmpi openmpi-devel
-</span></span></code></pre></div><hr>
+<p>本章は、 <strong>HPL</strong> を実行するインスタンスを作成します。</p>
+<p>作成するインスタンスは、 <strong><a
+  class="gdoc-markdown__link"
+  href="../../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+>OCI HPCテクニカルTips集</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../../tech-knowhow/build-oraclelinux-hpcenv/"
+>Oracle Linuxプラットフォーム・イメージベースのHPCワークロード実行環境構築方法</a></strong> の手順に従い、以下属性で作成します。</p>
+<ul>
+<li>イメージ： <strong><a
+  class="gdoc-markdown__link"
+  href="../../#5-17-%e3%83%97%e3%83%a9%e3%83%83%e3%83%88%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+>プラットフォーム・イメージ</a></strong> <strong><a
+  class="gdoc-markdown__link"
+  href="https://docs.oracle.com/en-us/iaas/images/oracle-linux-9x/oracle-linux-9-5-2025-02-28-0.htm"
+>Oracle-Linux-9.5-2025.02.28-0</a></strong></li>
+<li>シェイプ： <strong>BM.Standard.E5.192</strong>
+<ul>
+<li><strong>SMT</strong> ： 無効（※2）</li>
+<li><strong>NPS</strong> ： <strong>1</strong> / <strong>4</strong> （※2）</li>
+</ul>
+</li>
+</ul>
+<p>※2）<strong>NPS</strong> と <strong>SMT</strong> の設定方法は、 <strong><a
+  class="gdoc-markdown__link"
+  href="../../#2-oci-hpc%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e9%96%a2%e9%80%a3%e6%83%85%e5%a0%b1"
+>OCI HPCパフォーマンス関連情報</a></strong> の <strong><a
+  class="gdoc-markdown__link"
+  href="../../benchmark/bios-setting/"
+>パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法</a></strong> を参照してください。</p>
+<hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="3-amd-zen-hpl-optimized-for-amd-epyc-processorsインストール"
+    <h1 id="2-amd-hplダウンロードインストール"
     >
-        3. AMD Zen HPL optimized for AMD EPYC processorsインストール
+        2. AMD HPLダウンロード・インストール
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/#3-amd-zen-hpl-optimized-for-amd-epyc-processorsインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. AMD Zen HPL optimized for AMD EPYC processorsインストール" aria-label="アンカー先: 3. AMD Zen HPL optimized for AMD EPYC processorsインストール" href="#3-amd-zen-hpl-optimized-for-amd-epyc-processors%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/#2-amd-hplダウンロードインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. AMD HPLダウンロード・インストール" aria-label="アンカー先: 2. AMD HPLダウンロード・インストール" href="#2-amd-hpl%e3%83%80%e3%82%a6%e3%83%b3%e3%83%ad%e3%83%bc%e3%83%89%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、 <strong>AMD Zen HPL optimized for AMD EPYC processors</strong> をインストールします。</p>
+<p>本章は、 <strong>AMD HPL</strong> を <strong>AMD</strong> のウェブサイトからダウンロードし、これをインストールします。</p>
+<p>以下のサイトから <strong>AMD HPL</strong> のtarアーカイブ <strong>amd-zen-hpl-2024_10_08.tar.gz</strong> をダウンロードし、これを <strong>HPL</strong> を実行するノードの <strong>/tmp</strong> ディレクトリにコピーします。</p>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="https://www.amd.com/en/developer/zen-software-studio/applications/pre-built-applications/zen-hpl-eula.html?filename=amd-zen-hpl-2023_07_18.tar.gz"
->ここ</a></strong> から <strong>AMD Zen HPL optimized for AMD EPYC processors</strong> のtarアーカイブをダウンロードし、任意のディレクトリに展開します。</p>
-<hr>
+  href="https://www.amd.com/en/developer/zen-software-studio/applications/pre-built-applications.html"
+>https://www.amd.com/en/developer/zen-software-studio/applications/pre-built-applications.html</a></strong></p>
+<p>次に、以下コマンドを <strong>HPL</strong> を実行するノードのopcユーザで実行し、 <strong>AMD HPL</strong> を <strong>/opt/amd-pba</strong> にインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo mkdir /opt/amd-pba
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> /opt/amd-pba <span class="o">&amp;&amp;</span> sudo tar --no-same-owner -xvf /tmp/amd-zen-hpl-2024_10_08.tar.gz
+</span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
-    <h1 id="4-hpl実行"
+    <h1 id="3-hpl実行"
     >
-        4. HPL実行
+        3. HPL実行
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/benchmark/run-hpl-e5/#4-hpl実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. HPL実行" aria-label="アンカー先: 4. HPL実行" href="#4-hpl%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e5/#3-hpl実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. HPL実行" aria-label="アンカー先: 3. HPL実行" href="#3-hpl%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
-<p>本章は、 <strong>HPL</strong> を実行します。<br>
-具体的には、以下の作業を実施します。</p>
-<ul>
-<li>numactl<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>インストール</li>
-<li><strong>HPL</strong> 実行</li>
-</ul>
-<ol>
-<li>
-<p>以下コマンドをopcユーザで実行し、numactlをインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo dnf install -y numactl
-</span></span></code></pre></div></li>
-<li>
-<p>以下コマンドをopcユーザで実行します。<br>
-この <strong>HPL</strong> 実行は、 <strong>2プロセス・プロセス当たり96レッド</strong> で実行します。<br>
-本ドキュメントの前提となる環境・設定で <strong>HPL</strong> 実行に要する時間は、2時間弱です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ module load mpi
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> amd-zen-hpl-2022_11
-</span></span><span class="line"><span class="cl">$ mpirun -mca btl vader -mca mtl ^ofi --map-by socket:PE<span class="o">=</span><span class="m">96</span> -np <span class="m">2</span> --bind-to core -x <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">96</span> -x <span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close -x <span class="nv">OMP_PLACES</span><span class="o">=</span>cores numactl --localalloc ./xhpl
-</span></span></code></pre></div></li>
-</ol>
-<div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1">
-<p>HPL実行時にnumactlを使用するため&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div>
+<p>本章は、 <strong>HPL</strong> を実行します。</p>
+<p>以下コマンドを <strong>HPL</strong> を実行するノードのopcユーザで実行し、 <strong>HPL</strong> の性能を最大化するための設定を行います。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="m">3</span>  <span class="p">|</span> sudo tee /proc/sys/vm/drop_caches
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="m">1</span>  <span class="p">|</span> sudo tee /proc/sys/vm/compact_memory
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s1">&#39;always&#39;</span> <span class="p">|</span> sudo tee /sys/kernel/mm/transparent_hugepage/defrag
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="m">0</span> <span class="p">|</span> sudo tee /proc/sys/kernel/numa_balancing
+</span></span></code></pre></div><p>次に、下コマンドを <strong>HPL</strong> を実行するノードの <strong>HPL</strong> を実行するユーザで実行します。<br>
+本ドキュメントの前提となる環境・設定で <strong>HPL</strong> 実行に要する時間は、3.5時間程度です。</p>
+<p>[ <strong>NPS1</strong> の場合]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/openmpi/lib:<span class="nv">$LD_LIBRARY_PATH</span> mpirun -n <span class="m">2</span> --map-by socket:PE<span class="o">=</span><span class="m">96</span> --bind-to core -x <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">96</span> -x <span class="nv">OMP_PROC_BIND</span><span class="o">=</span>TRUE /opt/amd-pba/amd-zen-hpl-2024_10_08/xhpl
+</span></span><span class="line"><span class="cl">No HPL.dat.  Going to <span class="k">do</span> auto-selection
+</span></span><span class="line"><span class="cl">Beginning auto-selection of parameters
+</span></span><span class="line"><span class="cl">Detected <span class="s1">&#39;AuthenticAMD&#39;</span> Model 0x11, Family 0x19
+</span></span><span class="line"><span class="cl">	Thank you <span class="k">for</span> using <span class="nv">AMD</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">AMD Zen HPL 2024_10_08
+</span></span><span class="line"><span class="cl">Using AOCL <span class="nv">BLIS</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">Derived from:
+</span></span><span class="line"><span class="cl">HPLinpack 2.3  --  High-Performance Linpack benchmark  --   December 2, <span class="m">2018</span>
+</span></span><span class="line"><span class="cl">Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK
+</span></span><span class="line"><span class="cl">Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK
+</span></span><span class="line"><span class="cl">Modified by Julien Langou, University of Colorado <span class="nv">Denver</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">An explanation of the input/output parameters follows:
+</span></span><span class="line"><span class="cl">T/V    : Wall <span class="nb">time</span> / encoded variant.
+</span></span><span class="line"><span class="cl">N      : The order of the coefficient matrix A.
+</span></span><span class="line"><span class="cl">NB     : The partitioning blocking factor.
+</span></span><span class="line"><span class="cl">P      : The number of process rows.
+</span></span><span class="line"><span class="cl">Q      : The number of process columns.
+</span></span><span class="line"><span class="cl">Time   : Time in seconds to solve the linear system.
+</span></span><span class="line"><span class="cl">Gflops : Rate of execution <span class="k">for</span> solving the linear system.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The following parameter values will be used:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">N      :  <span class="m">523008</span> 
+</span></span><span class="line"><span class="cl">NB     :     <span class="m">384</span> 
+</span></span><span class="line"><span class="cl">PMAP   : Row-major process mapping
+</span></span><span class="line"><span class="cl">P      :       <span class="m">1</span> 
+</span></span><span class="line"><span class="cl">Q      :       <span class="m">2</span> 
+</span></span><span class="line"><span class="cl">PFACT  :   Crout 
+</span></span><span class="line"><span class="cl">NBMIN  :      <span class="m">48</span> 
+</span></span><span class="line"><span class="cl">NDIV   :       <span class="m">8</span> 
+</span></span><span class="line"><span class="cl">RFACT  :   Right 
+</span></span><span class="line"><span class="cl">BCAST  :  HybBcast 
+</span></span><span class="line"><span class="cl">DEPTH  :       <span class="m">0</span> 
+</span></span><span class="line"><span class="cl">SWAP   : <span class="o">(</span>211<span class="o">)</span> Spread-roll
+</span></span><span class="line"><span class="cl">L1     : transposed form
+</span></span><span class="line"><span class="cl">A      : no-transposed form <span class="o">(</span>ColMajor<span class="o">)</span>
+</span></span><span class="line"><span class="cl">EQUIL  : no
+</span></span><span class="line"><span class="cl">ALIGN  : <span class="m">8</span> double precision words
+</span></span><span class="line"><span class="cl">MXSWP  : <span class="o">(</span>1/c<span class="o">)</span> Collective 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- The matrix A is randomly generated <span class="k">for</span> each test.
+</span></span><span class="line"><span class="cl">- The following scaled residual check will be computed:
+</span></span><span class="line"><span class="cl">      <span class="o">||</span>Ax-b<span class="o">||</span>_oo / <span class="o">(</span> eps * <span class="o">(</span> <span class="o">||</span> x <span class="o">||</span>_oo * <span class="o">||</span> A <span class="o">||</span>_oo + <span class="o">||</span> b <span class="o">||</span>_oo <span class="o">)</span> * N <span class="o">)</span>
+</span></span><span class="line"><span class="cl">- The relative machine precision <span class="o">(</span>eps<span class="o">)</span> is taken to be               1.110223e-16
+</span></span><span class="line"><span class="cl">- Computational tests pass <span class="k">if</span> scaled residuals are less than                16.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-e5-ol95-nps1:15024<span class="o">]</span> osc_ucx_component.c:369  Error: OSC UCX component priority <span class="nb">set</span> inside component query failed 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-e5-ol95-nps1:15023<span class="o">]</span> osc_ucx_component.c:369  Error: OSC UCX component priority <span class="nb">set</span> inside component query <span class="nv">failed</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">T/V         SWP           N    NB     P     Q            Time             Gflops
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">WRC07R8C48c <span class="m">211</span>       <span class="m">523008</span>   <span class="m">384</span>     <span class="m">1</span>     <span class="m">2</span>        12788.60         7.4578e+03
+</span></span><span class="line"><span class="cl">HPL_pdgesv<span class="o">()</span> start <span class="nb">time</span> Fri Apr  <span class="m">4</span> 09:51:07 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">HPL_pdgesv<span class="o">()</span> end <span class="nb">time</span>   Fri Apr  <span class="m">4</span> 13:24:15 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="o">||</span>Ax-b<span class="o">||</span>_oo/<span class="o">(</span>eps*<span class="o">(||</span>A<span class="o">||</span>_oo*<span class="o">||</span>x<span class="o">||</span>_oo+<span class="o">||</span>b<span class="o">||</span>_oo<span class="o">)</span>*N<span class="o">)=</span>   3.11927170e-03 ...... <span class="nv">PASSED</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Finished      <span class="m">1</span> tests with the following results:
+</span></span><span class="line"><span class="cl">              <span class="m">1</span> tests completed and passed residual checks,
+</span></span><span class="line"><span class="cl">              <span class="m">0</span> tests completed and failed residual checks,
+</span></span><span class="line"><span class="cl">              <span class="m">0</span> tests skipped because of illegal input values.
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End of Tests.
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><p>[ <strong>NPS4</strong> の場合]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/openmpi/lib:<span class="nv">$LD_LIBRARY_PATH</span> mpirun -n <span class="m">2</span> --map-by socket:PE<span class="o">=</span><span class="m">96</span> --bind-to core -x <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">96</span> -x <span class="nv">OMP_PROC_BIND</span><span class="o">=</span>TRUE /opt/amd-pba/amd-zen-hpl-2024_10_08/xhpl
+</span></span><span class="line"><span class="cl">No HPL.dat.  Going to <span class="k">do</span> auto-selection
+</span></span><span class="line"><span class="cl">Beginning auto-selection of parameters
+</span></span><span class="line"><span class="cl">Detected <span class="s1">&#39;AuthenticAMD&#39;</span> Model 0x11, Family 0x19
+</span></span><span class="line"><span class="cl">	Thank you <span class="k">for</span> using <span class="nv">AMD</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">AMD Zen HPL 2024_10_08
+</span></span><span class="line"><span class="cl">Using AOCL <span class="nv">BLIS</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">Derived from:
+</span></span><span class="line"><span class="cl">HPLinpack 2.3  --  High-Performance Linpack benchmark  --   December 2, <span class="m">2018</span>
+</span></span><span class="line"><span class="cl">Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK
+</span></span><span class="line"><span class="cl">Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK
+</span></span><span class="line"><span class="cl">Modified by Julien Langou, University of Colorado <span class="nv">Denver</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">An explanation of the input/output parameters follows:
+</span></span><span class="line"><span class="cl">T/V    : Wall <span class="nb">time</span> / encoded variant.
+</span></span><span class="line"><span class="cl">N      : The order of the coefficient matrix A.
+</span></span><span class="line"><span class="cl">NB     : The partitioning blocking factor.
+</span></span><span class="line"><span class="cl">P      : The number of process rows.
+</span></span><span class="line"><span class="cl">Q      : The number of process columns.
+</span></span><span class="line"><span class="cl">Time   : Time in seconds to solve the linear system.
+</span></span><span class="line"><span class="cl">Gflops : Rate of execution <span class="k">for</span> solving the linear system.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The following parameter values will be used:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">N      :  <span class="m">523008</span> 
+</span></span><span class="line"><span class="cl">NB     :     <span class="m">384</span> 
+</span></span><span class="line"><span class="cl">PMAP   : Row-major process mapping
+</span></span><span class="line"><span class="cl">P      :       <span class="m">1</span> 
+</span></span><span class="line"><span class="cl">Q      :       <span class="m">2</span> 
+</span></span><span class="line"><span class="cl">PFACT  :   Crout 
+</span></span><span class="line"><span class="cl">NBMIN  :      <span class="m">48</span> 
+</span></span><span class="line"><span class="cl">NDIV   :       <span class="m">8</span> 
+</span></span><span class="line"><span class="cl">RFACT  :   Right 
+</span></span><span class="line"><span class="cl">BCAST  :  HybBcast 
+</span></span><span class="line"><span class="cl">DEPTH  :       <span class="m">0</span> 
+</span></span><span class="line"><span class="cl">SWAP   : <span class="o">(</span>211<span class="o">)</span> Spread-roll
+</span></span><span class="line"><span class="cl">L1     : transposed form
+</span></span><span class="line"><span class="cl">A      : no-transposed form <span class="o">(</span>ColMajor<span class="o">)</span>
+</span></span><span class="line"><span class="cl">EQUIL  : no
+</span></span><span class="line"><span class="cl">ALIGN  : <span class="m">8</span> double precision words
+</span></span><span class="line"><span class="cl">MXSWP  : <span class="o">(</span>1/c<span class="o">)</span> Collective 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- The matrix A is randomly generated <span class="k">for</span> each test.
+</span></span><span class="line"><span class="cl">- The following scaled residual check will be computed:
+</span></span><span class="line"><span class="cl">      <span class="o">||</span>Ax-b<span class="o">||</span>_oo / <span class="o">(</span> eps * <span class="o">(</span> <span class="o">||</span> x <span class="o">||</span>_oo * <span class="o">||</span> A <span class="o">||</span>_oo + <span class="o">||</span> b <span class="o">||</span>_oo <span class="o">)</span> * N <span class="o">)</span>
+</span></span><span class="line"><span class="cl">- The relative machine precision <span class="o">(</span>eps<span class="o">)</span> is taken to be               1.110223e-16
+</span></span><span class="line"><span class="cl">- Computational tests pass <span class="k">if</span> scaled residuals are less than                16.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-e5-ol95-nps4:08916<span class="o">]</span> osc_ucx_component.c:369  Error: OSC UCX component priority <span class="nb">set</span> inside component query failed 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="o">[</span>inst-e5-ol95-nps4:08917<span class="o">]</span> osc_ucx_component.c:369  Error: OSC UCX component priority <span class="nb">set</span> inside component query <span class="nv">failed</span> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">T/V         SWP           N    NB     P     Q            Time             Gflops
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">WRC07R8C48c <span class="m">211</span>       <span class="m">523008</span>   <span class="m">384</span>     <span class="m">1</span>     <span class="m">2</span>        12859.42         7.4168e+03
+</span></span><span class="line"><span class="cl">HPL_pdgesv<span class="o">()</span> start <span class="nb">time</span> Fri Apr  <span class="m">4</span> 13:55:23 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">HPL_pdgesv<span class="o">()</span> end <span class="nb">time</span>   Fri Apr  <span class="m">4</span> 17:29:42 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="o">||</span>Ax-b<span class="o">||</span>_oo/<span class="o">(</span>eps*<span class="o">(||</span>A<span class="o">||</span>_oo*<span class="o">||</span>x<span class="o">||</span>_oo+<span class="o">||</span>b<span class="o">||</span>_oo<span class="o">)</span>*N<span class="o">)=</span>   3.11927170e-03 ...... <span class="nv">PASSED</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Finished      <span class="m">1</span> tests with the following results:
+</span></span><span class="line"><span class="cl">              <span class="m">1</span> tests completed and passed residual checks,
+</span></span><span class="line"><span class="cl">              <span class="m">0</span> tests completed and failed residual checks,
+</span></span><span class="line"><span class="cl">              <span class="m">0</span> tests skipped because of illegal input values.
+</span></span><span class="line"><span class="cl">--------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End of Tests.
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><p><strong>AMD HPL</strong> は、問題サイズ(N)、ブロックサイズ(NB)、プロセスグリッド(PxQ)、及びその他の実行時パラメータを自身で決定して <strong>HPL</strong> を実行するため、事前に <strong>HPL.dat</strong> ファイルを用意する必要はありません。</p>
 
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
         
 
         
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
 
         
           
@@ -1839,7 +2825,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1863,7 +2858,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1887,8 +2891,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -1911,7 +2924,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1935,7 +2957,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1960,6 +2991,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -1983,8 +3023,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2007,8 +3056,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2031,7 +3089,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2055,7 +3122,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2079,7 +3155,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2103,8 +3188,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2127,7 +3221,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2151,7 +3254,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2176,6 +3288,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2199,8 +3320,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2223,7 +3353,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2247,7 +3386,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2271,7 +3419,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2295,8 +3452,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2319,7 +3485,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2343,7 +3518,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2369,6 +3553,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2391,8 +3584,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2415,7 +3617,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2439,7 +3650,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2463,7 +3683,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2487,8 +3716,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2511,7 +3749,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2535,7 +3782,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2560,6 +3816,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2583,8 +3848,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2607,7 +3881,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2631,7 +3914,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2648,6 +3940,9 @@
         
 
         
+          
+          
+        
 
         
           
@@ -2655,7 +3950,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2670,16 +3974,30 @@
         
 
         
+          
+            
+            
+          
+        
 
         
 
         
           
+        
+
+        
         
+      
+    
+
+  
+    
 
-        
-        
+    
       
+    
+
     
       
       
@@ -2703,7 +4021,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2729,6 +4056,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2751,8 +4087,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3466,7 +4811,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3490,7 +4844,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3514,7 +4877,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3610,8 +4982,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3658,7 +5039,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3682,7 +5072,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3731,15 +5130,6 @@
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -3764,15 +5154,30 @@
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5141,10 +6546,76 @@
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5175,7 +6646,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5199,8 +6679,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5223,7 +6712,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5247,7 +6745,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5273,6 +6780,15 @@
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5295,8 +6811,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5318,6 +6843,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5343,8 +6874,19 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5367,7 +6909,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5391,7 +6942,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5419,9 +6979,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5445,8 +7008,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5469,11 +7041,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -5772,9 +7342,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5798,12 +7371,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -6625,16 +8196,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7058,12 +8620,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7087,10 +8646,12 @@
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7144,16 +8705,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7179,15 +8731,6 @@
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7210,17 +8753,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7243,16 +8777,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7276,16 +8801,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7309,16 +8825,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7342,17 +8849,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7375,16 +8873,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7412,12 +8901,9 @@
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7441,9 +8927,11 @@
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -7474,16 +8962,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7507,16 +8986,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7542,9 +9012,27 @@
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -7570,18 +9058,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7699,7 +9176,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -7725,7 +9208,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7748,6 +9242,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -7773,7 +9273,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7797,8 +9308,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7821,7 +9341,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7849,9 +9378,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -7875,12 +9407,10 @@
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7910,8 +9440,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -7934,7 +9473,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7958,7 +9506,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -7982,7 +9539,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8030,8 +9596,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8053,6 +9628,12 @@
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8102,7 +9683,18 @@
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8154,9 +9746,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8180,18 +9775,7 @@
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8219,9 +9803,12 @@
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8245,11 +9832,9 @@
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8394,16 +9979,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8427,7 +10003,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8451,16 +10036,7 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8541,8 +10117,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8598,7 +10183,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8620,7 +10214,13 @@
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8646,17 +10246,8 @@
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -8673,15 +10264,15 @@
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -8782,31 +10373,7 @@
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10190,7 +11757,29 @@
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10299,7 +11888,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10443,8 +12041,17 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10539,7 +12146,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10587,7 +12203,16 @@
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10636,6 +12261,15 @@
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -10677,7 +12311,7 @@
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/benchmark/run-hpl/"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/run-hpl/"
       title="HPL実行方法（BM.Optimized3.36編）"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -10689,17 +12323,18 @@
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/benchmark/run-imb/"
-      title="Intel MPI Benchmarks実行方法"
+      href="/t-utsunom/test_tutorial/hpc/benchmark/run-hpl-e6/"
+      title="HPL実行方法（BM.Standard.E6.256編）"
     >
-      Intel MPI Benchmarks実行方法
+      HPL実行方法（BM.Standard.E6.256編）
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -10743,7 +12378,7 @@
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

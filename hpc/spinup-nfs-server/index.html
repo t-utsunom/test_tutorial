@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
-  <meta name="description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
+  <meta name="description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
 
-  <title>ブロック・ボリュームでファイル共有ストレージを構築する | OCIチュートリアル</title>
+  <title>ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編） | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -32,25 +32,25 @@
   
   <meta
     property="og:title"
-    content="ブロック・ボリュームでファイル共有ストレージを構築する"
+    content="ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/architecture_diagram.png" />
-  <meta property="og:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="og:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/" />
 
 <meta property="article:section" content="Hpc" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ブロック・ボリュームでファイル共有ストレージを構築する" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/architecture_diagram.png" />
-  <meta name="twitter:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
+<meta name="twitter:title" content="ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta name="twitter:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。" />
 
 
   <script type="application/ld+json">
@@ -58,31 +58,32 @@
       "@context": "http://schema.org",
       "@type": "TechArticle",
       "articleSection": "Hpc",
-      "name": "ブロック・ボリュームでファイル共有ストレージを構築する",
-      "url" : "https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/",
-      "headline": "ブロック・ボリュームでファイル共有ストレージを構築する",
-      "description": "ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/architecture_diagram.png",
-      "wordCount" : "1153",
+      "name": "ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）",
+      "url" : "https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/",
+      "headline": "ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）",
+      "description": "ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "wordCount" : "1204",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/"
       },
+      "keywords" : [ "hpc" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,87 +93,87 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/">
   <meta property="og:site_name" content="OCIチュートリアル">
-  <meta property="og:title" content="ブロック・ボリュームでファイル共有ストレージを構築する">
-  <meta property="og:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。">
+  <meta property="og:title" content="ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）">
+  <meta property="og:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="hpc">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/architecture_diagram.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/architecture_diagram.png">
-  <meta name="twitter:title" content="ブロック・ボリュームでファイル共有ストレージを構築する">
-  <meta name="twitter:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロックストレージサービスであるブロック・ボリュームを使用するコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
+  <meta name="twitter:title" content="ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）">
+  <meta name="twitter:description" content="ブロック・ボリュームでファイル共有ストレージを構築してみましょう。このチュートリアルを終了すると、ブロック・ボリュームとベアメタルシェイプのBM.Optimized3.36を組合せたコストパフォーマンスに優れるNFSファイル共有ストレージを、OCIコンソールから簡単に構築することが出来るようになります。">
       <meta name="twitter:site" content="@Oracle_Japan">
 
 
@@ -216,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -237,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -293,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -304,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#0-概要">0. 概要</a></li>
     <li><a href="#1-事前準備">1. 事前準備</a>
@@ -326,6 +334,7 @@
         <li><a href="#3-3-nfsサーバos再起動">3-3. NFSサーバOS再起動</a></li>
         <li><a href="#3-4-nfsサーバファイルシステム確認">3-4. NFSサーバファイルシステム確認</a></li>
         <li><a href="#3-5-nfsサーバnfsサービス確認">3-5. NFSサーバNFSサービス確認</a></li>
+        <li><a href="#3-6-nfsサーバlinuxカーネル確認">3-6. NFSサーバLinuxカーネル確認</a></li>
       </ul>
     </li>
     <li><a href="#4-nfsクライアント設定">4. NFSクライアント設定</a></li>
@@ -340,20 +349,11 @@
     </li>
     <li><a href="#6-スタックの破棄">6. スタックの破棄</a></li>
   </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
-  
-</section>
 </nav>
-
-
+      
+    </section>
+  
+</nav>
 
         </aside>
         
@@ -403,7 +403,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/hpc/' href='/ocitutorials/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>ブロック・ボリュームでファイル共有ストレージを構築する</span><meta itemprop='position' content='4' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/hpc/' href='/t-utsunom/test_tutorial/hpc/'><span itemprop='name'>OCI HPCポータル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -418,28 +418,32 @@
 
 
   <article class="gdoc-markdown gdoc-markdown__align--left">
-     <h1>ブロック・ボリュームでファイル共有ストレージを構築する</h1> 
+     <h1>ブロック・ボリュームでファイル共有ストレージを構築する（BM.Optimized3.36編）</h1> 
     <span class="flex align-center no-wrap">
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
-    <style>
-table, th, td {
-    font-size: 80%;
-}
-</style>
-<div class="flex align-center gdoc-page__anchorwrap">
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
+    
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=hpc" class="page-tag">
+            &#35;hpc
+        </a>
+    
+</div>
+
+    <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="0-概要"
     >
         0. 概要
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 概要" aria-label="アンカー先: 0. 概要" href="#0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -455,33 +459,33 @@ table, th, td {
 <p>OCIは、NFSのマネージドサービスである <strong>ファイル・ストレージ</strong> も提供していますが、本チュートリアルのように <strong>ブロック・ボリューム</strong> とベア・メタル・シェイプ <strong>BM.Optimized3.36</strong> を使用してNFSでサービスするファイル共有ストレージ（以降ブロック・ボリュームNFSサーバと呼称）を構築することで、 <strong>ファイル・ストレージ</strong> よりも格段にコストパフォーマンスを引き上げることが出来ます。<br>
 <strong>ファイル・ストレージ</strong> とブロック・ボリュームNFSサーバの比較詳細は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-configure-sharedstorage/"
+  href="../tech-knowhow/howto-configure-sharedstorage/"
 >HPC/GPUクラスタ向けファイル共有ストレージの最適な構築手法</a></strong> を参照してください。</p>
 <p>本チュートリアルは、 <strong>GitHub</strong> のパブリックレポジトリ（ <strong><a
   class="gdoc-markdown__link"
   href="https://github.com/fwiw6430/tutorial_bvnfs"
 >tutorial_bvnfs</a></strong> ）から公開されている <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトを <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
+  href="../#5-2-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%9e%e3%83%8d%e3%83%bc%e3%82%b8%e3%83%a3"
 >リソース・マネージャ</a></strong> に読み込ませて作成する <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> を使用し、以下構成のNFSでサービスするファイル共有ストレージを自動構築（図中の <strong>Deployment target</strong> 範囲）した後、NFSファイルシステム性能をNFSクライアントから実行する <strong>IOR</strong> と <strong>mdtest</strong> で検証します。<br>
 この <strong>IOR</strong> と <strong>mdtest</strong> の検証結果は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-configure-sharedstorage/"
+  href="../tech-knowhow/howto-configure-sharedstorage/"
 >HPC/GPUクラスタ向けファイル共有ストレージの最適な構築手法</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/howto-configure-sharedstorage/#2-1-%e3%82%b3%e3%82%b9%e3%83%88%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%81%ab%e3%82%88%e3%82%8b%e6%af%94%e8%bc%83"
+  href="../tech-knowhow/howto-configure-sharedstorage/#2-1-%e3%82%b3%e3%82%b9%e3%83%88%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%81%ab%e3%82%88%e3%82%8b%e6%af%94%e8%bc%83"
 >2-1. コストパフォーマンスによる比較</a></strong> を参照してください。</p>
 <p><img
   src="architecture_diagram.png"
@@ -504,7 +508,7 @@ table, th, td {
       </tr>
       <tr>
           <td style="text-align: center">NFSサーバ</td>
-          <td style="text-align: center"><strong>BM.Optimized3.36</strong> x 1<br><strong>Oracle Linux</strong> 9.4</td>
+          <td style="text-align: center"><strong>BM.Optimized3.36</strong> x 1<br><strong>Oracle Linux</strong> 8.10</td>
           <td style="text-align: center">NFSサーバ</td>
       </tr>
       <tr>
@@ -514,7 +518,10 @@ table, th, td {
       </tr>
       <tr>
           <td style="text-align: center">NFSクライアント</td>
-          <td style="text-align: center"><strong>VM.Standard2.24</strong> x 4<br><strong>Oracle Linux</strong> 8.10</td>
+          <td style="text-align: center"><strong><a
+  class="gdoc-markdown__link"
+  href="https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#flexible"
+>VM.Standard.E6.Flex</a></strong> x 4<br><strong>Oracle Linux</strong> 9.5</td>
           <td style="text-align: center">ファイルシステムベンチマーク用<br>NFSクライアント</td>
       </tr>
   </tbody>
@@ -554,10 +561,11 @@ table, th, td {
 <li><strong>/mnt/bv</strong> をworld writableでエクスポート</li>
 </ul>
 </li>
+<li><strong>Oracle Linux</strong> のカーネルを <strong>RedHat Compatible Kernel</strong> （以降 <strong>RHCK</strong> と呼称します。）に変更</li>
 </ul>
 <p>またこの <strong>スタック</strong> は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
+  href="../#5-11-cloud-init"
 >cloud-init</a></strong> 設定ファイル( <strong>cloud-config</strong> )を含み、 <strong>cloud-init</strong> がNFSサーバの作成時に以下の処理を行います。</p>
 <ul>
 <li>タイムゾーンをJSTに変更</li>
@@ -573,7 +581,7 @@ table, th, td {
     >
         1. 事前準備
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#1-事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 事前準備" aria-label="アンカー先: 1. 事前準備" href="#1-%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#1-事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 事前準備" aria-label="アンカー先: 1. 事前準備" href="#1-%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -582,7 +590,7 @@ table, th, td {
     >
         1-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#1-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-0. 概要" aria-label="アンカー先: 1-0. 概要" href="#1-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -590,12 +598,12 @@ table, th, td {
 <ul>
 <li><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >構成ソース・プロバイダ</a></strong></li>
 <li><strong>IAMポリシー</strong></li>
 <li><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong></li>
 </ul>
 <div class="flex align-center gdoc-page__anchorwrap">
@@ -603,33 +611,33 @@ table, th, td {
     >
         1-1. 構成ソース・プロバイダ作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#1-1-構成ソースプロバイダ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 構成ソース・プロバイダ作成" aria-label="アンカー先: 1-1. 構成ソース・プロバイダ作成" href="#1-1-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#1-1-構成ソースプロバイダ作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 構成ソース・プロバイダ作成" aria-label="アンカー先: 1-1. 構成ソース・プロバイダ作成" href="#1-1-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、ひな型となる <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-12-terraform"
+  href="../#5-12-terraform"
 >Terraform</a></strong> スクリプトを <strong>GitHub</strong> パブリックレポジトリから取り込むための <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >構成ソース・プロバイダ</a></strong> を作成します。</p>
 <p><strong>構成ソース・プロバイダ</strong> の作成は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >ここ</a></strong> を参照してください。</p>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="1-2-iamポリシー作成"
     >
         1-2. IAMポリシー作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#1-2-iamポリシー作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. IAMポリシー作成" aria-label="アンカー先: 1-2. IAMポリシー作成" href="#1-2-iam%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#1-2-iamポリシー作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. IAMポリシー作成" aria-label="アンカー先: 1-2. IAMポリシー作成" href="#1-2-iam%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> からブロック・ボリュームNFSサーバを作成するために必要な <strong>IAMポリシー</strong> を作成します。</p>
 <p>OCIコンソールにログインし、 <strong>アイデンティティとセキュリティ</strong> → <strong>ポリシー</strong> とメニューを辿ります。</p>
 <p>次に、表示される以下 <strong>xxxxコンパートメント内のポリシー</strong> 画面で、 <strong>ポリシーの作成</strong> ボタンをクリックします。<br>
@@ -649,8 +657,8 @@ table, th, td {
 </span></span><span class="line"><span class="cl">allow service compute_management to manage compute-management-family in compartment compartment_name
 </span></span><span class="line"><span class="cl">allow service compute_management to <span class="nb">read</span> app-catalog-listing in compartment compartment_name
 </span></span><span class="line"><span class="cl">allow group group_name to manage all-resources in compartment compartment_name
-</span></span></code></pre></div><p>※1）<strong>コンパートメント</strong> 名は、自身のものに置き換えます。<br>
-※2）4行目の <strong>グループ</strong> 名は、自身のものに置き換えます。</p>
+</span></span></code></pre></div><p>※4）<strong>コンパートメント</strong> 名は、自身のものに置き換えます。<br>
+※5）4行目の <strong>グループ</strong> 名は、自身のものに置き換えます。</p>
 <p><img
   src="console_page02.png"
   alt="画面ショット"
@@ -661,13 +669,13 @@ table, th, td {
     >
         1-3. スタック作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#1-3-スタック作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. スタック作成" aria-label="アンカー先: 1-3. スタック作成" href="#1-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#1-3-スタック作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. スタック作成" aria-label="アンカー先: 1-3. スタック作成" href="#1-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、ブロック・ボリュームNFSサーバを構築するための <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> を作成します。</p>
 <p>OCIコンソールにログインし、ブロック・ボリュームNFSサーバを作成するリージョンを選択後、 <strong>開発者サービス</strong> → <strong>リソース・マネージャ</strong> → <strong>スタック</strong> とメニューを辿ります。</p>
 <p>次に、表示される以下画面で、<strong>スタックの作成</strong> ボタンをクリックします。</p>
@@ -682,7 +690,7 @@ table, th, td {
 <li><strong>ソースコード管理タイプ :</strong> <strong>GitHub</strong></li>
 <li><strong>構成ソース・プロバイダ :</strong> 先に作成した <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
+  href="../#5-14-%e6%a7%8b%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80"
 >構成ソース・プロバイダ</a></strong></li>
 <li><strong>リポジトリ :</strong> <strong>tutorial_bvnfs</strong></li>
 <li><strong>ブランチ :</strong> <strong>master</strong></li>
@@ -743,13 +751,13 @@ table, th, td {
     >
         2.ブロック・ボリュームNFSサーバ構築
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#2ブロックボリュームnfsサーバ構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.ブロック・ボリュームNFSサーバ構築" aria-label="アンカー先: 2.ブロック・ボリュームNFSサーバ構築" href="#2%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%9c%e3%83%aa%e3%83%a5%e3%83%bc%e3%83%a0nfs%e3%82%b5%e3%83%bc%e3%83%90%e6%a7%8b%e7%af%89">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#2ブロックボリュームnfsサーバ構築" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.ブロック・ボリュームNFSサーバ構築" aria-label="アンカー先: 2.ブロック・ボリュームNFSサーバ構築" href="#2%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%9c%e3%83%aa%e3%83%a5%e3%83%bc%e3%83%a0nfs%e3%82%b5%e3%83%bc%e3%83%90%e6%a7%8b%e7%af%89">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、先に作成した <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> を使用し、ブロック・ボリュームNFSサーバを構築します。</p>
 <p>以下 <strong>スタックの詳細</strong> 画面で、 <strong>適用</strong> ボタンをクリックします。</p>
 <p><img
@@ -788,7 +796,7 @@ table, th, td {
     >
         3. ブロック・ボリュームNFSサーバ確認
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-ブロックボリュームnfsサーバ確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ブロック・ボリュームNFSサーバ確認" aria-label="アンカー先: 3. ブロック・ボリュームNFSサーバ確認" href="#3-%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%9c%e3%83%aa%e3%83%a5%e3%83%bc%e3%83%a0nfs%e3%82%b5%e3%83%bc%e3%83%90%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-ブロックボリュームnfsサーバ確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ブロック・ボリュームNFSサーバ確認" aria-label="アンカー先: 3. ブロック・ボリュームNFSサーバ確認" href="#3-%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%9c%e3%83%aa%e3%83%a5%e3%83%bc%e3%83%a0nfs%e3%82%b5%e3%83%bc%e3%83%90%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -797,7 +805,7 @@ table, th, td {
     >
         3-0. 概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-0. 概要" aria-label="アンカー先: 3-0. 概要" href="#3-0-%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-0-概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-0. 概要" aria-label="アンカー先: 3-0. 概要" href="#3-0-%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -807,7 +815,7 @@ table, th, td {
     >
         3-1. NFSサーバログイン
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-1-nfsサーバログイン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. NFSサーバログイン" aria-label="アンカー先: 3-1. NFSサーバログイン" href="#3-1-nfs%e3%82%b5%e3%83%bc%e3%83%90%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-1-nfsサーバログイン" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. NFSサーバログイン" aria-label="アンカー先: 3-1. NFSサーバログイン" href="#3-1-nfs%e3%82%b5%e3%83%bc%e3%83%90%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -817,13 +825,13 @@ table, th, td {
     >
         3-2. cloud-init完了確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-2-cloud-init完了確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-2. cloud-init完了確認" aria-label="アンカー先: 3-2. cloud-init完了確認" href="#3-2-cloud-init%e5%ae%8c%e4%ba%86%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-2-cloud-init完了確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-2. cloud-init完了確認" aria-label="アンカー先: 3-2. cloud-init完了確認" href="#3-2-cloud-init%e5%ae%8c%e4%ba%86%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-11-cloud-init"
+  href="../#5-11-cloud-init"
 >cloud-init</a></strong> は、NFSサーバが起動してSSHログインできる状態であっても、その処理が継続している可能性があるため、以下コマンドをNFSサーバのopcユーザで実行し、そのステータスが <strong>done</strong> となっていることで <strong>cloud-init</strong> の処理完了を確認します。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cloud-init status
 </span></span><span class="line"><span class="cl">status: <span class="k">done</span>
@@ -834,7 +842,7 @@ table, th, td {
     >
         3-3. NFSサーバOS再起動
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-3-nfsサーバos再起動" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-3. NFSサーバOS再起動" aria-label="アンカー先: 3-3. NFSサーバOS再起動" href="#3-3-nfs%e3%82%b5%e3%83%bc%e3%83%90os%e5%86%8d%e8%b5%b7%e5%8b%95">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-3-nfsサーバos再起動" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-3. NFSサーバOS再起動" aria-label="アンカー先: 3-3. NFSサーバOS再起動" href="#3-3-nfs%e3%82%b5%e3%83%bc%e3%83%90os%e5%86%8d%e8%b5%b7%e5%8b%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -845,7 +853,7 @@ table, th, td {
     >
         3-4. NFSサーバファイルシステム確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-4-nfsサーバファイルシステム確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-4. NFSサーバファイルシステム確認" aria-label="アンカー先: 3-4. NFSサーバファイルシステム確認" href="#3-4-nfs%e3%82%b5%e3%83%bc%e3%83%90%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-4-nfsサーバファイルシステム確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-4. NFSサーバファイルシステム確認" aria-label="アンカー先: 3-4. NFSサーバファイルシステム確認" href="#3-4-nfs%e3%82%b5%e3%83%bc%e3%83%90%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -859,7 +867,7 @@ table, th, td {
     >
         3-5. NFSサーバNFSサービス確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#3-5-nfsサーバnfsサービス確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-5. NFSサーバNFSサービス確認" aria-label="アンカー先: 3-5. NFSサーバNFSサービス確認" href="#3-5-nfs%e3%82%b5%e3%83%bc%e3%83%90nfs%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-5-nfsサーバnfsサービス確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-5. NFSサーバNFSサービス確認" aria-label="アンカー先: 3-5. NFSサーバNFSサービス確認" href="#3-5-nfs%e3%82%b5%e3%83%bc%e3%83%90nfs%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -881,13 +889,26 @@ table, th, td {
 </span></span><span class="line"><span class="cl">$ sudo exportfs
 </span></span><span class="line"><span class="cl">/mnt/bv       	&lt;world&gt;
 </span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
+    <h2 id="3-6-nfsサーバlinuxカーネル確認"
+    >
+        3-6. NFSサーバLinuxカーネル確認
+    </h2>
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#3-6-nfsサーバlinuxカーネル確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-6. NFSサーバLinuxカーネル確認" aria-label="アンカー先: 3-6. NFSサーバLinuxカーネル確認" href="#3-6-nfs%e3%82%b5%e3%83%bc%e3%83%90linux%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e7%a2%ba%e8%aa%8d">
+        <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+    </a>
+</div>
+<p>以下コマンドをNFSサーバのopcユーザで実行し、Linuxカーネルが <strong>RHCK</strong> になっていることを確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ uname -r
+</span></span><span class="line"><span class="cl">4.18.0-553.47.1.el8_10.x86_64
+</span></span><span class="line"><span class="cl">$
 </span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="4-nfsクライアント設定"
     >
         4. NFSクライアント設定
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#4-nfsクライアント設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. NFSクライアント設定" aria-label="アンカー先: 4. NFSクライアント設定" href="#4-nfs%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#4-nfsクライアント設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. NFSクライアント設定" aria-label="アンカー先: 4. NFSクライアント設定" href="#4-nfs%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -904,7 +925,7 @@ table, th, td {
     >
         5. ファイルシステムベンチマーク
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-ファイルシステムベンチマーク" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. ファイルシステムベンチマーク" aria-label="アンカー先: 5. ファイルシステムベンチマーク" href="#5-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-ファイルシステムベンチマーク" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. ファイルシステムベンチマーク" aria-label="アンカー先: 5. ファイルシステムベンチマーク" href="#5-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -913,7 +934,7 @@ table, th, td {
     >
         5-0. ファイルシステムベンチマーク概要
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-0-ファイルシステムベンチマーク概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-0. ファイルシステムベンチマーク概要" aria-label="アンカー先: 5-0. ファイルシステムベンチマーク概要" href="#5-0-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e6%a6%82%e8%a6%81">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-0-ファイルシステムベンチマーク概要" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-0. ファイルシステムベンチマーク概要" aria-label="アンカー先: 5-0. ファイルシステムベンチマーク概要" href="#5-0-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e6%a6%82%e8%a6%81">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -938,14 +959,20 @@ table, th, td {
     >
         5-1. NFSクライアント用インスタンス作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-1-nfsクライアント用インスタンス作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-1. NFSクライアント用インスタンス作成" aria-label="アンカー先: 5-1. NFSクライアント用インスタンス作成" href="#5-1-nfs%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88%e7%94%a8%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-1-nfsクライアント用インスタンス作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-1. NFSクライアント用インスタンス作成" aria-label="アンカー先: 5-1. NFSクライアント用インスタンス作成" href="#5-1-nfs%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88%e7%94%a8%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>NFSクライアントとして使用する以下のインスタンスを作成します。</p>
 <ul>
-<li>シェイプ ： <strong>VM.Standard2.24</strong></li>
-<li>OS ： <strong>Oracle Linux</strong> 8.10（Oracle-Linux-8.10-2024.08.29-0 UEK）</li>
+<li>シェイプ ： <strong>VM.Standard.E6.Flex</strong> （100コア、1.1TBメモリ）</li>
+<li>OS ： <strong><a
+  class="gdoc-markdown__link"
+  href="../#5-17-%e3%83%97%e3%83%a9%e3%83%83%e3%83%88%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8"
+>プラットフォーム・イメージ</a></strong> <strong><a
+  class="gdoc-markdown__link"
+  href="https://docs.oracle.com/en-us/iaas/images/oracle-linux-9x/oracle-linux-9-5-2025-04-16-0.htm"
+>Oracle-Linux-9.5-2025.04.16-0</a></strong></li>
 <li>インスタンス数 ：4</li>
 <li>接続サブネット ：NFSプライベートサブネット</li>
 </ul>
@@ -958,17 +985,17 @@ table, th, td {
     >
         5-2. OpenMPIインストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-2-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-2. OpenMPIインストール" aria-label="アンカー先: 5-2. OpenMPIインストール" href="#5-2-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-2-openmpiインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-2. OpenMPIインストール" aria-label="アンカー先: 5-2. OpenMPIインストール" href="#5-2-openmpi%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p><strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
+  href="../#3-oci-hpc%e3%83%86%e3%82%af%e3%83%8b%e3%82%ab%e3%83%abtips%e9%9b%86"
 >OCI HPCテクニカルTips集</a></strong> の <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/tech-knowhow/build-openmpi/"
->Slurm環境での利用を前提とするOpenMPI構築方法</a></strong> に従い、4ノードのNFSクライアントに <strong>OpenMPI</strong> をインストールします。</p>
+  href="../tech-knowhow/build-oraclelinux-hpcenv/"
+>Oracle Linuxプラットフォーム・イメージベースのHPCワークロード実行環境構築方法</a></strong> に従い、4ノードのNFSクライアントに <strong>OpenMPI</strong> をインストールします。</p>
 <p>次に、NFSクライアントのうちのどれか1ノードにopcユーザでSSHログインし、以下のように4ノードのNFSクライアントのホスト名を含むファイルを <strong>/mnt/nfs/io500</strong> ディレクトリに作成、これを使用してOpenMPIの稼働確認を行います。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
 </span></span><span class="line"><span class="cl">/mnt/nfs/io500
@@ -977,6 +1004,7 @@ table, th, td {
 </span></span><span class="line"><span class="cl">inst-ph77v-nfscli
 </span></span><span class="line"><span class="cl">inst-lbjs1-nfscli
 </span></span><span class="line"><span class="cl">inst-2cxtz-nfscli
+</span></span><span class="line"><span class="cl">$ <span class="k">for</span> hname in <span class="sb">`</span>cat ./hostlist.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> ssh -oStrictHostKeyChecking<span class="o">=</span>accept-new <span class="nv">$hname</span> hostname<span class="p">;</span> <span class="k">done</span>
 </span></span><span class="line"><span class="cl">$ mpirun -n <span class="m">4</span> -N <span class="m">1</span> -hostfile ./hostlist.txt /bin/hostname
 </span></span><span class="line"><span class="cl">inst-mf3vw-nfscli
 </span></span><span class="line"><span class="cl">inst-ph77v-nfscli
@@ -988,23 +1016,32 @@ table, th, td {
     >
         5-3. IO500インストール
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-3-io500インストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-3. IO500インストール" aria-label="アンカー先: 5-3. IO500インストール" href="#5-3-io500%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-3-io500インストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-3. IO500インストール" aria-label="アンカー先: 5-3. IO500インストール" href="#5-3-io500%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>以下コマンドをNFSクライアントのうちのどれか1ノードのopcユーザで実行し、IO500を <strong>/mnt/nfs/io500/io500</strong> ディレクトリににインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ sudo yum install -y git autoconf automake
-</span></span><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
 </span></span><span class="line"><span class="cl">/mnt/nfs/io500
-</span></span><span class="line"><span class="cl">$ git clone https://github.com/IO500/io500.git -b io500-isc20
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> io500
-</span></span><span class="line"><span class="cl">$ ./prepare.sh
+</span></span><span class="line"><span class="cl">$ git clone https://github.com/IO500/io500.git -b io500-isc24
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> ./io500 <span class="o">&amp;&amp;</span> ./prepare.sh
+</span></span></code></pre></div><p>なお、最後のコマンドが以下のメッセージでエラーするため、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ar: ./lz4/lib/*.o: No such file or directory
+</span></span></code></pre></div><p>インストールスクリプトを以下のように修正し、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ diff build/pfind/compile.sh_org build/pfind/compile.sh
+</span></span><span class="line"><span class="cl">25c25
+</span></span><span class="line"><span class="cl">&lt;   <span class="nv">FILES</span><span class="o">+=</span>./lz4/lib/*.o
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">&gt;   <span class="nv">FILES</span><span class="o">+=</span>./lz4/lib/*.a
+</span></span><span class="line"><span class="cl">$
+</span></span></code></pre></div><p>再度以下のコマンドを実行してインストールを完了します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ ./prepare.sh
 </span></span></code></pre></div><div class="flex align-center gdoc-page__anchorwrap">
     <h2 id="5-4-ファイルシステムベンチマーク実行"
     >
         5-4. ファイルシステムベンチマーク実行
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#5-4-ファイルシステムベンチマーク実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-4. ファイルシステムベンチマーク実行" aria-label="アンカー先: 5-4. ファイルシステムベンチマーク実行" href="#5-4-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#5-4-ファイルシステムベンチマーク実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-4. ファイルシステムベンチマーク実行" aria-label="アンカー先: 5-4. ファイルシステムベンチマーク実行" href="#5-4-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1036,6 +1073,8 @@ table, th, td {
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">1</span> <span class="nv">$rep_count</span><span class="sb">`</span>
 </span></span><span class="line"><span class="cl"><span class="k">do</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;try&#34;</span><span class="nv">$i</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;### Starting IOR easy write </span><span class="nv">$name</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  mkdir -p <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/ior_easy
 </span></span><span class="line"><span class="cl">  date <span class="s1">&#39;+%Y/%m/%d %T&#39;</span>
@@ -1045,6 +1084,8 @@ table, th, td {
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">1</span> <span class="nv">$rep_count</span><span class="sb">`</span>
 </span></span><span class="line"><span class="cl"><span class="k">do</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;try&#34;</span><span class="nv">$i</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;### Starting IOR easy read </span><span class="nv">$name</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  date <span class="s1">&#39;+%Y/%m/%d %T&#39;</span>
 </span></span><span class="line"><span class="cl">  mpiexec --mca btl_base_warn_component_unused <span class="m">0</span> --mca pml ob1 -np <span class="nv">$num_proc_total</span> -npernode <span class="nv">$num_proc_pnode</span> -hostfile <span class="nv">$MPI_HOSTFILE</span> <span class="nv">$IO500_BIN_PATH</span>/ior -r -R  -a POSIX -t 2m -v -b 9920000m -F -i <span class="m">1</span> -C -Q <span class="m">1</span> -g -G <span class="m">27</span> -k -e -o <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/ior_easy -O <span class="nv">stoneWallingStatusFile</span><span class="o">=</span><span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/stonewall
@@ -1053,6 +1094,8 @@ table, th, td {
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">1</span> <span class="nv">$rep_count</span><span class="sb">`</span>
 </span></span><span class="line"><span class="cl"><span class="k">do</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;try&#34;</span><span class="nv">$i</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;### Starting mdtest easy stat </span><span class="nv">$name</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  date <span class="s1">&#39;+%Y/%m/%d %T&#39;</span>
 </span></span><span class="line"><span class="cl">  mpiexec --mca btl_base_warn_component_unused <span class="m">0</span> --mca pml ob1 -np <span class="nv">$num_proc_total</span> -npernode <span class="nv">$num_proc_pnode</span> -hostfile <span class="nv">$MPI_HOSTFILE</span> <span class="nv">$IO500_BIN_PATH</span>/mdtest -T -F -P -d <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/mdt_easy -n <span class="m">1000000</span> -u -L -a POSIX -x <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/mdt_easy-stonewall -N <span class="m">1</span>
@@ -1061,6 +1104,8 @@ table, th, td {
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">1</span> <span class="nv">$rep_count</span><span class="sb">`</span>
 </span></span><span class="line"><span class="cl"><span class="k">do</span>
 </span></span><span class="line"><span class="cl">  <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;try&#34;</span><span class="nv">$i</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;### Starting mdtest easy delete </span><span class="nv">$name</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  date <span class="s1">&#39;+%Y/%m/%d %T&#39;</span>
 </span></span><span class="line"><span class="cl">  mpiexec --mca btl_base_warn_component_unused <span class="m">0</span> --mca pml ob1 -np <span class="nv">$num_proc_total</span> -npernode <span class="nv">$num_proc_pnode</span> -hostfile <span class="nv">$MPI_HOSTFILE</span> <span class="nv">$IO500_BIN_PATH</span>/mdtest -r -F -P -d <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/mdt_easy -n <span class="m">1000000</span> -u -L -a POSIX -x <span class="nv">$IO500_DATA_DIR</span>/<span class="nv">$name</span>/mdt_easy-stonewall -N <span class="m">1</span>
@@ -1069,22 +1114,20 @@ table, th, td {
 </span></span></code></pre></div><p>このスクリプトは、 <strong>mdtest</strong> のcreate, stat, deleteと <strong>IOR</strong> のwrite, readを各3回実行し、NFSファイルシステムのメタデータ性能とスループット性能を計測します。</p>
 <p>次に、以下コマンドをNFSクライアントのうちの1ノードのopcユーザで実行し、スクリプトの出力から性能値を確認します。<br>
 この実行に要する時間は、一時間程度です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
-</span></span><span class="line"><span class="cl">/mnt/nfs/io500
-</span></span><span class="line"><span class="cl">$ ./io500_easy.sh <span class="m">16</span> <span class="m">4</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ /mnt/nfs/io500/io500_easy.sh <span class="m">64</span> <span class="m">16</span>
 </span></span></code></pre></div><hr>
 <div class="flex align-center gdoc-page__anchorwrap">
     <h1 id="6-スタックの破棄"
     >
         6. スタックの破棄
     </h1>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/hpc/spinup-nfs-server/#6-スタックの破棄" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. スタックの破棄" aria-label="アンカー先: 6. スタックの破棄" href="#6-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%81%ae%e7%a0%b4%e6%a3%84">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/hpc/spinup-nfs-server/#6-スタックの破棄" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. スタックの破棄" aria-label="アンカー先: 6. スタックの破棄" href="#6-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e3%81%ae%e7%a0%b4%e6%a3%84">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
 <p>本章は、 <strong><a
   class="gdoc-markdown__link"
-  href="/ocitutorials/hpc/#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
+  href="../#5-3-%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af"
 >スタック</a></strong> を破棄することで、構築したブロック・ボリュームNFSサーバ環境を削除します。</p>
 <p>以降の手順を実施すると、本チュートリアルで作成したOCI上のリソースをすべて削除することになるため、 <strong>ブロック・ボリューム上に作成したファイルが全て消失</strong> します。</p>
 <p>以下 <strong>スタックの詳細</strong> 画面で、 <strong>破棄</strong> ボタンをクリックします。</p>
@@ -1117,2698 +1160,3874 @@ table, th, td {
 
   </article>
 
-
-          
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
-            
-            
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-          
-  
-  
-
-  
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-          
-          
-        
-
-        
-          
-        
-
-        
-        
-      
-    
-
-  
-    
-
-    
-      
-    
-
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
           
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+          
+  
+  
+
+  
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+          
+          
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+          
+            
+            
+          
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
           
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
         
 
         
 
         
+
+        
           
         
 
@@ -4043,7 +5262,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4067,7 +5295,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4091,7 +5328,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4187,8 +5433,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -4235,7 +5490,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4259,7 +5523,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4308,15 +5581,6 @@ table, th, td {
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4341,15 +5605,30 @@ table, th, td {
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5718,10 +6997,76 @@ table, th, td {
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5752,7 +7097,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5776,8 +7130,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5800,7 +7163,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5824,7 +7196,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5850,6 +7231,15 @@ table, th, td {
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5872,8 +7262,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5895,6 +7294,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5920,8 +7325,19 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5944,7 +7360,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5968,7 +7393,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5996,9 +7430,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6022,8 +7459,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -6046,11 +7492,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6349,9 +7793,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6375,12 +7822,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -7202,16 +8647,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7635,12 +9071,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7664,10 +9097,12 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7721,16 +9156,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7756,15 +9182,6 @@ table, th, td {
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7787,17 +9204,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7820,16 +9228,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7853,16 +9252,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7886,16 +9276,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7919,17 +9300,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7952,16 +9324,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7989,12 +9352,9 @@ table, th, td {
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -8018,9 +9378,11 @@ table, th, td {
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -8051,16 +9413,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8084,16 +9437,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8119,9 +9463,27 @@ table, th, td {
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -8147,18 +9509,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8276,7 +9627,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8302,7 +9659,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8325,6 +9693,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8350,7 +9724,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8374,8 +9759,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8398,7 +9792,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8426,9 +9829,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8452,12 +9858,10 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8487,8 +9891,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8511,7 +9924,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8535,7 +9957,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8559,7 +9990,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8607,8 +10047,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8630,6 +10079,12 @@ table, th, td {
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8679,7 +10134,18 @@ table, th, td {
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8731,9 +10197,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8757,18 +10226,7 @@ table, th, td {
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8796,9 +10254,12 @@ table, th, td {
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8822,11 +10283,9 @@ table, th, td {
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8971,16 +10430,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9004,7 +10454,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9028,16 +10487,7 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -9118,8 +10568,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -9175,7 +10634,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -9197,7 +10665,13 @@ table, th, td {
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -9223,17 +10697,8 @@ table, th, td {
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -9250,15 +10715,15 @@ table, th, td {
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9359,31 +10824,7 @@ table, th, td {
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10767,7 +12208,29 @@ table, th, td {
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10876,7 +12339,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11020,8 +12492,17 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -11116,7 +12597,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11164,7 +12654,16 @@ table, th, td {
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -11213,6 +12712,15 @@ table, th, td {
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -11254,11 +12762,11 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/hpc/spinup-nfs-server-fss/"
-      title="ファイル・ストレージでファイル共有ストレージを構築する"
+      href="/t-utsunom/test_tutorial/hpc/spinup-lustre-server-fswl/"
+      title="File Storage with Lustreでファイル共有ストレージを構築する"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      ファイル・ストレージでファイル共有ストレージを構築する
+      File Storage with Lustreでファイル共有ストレージを構築する
     </a>
   
 </span>
@@ -11266,17 +12774,18 @@ table, th, td {
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/hpc/spinup-nfs-server-nvme/"
-      title="短期保存データ用高速ファイル共有ストレージを構築する"
+      href="/t-utsunom/test_tutorial/hpc/spinup-nfs-server-e6/"
+      title="ブロック・ボリュームでファイル共有ストレージを構築する（BM.Standard.E6.256編）"
     >
-      短期保存データ用高速ファイル共有ストレージを構築する
+      ブロック・ボリュームでファイル共有ストレージを構築する（BM.Standard.E6.256編）
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11320,7 +12829,7 @@ table, th, td {
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

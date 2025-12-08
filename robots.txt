@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /tags/*
+Disallow: /tags-search/*
 
-Sitemap: https://oracle-japan.github.io/ocitutorials/sitemap.xml
+Sitemap: https://github.com/t-utsunom/test_tutorial/sitemap.xml

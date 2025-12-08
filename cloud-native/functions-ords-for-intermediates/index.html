@@ -6,25 +6,25 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.144.2">
+<meta name="generator" content="Hugo 0.148.2">
 
 
   <meta name="description" content="Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。" />
 
   <title>Oracle Functionsを利用したORDSでのデータベースアクセス | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/ocitutorials/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/ocitutorials/favicon/favicon.ico"
+  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,21 +35,21 @@
     content="Oracle Functionsを利用したORDSでのデータベースアクセス"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
+  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/" />
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/" />
 
 <meta property="article:section" content="Cloud Native" />
     <meta
       property="article:modified_time"
-      content="2025-12-08T06:28:09+00:00"
+      content="2025-12-08T06:45:39+00:00"
     />
 
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Oracle Functionsを利用したORDSでのデータベースアクセス" />
-  <meta property="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png" />
+  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。" />
 
 
@@ -59,31 +59,31 @@
       "@type": "TechArticle",
       "articleSection": "Cloud Native",
       "name": "Oracle Functionsを利用したORDSでのデータベースアクセス",
-      "url" : "https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/",
+      "url" : "https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/",
       "headline": "Oracle Functionsを利用したORDSでのデータベースアクセス",
       "description": "Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。",
-      "thumbnailUrl": "https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png",
+      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
       "wordCount" : "465",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/"
+          "@id": "https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/"
       },
       "keywords" : [ "サーバレス" , "データベース" ],
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
       "dateCreated": "0001-01-01T00:00:00.00Z",
       "datePublished": "0001-01-01T00:00:00.00Z",
-      "dateModified": "2025-12-08T06:28:09.00Z",
+      "dateModified": "2025-12-08T06:45:39.00Z",
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://oracle-japan.github.io/ocitutorials/",
+          "url": "https://github.com/t-utsunom/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://oracle-japan.github.io/ocitutorials/brand.svg",
+              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,87 +93,85 @@
 
 
   
-  <script src="/ocitutorials/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/ocitutorials/js/main-2e274343.bundle.min.js"></script>
+  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/Metropolis.woff2"
+  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/ocitutorials/fonts/LiberationSans.woff2"
+  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/main-86b8c207.min.css"
+  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/mobile-79ddc617.min.css"
+  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/print-735ccc12.min.css"
+  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/ocitutorials/custom.css"
+  href="/t-utsunom/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/" rel="canonical" type="text/html" />
+  <link href="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/">
+<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="Oracle Functionsを利用したORDSでのデータベースアクセス">
   <meta property="og:description" content="Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="cloud-native">
-    <meta property="article:modified_time" content="2025-12-08T06:28:09+00:00">
-    <meta property="article:tag" content="サーバレス">
-    <meta property="article:tag" content="データベース">
-    <meta property="og:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+    <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
+    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://oracle-japan.github.io/ocitutorials/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="Oracle Functionsを利用したORDSでのデータベースアクセス">
   <meta name="twitter:description" content="Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供されるマネージドFaaS(Function as a Service)サービスです。このハンズオンでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -219,19 +217,20 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://oracle-japan.github.io/ocitutorials/">
+      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/ocitutorials/img/theo_white.png"
+            src="/t-utsunom/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
         </span>
       </a>
     </div>
-    
-  <div class="gdoc-search flex align-center" style="width: 50vw; max-width: 700px; min-width: 100px; margin-left: auto; margin-right: auto;">
+    <div class="gdoc-menu-header__search">
+      
+  <div class="gdoc-search flex align-center">
     <svg class="gdoc-icon gdoc_search"><use xlink:href="#gdoc_search"></use></svg>
     <input
       type="text"
@@ -240,19 +239,24 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://oracle-japan.github.io/ocitutorials/"
+      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
   </div>
 
 
+    </div>
     <div class="gdoc-menu-header">
       <span class="gdoc-menu-header__items">
         
-
+        <span class="gdoc-menu-header__tagfilter">
+          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+            <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
+          </a>
+        </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://oracle-japan.github.io/ocitutorials/" class="gdoc-header__link">
+          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -296,7 +300,8 @@
         
         
         <aside class="gdoc-nav">
-          <nav>
+          
+<nav>
   
   
   
@@ -307,9 +312,9 @@
 
   
   
-  <section class="gdoc-nav--toc">
-    <h1>&nbsp;目次</h1>
-    <ul>
+    <section class="gdoc-nav--toc">
+      <h1>&nbsp;目次</h1>
+      <ul>
         <li><a href="#条件">条件</a></li>
         <li><a href="#1事前準備">1.事前準備</a>
           <ul>
@@ -321,20 +326,10 @@
         <li><a href="#3oracle-functionsの作成">3.Oracle Functionsの作成</a></li>
         <li><a href="#4atpへのアクセス確認">4.ATPへのアクセス確認</a></li>
       </ul>
-
-</section>
-
-
-
-
-
-
-<section class="gdoc-nav--more">
+      
+    </section>
   
-</section>
 </nav>
-
-
 
         </aside>
         
@@ -384,7 +379,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/' href='/ocitutorials/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/ocitutorials/cloud-native/' href='/ocitutorials/cloud-native/'><span itemprop='name'>Cloud Nativeチュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Oracle Functionsを利用したORDSでのデータベースアクセス</span><meta itemprop='position' content='4' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/cloud-native/' href='/t-utsunom/test_tutorial/cloud-native/'><span itemprop='name'>Cloud Nativeチュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Oracle Functionsを利用したORDSでのデータベースアクセス</span><meta itemprop='position' content='5' /></li>
   
 
   
@@ -404,24 +399,22 @@
     <svg class="gdoc-icon gdoc_date"><use xlink:href="#gdoc_date"></use></svg>
     
     
-        <time datetime="2025-12-08T06:28:09Z">
+        <time datetime="2025-12-08T06:45:39Z">
             Dec 8, 2025
         </time>
     
 </span>
     
-<div class="tags" style="margin-top: 1rem; font-size: 0.9rem;">
-    <strong>タグ：</strong>
+<div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
+    <b>タグ：</b>
     
-    <a href="https://oracle-japan.github.io/ocitutorials/tags-search/"
-        style="background: #e2e8f0; padding: 5px 10px; border-radius: 5px; margin-right: 5px; text-decoration: none; color: #1a202c;">
-        サーバレス
-    </a>
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%82%b5%e3%83%bc%e3%83%90%e3%83%ac%e3%82%b9" class="page-tag">
+            &#35;サーバレス
+        </a>
     
-    <a href="https://oracle-japan.github.io/ocitutorials/tags-search/"
-        style="background: #e2e8f0; padding: 5px 10px; border-radius: 5px; margin-right: 5px; text-decoration: none; color: #1a202c;">
-        データベース
-    </a>
+        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+            &#35;データベース
+        </a>
     
 </div>
 
@@ -451,7 +444,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         条件
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#条件" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 条件" aria-label="アンカー先: 条件" href="#%e6%9d%a1%e4%bb%b6">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#条件" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 条件" aria-label="アンカー先: 条件" href="#%e6%9d%a1%e4%bb%b6">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -489,7 +482,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         1.事前準備
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#1事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.事前準備" aria-label="アンカー先: 1.事前準備" href="#1%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#1事前準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.事前準備" aria-label="アンカー先: 1.事前準備" href="#1%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -499,7 +492,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         1-1.ATPのプロビジョニング
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#1-1atpのプロビジョニング" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1.ATPのプロビジョニング" aria-label="アンカー先: 1-1.ATPのプロビジョニング" href="#1-1atp%e3%81%ae%e3%83%97%e3%83%ad%e3%83%93%e3%82%b8%e3%83%a7%e3%83%8b%e3%83%b3%e3%82%b0">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#1-1atpのプロビジョニング" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1.ATPのプロビジョニング" aria-label="アンカー先: 1-1.ATPのプロビジョニング" href="#1-1atp%e3%81%ae%e3%83%97%e3%83%ad%e3%83%93%e3%82%b8%e3%83%a7%e3%83%8b%e3%83%b3%e3%82%b0">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -564,7 +557,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         2-2.ORDSサービスのベースURLの取得
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#2-2ordsサービスのベースurlの取得" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2.ORDSサービスのベースURLの取得" aria-label="アンカー先: 2-2.ORDSサービスのベースURLの取得" href="#2-2ords%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%81%ae%e3%83%99%e3%83%bc%e3%82%b9url%e3%81%ae%e5%8f%96%e5%be%97">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#2-2ordsサービスのベースurlの取得" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2.ORDSサービスのベースURLの取得" aria-label="アンカー先: 2-2.ORDSサービスのベースURLの取得" href="#2-2ords%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%81%ae%e3%83%99%e3%83%bc%e3%82%b9url%e3%81%ae%e5%8f%96%e5%be%97">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -582,7 +575,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         2-3.ORDSサービスの有効化
     </h3>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#2-3ordsサービスの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3.ORDSサービスの有効化" aria-label="アンカー先: 2-3.ORDSサービスの有効化" href="#2-3ords%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#2-3ordsサービスの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3.ORDSサービスの有効化" aria-label="アンカー先: 2-3.ORDSサービスの有効化" href="#2-3ords%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -741,7 +734,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         3.Oracle Functionsの作成
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#3oracle-functionsの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.Oracle Functionsの作成" aria-label="アンカー先: 3.Oracle Functionsの作成" href="#3oracle-functions%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#3oracle-functionsの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.Oracle Functionsの作成" aria-label="アンカー先: 3.Oracle Functionsの作成" href="#3oracle-functions%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -814,7 +807,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     >
         4.ATPへのアクセス確認
     </h2>
-    <a data-clipboard-text="https://oracle-japan.github.io/ocitutorials/cloud-native/functions-ords-for-intermediates/#4atpへのアクセス確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4.ATPへのアクセス確認" aria-label="アンカー先: 4.ATPへのアクセス確認" href="#4atp%e3%81%b8%e3%81%ae%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/cloud-native/functions-ords-for-intermediates/#4atpへのアクセス確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4.ATPへのアクセス確認" aria-label="アンカー先: 4.ATPへのアクセス確認" href="#4atp%e3%81%b8%e3%81%ae%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -828,12 +821,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
   </article>
 
-
           
-          
-          <div class="gdoc-page__footer flex flex-wrap justify-between">
             
             
+            <div class="gdoc-page__footer flex flex-wrap justify-between">
+              
+                
 
 
 
@@ -913,29 +906,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -961,29 +939,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1009,29 +972,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1057,29 +1005,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1105,29 +1038,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1153,29 +1071,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1201,29 +1104,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1249,29 +1137,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1297,29 +1170,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1345,29 +1203,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1393,29 +1236,14 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
       
-      
+    
 
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
-
-        
-        
-      
     
       
       
@@ -1441,6 +1269,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -1464,6 +1301,114 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -1491,6 +1436,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -1521,6 +1475,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -1543,8 +1506,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -1567,7 +1539,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1591,7 +1572,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1615,7 +1605,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -1643,10 +1642,13 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
     
+
+    
       
       
 
@@ -1669,11 +1671,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -1708,9 +1708,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -1734,12 +1737,10 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -1773,9 +1774,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -1799,11 +1803,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -1904,12 +1906,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -1933,10 +1932,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -2029,7 +2030,13 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -2055,8 +2062,19 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2079,7 +2097,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2103,7 +2130,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2127,7 +2163,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2151,8 +2196,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2174,6 +2228,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -2199,7 +2259,18 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2223,7 +2294,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2248,6 +2328,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2271,8 +2360,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2319,7 +2417,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2343,7 +2450,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2367,7 +2483,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2391,8 +2516,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2415,7 +2549,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2439,7 +2582,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2465,6 +2617,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2489,11 +2650,812 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
-      
+
+  
+    
+
+    
       
+    
 
+    
       
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
         
+      
+    
+
+  
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
         
         
         
@@ -2513,6 +3475,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2535,8 +3506,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2559,7 +3539,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2583,7 +3572,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2607,7 +3605,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2631,8 +3638,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2655,7 +3671,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2679,7 +3704,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2704,6 +3738,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -2727,8 +3770,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2751,7 +3803,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2775,7 +3836,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2799,7 +3869,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2823,8 +3902,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2847,7 +3935,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2871,7 +3968,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2897,6 +4003,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -2919,8 +4034,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -2943,7 +4067,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -2963,11 +4096,20 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
           
+        
+
+        
         
+      
+    
+
+  
+    
 
-        
-        
+    
       
+    
+
     
       
       
@@ -2991,7 +4133,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3017,6 +4168,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -3039,8 +4199,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3754,7 +4923,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3778,7 +4956,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3802,7 +4989,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3898,8 +5094,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -3946,7 +5151,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -3970,7 +5184,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -4019,15 +5242,6 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
-    
-
-  
-    
-
-    
-      
-    
-
     
       
       
@@ -4052,15 +5266,30 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
-    
-
-  
     
+      
+      
 
-    
       
-    
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
+        
+      
     
       
       
@@ -5429,10 +6658,76 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
           
+  
+  
+
   
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
 
   
+    
+
+    
+      
+    
+
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
+
+        
+        
+      
+    
+
   
     
 
@@ -5463,7 +6758,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5487,8 +6791,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5511,7 +6824,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5535,7 +6857,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5561,6 +6892,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+
+  
+    
+
+    
+      
+    
+
+    
       
       
 
@@ -5583,8 +6923,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5606,6 +6955,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -5631,8 +6986,19 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5655,7 +7021,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5679,7 +7054,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -5707,9 +7091,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -5733,8 +7120,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -5757,11 +7153,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -6060,9 +7454,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -6086,12 +7483,10 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -6913,16 +8308,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7346,12 +8732,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7375,10 +8758,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
+          
+  
+  
 
   
+  
     
 
     
@@ -7432,16 +8817,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7467,15 +8843,6 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
-
-  
-    
-
-    
-      
-    
-
-    
       
       
 
@@ -7498,17 +8865,8 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7531,16 +8889,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7564,16 +8913,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7597,16 +8937,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7630,17 +8961,8 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -7663,16 +8985,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7700,12 +9013,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
-    
 
-    
+        
       
-    
-
     
       
       
@@ -7729,9 +9039,11 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -7762,16 +9074,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7795,16 +9098,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7830,9 +9124,27 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
       
     
+      
+      
 
-  
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
+          
+        
 
+        
         
       
     
@@ -7858,18 +9170,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -7987,7 +9288,13 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8013,7 +9320,18 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8036,6 +9354,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8061,7 +9385,18 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8085,8 +9420,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8109,7 +9453,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8137,9 +9490,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8163,12 +9519,10 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
   
-  
     
 
     
@@ -8198,8 +9552,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8222,7 +9585,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8246,7 +9618,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8270,7 +9651,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8318,8 +9708,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8341,6 +9740,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
 
         
+        
+      
+    
+
+  
+
         
       
     
@@ -8390,7 +9795,18 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+          
+  
+  
+
+  
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8442,9 +9858,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8468,18 +9887,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
-
-  
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8507,9 +9915,12 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+    
 
-        
+    
       
+    
+
     
       
       
@@ -8533,11 +9944,9 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-          
-  
-  
+      
+    
 
-  
   
     
 
@@ -8682,16 +10091,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8715,7 +10115,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8739,16 +10148,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
-    
-
     
       
       
@@ -8829,8 +10229,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -8886,7 +10295,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -8908,7 +10326,13 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
           
         
 
+        
         
+      
+    
+
+  
+
         
       
     
@@ -8934,17 +10358,8 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
-      
-    
-
-  
-    
-
-    
       
     
-
-    
       
       
 
@@ -8961,15 +10376,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
 
-        
-          
         
 
         
         
-      
-    
+          
+  
+  
 
+  
   
     
 
@@ -9070,31 +10485,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
-
-        
-      
-    
-      
-      
-
-      
-        
-        
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-          
-        
 
-        
         
       
     
@@ -10478,7 +11869,29 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
     
 
   
+
+        
+      
+    
+      
+      
+
+      
+        
+        
+        
+        
+
+        
+        
+
+        
+
+        
+
+        
 
+        
         
       
     
@@ -10587,7 +12000,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10731,8 +12153,17 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
     
+
+    
       
       
 
@@ -10827,7 +12258,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10875,7 +12315,16 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
 
         
         
+      
+    
+
+  
+    
+
+    
       
+    
+
     
       
       
@@ -10924,6 +12373,15 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
         
         
       
+    
+
+  
+    
+
+    
+      
+    
+
     
       
       
@@ -10965,11 +12423,11 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/ocitutorials/cloud-native/functions-nosql-for-intermediates/"
-      title="Oracle Functionsを利用したNoSQLデータベースアクセス"
+      href="/t-utsunom/test_tutorial/cloud-native/functions-vmshape-for-intermediates/"
+      title="OCI Functionsを利用した仮想マシン (VM) のシェイプ変更"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
-      Oracle Functionsを利用したNoSQLデータベースアクセス
+      OCI Functionsを利用した仮想マシン (VM) のシェイプ変更
     </a>
   
 </span>
@@ -10977,17 +12435,18 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/ocitutorials/cloud-native/microtx-for-beginners/"
-      title="Oracle Transaction Manager for Microservices(MicroTx)を体験してみよう"
+      href="/t-utsunom/test_tutorial/cloud-native/functions-nosql-for-intermediates/"
+      title="Oracle Functionsを利用したNoSQLデータベースアクセス"
     >
-      Oracle Transaction Manager for Microservices(MicroTx)を体験してみよう
+      Oracle Functionsを利用したNoSQLデータベースアクセス
       <i class="gdoc-icon">gdoc_arrow_right_alt</i>
     </a>
   
 </span>
 
+              
+            </div>
             
-          </div>
           
         </div>
       </main>
@@ -11031,7 +12490,7 @@ ORDSはデフォルトでATPに組み込まれている仕組みです。</p>
   </div>
 
   
-  <script defer src="/ocitutorials/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   
