@@ -13,18 +13,18 @@
 
   <title>その11 - クラウドでMySQLデータベースを高可用性構成で使う | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="その11 - クラウドでMySQLデータベースを高可用性構成で使う"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png" />
   <meta property="og:description" content="MySQL HeatWaveでは、高可用性構成も簡単に構築できます。実際に構築して、スイッチオーバーを発生させ、プライマリサーバーの切り替えを試してみましょう。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/" />
 
 <meta property="article:section" content="Mysql" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="その11 - クラウドでMySQLデータベースを高可用性構成で使う" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png" />
   <meta name="twitter:description" content="MySQL HeatWaveでは、高可用性構成も簡単に構築できます。実際に構築して、スイッチオーバーを発生させ、プライマリサーバーの切り替えを試してみましょう。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Mysql",
       "name": "その11 - クラウドでMySQLデータベースを高可用性構成で使う",
-      "url" : "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/",
       "headline": "その11 - クラウドでMySQLデータベースを高可用性構成で使う",
       "description": "MySQL HeatWaveでは、高可用性構成も簡単に構築できます。実際に構築して、スイッチオーバーを発生させ、プライマリサーバーの切り替えを試してみましょう。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png",
       "wordCount" : "807",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/"
       },
       "keywords" : [ "データベース" , "可用性・DR" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="その11 - クラウドでMySQLデータベースを高可用性構成で使う">
   <meta property="og:description" content="MySQL HeatWaveでは、高可用性構成も簡単に構築できます。実際に構築して、スイッチオーバーを発生させ、プライマリサーバーの切り替えを試してみましょう。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="mysql">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/MySQLLogo_teaser.png">
   <meta name="twitter:title" content="その11 - クラウドでMySQLデータベースを高可用性構成で使う">
   <meta name="twitter:description" content="MySQL HeatWaveでは、高可用性構成も簡単に構築できます。実際に構築して、スイッチオーバーを発生させ、プライマリサーバーの切り替えを試してみましょう。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -377,7 +377,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/mysql/' href='/t-utsunom/test_tutorial/mysql/'><span itemprop='name'>MySQL HeatWave チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>その11 - クラウドでMySQLデータベースを高可用性構成で使う</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/mysql/' href='/test_tutorial/mysql/'><span itemprop='name'>MySQL HeatWave チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>その11 - クラウドでMySQLデータベースを高可用性構成で使う</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -406,11 +406,11 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e5%8f%af%e7%94%a8%e6%80%a7%e3%83%bbDR" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e5%8f%af%e7%94%a8%e6%80%a7%e3%83%bbDR" class="page-tag">
             &#35;可用性・DR
         </a>
     
@@ -473,7 +473,7 @@
     >
         1. はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#1-はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. はじめに" aria-label="アンカー先: 1. はじめに" href="#1-%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#1-はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. はじめに" aria-label="アンカー先: 1. はじめに" href="#1-%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -488,7 +488,7 @@
     >
         2. 本チュートリアルで作成する構成の構成図
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#2-本チュートリアルで作成する構成の構成図" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 本チュートリアルで作成する構成の構成図" aria-label="アンカー先: 2. 本チュートリアルで作成する構成の構成図" href="#2-%e6%9c%ac%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e6%a7%8b%e6%88%90%e3%81%ae%e6%a7%8b%e6%88%90%e5%9b%b3">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#2-本チュートリアルで作成する構成の構成図" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 本チュートリアルで作成する構成の構成図" aria-label="アンカー先: 2. 本チュートリアルで作成する構成の構成図" href="#2-%e6%9c%ac%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e6%a7%8b%e6%88%90%e3%81%ae%e6%a7%8b%e6%88%90%e5%9b%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -503,7 +503,7 @@
     >
         3. 高可用性構成を有効化したMySQL HeatWaveの作成
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#3-高可用性構成を有効化したmysql-heatwaveの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 高可用性構成を有効化したMySQL HeatWaveの作成" aria-label="アンカー先: 3. 高可用性構成を有効化したMySQL HeatWaveの作成" href="#3-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e6%a7%8b%e6%88%90%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96%e3%81%97%e3%81%9fmysql-heatwave%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#3-高可用性構成を有効化したmysql-heatwaveの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 高可用性構成を有効化したMySQL HeatWaveの作成" aria-label="アンカー先: 3. 高可用性構成を有効化したMySQL HeatWaveの作成" href="#3-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e6%a7%8b%e6%88%90%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96%e3%81%97%e3%81%9fmysql-heatwave%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -575,7 +575,7 @@
     >
         4. セキュリティリストの修正(イングレス・ルールの追加)
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#4-セキュリティリストの修正イングレスルールの追加" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. セキュリティリストの修正(イングレス・ルールの追加)" aria-label="アンカー先: 4. セキュリティリストの修正(イングレス・ルールの追加)" href="#4-%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e4%bf%ae%e6%ad%a3%e3%82%a4%e3%83%b3%e3%82%b0%e3%83%ac%e3%82%b9%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e8%bf%bd%e5%8a%a0">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#4-セキュリティリストの修正イングレスルールの追加" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. セキュリティリストの修正(イングレス・ルールの追加)" aria-label="アンカー先: 4. セキュリティリストの修正(イングレス・ルールの追加)" href="#4-%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e4%bf%ae%e6%ad%a3%e3%82%a4%e3%83%b3%e3%82%b0%e3%83%ac%e3%82%b9%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e8%bf%bd%e5%8a%a0">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -640,7 +640,7 @@
     >
         5. MySQLクライアント、MySQL Shellのインストール
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#5-mysqlクライアントmysql-shellのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. MySQLクライアント、MySQL Shellのインストール" aria-label="アンカー先: 5. MySQLクライアント、MySQL Shellのインストール" href="#5-mysql%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88mysql-shell%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#5-mysqlクライアントmysql-shellのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. MySQLクライアント、MySQL Shellのインストール" aria-label="アンカー先: 5. MySQLクライアント、MySQL Shellのインストール" href="#5-mysql%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88mysql-shell%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -680,7 +680,7 @@
     >
         6. 作成したMySQL HeatWaveで高可用性が実現できることを確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-ha/#6-作成したmysql-heatwaveで高可用性が実現できることを確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. 作成したMySQL HeatWaveで高可用性が実現できることを確認" aria-label="アンカー先: 6. 作成したMySQL HeatWaveで高可用性が実現できることを確認" href="#6-%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9fmysql-heatwave%e3%81%a7%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e3%81%8c%e5%ae%9f%e7%8f%be%e3%81%a7%e3%81%8d%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-ha/#6-作成したmysql-heatwaveで高可用性が実現できることを確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. 作成したMySQL HeatWaveで高可用性が実現できることを確認" aria-label="アンカー先: 6. 作成したMySQL HeatWaveで高可用性が実現できることを確認" href="#6-%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9fmysql-heatwave%e3%81%a7%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e3%81%8c%e5%ae%9f%e7%8f%be%e3%81%a7%e3%81%8d%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12487,7 +12487,7 @@ mysql&gt;
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/mysql/creating-HeatWave/"
+      href="/test_tutorial/mysql/creating-HeatWave/"
       title="その10 - MySQLで高速分析を体験する"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12499,7 +12499,7 @@ mysql&gt;
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/"
+      href="/test_tutorial/mysql/creating-mds-readreplica/"
       title="その12 - MySQL HeatWaveでリードレプリカを構成する"
     >
       その12 - MySQL HeatWaveでリードレプリカを構成する
@@ -12554,7 +12554,7 @@ mysql&gt;
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

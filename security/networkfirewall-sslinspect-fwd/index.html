@@ -13,18 +13,18 @@
 
   <title>OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png" />
   <meta property="og:description" content="本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/" />
 
 <meta property="article:section" content="Security" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png" />
   <meta name="twitter:description" content="本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Security",
       "name": "OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う",
-      "url" : "https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/",
       "headline": "OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う",
       "description": "本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png",
       "wordCount" : "585",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/"
       },
       "keywords" : [ "セキュリティ" , "ネットワーク" , "脆弱性・脅威検知" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う">
   <meta property="og:description" content="本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="security">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/sslfwd00.png">
   <meta name="twitter:title" content="OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う">
   <meta name="twitter:description" content="本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -416,7 +416,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/security/' href='/t-utsunom/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/security/' href='/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -445,15 +445,15 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
             &#35;セキュリティ
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
             &#35;ネットワーク
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e8%84%86%e5%bc%b1%e6%80%a7%e3%83%bb%e8%84%85%e5%a8%81%e6%a4%9c%e7%9f%a5" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e8%84%86%e5%bc%b1%e6%80%a7%e3%83%bb%e8%84%85%e5%a8%81%e6%a4%9c%e7%9f%a5" class="page-tag">
             &#35;脆弱性・脅威検知
         </a>
     
@@ -499,7 +499,7 @@
     >
         0. はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#0-はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. はじめに" aria-label="アンカー先: 0. はじめに" href="#0-%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#0-はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. はじめに" aria-label="アンカー先: 0. はじめに" href="#0-%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -508,7 +508,7 @@
     >
         ・実施内容
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#実施内容" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・実施内容" aria-label="アンカー先: ・実施内容" href="#%e5%ae%9f%e6%96%bd%e5%86%85%e5%ae%b9">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#実施内容" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・実施内容" aria-label="アンカー先: ・実施内容" href="#%e5%ae%9f%e6%96%bd%e5%86%85%e5%ae%b9">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -537,7 +537,7 @@ OCI環境を出入りする通信はNetwork Firewallを経由し、Network Firew
     >
         ・SSLインスペクションのモードについて
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#sslインスペクションのモードについて" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・SSLインスペクションのモードについて" aria-label="アンカー先: ・SSLインスペクションのモードについて" href="#ssl%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%9a%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e3%83%a2%e3%83%bc%e3%83%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#sslインスペクションのモードについて" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・SSLインスペクションのモードについて" aria-label="アンカー先: ・SSLインスペクションのモードについて" href="#ssl%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%9a%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e3%83%a2%e3%83%bc%e3%83%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -562,7 +562,7 @@ OCI環境を出入りする通信はNetwork Firewallを経由し、Network Firew
     >
         1. 証明書の作成
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#1-証明書の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 証明書の作成" aria-label="アンカー先: 1. 証明書の作成" href="#1-%e8%a8%bc%e6%98%8e%e6%9b%b8%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#1-証明書の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. 証明書の作成" aria-label="アンカー先: 1. 証明書の作成" href="#1-%e8%a8%bc%e6%98%8e%e6%9b%b8%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -641,7 +641,7 @@ OCI環境を出入りする通信はNetwork Firewallを経由し、Network Firew
     >
         2. Windowsインスタンスの準備
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-windowsインスタンスの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Windowsインスタンスの準備" aria-label="アンカー先: 2. Windowsインスタンスの準備" href="#2-windows%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-windowsインスタンスの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Windowsインスタンスの準備" aria-label="アンカー先: 2. Windowsインスタンスの準備" href="#2-windows%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -650,7 +650,7 @@ OCI環境を出入りする通信はNetwork Firewallを経由し、Network Firew
     >
         2-1. Windowsインスタンスの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-1-windowsインスタンスの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. Windowsインスタンスの作成" aria-label="アンカー先: 2-1. Windowsインスタンスの作成" href="#2-1-windows%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-1-windowsインスタンスの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. Windowsインスタンスの作成" aria-label="アンカー先: 2-1. Windowsインスタンスの作成" href="#2-1-windows%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -699,7 +699,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[コン�
     >
         2-2. セキュリティ・リストの設定
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-2-セキュリティリストの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. セキュリティ・リストの設定" aria-label="アンカー先: 2-2. セキュリティ・リストの設定" href="#2-2-%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#2-2-セキュリティリストの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. セキュリティ・リストの設定" aria-label="アンカー先: 2-2. セキュリティ・リストの設定" href="#2-2-%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -733,7 +733,7 @@ SSL転送プロキシモードでは、Network Firewallがプロキシとして�
     >
         3. OCI Vaultの準備
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-oci-vaultの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. OCI Vaultの準備" aria-label="アンカー先: 3. OCI Vaultの準備" href="#3-oci-vault%e3%81%ae%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-oci-vaultの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. OCI Vaultの準備" aria-label="アンカー先: 3. OCI Vaultの準備" href="#3-oci-vault%e3%81%ae%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -743,7 +743,7 @@ SSL転送プロキシモードでは、Network Firewallがプロキシとして�
     >
         3-1. 作成するシークレットの内容の準備
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-1-作成するシークレットの内容の準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. 作成するシークレットの内容の準備" aria-label="アンカー先: 3-1. 作成するシークレットの内容の準備" href="#3-1-%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88%e3%81%ae%e5%86%85%e5%ae%b9%e3%81%ae%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-1-作成するシークレットの内容の準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-1. 作成するシークレットの内容の準備" aria-label="アンカー先: 3-1. 作成するシークレットの内容の準備" href="#3-1-%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88%e3%81%ae%e5%86%85%e5%ae%b9%e3%81%ae%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -765,7 +765,7 @@ SSL転送プロキシモードでは、Network Firewallがプロキシとして�
     >
         3-2. Vaultの設定
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-2-vaultの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-2. Vaultの設定" aria-label="アンカー先: 3-2. Vaultの設定" href="#3-2-vault%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#3-2-vaultの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-2. Vaultの設定" aria-label="アンカー先: 3-2. Vaultの設定" href="#3-2-vault%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -774,7 +774,7 @@ SSL転送プロキシモードでは、Network Firewallがプロキシとして�
     >
         ・Vaultの作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#vaultの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・Vaultの作成" aria-label="アンカー先: ・Vaultの作成" href="#vault%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#vaultの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・Vaultの作成" aria-label="アンカー先: ・Vaultの作成" href="#vault%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -797,7 +797,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         ・マスター暗号鍵の作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#マスター暗号鍵の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・マスター暗号鍵の作成" aria-label="アンカー先: ・マスター暗号鍵の作成" href="#%e3%83%9e%e3%82%b9%e3%82%bf%e3%83%bc%e6%9a%97%e5%8f%b7%e9%8d%b5%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#マスター暗号鍵の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・マスター暗号鍵の作成" aria-label="アンカー先: ・マスター暗号鍵の作成" href="#%e3%83%9e%e3%82%b9%e3%82%bf%e3%83%bc%e6%9a%97%e5%8f%b7%e9%8d%b5%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -822,7 +822,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         ・シークレットの作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#シークレットの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・シークレットの作成" aria-label="アンカー先: ・シークレットの作成" href="#%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#シークレットの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・シークレットの作成" aria-label="アンカー先: ・シークレットの作成" href="#%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -859,7 +859,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         4. Network Firewallの設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-network-firewallの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. Network Firewallの設定" aria-label="アンカー先: 4. Network Firewallの設定" href="#4-network-firewall%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-network-firewallの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. Network Firewallの設定" aria-label="アンカー先: 4. Network Firewallの設定" href="#4-network-firewall%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -868,7 +868,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         4-1. ポリシーの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-1-ポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-1. ポリシーの作成" aria-label="アンカー先: 4-1. ポリシーの作成" href="#4-1-%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-1-ポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-1. ポリシーの作成" aria-label="アンカー先: 4-1. ポリシーの作成" href="#4-1-%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -893,7 +893,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         4-2. ポリシーの設定
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-2-ポリシーの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-2. ポリシーの設定" aria-label="アンカー先: 4-2. ポリシーの設定" href="#4-2-%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-2-ポリシーの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-2. ポリシーの設定" aria-label="アンカー先: 4-2. ポリシーの設定" href="#4-2-%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -903,7 +903,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         ・復号化プロファイル
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#復号化プロファイル" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・復号化プロファイル" aria-label="アンカー先: ・復号化プロファイル" href="#%e5%be%a9%e5%8f%b7%e5%8c%96%e3%83%97%e3%83%ad%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#復号化プロファイル" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・復号化プロファイル" aria-label="アンカー先: ・復号化プロファイル" href="#%e5%be%a9%e5%8f%b7%e5%8c%96%e3%83%97%e3%83%ad%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -924,7 +924,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         ・マップされたシークレット
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#マップされたシークレット" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・マップされたシークレット" aria-label="アンカー先: ・マップされたシークレット" href="#%e3%83%9e%e3%83%83%e3%83%97%e3%81%95%e3%82%8c%e3%81%9f%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#マップされたシークレット" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・マップされたシークレット" aria-label="アンカー先: ・マップされたシークレット" href="#%e3%83%9e%e3%83%83%e3%83%97%e3%81%95%e3%82%8c%e3%81%9f%e3%82%b7%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -958,7 +958,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         ・復号化ルール
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#復号化ルール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・復号化ルール" aria-label="アンカー先: ・復号化ルール" href="#%e5%be%a9%e5%8f%b7%e5%8c%96%e3%83%ab%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#復号化ルール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・復号化ルール" aria-label="アンカー先: ・復号化ルール" href="#%e5%be%a9%e5%8f%b7%e5%8c%96%e3%83%ab%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -995,7 +995,7 @@ OCIコンソール画面左上のメニューボタンより、<strong>[アイ�
     >
         4-3. Network Firewallへポリシーの適用
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-3-network-firewallへポリシーの適用" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-3. Network Firewallへポリシーの適用" aria-label="アンカー先: 4-3. Network Firewallへポリシーの適用" href="#4-3-network-firewall%e3%81%b8%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e9%81%a9%e7%94%a8">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#4-3-network-firewallへポリシーの適用" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-3. Network Firewallへポリシーの適用" aria-label="アンカー先: 4-3. Network Firewallへポリシーの適用" href="#4-3-network-firewall%e3%81%b8%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e9%81%a9%e7%94%a8">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1012,7 +1012,7 @@ Network Firewall詳細画面の <strong><code>[編集]</code></strong> ボタン
     >
         5. 動作を確認する
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-動作を確認する" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. 動作を確認する" aria-label="アンカー先: 5. 動作を確認する" href="#5-%e5%8b%95%e4%bd%9c%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-動作を確認する" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. 動作を確認する" aria-label="アンカー先: 5. 動作を確認する" href="#5-%e5%8b%95%e4%bd%9c%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1021,7 +1021,7 @@ Network Firewall詳細画面の <strong><code>[編集]</code></strong> ボタン
     >
         5-1. テストサイトにアクセスする
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-1-テストサイトにアクセスする" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-1. テストサイトにアクセスする" aria-label="アンカー先: 5-1. テストサイトにアクセスする" href="#5-1-%e3%83%86%e3%82%b9%e3%83%88%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ab%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%81%99%e3%82%8b">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-1-テストサイトにアクセスする" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-1. テストサイトにアクセスする" aria-label="アンカー先: 5-1. テストサイトにアクセスする" href="#5-1-%e3%83%86%e3%82%b9%e3%83%88%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ab%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%81%99%e3%82%8b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1063,7 +1063,7 @@ Network Firewall詳細画面の <strong><code>[編集]</code></strong> ボタン
     >
         ・Linuxインスタンスの場合
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#linuxインスタンスの場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・Linuxインスタンスの場合" aria-label="アンカー先: ・Linuxインスタンスの場合" href="#linux%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#linuxインスタンスの場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ・Linuxインスタンスの場合" aria-label="アンカー先: ・Linuxインスタンスの場合" href="#linux%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1089,7 +1089,7 @@ curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
     >
         5-2. ログを確認する
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-2-ログを確認する" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-2. ログを確認する" aria-label="アンカー先: 5-2. ログを確認する" href="#5-2-%e3%83%ad%e3%82%b0%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/networkfirewall-sslinspect-fwd/#5-2-ログを確認する" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5-2. ログを確認する" aria-label="アンカー先: 5-2. ログを確認する" href="#5-2-%e3%83%ad%e3%82%b0%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12705,7 +12705,7 @@ curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/security/networkfirewall-sslinspect-inb/"
+      href="/test_tutorial/security/networkfirewall-sslinspect-inb/"
       title="OCI Network FirewallのSSLインスペクション（インバウンド検証モード）を行う"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12717,7 +12717,7 @@ curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/security/waf-v2-loganalytics/"
+      href="/test_tutorial/security/waf-v2-loganalytics/"
       title="OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallのログを分析する"
     >
       OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallのログを分析する
@@ -12772,7 +12772,7 @@ curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

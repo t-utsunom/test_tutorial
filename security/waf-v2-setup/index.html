@@ -13,18 +13,18 @@
 
   <title>OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/wafv2-03.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/wafv2-03.png" />
   <meta property="og:description" content="OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/" />
 
 <meta property="article:section" content="Security" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/wafv2-03.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/wafv2-03.png" />
   <meta name="twitter:description" content="OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Security",
       "name": "OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する",
-      "url" : "https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/",
       "headline": "OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する",
       "description": "OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/wafv2-03.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/wafv2-03.png",
       "wordCount" : "313",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/"
       },
       "keywords" : [ "セキュリティ" , "ネットワーク" , "初期設定" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する">
   <meta property="og:description" content="OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="security">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/wafv2-03.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/wafv2-03.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/wafv2-03.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/wafv2-03.png">
   <meta name="twitter:title" content="OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する">
   <meta name="twitter:description" content="OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -388,7 +388,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/security/' href='/t-utsunom/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/security/' href='/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -417,15 +417,15 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
             &#35;セキュリティ
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
             &#35;ネットワーク
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e5%88%9d%e6%9c%9f%e8%a8%ad%e5%ae%9a" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e5%88%9d%e6%9c%9f%e8%a8%ad%e5%ae%9a" class="page-tag">
             &#35;初期設定
         </a>
     
@@ -449,7 +449,7 @@
     >
         1. IAMポリシーの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#1-iamポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. IAMポリシーの作成" aria-label="アンカー先: 1. IAMポリシーの作成" href="#1-iam%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#1-iamポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. IAMポリシーの作成" aria-label="アンカー先: 1. IAMポリシーの作成" href="#1-iam%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -468,7 +468,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2. WAFポリシーの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-wafポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. WAFポリシーの作成" aria-label="アンカー先: 2. WAFポリシーの作成" href="#2-waf%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-wafポリシーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. WAFポリシーの作成" aria-label="アンカー先: 2. WAFポリシーの作成" href="#2-waf%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -477,7 +477,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-1. 基本情報の入力
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-1-基本情報の入力" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 基本情報の入力" aria-label="アンカー先: 2-1. 基本情報の入力" href="#2-1-%e5%9f%ba%e6%9c%ac%e6%83%85%e5%a0%b1%e3%81%ae%e5%85%a5%e5%8a%9b">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-1-基本情報の入力" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 基本情報の入力" aria-label="アンカー先: 2-1. 基本情報の入力" href="#2-1-%e5%9f%ba%e6%9c%ac%e6%83%85%e5%a0%b1%e3%81%ae%e5%85%a5%e5%8a%9b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -510,7 +510,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-2. アクセス制御の作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-2-アクセス制御の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. アクセス制御の作成" aria-label="アンカー先: 2-2. アクセス制御の作成" href="#2-2-%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e5%88%b6%e5%be%a1%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-2-アクセス制御の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. アクセス制御の作成" aria-label="アンカー先: 2-2. アクセス制御の作成" href="#2-2-%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e5%88%b6%e5%be%a1%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -541,7 +541,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-3. レート制御の作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-3-レート制御の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. レート制御の作成" aria-label="アンカー先: 2-3. レート制御の作成" href="#2-3-%e3%83%ac%e3%83%bc%e3%83%88%e5%88%b6%e5%be%a1%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-3-レート制御の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-3. レート制御の作成" aria-label="アンカー先: 2-3. レート制御の作成" href="#2-3-%e3%83%ac%e3%83%bc%e3%83%88%e5%88%b6%e5%be%a1%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -573,7 +573,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-4. 保護ルールの有効化
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-4-保護ルールの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-4. 保護ルールの有効化" aria-label="アンカー先: 2-4. 保護ルールの有効化" href="#2-4-%e4%bf%9d%e8%ad%b7%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-4-保護ルールの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-4. 保護ルールの有効化" aria-label="アンカー先: 2-4. 保護ルールの有効化" href="#2-4-%e4%bf%9d%e8%ad%b7%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -612,7 +612,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-5. 強制ポイントの選択
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-5-強制ポイントの選択" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-5. 強制ポイントの選択" aria-label="アンカー先: 2-5. 強制ポイントの選択" href="#2-5-%e5%bc%b7%e5%88%b6%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e3%81%ae%e9%81%b8%e6%8a%9e">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-5-強制ポイントの選択" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-5. 強制ポイントの選択" aria-label="アンカー先: 2-5. 強制ポイントの選択" href="#2-5-%e5%bc%b7%e5%88%b6%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e3%81%ae%e9%81%b8%e6%8a%9e">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -628,7 +628,7 @@ allow group &lt;IAMグループ名&gt; to manage waf-network-address-list in ten
     >
         2-6. 確認および作成
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#2-6-確認および作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-6. 確認および作成" aria-label="アンカー先: 2-6. 確認および作成" href="#2-6-%e7%a2%ba%e8%aa%8d%e3%81%8a%e3%82%88%e3%81%b3%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#2-6-確認および作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-6. 確認および作成" aria-label="アンカー先: 2-6. 確認および作成" href="#2-6-%e7%a2%ba%e8%aa%8d%e3%81%8a%e3%82%88%e3%81%b3%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -653,7 +653,7 @@ OCIのLoad Balancerを通過するトラフィックは全て一度WAFによっ�
     >
         3. ログの有効化
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#3-ログの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ログの有効化" aria-label="アンカー先: 3. ログの有効化" href="#3-%e3%83%ad%e3%82%b0%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#3-ログの有効化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ログの有効化" aria-label="アンカー先: 3. ログの有効化" href="#3-%e3%83%ad%e3%82%b0%e3%81%ae%e6%9c%89%e5%8a%b9%e5%8c%96">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -690,7 +690,7 @@ OCIのLoad Balancerを通過するトラフィックは全て一度WAFによっ�
     >
         4. WAFの動作確認
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#4-wafの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. WAFの動作確認" aria-label="アンカー先: 4. WAFの動作確認" href="#4-waf%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#4-wafの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. WAFの動作確認" aria-label="アンカー先: 4. WAFの動作確認" href="#4-waf%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -714,7 +714,7 @@ OCIのLoad Balancerを通過するトラフィックは全て一度WAFによっ�
     >
         4-1. アクセス・ルールの動作確認
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#4-1-アクセスルールの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-1. アクセス・ルールの動作確認" aria-label="アンカー先: 4-1. アクセス・ルールの動作確認" href="#4-1-%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#4-1-アクセスルールの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-1. アクセス・ルールの動作確認" aria-label="アンカー先: 4-1. アクセス・ルールの動作確認" href="#4-1-%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -749,7 +749,7 @@ Chromeの拡張機能「<a
     >
         4-2. レート制限の動作確認
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#4-2-レート制限の動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-2. レート制限の動作確認" aria-label="アンカー先: 4-2. レート制限の動作確認" href="#4-2-%e3%83%ac%e3%83%bc%e3%83%88%e5%88%b6%e9%99%90%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#4-2-レート制限の動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-2. レート制限の動作確認" aria-label="アンカー先: 4-2. レート制限の動作確認" href="#4-2-%e3%83%ac%e3%83%bc%e3%83%88%e5%88%b6%e9%99%90%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -798,7 +798,7 @@ Language=JA
     >
         4-3. 保護ルールの動作確認
     </h3>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v2-setup/#4-3-保護ルールの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-3. 保護ルールの動作確認" aria-label="アンカー先: 4-3. 保護ルールの動作確認" href="#4-3-%e4%bf%9d%e8%ad%b7%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v2-setup/#4-3-保護ルールの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4-3. 保護ルールの動作確認" aria-label="アンカー先: 4-3. 保護ルールの動作確認" href="#4-3-%e4%bf%9d%e8%ad%b7%e3%83%ab%e3%83%bc%e3%83%ab%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12434,7 +12434,7 @@ Language=JA
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/security/"
+      href="/test_tutorial/security/"
       title="OCI セキュリティ チュートリアル"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12446,7 +12446,7 @@ Language=JA
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/security/waf-v1-setup/"
+      href="/test_tutorial/security/waf-v1-setup/"
       title="OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する"
     >
       OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する
@@ -12501,7 +12501,7 @@ Language=JA
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

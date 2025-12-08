@@ -13,18 +13,18 @@
 
   <title>エッジポリシーのWeb Application Firewallのログを分析する | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="エッジポリシーのWeb Application Firewallのログを分析する"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/edgelog39.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/edgelog39.png" />
   <meta property="og:description" content="本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/" />
 
 <meta property="article:section" content="Security" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="エッジポリシーのWeb Application Firewallのログを分析する" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/edgelog39.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/edgelog39.png" />
   <meta name="twitter:description" content="本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Security",
       "name": "エッジポリシーのWeb Application Firewallのログを分析する",
-      "url" : "https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/",
       "headline": "エッジポリシーのWeb Application Firewallのログを分析する",
       "description": "本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/edgelog39.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/edgelog39.png",
       "wordCount" : "495",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/"
       },
       "keywords" : [ "セキュリティ" , "ネットワーク" , "分析" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="エッジポリシーのWeb Application Firewallのログを分析する">
   <meta property="og:description" content="本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="security">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/edgelog39.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/edgelog39.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/edgelog39.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/edgelog39.png">
   <meta name="twitter:title" content="エッジポリシーのWeb Application Firewallのログを分析する">
   <meta name="twitter:description" content="本チュートリアルでは、「OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する」の続編として、エッジポリシーのログをLogging Analyticsに転送して分析する手順を紹介します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -378,7 +378,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/security/' href='/t-utsunom/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>エッジポリシーのWeb Application Firewallのログを分析する</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/security/' href='/test_tutorial/security/'><span itemprop='name'>OCI セキュリティ チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>エッジポリシーのWeb Application Firewallのログを分析する</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -407,15 +407,15 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3" class="page-tag">
             &#35;セキュリティ
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af" class="page-tag">
             &#35;ネットワーク
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e5%88%86%e6%9e%90" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e5%88%86%e6%9e%90" class="page-tag">
             &#35;分析
         </a>
     
@@ -465,7 +465,7 @@
     >
         1. Object Storageバケットの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#1-object-storageバケットの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Object Storageバケットの作成" aria-label="アンカー先: 1. Object Storageバケットの作成" href="#1-object-storage%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#1-object-storageバケットの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Object Storageバケットの作成" aria-label="アンカー先: 1. Object Storageバケットの作成" href="#1-object-storage%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -505,7 +505,7 @@
     >
         2. 顧客秘密キーの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#2-顧客秘密キーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 顧客秘密キーの作成" aria-label="アンカー先: 2. 顧客秘密キーの作成" href="#2-%e9%a1%a7%e5%ae%a2%e7%a7%98%e5%af%86%e3%82%ad%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#2-顧客秘密キーの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 顧客秘密キーの作成" aria-label="アンカー先: 2. 顧客秘密キーの作成" href="#2-%e9%a1%a7%e5%ae%a2%e7%a7%98%e5%af%86%e3%82%ad%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -548,7 +548,7 @@ OCIコンソール画面右上のユーザーのアイコン → 「自分のプ
     >
         3. 資格証明を含むファイルの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#3-資格証明を含むファイルの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 資格証明を含むファイルの作成" aria-label="アンカー先: 3. 資格証明を含むファイルの作成" href="#3-%e8%b3%87%e6%a0%bc%e8%a8%bc%e6%98%8e%e3%82%92%e5%90%ab%e3%82%80%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#3-資格証明を含むファイルの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 資格証明を含むファイルの作成" aria-label="アンカー先: 3. 資格証明を含むファイルの作成" href="#3-%e8%b3%87%e6%a0%bc%e8%a8%bc%e6%98%8e%e3%82%92%e5%90%ab%e3%82%80%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -595,7 +595,7 @@ Upload prefix:
     >
         4. 事前認証済リクエストの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#4-事前認証済リクエストの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. 事前認証済リクエストの作成" aria-label="アンカー先: 4. 事前認証済リクエストの作成" href="#4-%e4%ba%8b%e5%89%8d%e8%aa%8d%e8%a8%bc%e6%b8%88%e3%83%aa%e3%82%af%e3%82%a8%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#4-事前認証済リクエストの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. 事前認証済リクエストの作成" aria-label="アンカー先: 4. 事前認証済リクエストの作成" href="#4-%e4%ba%8b%e5%89%8d%e8%aa%8d%e8%a8%bc%e6%b8%88%e3%83%aa%e3%82%af%e3%82%a8%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -624,7 +624,7 @@ Upload prefix:
     >
         5. サポート・リクエストの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#5-サポートリクエストの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. サポート・リクエストの作成" aria-label="アンカー先: 5. サポート・リクエストの作成" href="#5-%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%83%aa%e3%82%af%e3%82%a8%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#5-サポートリクエストの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. サポート・リクエストの作成" aria-label="アンカー先: 5. サポート・リクエストの作成" href="#5-%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%83%aa%e3%82%af%e3%82%a8%e3%82%b9%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -679,7 +679,7 @@ OCIコンソール画面左上のメニュー → Webアプリケーション・
     >
         6. ログ・グループの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#6-ロググループの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. ログ・グループの作成" aria-label="アンカー先: 6. ログ・グループの作成" href="#6-%e3%83%ad%e3%82%b0%e3%82%b0%e3%83%ab%e3%83%bc%e3%83%97%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#6-ロググループの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. ログ・グループの作成" aria-label="アンカー先: 6. ログ・グループの作成" href="#6-%e3%83%ad%e3%82%b0%e3%82%b0%e3%83%ab%e3%83%bc%e3%83%97%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -698,7 +698,7 @@ Logging Analyticsではログを「ログ・グループ」単位で管理する
     >
         7. ログ・ソース、ログ・パーサーのインポート
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#7-ログソースログパーサーのインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. ログ・ソース、ログ・パーサーのインポート" aria-label="アンカー先: 7. ログ・ソース、ログ・パーサーのインポート" href="#7-%e3%83%ad%e3%82%b0%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%ad%e3%82%b0%e3%83%91%e3%83%bc%e3%82%b5%e3%83%bc%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#7-ログソースログパーサーのインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. ログ・ソース、ログ・パーサーのインポート" aria-label="アンカー先: 7. ログ・ソース、ログ・パーサーのインポート" href="#7-%e3%83%ad%e3%82%b0%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%ad%e3%82%b0%e3%83%91%e3%83%bc%e3%82%b5%e3%83%bc%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -737,7 +737,7 @@ OCIコンソール画面左上のメニュー　→ 監視および管理　→ 
     >
         8. Object Collection Ruleの作成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#8-object-collection-ruleの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. Object Collection Ruleの作成" aria-label="アンカー先: 8. Object Collection Ruleの作成" href="#8-object-collection-rule%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#8-object-collection-ruleの作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. Object Collection Ruleの作成" aria-label="アンカー先: 8. Object Collection Ruleの作成" href="#8-object-collection-rule%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -865,7 +865,7 @@ OCI CLIコマンドの詳細についてはこちらの<a
     >
         9. ダッシュボードのインポート
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/security/waf-v1-loganalytics/#9-ダッシュボードのインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. ダッシュボードのインポート" aria-label="アンカー先: 9. ダッシュボードのインポート" href="#9-%e3%83%80%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9c%e3%83%bc%e3%83%89%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/security/waf-v1-loganalytics/#9-ダッシュボードのインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. ダッシュボードのインポート" aria-label="アンカー先: 9. ダッシュボードのインポート" href="#9-%e3%83%80%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9c%e3%83%bc%e3%83%89%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12530,7 +12530,7 @@ OCIコンソール画面左上のメニュー → 監視および管理 → ロ�
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/security/waf-v1-setup/"
+      href="/test_tutorial/security/waf-v1-setup/"
       title="OCI Web Application Firewallのエッジポリシーを使ってWebサーバを保護する"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12542,7 +12542,7 @@ OCIコンソール画面左上のメニュー → 監視および管理 → ロ�
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/security/networkfirewall-policycheck/"
+      href="/test_tutorial/security/networkfirewall-policycheck/"
       title="OCI Network Firewallの動作を検証する"
     >
       OCI Network Firewallの動作を検証する
@@ -12597,7 +12597,7 @@ OCIコンソール画面左上のメニュー → 監視および管理 → ロ�
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

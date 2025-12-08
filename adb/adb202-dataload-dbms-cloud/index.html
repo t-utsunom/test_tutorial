@@ -13,18 +13,18 @@
 
   <title>202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD) | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png" />
   <meta property="og:description" content="数100GB、数TB規模のデータをロードするにはどうしたら良いでしょうか？オブジェクトストレージからDBMS_CLOUDパッケージを使ったデータロード方法を説明します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/" />
 
 <meta property="article:section" content="Adb" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png" />
   <meta name="twitter:description" content="数100GB、数TB規模のデータをロードするにはどうしたら良いでしょうか？オブジェクトストレージからDBMS_CLOUDパッケージを使ったデータロード方法を説明します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Adb",
       "name": "202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)",
-      "url" : "https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/",
       "headline": "202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)",
       "description": "数100GB、数TB規模のデータをロードするにはどうしたら良いでしょうか？オブジェクトストレージからDBMS_CLOUDパッケージを使ったデータロード方法を説明します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png",
       "wordCount" : "479",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/"
       },
       "keywords" : [ "データベース" , "データ移行・データ同期" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)">
   <meta property="og:description" content="数100GB、数TB規模のデータをロードするにはどうしたら良いでしょうか？オブジェクトストレージからDBMS_CLOUDパッケージを使ったデータロード方法を説明します。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="adb">
     <meta property="article:modified_time" content="2025-12-01T14:01:51+09:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/img2.png">
   <meta name="twitter:title" content="202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)">
   <meta name="twitter:description" content="数100GB、数TB規模のデータをロードするにはどうしたら良いでしょうか？オブジェクトストレージからDBMS_CLOUDパッケージを使ったデータロード方法を説明します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -375,7 +375,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/adb/' href='/t-utsunom/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/adb/' href='/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -404,11 +404,11 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%87%e3%83%bc%e3%82%bf%e5%90%8c%e6%9c%9f" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%87%e3%83%bc%e3%82%bf%e5%90%8c%e6%9c%9f" class="page-tag">
             &#35;データ移行・データ同期
         </a>
     
@@ -420,7 +420,7 @@
     >
         はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -462,7 +462,7 @@
     >
         1. Database Actionsに接続
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/#1-database-actionsに接続" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Database Actionsに接続" aria-label="アンカー先: 1. Database Actionsに接続" href="#1-database-actions%e3%81%ab%e6%8e%a5%e7%b6%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/#1-database-actionsに接続" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Database Actionsに接続" aria-label="アンカー先: 1. Database Actionsに接続" href="#1-database-actions%e3%81%ab%e6%8e%a5%e7%b6%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -495,7 +495,7 @@
     >
         2. DBMS_CLOUDパッケージの実行
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/#2-dbms_cloudパッケージの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. DBMS_CLOUDパッケージの実行" aria-label="アンカー先: 2. DBMS_CLOUDパッケージの実行" href="#2-dbms_cloud%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/#2-dbms_cloudパッケージの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. DBMS_CLOUDパッケージの実行" aria-label="アンカー先: 2. DBMS_CLOUDパッケージの実行" href="#2-dbms_cloud%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -627,7 +627,7 @@ SELECT * FROM CUSTOMERS WHERE ROWNUM &lt;= 5;
     >
         よくある質問やTips
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/#よくある質問やtips" class="gdoc-page__anchor clip flex align-center" title="アンカー先: よくある質問やTips" aria-label="アンカー先: よくある質問やTips" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e8%b3%aa%e5%95%8f%e3%82%84tips">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb202-dataload-dbms-cloud/#よくある質問やtips" class="gdoc-page__anchor clip flex align-center" title="アンカー先: よくある質問やTips" aria-label="アンカー先: よくある質問やTips" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e8%b3%aa%e5%95%8f%e3%82%84tips">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12394,7 +12394,7 @@ select * from COPY$13_BAD;
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb201-service-names/"
+      href="/test_tutorial/adb/adb201-service-names/"
       title="201: 接続サービスの理解"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12406,7 +12406,7 @@ select * from COPY$13_BAD;
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb203-bulk-query/"
+      href="/test_tutorial/adb/adb203-bulk-query/"
       title="203: 分析系クエリの実行(Star Schema Benchmark)"
     >
       203: 分析系クエリの実行(Star Schema Benchmark)
@@ -12461,7 +12461,7 @@ select * from COPY$13_BAD;
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

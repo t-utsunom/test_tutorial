@@ -13,18 +13,18 @@
 
   <title>205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench) | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/img0.jpg" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/img0.jpg" />
   <meta property="og:description" content="ECPU数を増やす、もしくは自動スケーリングを設定することで、SwingbenchのTPS(Transaction per Second)が上がることを体験頂きます。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/" />
 
 <meta property="article:section" content="Adb" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/img0.jpg" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/img0.jpg" />
   <meta name="twitter:description" content="ECPU数を増やす、もしくは自動スケーリングを設定することで、SwingbenchのTPS(Transaction per Second)が上がることを体験頂きます。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Adb",
       "name": "205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)",
-      "url" : "https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/",
       "headline": "205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)",
       "description": "ECPU数を増やす、もしくは自動スケーリングを設定することで、SwingbenchのTPS(Transaction per Second)が上がることを体験頂きます。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/img0.jpg",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/img0.jpg",
       "wordCount" : "296",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/"
       },
       "keywords" : [ "データベース" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)">
   <meta property="og:description" content="ECPU数を増やす、もしくは自動スケーリングを設定することで、SwingbenchのTPS(Transaction per Second)が上がることを体験頂きます。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="adb">
     <meta property="article:modified_time" content="2025-12-01T14:01:51+09:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/img0.jpg">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/img0.jpg">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/img0.jpg">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/img0.jpg">
   <meta name="twitter:title" content="205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)">
   <meta name="twitter:description" content="ECPU数を増やす、もしくは自動スケーリングを設定することで、SwingbenchのTPS(Transaction per Second)が上がることを体験頂きます。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -382,7 +382,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/adb/' href='/t-utsunom/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/adb/' href='/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>205: オンライン・トランザクション系のアプリを実行してみよう(Swingbench)</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -411,7 +411,7 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
@@ -423,7 +423,7 @@
     >
         はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -485,7 +485,7 @@
     >
         1.Swingbenchをセットアップしよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#1swingbenchをセットアップしよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.Swingbenchをセットアップしよう" aria-label="アンカー先: 1.Swingbenchをセットアップしよう" href="#1swingbench%e3%82%92%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#1swingbenchをセットアップしよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.Swingbenchをセットアップしよう" aria-label="アンカー先: 1.Swingbenchをセットアップしよう" href="#1swingbench%e3%82%92%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -495,7 +495,7 @@
     >
         Swingbenchをダウンロード、データ生成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#swingbenchをダウンロードデータ生成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: Swingbenchをダウンロード、データ生成" aria-label="アンカー先: Swingbenchをダウンロード、データ生成" href="#swingbench%e3%82%92%e3%83%80%e3%82%a6%e3%83%b3%e3%83%ad%e3%83%bc%e3%83%89%e3%83%87%e3%83%bc%e3%82%bf%e7%94%9f%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#swingbenchをダウンロードデータ生成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: Swingbenchをダウンロード、データ生成" aria-label="アンカー先: Swingbenchをダウンロード、データ生成" href="#swingbench%e3%82%92%e3%83%80%e3%82%a6%e3%83%b3%e3%83%ad%e3%83%bc%e3%83%89%e3%83%87%e3%83%bc%e3%82%bf%e7%94%9f%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -643,7 +643,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
     >
         生成されたスキーマ・オブジェクトの確認
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#生成されたスキーマオブジェクトの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 生成されたスキーマ・オブジェクトの確認" aria-label="アンカー先: 生成されたスキーマ・オブジェクトの確認" href="#%e7%94%9f%e6%88%90%e3%81%95%e3%82%8c%e3%81%9f%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#生成されたスキーマオブジェクトの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 生成されたスキーマ・オブジェクトの確認" aria-label="アンカー先: 生成されたスキーマ・オブジェクトの確認" href="#%e7%94%9f%e6%88%90%e3%81%95%e3%82%8c%e3%81%9f%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -710,7 +710,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
     >
         2. Swingbenchを実行し、ECPUをスケールアップしてみよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#2-swingbenchを実行しecpuをスケールアップしてみよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Swingbenchを実行し、ECPUをスケールアップしてみよう" aria-label="アンカー先: 2. Swingbenchを実行し、ECPUをスケールアップしてみよう" href="#2-swingbench%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%97ecpu%e3%82%92%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%ab%e3%82%a2%e3%83%83%e3%83%97%e3%81%97%e3%81%a6%e3%81%bf%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#2-swingbenchを実行しecpuをスケールアップしてみよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Swingbenchを実行し、ECPUをスケールアップしてみよう" aria-label="アンカー先: 2. Swingbenchを実行し、ECPUをスケールアップしてみよう" href="#2-swingbench%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%97ecpu%e3%82%92%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%ab%e3%82%a2%e3%83%83%e3%83%97%e3%81%97%e3%81%a6%e3%81%bf%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -721,7 +721,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
     >
         ECPU=2 (自動スケーリング無効)
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#ecpu2-自動スケーリング無効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=2 (自動スケーリング無効)" aria-label="アンカー先: ECPU=2 (自動スケーリング無効)" href="#ecpu2-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e7%84%a1%e5%8a%b9">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#ecpu2-自動スケーリング無効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=2 (自動スケーリング無効)" aria-label="アンカー先: ECPU=2 (自動スケーリング無効)" href="#ecpu2-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e7%84%a1%e5%8a%b9">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -798,7 +798,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
     >
         ECPU=16 (自動スケーリング無効)
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#ecpu16-自動スケーリング無効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=16 (自動スケーリング無効)" aria-label="アンカー先: ECPU=16 (自動スケーリング無効)" href="#ecpu16-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e7%84%a1%e5%8a%b9">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#ecpu16-自動スケーリング無効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=16 (自動スケーリング無効)" aria-label="アンカー先: ECPU=16 (自動スケーリング無効)" href="#ecpu16-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e7%84%a1%e5%8a%b9">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -835,7 +835,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
     >
         ECPU=16 (自動スケーリング有効)
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb205-swingbench/#ecpu16-自動スケーリング有効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=16 (自動スケーリング有効)" aria-label="アンカー先: ECPU=16 (自動スケーリング有効)" href="#ecpu16-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e6%9c%89%e5%8a%b9">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb205-swingbench/#ecpu16-自動スケーリング有効" class="gdoc-page__anchor clip flex align-center" title="アンカー先: ECPU=16 (自動スケーリング有効)" aria-label="アンカー先: ECPU=16 (自動スケーリング有効)" href="#ecpu16-%e8%87%aa%e5%8b%95%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e6%9c%89%e5%8a%b9">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12482,7 +12482,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb204-setup-VM/"
+      href="/test_tutorial/adb/adb204-setup-VM/"
       title="204: 開発者向け仮想マシンのセットアップ方法"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12494,7 +12494,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb206-appdev-nodejs/"
+      href="/test_tutorial/adb/adb206-appdev-nodejs/"
       title="206: Node.jsによるADB上でのアプリ開発"
     >
       206: Node.jsによるADB上でのアプリ開発
@@ -12549,7 +12549,7 @@ export TNS_ADMIN=/home/oracle/labs/wallets
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

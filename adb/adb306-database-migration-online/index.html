@@ -13,18 +13,18 @@
 
   <title>306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/teaser.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/teaser.png" />
   <meta property="og:description" content="OCI Database Migration Serviceのオンライン移行に必要な事前設定、移行の作成、検証、実行、そして確認作業までの一連の作業を紹介します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/" />
 
 <meta property="article:section" content="Adb" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/teaser.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/teaser.png" />
   <meta name="twitter:description" content="OCI Database Migration Serviceのオンライン移行に必要な事前設定、移行の作成、検証、実行、そして確認作業までの一連の作業を紹介します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Adb",
       "name": "306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行",
-      "url" : "https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/",
       "headline": "306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行",
       "description": "OCI Database Migration Serviceのオンライン移行に必要な事前設定、移行の作成、検証、実行、そして確認作業までの一連の作業を紹介します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/teaser.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/teaser.png",
       "wordCount" : "1024",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/"
       },
       "keywords" : [ "データベース" , "移行・テスト" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行">
   <meta property="og:description" content="OCI Database Migration Serviceのオンライン移行に必要な事前設定、移行の作成、検証、実行、そして確認作業までの一連の作業を紹介します。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="adb">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/teaser.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/teaser.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/teaser.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/teaser.png">
   <meta name="twitter:title" content="306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行">
   <meta name="twitter:description" content="OCI Database Migration Serviceのオンライン移行に必要な事前設定、移行の作成、検証、実行、そして確認作業までの一連の作業を紹介します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -388,7 +388,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/adb/' href='/t-utsunom/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/adb/' href='/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>306 : OCI Database Migration Serviceを使用したデータベースのオンライン移行</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -417,11 +417,11 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%86%e3%82%b9%e3%83%88" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%86%e3%82%b9%e3%83%88" class="page-tag">
             &#35;移行・テスト
         </a>
     
@@ -433,7 +433,7 @@
     >
         はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -540,7 +540,7 @@ DMSを使用してBaseDBで作成したソース・データベースからADB�
     >
         1. Oracle GoldenGate Microservicesのインストール
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#1-oracle-goldengate-microservicesのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Oracle GoldenGate Microservicesのインストール" aria-label="アンカー先: 1. Oracle GoldenGate Microservicesのインストール" href="#1-oracle-goldengate-microservices%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#1-oracle-goldengate-microservicesのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. Oracle GoldenGate Microservicesのインストール" aria-label="アンカー先: 1. Oracle GoldenGate Microservicesのインストール" href="#1-oracle-goldengate-microservices%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -657,7 +657,7 @@ DMSを使用してBaseDBで作成したソース・データベースからADB�
     >
         2. Oracle GoldenGate Microservicesの設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#2-oracle-goldengate-microservicesの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Oracle GoldenGate Microservicesの設定" aria-label="アンカー先: 2. Oracle GoldenGate Microservicesの設定" href="#2-oracle-goldengate-microservices%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#2-oracle-goldengate-microservicesの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Oracle GoldenGate Microservicesの設定" aria-label="アンカー先: 2. Oracle GoldenGate Microservicesの設定" href="#2-oracle-goldengate-microservices%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -825,7 +825,7 @@ ls
     >
         3. ソース・データベースの設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#3-ソースデータベースの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ソース・データベースの設定" aria-label="アンカー先: 3. ソース・データベースの設定" href="#3-%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#3-ソースデータベースの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. ソース・データベースの設定" aria-label="アンカー先: 3. ソース・データベースの設定" href="#3-%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -835,7 +835,7 @@ ls
     >
         3-a. データベース準備ユーティリティを使用した設定方法
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#3-a-データベース準備ユーティリティを使用した設定方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-a. データベース準備ユーティリティを使用した設定方法" aria-label="アンカー先: 3-a. データベース準備ユーティリティを使用した設定方法" href="#3-a-%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e6%ba%96%e5%82%99%e3%83%a6%e3%83%bc%e3%83%86%e3%82%a3%e3%83%aa%e3%83%86%e3%82%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%97%e3%81%9f%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#3-a-データベース準備ユーティリティを使用した設定方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-a. データベース準備ユーティリティを使用した設定方法" aria-label="アンカー先: 3-a. データベース準備ユーティリティを使用した設定方法" href="#3-a-%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e6%ba%96%e5%82%99%e3%83%a6%e3%83%bc%e3%83%86%e3%82%a3%e3%83%aa%e3%83%86%e3%82%a3%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%97%e3%81%9f%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -854,7 +854,7 @@ ls
     >
         3-b. 手動で実行する設定方法
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#3-b-手動で実行する設定方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-b. 手動で実行する設定方法" aria-label="アンカー先: 3-b. 手動で実行する設定方法" href="#3-b-%e6%89%8b%e5%8b%95%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#3-b-手動で実行する設定方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3-b. 手動で実行する設定方法" aria-label="アンカー先: 3-b. 手動で実行する設定方法" href="#3-b-%e6%89%8b%e5%8b%95%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -960,7 +960,7 @@ Tera Termなどのsshクライアントでソース・データベースに接�
     >
         4. ターゲット・データベースの設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#4-ターゲットデータベースの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. ターゲット・データベースの設定" aria-label="アンカー先: 4. ターゲット・データベースの設定" href="#4-%e3%82%bf%e3%83%bc%e3%82%b2%e3%83%83%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#4-ターゲットデータベースの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. ターゲット・データベースの設定" aria-label="アンカー先: 4. ターゲット・データベースの設定" href="#4-%e3%82%bf%e3%83%bc%e3%82%b2%e3%83%83%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1020,7 +1020,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         5. 移行の作成
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#5-移行の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. 移行の作成" aria-label="アンカー先: 5. 移行の作成" href="#5-%e7%a7%bb%e8%a1%8c%e3%81%ae%e4%bd%9c%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#5-移行の作成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. 移行の作成" aria-label="アンカー先: 5. 移行の作成" href="#5-%e7%a7%bb%e8%a1%8c%e3%81%ae%e4%bd%9c%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1156,7 +1156,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         6. 移行の検証
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#6-移行の検証" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. 移行の検証" aria-label="アンカー先: 6. 移行の検証" href="#6-%e7%a7%bb%e8%a1%8c%e3%81%ae%e6%a4%9c%e8%a8%bc">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#6-移行の検証" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. 移行の検証" aria-label="アンカー先: 6. 移行の検証" href="#6-%e7%a7%bb%e8%a1%8c%e3%81%ae%e6%a4%9c%e8%a8%bc">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1253,7 +1253,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         7. 初期移行の実行
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#7-初期移行の実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. 初期移行の実行" aria-label="アンカー先: 7. 初期移行の実行" href="#7-%e5%88%9d%e6%9c%9f%e7%a7%bb%e8%a1%8c%e3%81%ae%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#7-初期移行の実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. 初期移行の実行" aria-label="アンカー先: 7. 初期移行の実行" href="#7-%e5%88%9d%e6%9c%9f%e7%a7%bb%e8%a1%8c%e3%81%ae%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1421,7 +1421,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         8. Oracle GoldenGateのレプリケーションの検証
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#8-oracle-goldengateのレプリケーションの検証" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. Oracle GoldenGateのレプリケーションの検証" aria-label="アンカー先: 8. Oracle GoldenGateのレプリケーションの検証" href="#8-oracle-goldengate%e3%81%ae%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e6%a4%9c%e8%a8%bc">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#8-oracle-goldengateのレプリケーションの検証" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. Oracle GoldenGateのレプリケーションの検証" aria-label="アンカー先: 8. Oracle GoldenGateのレプリケーションの検証" href="#8-oracle-goldengate%e3%81%ae%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e6%a4%9c%e8%a8%bc">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1458,7 +1458,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         9. スイッチオーバーの実行
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#9-スイッチオーバーの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. スイッチオーバーの実行" aria-label="アンカー先: 9. スイッチオーバーの実行" href="#9-%e3%82%b9%e3%82%a4%e3%83%83%e3%83%81%e3%82%aa%e3%83%bc%e3%83%90%e3%83%bc%e3%81%ae%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#9-スイッチオーバーの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. スイッチオーバーの実行" aria-label="アンカー先: 9. スイッチオーバーの実行" href="#9-%e3%82%b9%e3%82%a4%e3%83%83%e3%83%81%e3%82%aa%e3%83%bc%e3%83%90%e3%83%bc%e3%81%ae%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1507,7 +1507,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         10. クリーンアップの実行
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#10-クリーンアップの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 10. クリーンアップの実行" aria-label="アンカー先: 10. クリーンアップの実行" href="#10-%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%e3%81%ae%e5%ae%9f%e8%a1%8c">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#10-クリーンアップの実行" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 10. クリーンアップの実行" aria-label="アンカー先: 10. クリーンアップの実行" href="#10-%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%e3%81%ae%e5%ae%9f%e8%a1%8c">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1551,7 +1551,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
     >
         参考資料
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb306-database-migration-online/#参考資料" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 参考資料" aria-label="アンカー先: 参考資料" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb306-database-migration-online/#参考資料" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 参考資料" aria-label="アンカー先: 参考資料" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -13179,7 +13179,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb305-database-migration-offline/"
+      href="/test_tutorial/adb/adb305-database-migration-offline/"
       title="305 : OCI Database Migration Serviceを使用したデータベースのオフライン移行"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -13191,7 +13191,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb401-oci-goldengate/"
+      href="/test_tutorial/adb/adb401-oci-goldengate/"
       title="401 : OCI GoldenGateによるBaseDBからADBへのデータ連携"
     >
       401 : OCI GoldenGateによるBaseDBからADBへのデータ連携
@@ -13246,7 +13246,7 @@ export ORACLE_HOME=/u01/app/client/oracle19
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

@@ -13,18 +13,18 @@
 
   <title>その13 - MySQL HeatWaveでレプリケーションを使用する | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="その13 - MySQL HeatWaveでレプリケーションを使用する"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png" />
   <meta property="og:description" content="MySQL HeatWaveではMySQLのレプリケーション機能も使用できます。レプリケーション(チャネル)フィルターを活用することでAmazon RDSなど他社製のMySQLマネージドサービスからレプリケーションすることもできます。レプリケーションの構成方法を確認してみましょう！" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/" />
 
 <meta property="article:section" content="Mysql" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="その13 - MySQL HeatWaveでレプリケーションを使用する" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png" />
   <meta name="twitter:description" content="MySQL HeatWaveではMySQLのレプリケーション機能も使用できます。レプリケーション(チャネル)フィルターを活用することでAmazon RDSなど他社製のMySQLマネージドサービスからレプリケーションすることもできます。レプリケーションの構成方法を確認してみましょう！" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Mysql",
       "name": "その13 - MySQL HeatWaveでレプリケーションを使用する",
-      "url" : "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/",
       "headline": "その13 - MySQL HeatWaveでレプリケーションを使用する",
       "description": "MySQL HeatWaveではMySQLのレプリケーション機能も使用できます。レプリケーション(チャネル)フィルターを活用することでAmazon RDSなど他社製のMySQLマネージドサービスからレプリケーションすることもできます。レプリケーションの構成方法を確認してみましょう！",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png",
       "wordCount" : "1870",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/"
       },
       "keywords" : [ "データベース" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="その13 - MySQL HeatWaveでレプリケーションを使用する">
   <meta property="og:description" content="MySQL HeatWaveではMySQLのレプリケーション機能も使用できます。レプリケーション(チャネル)フィルターを活用することでAmazon RDSなど他社製のMySQLマネージドサービスからレプリケーションすることもできます。レプリケーションの構成方法を確認してみましょう！">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="mysql">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-readreplica/MySQLLogo_teaser.png">
   <meta name="twitter:title" content="その13 - MySQL HeatWaveでレプリケーションを使用する">
   <meta name="twitter:description" content="MySQL HeatWaveではMySQLのレプリケーション機能も使用できます。レプリケーション(チャネル)フィルターを活用することでAmazon RDSなど他社製のMySQLマネージドサービスからレプリケーションすることもできます。レプリケーションの構成方法を確認してみましょう！">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -380,7 +380,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/mysql/' href='/t-utsunom/test_tutorial/mysql/'><span itemprop='name'>MySQL HeatWave チュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>その13 - MySQL HeatWaveでレプリケーションを使用する</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/mysql/' href='/test_tutorial/mysql/'><span itemprop='name'>MySQL HeatWave チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>その13 - MySQL HeatWaveでレプリケーションを使用する</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -409,7 +409,7 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
@@ -482,7 +482,7 @@
     >
         1. レプリケーションとは?
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#1-レプリケーションとは" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. レプリケーションとは?" aria-label="アンカー先: 1. レプリケーションとは?" href="#1-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e3%81%af">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#1-レプリケーションとは" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. レプリケーションとは?" aria-label="アンカー先: 1. レプリケーションとは?" href="#1-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e3%81%af">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -510,7 +510,7 @@
     >
         2. 本チュートリアルで作成する構成の構成図
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#2-本チュートリアルで作成する構成の構成図" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 本チュートリアルで作成する構成の構成図" aria-label="アンカー先: 2. 本チュートリアルで作成する構成の構成図" href="#2-%e6%9c%ac%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e6%a7%8b%e6%88%90%e3%81%ae%e6%a7%8b%e6%88%90%e5%9b%b3">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#2-本チュートリアルで作成する構成の構成図" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. 本チュートリアルで作成する構成の構成図" aria-label="アンカー先: 2. 本チュートリアルで作成する構成の構成図" href="#2-%e6%9c%ac%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e6%a7%8b%e6%88%90%e3%81%ae%e6%a7%8b%e6%88%90%e5%9b%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -525,7 +525,7 @@
     >
         3. MySQL HeatWaveの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#3-mysql-heatwaveの作成ソース用のmysql-heatwaveレプリカ用のmysql-heatwave" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. MySQL HeatWaveの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" aria-label="アンカー先: 3. MySQL HeatWaveの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" href="#3-mysql-heatwave%e3%81%ae%e4%bd%9c%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8%e3%81%aemysql-heatwave%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8%e3%81%aemysql-heatwave">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#3-mysql-heatwaveの作成ソース用のmysql-heatwaveレプリカ用のmysql-heatwave" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. MySQL HeatWaveの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" aria-label="アンカー先: 3. MySQL HeatWaveの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" href="#3-mysql-heatwave%e3%81%ae%e4%bd%9c%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8%e3%81%aemysql-heatwave%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8%e3%81%aemysql-heatwave">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -552,7 +552,7 @@
     >
         4. レプリケーション用ユーザーの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#4-レプリケーション用ユーザーの作成ソース用のmysql-heatwaveレプリカ用のmysql-heatwave" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. レプリケーション用ユーザーの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" aria-label="アンカー先: 4. レプリケーション用ユーザーの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" href="#4-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%94%a8%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8%e3%81%aemysql-heatwave%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8%e3%81%aemysql-heatwave">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#4-レプリケーション用ユーザーの作成ソース用のmysql-heatwaveレプリカ用のmysql-heatwave" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. レプリケーション用ユーザーの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" aria-label="アンカー先: 4. レプリケーション用ユーザーの作成(ソース用のMySQL HeatWave、レプリカ用のMySQL HeatWave)" href="#4-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%94%a8%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8%e3%81%aemysql-heatwave%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8%e3%81%aemysql-heatwave">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -577,7 +577,7 @@ Query OK, 0 rows affected (0.00 sec)
     >
         5. ソース用MySQL HeatWaveのデータをダンプし、レプリカ用MySQL HeatWaveへインポート
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#5-ソース用mysql-heatwaveのデータをダンプしレプリカ用mysql-heatwaveへインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. ソース用MySQL HeatWaveのデータをダンプし、レプリカ用MySQL HeatWaveへインポート" aria-label="アンカー先: 5. ソース用MySQL HeatWaveのデータをダンプし、レプリカ用MySQL HeatWaveへインポート" href="#5-%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8mysql-heatwave%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%92%e3%83%80%e3%83%b3%e3%83%97%e3%81%97%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8mysql-heatwave%e3%81%b8%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#5-ソース用mysql-heatwaveのデータをダンプしレプリカ用mysql-heatwaveへインポート" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 5. ソース用MySQL HeatWaveのデータをダンプし、レプリカ用MySQL HeatWaveへインポート" aria-label="アンカー先: 5. ソース用MySQL HeatWaveのデータをダンプし、レプリカ用MySQL HeatWaveへインポート" href="#5-%e3%82%bd%e3%83%bc%e3%82%b9%e7%94%a8mysql-heatwave%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%92%e3%83%80%e3%83%b3%e3%83%97%e3%81%97%e3%83%ac%e3%83%97%e3%83%aa%e3%82%ab%e7%94%a8mysql-heatwave%e3%81%b8%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -803,7 +803,7 @@ Fetching global names, object names from `world_x` for auto-completion... Press 
     >
         6. レプリケーションチャンネルの設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#6-レプリケーションチャンネルの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. レプリケーションチャンネルの設定" aria-label="アンカー先: 6. レプリケーションチャンネルの設定" href="#6-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%81%e3%83%a3%e3%83%b3%e3%83%8d%e3%83%ab%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#6-レプリケーションチャンネルの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 6. レプリケーションチャンネルの設定" aria-label="アンカー先: 6. レプリケーションチャンネルの設定" href="#6-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%81%e3%83%a3%e3%83%b3%e3%83%8d%e3%83%ab%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -858,7 +858,7 @@ Fetching global names, object names from `world_x` for auto-completion... Press 
     >
         7. レプリケーションの動作確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#7-レプリケーションの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. レプリケーションの動作確認" aria-label="アンカー先: 7. レプリケーションの動作確認" href="#7-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#7-レプリケーションの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 7. レプリケーションの動作確認" aria-label="アンカー先: 7. レプリケーションの動作確認" href="#7-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -938,7 +938,7 @@ mysql&gt; SELECT * FROM rpl.test;
     >
         8. レプリケーションフィルター(チャネルフィルター)の設定
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#8-レプリケーションフィルターチャネルフィルターの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. レプリケーションフィルター(チャネルフィルター)の設定" aria-label="アンカー先: 8. レプリケーションフィルター(チャネルフィルター)の設定" href="#8-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%83%81%e3%83%a3%e3%83%8d%e3%83%ab%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%81%ae%e8%a8%ad%e5%ae%9a">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#8-レプリケーションフィルターチャネルフィルターの設定" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 8. レプリケーションフィルター(チャネルフィルター)の設定" aria-label="アンカー先: 8. レプリケーションフィルター(チャネルフィルター)の設定" href="#8-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%83%81%e3%83%a3%e3%83%8d%e3%83%ab%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%81%ae%e8%a8%ad%e5%ae%9a">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -999,7 +999,7 @@ mysql&gt; SELECT * FROM rpl.test;
     >
         9. レプリケーションフィルター(チャネルフィルター)の動作確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/mysql/creating-mds-channel/#9-レプリケーションフィルターチャネルフィルターの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. レプリケーションフィルター(チャネルフィルター)の動作確認" aria-label="アンカー先: 9. レプリケーションフィルター(チャネルフィルター)の動作確認" href="#9-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%83%81%e3%83%a3%e3%83%8d%e3%83%ab%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/mysql/creating-mds-channel/#9-レプリケーションフィルターチャネルフィルターの動作確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 9. レプリケーションフィルター(チャネルフィルター)の動作確認" aria-label="アンカー先: 9. レプリケーションフィルター(チャネルフィルター)の動作確認" href="#9-%e3%83%ac%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%83%81%e3%83%a3%e3%83%8d%e3%83%ab%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%bc%e3%81%ae%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12699,7 +12699,7 @@ mysql&gt; SELECT * FROM world.city WHERE ID=1538;
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/mysql/creating-mds-readreplica/"
+      href="/test_tutorial/mysql/creating-mds-readreplica/"
       title="その12 - MySQL HeatWaveでリードレプリカを構成する"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12711,7 +12711,7 @@ mysql&gt; SELECT * FROM world.city WHERE ID=1538;
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/hpc/"
+      href="/test_tutorial/hpc/"
       title="OCI HPCポータル"
     >
       OCI HPCポータル
@@ -12766,7 +12766,7 @@ mysql&gt; SELECT * FROM world.city WHERE ID=1538;
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

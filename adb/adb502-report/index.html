@@ -29,18 +29,18 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
 
   <title>502: 各種設定の確認、レポートの取得 | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -51,7 +51,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     content="502: 各種設定の確認、レポートの取得"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/img/hero/Infrastructure_1.png" />
   <meta property="og:description" content="Autonomous Databaseは初期化パラメータを初め、多くの設定は変更することはできません。
 （そもそも自律型DBとして、それらを気にする必要はない、というコンセプト）
 しかしながら、Oracle Databaseに詳しい方にとっては、これまでのOracle Databaseと何が違うのか？など、より詳細を知りたいと思われるかと思います。
@@ -70,7 +70,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
 目次：
 1. コマンドライン(SQL*Plus)で確認しよう 1-1. 初期化パラメータの確認 1-2. AWRレポートの確認 1-3. アラート・ログの確認 1-4. トレース・ログの確認 2. SQL Developer DBAビューで確認しよう 2-1. 初期化パラメータの確認 2-2. AWRレポートの確認 3. OCIコンソール上のパフォーマンスハブで確認しよう 本章ではそれぞれの取得方法の手順をご紹介していきます。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/" />
 
 <meta property="article:section" content="Adb" />
     <meta
@@ -81,7 +81,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="502: 各種設定の確認、レポートの取得" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/img/hero/Infrastructure_1.png" />
   <meta name="twitter:description" content="Autonomous Databaseは初期化パラメータを初め、多くの設定は変更することはできません。
 （そもそも自律型DBとして、それらを気にする必要はない、というコンセプト）
 しかしながら、Oracle Databaseに詳しい方にとっては、これまでのOracle Databaseと何が違うのか？など、より詳細を知りたいと思われるかと思います。
@@ -107,17 +107,17 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
       "@type": "TechArticle",
       "articleSection": "Adb",
       "name": "502: 各種設定の確認、レポートの取得",
-      "url" : "https://github.com/t-utsunom/test_tutorial/adb/adb502-report/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/adb/adb502-report/",
       "headline": "502: 各種設定の確認、レポートの取得",
       "description": "Autonomous Databaseは初期化パラメータを初め、多くの設定は変更することはできません。\n（そもそも自律型DBとして、それらを気にする必要はない、というコンセプト）\nしかしながら、Oracle Databaseに詳しい方にとっては、これまでのOracle Databaseと何が違うのか？など、より詳細を知りたいと思われるかと思います。\nこの章ではそういった方々のために、初期化パラメータの確認やAWRレポート等の取得方法をご確認いただき、普段お使いのOracleデータベースと同様に扱えることを見ていただきます。\n尚、Autonomous Databaseにおける制限事項については、次のマニュアルを参照ください。\n経験豊富なOracle Databaseユーザー用のAutonomous Database (英語版)\n経験豊富なOracle Databaseユーザー用のAutonomous Database (日本語版)\n※最新の情報については英語版をご確認ください。\n本章ではアラートログやトレースログの取得方法も扱いますが、ADBを利用するに際して何か問題が生じた場合は、弊社サポートサービスに対してサービスリクエスト（SR）の発行を優先ください。\nSRの発行方法については、本チュートリアルガイドの 506: サポートサービスへの問い合わせ を参照ください。\n所要時間 : 約30分\n前提条件 :\nADBインスタンスが構成済みであること ※ADBインタンスを作成方法については、本ハンズオンガイドの 101:ADBインスタンスを作成してみよう を参照ください。\nADBインスタンスに接続可能な仮想マシンを構成済みであること ※仮想マシンの作成方法については、本ハンズオンガイドの 204:マーケットプレイスからの仮想マシンのセットアップ方法 を参照ください。\n初期化パラメータ・各種レポート・ログの取得方法は、次の目次に示す３つの方法があります：\n目次：\n1. コマンドライン(SQL*Plus)で確認しよう 1-1. 初期化パラメータの確認 1-2. AWRレポートの確認 1-3. アラート・ログの確認 1-4. トレース・ログの確認 2. SQL Developer DBAビューで確認しよう 2-1. 初期化パラメータの確認 2-2. AWRレポートの確認 3. OCIコンソール上のパフォーマンスハブで確認しよう 本章ではそれぞれの取得方法の手順をご紹介していきます。",
-      "thumbnailUrl": "https://github.com/t-utsunom/img/hero/Infrastructure_1.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/img/hero/Infrastructure_1.png",
       "wordCount" : "431",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/adb/adb502-report/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/adb/adb502-report/"
       },
       "keywords" : [ "データベース" , "CLI" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -128,10 +128,10 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -141,73 +141,73 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="502: 各種設定の確認、レポートの取得">
   <meta property="og:description" content="Autonomous Databaseは初期化パラメータを初め、多くの設定は変更することはできません。
@@ -231,11 +231,11 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
   <meta property="og:type" content="article">
     <meta property="article:section" content="adb">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/img/hero/Infrastructure_1.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/img/hero/Infrastructure_1.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/img/hero/Infrastructure_1.png">
   <meta name="twitter:title" content="502: 各種設定の確認、レポートの取得">
   <meta name="twitter:description" content="Autonomous Databaseは初期化パラメータを初め、多くの設定は変更することはできません。
 （そもそも自律型DBとして、それらを気にする必要はない、というコンセプト）
@@ -297,11 +297,11 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -319,7 +319,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -331,12 +331,12 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -468,7 +468,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/adb/' href='/t-utsunom/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>502: 各種設定の確認、レポートの取得</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/adb/' href='/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>502: 各種設定の確認、レポートの取得</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -497,11 +497,11 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=CLI" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=CLI" class="page-tag">
             &#35;CLI
         </a>
     
@@ -605,7 +605,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         1. コマンドライン(SQL*Plus)で確認しよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#1-コマンドラインsqlplusで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. コマンドライン(SQL*Plus)で確認しよう" aria-label="アンカー先: 1. コマンドライン(SQL*Plus)で確認しよう" href="#1-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3sqlplus%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#1-コマンドラインsqlplusで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. コマンドライン(SQL*Plus)で確認しよう" aria-label="アンカー先: 1. コマンドライン(SQL*Plus)で確認しよう" href="#1-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3sqlplus%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -642,7 +642,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         1-1. 初期化パラメータの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#1-1-初期化パラメータの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 初期化パラメータの確認" aria-label="アンカー先: 1-1. 初期化パラメータの確認" href="#1-1-%e5%88%9d%e6%9c%9f%e5%8c%96%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#1-1-初期化パラメータの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-1. 初期化パラメータの確認" aria-label="アンカー先: 1-1. 初期化パラメータの確認" href="#1-1-%e5%88%9d%e6%9c%9f%e5%8c%96%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -665,7 +665,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         1-2. AWRレポートの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#1-2-awrレポートの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. AWRレポートの確認" aria-label="アンカー先: 1-2. AWRレポートの確認" href="#1-2-awr%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#1-2-awrレポートの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-2. AWRレポートの確認" aria-label="アンカー先: 1-2. AWRレポートの確認" href="#1-2-awr%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -739,7 +739,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         補足
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#補足" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 補足" aria-label="アンカー先: 補足" href="#%e8%a3%9c%e8%b6%b3">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#補足" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 補足" aria-label="アンカー先: 補足" href="#%e8%a3%9c%e8%b6%b3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -780,7 +780,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         1-3. アラート・ログの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#1-3-アラートログの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. アラート・ログの確認" aria-label="アンカー先: 1-3. アラート・ログの確認" href="#1-3-%e3%82%a2%e3%83%a9%e3%83%bc%e3%83%88%e3%83%ad%e3%82%b0%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#1-3-アラートログの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-3. アラート・ログの確認" aria-label="アンカー先: 1-3. アラート・ログの確認" href="#1-3-%e3%82%a2%e3%83%a9%e3%83%bc%e3%83%88%e3%83%ad%e3%82%b0%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -824,7 +824,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         1-4. トレース・ログの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#1-4-トレースログの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-4. トレース・ログの確認" aria-label="アンカー先: 1-4. トレース・ログの確認" href="#1-4-%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b9%e3%83%ad%e3%82%b0%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#1-4-トレースログの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1-4. トレース・ログの確認" aria-label="アンカー先: 1-4. トレース・ログの確認" href="#1-4-%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b9%e3%83%ad%e3%82%b0%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -884,7 +884,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         2. SQL Developer DBAビューで確認しよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#2-sql-developer-dbaビューで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. SQL Developer DBAビューで確認しよう" aria-label="アンカー先: 2. SQL Developer DBAビューで確認しよう" href="#2-sql-developer-dba%e3%83%93%e3%83%a5%e3%83%bc%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#2-sql-developer-dbaビューで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. SQL Developer DBAビューで確認しよう" aria-label="アンカー先: 2. SQL Developer DBAビューで確認しよう" href="#2-sql-developer-dba%e3%83%93%e3%83%a5%e3%83%bc%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -895,7 +895,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         DBAウィザードの起動方法
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#dbaウィザードの起動方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: DBAウィザードの起動方法" aria-label="アンカー先: DBAウィザードの起動方法" href="#dba%e3%82%a6%e3%82%a3%e3%82%b6%e3%83%bc%e3%83%89%e3%81%ae%e8%b5%b7%e5%8b%95%e6%96%b9%e6%b3%95">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#dbaウィザードの起動方法" class="gdoc-page__anchor clip flex align-center" title="アンカー先: DBAウィザードの起動方法" aria-label="アンカー先: DBAウィザードの起動方法" href="#dba%e3%82%a6%e3%82%a3%e3%82%b6%e3%83%bc%e3%83%89%e3%81%ae%e8%b5%b7%e5%8b%95%e6%96%b9%e6%b3%95">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -989,7 +989,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         2-1. 初期化パラメータの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#2-1-初期化パラメータの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 初期化パラメータの確認" aria-label="アンカー先: 2-1. 初期化パラメータの確認" href="#2-1-%e5%88%9d%e6%9c%9f%e5%8c%96%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#2-1-初期化パラメータの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-1. 初期化パラメータの確認" aria-label="アンカー先: 2-1. 初期化パラメータの確認" href="#2-1-%e5%88%9d%e6%9c%9f%e5%8c%96%e3%83%91%e3%83%a9%e3%83%a1%e3%83%bc%e3%82%bf%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1029,7 +1029,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         2-2. AWRレポートの確認
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#2-2-awrレポートの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. AWRレポートの確認" aria-label="アンカー先: 2-2. AWRレポートの確認" href="#2-2-awr%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#2-2-awrレポートの確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2-2. AWRレポートの確認" aria-label="アンカー先: 2-2. AWRレポートの確認" href="#2-2-awr%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88%e3%81%ae%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -1078,7 +1078,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
     >
         3. OCIコンソール上のパフォーマンスハブで確認しよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb502-report/#3-ociコンソール上のパフォーマンスハブで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. OCIコンソール上のパフォーマンスハブで確認しよう" aria-label="アンカー先: 3. OCIコンソール上のパフォーマンスハブで確認しよう" href="#3-oci%e3%82%b3%e3%83%b3%e3%82%bd%e3%83%bc%e3%83%ab%e4%b8%8a%e3%81%ae%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%83%8f%e3%83%96%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb502-report/#3-ociコンソール上のパフォーマンスハブで確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. OCIコンソール上のパフォーマンスハブで確認しよう" aria-label="アンカー先: 3. OCIコンソール上のパフォーマンスハブで確認しよう" href="#3-oci%e3%82%b3%e3%83%b3%e3%82%bd%e3%83%bc%e3%83%ab%e4%b8%8a%e3%81%ae%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%83%8f%e3%83%96%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12698,7 +12698,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb501-ocicli/"
+      href="/test_tutorial/adb/adb501-ocicli/"
       title="501: OCICLIを利用したインスタンス操作"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12710,7 +12710,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb503-monitoring/"
+      href="/test_tutorial/adb/adb503-monitoring/"
       title="503 : ADBインスタンスの監視設定をしてみよう"
     >
       503 : ADBインスタンスの監視設定をしてみよう
@@ -12765,7 +12765,7 @@ ADBインスタンスに接続可能な仮想マシンを構成済みである�
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

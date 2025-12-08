@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /tags/*
 Disallow: /tags-search/*
 
-Sitemap: https://github.com/t-utsunom/test_tutorial/sitemap.xml
+Sitemap: https://t-utsunom.github.io/test_tutorial/sitemap.xml

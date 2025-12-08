@@ -13,18 +13,18 @@
 
   <title>203: 分析系クエリの実行(Star Schema Benchmark) | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="203: 分析系クエリの実行(Star Schema Benchmark)"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/img0.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/img0.png" />
   <meta property="og:description" content="ADBインスタンスにデフォルトで入っているDWH系・分析系のサンプルスキーマ(SHやSSB)に対して、重いSQLを実行し、OCPU数別にその処理時間の違いを体感して頂きます。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/" />
 
 <meta property="article:section" content="Adb" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="203: 分析系クエリの実行(Star Schema Benchmark)" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/img0.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/img0.png" />
   <meta name="twitter:description" content="ADBインスタンスにデフォルトで入っているDWH系・分析系のサンプルスキーマ(SHやSSB)に対して、重いSQLを実行し、OCPU数別にその処理時間の違いを体感して頂きます。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Adb",
       "name": "203: 分析系クエリの実行(Star Schema Benchmark)",
-      "url" : "https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/",
       "headline": "203: 分析系クエリの実行(Star Schema Benchmark)",
       "description": "ADBインスタンスにデフォルトで入っているDWH系・分析系のサンプルスキーマ(SHやSSB)に対して、重いSQLを実行し、OCPU数別にその処理時間の違いを体感して頂きます。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/img0.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/img0.png",
       "wordCount" : "254",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/"
       },
       "keywords" : [ "データベース" , "移行・テスト" ],
       "copyrightHolder" : "OCIチュートリアル",
@@ -80,10 +80,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -93,73 +93,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="203: 分析系クエリの実行(Star Schema Benchmark)">
   <meta property="og:description" content="ADBインスタンスにデフォルトで入っているDWH系・分析系のサンプルスキーマ(SHやSSB)に対して、重いSQLを実行し、OCPU数別にその処理時間の違いを体感して頂きます。">
@@ -167,11 +167,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="adb">
     <meta property="article:modified_time" content="2025-12-01T14:01:51+09:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/img0.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/img0.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/img0.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/img0.png">
   <meta name="twitter:title" content="203: 分析系クエリの実行(Star Schema Benchmark)">
   <meta name="twitter:description" content="ADBインスタンスにデフォルトで入っているDWH系・分析系のサンプルスキーマ(SHやSSB)に対して、重いSQLを実行し、OCPU数別にその処理時間の違いを体感して頂きます。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -217,11 +217,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -239,7 +239,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -251,12 +251,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -387,7 +387,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/adb/' href='/t-utsunom/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>203: 分析系クエリの実行(Star Schema Benchmark)</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/adb/' href='/test_tutorial/adb/'><span itemprop='name'>Oracle AI Database編 - Autonomous AI Database (AAIDB)を使ってみよう</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>203: 分析系クエリの実行(Star Schema Benchmark)</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -416,11 +416,11 @@
 <div class="page-tags" style="margin-top: 1rem; font-size: 0.9rem;">
     <b>タグ：</b>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" class="page-tag">
             &#35;データベース
         </a>
     
-        <a href="https://github.com/t-utsunom/test_tutorial/tag-search/?tags=%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%86%e3%82%b9%e3%83%88" class="page-tag">
+        <a href="https://t-utsunom.github.io/test_tutorial/tag-search/?tags=%e7%a7%bb%e8%a1%8c%e3%83%bb%e3%83%86%e3%82%b9%e3%83%88" class="page-tag">
             &#35;移行・テスト
         </a>
     
@@ -432,7 +432,7 @@
     >
         はじめに
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#はじめに" class="gdoc-page__anchor clip flex align-center" title="アンカー先: はじめに" aria-label="アンカー先: はじめに" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -518,7 +518,7 @@
     >
         1. SSBスキーマを確認しよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#1-ssbスキーマを確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. SSBスキーマを確認しよう" aria-label="アンカー先: 1. SSBスキーマを確認しよう" href="#1-ssb%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#1-ssbスキーマを確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1. SSBスキーマを確認しよう" aria-label="アンカー先: 1. SSBスキーマを確認しよう" href="#1-ssb%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -528,7 +528,7 @@
     >
         データ・モデラーによる構成確認
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#データモデラーによる構成確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: データ・モデラーによる構成確認" aria-label="アンカー先: データ・モデラーによる構成確認" href="#%e3%83%87%e3%83%bc%e3%82%bf%e3%83%a2%e3%83%87%e3%83%a9%e3%83%bc%e3%81%ab%e3%82%88%e3%82%8b%e6%a7%8b%e6%88%90%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#データモデラーによる構成確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: データ・モデラーによる構成確認" aria-label="アンカー先: データ・モデラーによる構成確認" href="#%e3%83%87%e3%83%bc%e3%82%bf%e3%83%a2%e3%83%87%e3%83%a9%e3%83%bc%e3%81%ab%e3%82%88%e3%82%8b%e6%a7%8b%e6%88%90%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -652,7 +652,7 @@
     >
         各表の件数確認
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#各表の件数確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 各表の件数確認" aria-label="アンカー先: 各表の件数確認" href="#%e5%90%84%e8%a1%a8%e3%81%ae%e4%bb%b6%e6%95%b0%e7%a2%ba%e8%aa%8d">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#各表の件数確認" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 各表の件数確認" aria-label="アンカー先: 各表の件数確認" href="#%e5%90%84%e8%a1%a8%e3%81%ae%e4%bb%b6%e6%95%b0%e7%a2%ba%e8%aa%8d">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -696,7 +696,7 @@ select count(1) from ssb.lineorder;
     >
         2. OCPU数の違いによる処理時間の差を確認しよう
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#2-ocpu数の違いによる処理時間の差を確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. OCPU数の違いによる処理時間の差を確認しよう" aria-label="アンカー先: 2. OCPU数の違いによる処理時間の差を確認しよう" href="#2-ocpu%e6%95%b0%e3%81%ae%e9%81%95%e3%81%84%e3%81%ab%e3%82%88%e3%82%8b%e5%87%a6%e7%90%86%e6%99%82%e9%96%93%e3%81%ae%e5%b7%ae%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#2-ocpu数の違いによる処理時間の差を確認しよう" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. OCPU数の違いによる処理時間の差を確認しよう" aria-label="アンカー先: 2. OCPU数の違いによる処理時間の差を確認しよう" href="#2-ocpu%e6%95%b0%e3%81%ae%e9%81%95%e3%81%84%e3%81%ab%e3%82%88%e3%82%8b%e5%87%a6%e7%90%86%e6%99%82%e9%96%93%e3%81%ae%e5%b7%ae%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%82%88%e3%81%86">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -742,7 +742,7 @@ select count(1) from ssb.lineorder;
     >
         OCPU=1の場合
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#ocpu1の場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: OCPU=1の場合" aria-label="アンカー先: OCPU=1の場合" href="#ocpu1%e3%81%ae%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#ocpu1の場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: OCPU=1の場合" aria-label="アンカー先: OCPU=1の場合" href="#ocpu1%e3%81%ae%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -765,7 +765,7 @@ select count(1) from ssb.lineorder;
     >
         OCPU=8の場合
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#ocpu8の場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: OCPU=8の場合" aria-label="アンカー先: OCPU=8の場合" href="#ocpu8%e3%81%ae%e5%a0%b4%e5%90%88">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#ocpu8の場合" class="gdoc-page__anchor clip flex align-center" title="アンカー先: OCPU=8の場合" aria-label="アンカー先: OCPU=8の場合" href="#ocpu8%e3%81%ae%e5%a0%b4%e5%90%88">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -845,7 +845,7 @@ select count(1) from ssb.lineorder;
     >
         3. 性能調査に使えるツールのご紹介
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#3-性能調査に使えるツールのご紹介" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 性能調査に使えるツールのご紹介" aria-label="アンカー先: 3. 性能調査に使えるツールのご紹介" href="#3-%e6%80%a7%e8%83%bd%e8%aa%bf%e6%9f%bb%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e3%81%94%e7%b4%b9%e4%bb%8b">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#3-性能調査に使えるツールのご紹介" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. 性能調査に使えるツールのご紹介" aria-label="アンカー先: 3. 性能調査に使えるツールのご紹介" href="#3-%e6%80%a7%e8%83%bd%e8%aa%bf%e6%9f%bb%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e3%81%94%e7%b4%b9%e4%bb%8b">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -858,7 +858,7 @@ select count(1) from ssb.lineorder;
     >
         データベース・ダッシュボード
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#データベースダッシュボード" class="gdoc-page__anchor clip flex align-center" title="アンカー先: データベース・ダッシュボード" aria-label="アンカー先: データベース・ダッシュボード" href="#%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%83%80%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9c%e3%83%bc%e3%83%89">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#データベースダッシュボード" class="gdoc-page__anchor clip flex align-center" title="アンカー先: データベース・ダッシュボード" aria-label="アンカー先: データベース・ダッシュボード" href="#%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9%e3%83%80%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9c%e3%83%bc%e3%83%89">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -904,7 +904,7 @@ select count(1) from ssb.lineorder;
     >
         パフォーマンス・ハブ
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/adb/adb203-bulk-query/#パフォーマンスハブ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: パフォーマンス・ハブ" aria-label="アンカー先: パフォーマンス・ハブ" href="#%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%83%8f%e3%83%96">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/adb/adb203-bulk-query/#パフォーマンスハブ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: パフォーマンス・ハブ" aria-label="アンカー先: パフォーマンス・ハブ" href="#%e3%83%91%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%b3%e3%82%b9%e3%83%8f%e3%83%96">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12568,7 +12568,7 @@ select count(1) from ssb.lineorder;
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb202-dataload-dbms-cloud/"
+      href="/test_tutorial/adb/adb202-dataload-dbms-cloud/"
       title="202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12580,7 +12580,7 @@ select count(1) from ssb.lineorder;
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/adb/adb204-setup-VM/"
+      href="/test_tutorial/adb/adb204-setup-VM/"
       title="204: 開発者向け仮想マシンのセットアップ方法"
     >
       204: 開発者向け仮想マシンのセットアップ方法
@@ -12635,7 +12635,7 @@ select count(1) from ssb.lineorder;
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   

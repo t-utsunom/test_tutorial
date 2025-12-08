@@ -13,18 +13,18 @@
 
   <title>Chaincodeをデプロイする | OCIチュートリアル</title>
 
-  <link rel="icon" type="image/ico" href="/t-utsunom/test_tutorial/favicon/favicon.ico" />
+  <link rel="icon" type="image/ico" href="/test_tutorial/favicon/favicon.ico" />
 <link
   rel="icon"
   type="image/ico"
   sizes="32x32"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 <link
   rel="icon"
   type="image/ico"
   sizes="16x16"
-  href="/t-utsunom/test_tutorial/favicon/favicon.ico"
+  href="/test_tutorial/favicon/favicon.ico"
 />
 
   
@@ -35,10 +35,10 @@
     content="Chaincodeをデプロイする"
   />
   <meta property="og:site_name" content="OCIチュートリアル" />
-  <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png" />
+  <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png" />
   <meta property="og:description" content="この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/" />
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/" />
 
 <meta property="article:section" content="Blockchain" />
     <meta
@@ -49,7 +49,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Chaincodeをデプロイする" />
-  <meta property="twitter:image" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png" />
+  <meta property="twitter:image" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png" />
   <meta name="twitter:description" content="この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。" />
 
 
@@ -59,17 +59,17 @@
       "@type": "TechArticle",
       "articleSection": "Blockchain",
       "name": "Chaincodeをデプロイする",
-      "url" : "https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/",
+      "url" : "https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/",
       "headline": "Chaincodeをデプロイする",
       "description": "この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。",
-      "thumbnailUrl": "https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png",
+      "thumbnailUrl": "https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png",
       "wordCount" : "240",
       "license": "日本オラクル株式会社",
       "inLanguage": "ja",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/"
+          "@id": "https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/"
       },
       "copyrightHolder" : "OCIチュートリアル",
       "copyrightYear" : "0001",
@@ -79,10 +79,10 @@
       "publisher":{
           "@type":"Organization",
           "name": "OCIチュートリアル",
-          "url": "https://github.com/t-utsunom/test_tutorial/",
+          "url": "https://t-utsunom.github.io/test_tutorial/",
           "logo": {
               "@type": "ImageObject",
-              "url": "https://github.com/t-utsunom/test_tutorial/brand.svg",
+              "url": "https://t-utsunom.github.io/test_tutorial/brand.svg",
               "width":"32",
               "height":"32"
           }
@@ -92,73 +92,73 @@
 
 
   
-  <script src="/t-utsunom/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
-<script src="/t-utsunom/test_tutorial/js/main-2e274343.bundle.min.js"></script>
+  <script src="/test_tutorial/js/colortheme-01ea3db1.bundle.min.js"></script>
+<script src="/test_tutorial/js/main-2e274343.bundle.min.js"></script>
 
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/Metropolis.woff2"
+  href="/test_tutorial/fonts/Metropolis.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
-  href="/t-utsunom/test_tutorial/fonts/LiberationSans.woff2"
+  href="/test_tutorial/fonts/LiberationSans.woff2"
   type="font/woff2"
   crossorigin="anonymous"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/main-86b8c207.min.css"
+  href="/test_tutorial/main-86b8c207.min.css"
   media="all"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/mobile-79ddc617.min.css"
+  href="/test_tutorial/mobile-79ddc617.min.css"
   media="screen and (max-width: 45rem)"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/print-735ccc12.min.css"
+  href="/test_tutorial/print-735ccc12.min.css"
   media="print"
 />
 
 <link
   rel="preload"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   as="style"
 />
 <link
   rel="stylesheet"
-  href="/t-utsunom/test_tutorial/custom.css"
+  href="/test_tutorial/custom.css"
   media="all"
 />
-  <link href="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/" rel="canonical" type="text/html" />
+  <link href="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
   
-<meta property="og:url" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/">
+<meta property="og:url" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/">
   <meta property="og:site_name" content="OCIチュートリアル">
   <meta property="og:title" content="Chaincodeをデプロイする">
   <meta property="og:description" content="この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。">
@@ -166,11 +166,11 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="blockchain">
     <meta property="article:modified_time" content="2025-12-08T06:45:39+00:00">
-    <meta property="og:image" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png">
+    <meta property="og:image" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png">
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png">
+  <meta name="twitter:image" content="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/instantiate_cc_input.png">
   <meta name="twitter:title" content="Chaincodeをデプロイする">
   <meta name="twitter:description" content="この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。">
       <meta name="twitter:site" content="@Oracle_Japan">
@@ -216,11 +216,11 @@
       </label>
     
     <div>
-      <a class="gdoc-brand gdoc-header__link" href="https://github.com/t-utsunom/test_tutorial/">
+      <a class="gdoc-brand gdoc-header__link" href="https://t-utsunom.github.io/test_tutorial/">
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="/t-utsunom/test_tutorial/img/theo_white.png"
+            src="/test_tutorial/img/theo_white.png"
             alt=""
           />
           <span class="gdoc-brand__title">OCIチュートリアル</span>
@@ -238,7 +238,7 @@
       placeholder="検索..."
       aria-label="検索"
       maxlength="64"
-      data-site-base-url="https://github.com/t-utsunom/test_tutorial/"
+      data-site-base-url="https://t-utsunom.github.io/test_tutorial/"
       data-site-lang="ja"
     />
     <ul id="gdoc-search-results" class="gdoc-search__list"></ul>
@@ -250,12 +250,12 @@
       <span class="gdoc-menu-header__items">
         
         <span class="gdoc-menu-header__tagfilter">
-          <a href="https://github.com/t-utsunom/test_tutorial//tag-search" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial//tag-search" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_tag" ><title>タグ検索</title><use xlink:href="#gdoc_tag"></use></svg>
           </a>
         </span>
         <span class="gdoc-menu-header__home">
-          <a href="https://github.com/t-utsunom/test_tutorial/" class="gdoc-header__link">
+          <a href="https://t-utsunom.github.io/test_tutorial/" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>トップページへ戻る</title>
               <use xlink:href="#gdoc_home"></use>
@@ -391,7 +391,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/' href='/t-utsunom/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/t-utsunom/test_tutorial/blockchain/' href='/t-utsunom/test_tutorial/blockchain/'><span itemprop='name'>Oracle Blockchain Platformチュートリアル</span></a><meta itemprop='position' content='4' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Chaincodeをデプロイする</span><meta itemprop='position' content='5' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/' href='/test_tutorial/'><span itemprop='name'>Oracle Cloud Infrastructure チュートリアル</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/test_tutorial/blockchain/' href='/test_tutorial/blockchain/'><span itemprop='name'>Oracle Blockchain Platformチュートリアル</span></a><meta itemprop='position' content='3' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Chaincodeをデプロイする</span><meta itemprop='position' content='4' /></li>
   
 
   
@@ -441,7 +441,7 @@
     >
         0. 前提の理解
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#0-前提の理解" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 前提の理解" aria-label="アンカー先: 0. 前提の理解" href="#0-%e5%89%8d%e6%8f%90%e3%81%ae%e7%90%86%e8%a7%a3">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#0-前提の理解" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0. 前提の理解" aria-label="アンカー先: 0. 前提の理解" href="#0-%e5%89%8d%e6%8f%90%e3%81%ae%e7%90%86%e8%a7%a3">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -450,7 +450,7 @@
     >
         0.1 Hyperledger FabricにおけるChaincodeのデプロイ
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#01-hyperledger-fabricにおけるchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0.1 Hyperledger FabricにおけるChaincodeのデプロイ" aria-label="アンカー先: 0.1 Hyperledger FabricにおけるChaincodeのデプロイ" href="#01-hyperledger-fabric%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8bchaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#01-hyperledger-fabricにおけるchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0.1 Hyperledger FabricにおけるChaincodeのデプロイ" aria-label="アンカー先: 0.1 Hyperledger FabricにおけるChaincodeのデプロイ" href="#01-hyperledger-fabric%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8bchaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -471,7 +471,7 @@
     >
         0.2 このチュートリアルでのブロックチェーン・ネットワーク構成
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#02-このチュートリアルでのブロックチェーンネットワーク構成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0.2 このチュートリアルでのブロックチェーン・ネットワーク構成" aria-label="アンカー先: 0.2 このチュートリアルでのブロックチェーン・ネットワーク構成" href="#02-%e3%81%93%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e3%81%ae%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e6%a7%8b%e6%88%90">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#02-このチュートリアルでのブロックチェーンネットワーク構成" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 0.2 このチュートリアルでのブロックチェーン・ネットワーク構成" aria-label="アンカー先: 0.2 このチュートリアルでのブロックチェーン・ネットワーク構成" href="#02-%e3%81%93%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e3%81%ae%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e6%a7%8b%e6%88%90">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -482,7 +482,7 @@
     >
         1.サンプルChaincodeの準備
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#1サンプルchaincodeの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.サンプルChaincodeの準備" aria-label="アンカー先: 1.サンプルChaincodeの準備" href="#1%e3%82%b5%e3%83%b3%e3%83%97%e3%83%abchaincode%e3%81%ae%e6%ba%96%e5%82%99">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#1サンプルchaincodeの準備" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 1.サンプルChaincodeの準備" aria-label="アンカー先: 1.サンプルChaincodeの準備" href="#1%e3%82%b5%e3%83%b3%e3%83%97%e3%83%abchaincode%e3%81%ae%e6%ba%96%e5%82%99">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -517,7 +517,7 @@
     >
         2. Hyperledger Fabric v2.x系でのChaincodeのデプロイ
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#2-hyperledger-fabric-v2x系でのchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Hyperledger Fabric v2.x系でのChaincodeのデプロイ" aria-label="アンカー先: 2. Hyperledger Fabric v2.x系でのChaincodeのデプロイ" href="#2-hyperledger-fabric-v2x%e7%b3%bb%e3%81%a7%e3%81%aechaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#2-hyperledger-fabric-v2x系でのchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2. Hyperledger Fabric v2.x系でのChaincodeのデプロイ" aria-label="アンカー先: 2. Hyperledger Fabric v2.x系でのChaincodeのデプロイ" href="#2-hyperledger-fabric-v2x%e7%b3%bb%e3%81%a7%e3%81%aechaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -526,7 +526,7 @@
     >
         2.1. Chaincodeのインストール
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#21-chaincodeのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.1. Chaincodeのインストール" aria-label="アンカー先: 2.1. Chaincodeのインストール" href="#21-chaincode%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#21-chaincodeのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.1. Chaincodeのインストール" aria-label="アンカー先: 2.1. Chaincodeのインストール" href="#21-chaincode%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -588,7 +588,7 @@
     >
         2.2. Chaincodeのデプロイ（ApproveとCommit）
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#22-chaincodeのデプロイapproveとcommit" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.2. Chaincodeのデプロイ（ApproveとCommit）" aria-label="アンカー先: 2.2. Chaincodeのデプロイ（ApproveとCommit）" href="#22-chaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4approve%e3%81%a8commit">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#22-chaincodeのデプロイapproveとcommit" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.2. Chaincodeのデプロイ（ApproveとCommit）" aria-label="アンカー先: 2.2. Chaincodeのデプロイ（ApproveとCommit）" href="#22-chaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4approve%e3%81%a8commit">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -648,7 +648,7 @@
     >
         2.3. Chaincodeの初期化
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#23-chaincodeの初期化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.3. Chaincodeの初期化" aria-label="アンカー先: 2.3. Chaincodeの初期化" href="#23-chaincode%e3%81%ae%e5%88%9d%e6%9c%9f%e5%8c%96">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#23-chaincodeの初期化" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 2.3. Chaincodeの初期化" aria-label="アンカー先: 2.3. Chaincodeの初期化" href="#23-chaincode%e3%81%ae%e5%88%9d%e6%9c%9f%e5%8c%96">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -670,7 +670,7 @@
     >
         3. Hyperledger Fabric v1.x系でのChaincodeのデプロイ
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#3-hyperledger-fabric-v1x系でのchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. Hyperledger Fabric v1.x系でのChaincodeのデプロイ" aria-label="アンカー先: 3. Hyperledger Fabric v1.x系でのChaincodeのデプロイ" href="#3-hyperledger-fabric-v1x%e7%b3%bb%e3%81%a7%e3%81%aechaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#3-hyperledger-fabric-v1x系でのchaincodeのデプロイ" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3. Hyperledger Fabric v1.x系でのChaincodeのデプロイ" aria-label="アンカー先: 3. Hyperledger Fabric v1.x系でのChaincodeのデプロイ" href="#3-hyperledger-fabric-v1x%e7%b3%bb%e3%81%a7%e3%81%aechaincode%e3%81%ae%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -679,7 +679,7 @@
     >
         3.1. Chaincodeのインストール
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#31-chaincodeのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.1. Chaincodeのインストール" aria-label="アンカー先: 3.1. Chaincodeのインストール" href="#31-chaincode%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#31-chaincodeのインストール" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.1. Chaincodeのインストール" aria-label="アンカー先: 3.1. Chaincodeのインストール" href="#31-chaincode%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -735,7 +735,7 @@
     >
         3.2. ChaincodeのInstantiate
     </h2>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#32-chaincodeのinstantiate" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.2. ChaincodeのInstantiate" aria-label="アンカー先: 3.2. ChaincodeのInstantiate" href="#32-chaincode%e3%81%aeinstantiate">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#32-chaincodeのinstantiate" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 3.2. ChaincodeのInstantiate" aria-label="アンカー先: 3.2. ChaincodeのInstantiate" href="#32-chaincode%e3%81%aeinstantiate">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -786,7 +786,7 @@
     >
         4. 参考リンク
     </h1>
-    <a data-clipboard-text="https://github.com/t-utsunom/test_tutorial/blockchain/03_1_deploy_chaincode/#4-参考リンク" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. 参考リンク" aria-label="アンカー先: 4. 参考リンク" href="#4-%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af">
+    <a data-clipboard-text="https://t-utsunom.github.io/test_tutorial/blockchain/03_1_deploy_chaincode/#4-参考リンク" class="gdoc-page__anchor clip flex align-center" title="アンカー先: 4. 参考リンク" aria-label="アンカー先: 4. 参考リンク" href="#4-%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af">
         <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
     </a>
 </div>
@@ -12401,7 +12401,7 @@
   
     <a
       class="gdoc-page__nav--prev flex align-center"
-      href="/t-utsunom/test_tutorial/blockchain/02_1_create_channel/"
+      href="/test_tutorial/blockchain/02_1_create_channel/"
       title="Channelを作成し、インスタンスおよびPeerノードを参加させる"
     >
       <i class="gdoc-icon">gdoc_arrow_left_alt</i>
@@ -12413,7 +12413,7 @@
   
     <a
       class="gdoc-page__nav--next flex align-center"
-      href="/t-utsunom/test_tutorial/blockchain/03_2_restcall_chaincode/"
+      href="/test_tutorial/blockchain/03_2_restcall_chaincode/"
       title="REST APIからChaincodeを実行する"
     >
       REST APIからChaincodeを実行する
@@ -12468,7 +12468,7 @@
   </div>
 
   
-  <script defer src="/t-utsunom/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
+  <script defer src="/test_tutorial/js/search-7db5e115.bundle.min.js"></script>
 
 
   
