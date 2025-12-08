@@ -1,5 +1,5 @@
 defaultContentLanguage = 'ja'
-baseURL = 'https://t-utsunom.github.io/'
+baseURL = 'https://t-utsunom.github.io/test_tutorial/'
 # languageCode = 'ja'
 title = 'OCIチュートリアル'
 theme = "hugo-geekdoc"
