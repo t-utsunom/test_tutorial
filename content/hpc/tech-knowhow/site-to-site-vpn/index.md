@@ -1,16 +1,11 @@
 ---
 title: "サイト間VPNによるOCIとの拠点間接続方法"
 description: "HPC/機械学習ワークロードをオンプレミスからOCIに移行する際、多くのケースでオンプレミスとOCIを拠点間接続する必要が生じます。例えば、オンプレミス側の有償CAEアプリケーション用ライセンスサーバにOCI側の計算ノードからライセンス取得のためにアクセスするケースや、オンプレミス側の端末からOCI側のログインノードにログインしインタラクティブ処理を行うケースです。本テクニカルTipsは、サイト間VPNを使用してIPSecのトンネルモードでオンプレミスとOCIを拠点間接続し、OCI側プライベートサブネットに接続する計算ノード相当のインスタンスとオンプレミス側プライベートサブネットに接続するライセンスサーバ相当のインスタンスの疎通を可能とするための手順を解説します。"
-order: "362"
-layout: single
-
-
-images:
-- "hpc/tech-knowhow/site-to-site-vpn/connection_type.png"
-header:
-  overlay_image: "/hpc/tech-knowhow/site-to-site-vpn/connection_type.png"
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+weight: "362"
+tags:
+- hpc
+params:
+  author: Tsutomu Miyashita
 ---
 <style>
 table, th, td {

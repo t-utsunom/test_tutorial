@@ -1,18 +1,14 @@
 ---
 title: "OCI Network Firewallのログを分析する"
 description: "本チュートリアルは「OCI Network Firewallを構築する」の続編として、Network Firewallのログを収集し、分析します。"
-order: "120"
-layout: single
+weight: "120"
 tags:
- - intermediate
-
-
+- セキュリティ
+- ネットワーク
+- 脆弱性・脅威検知
+- 分析
 images:
-- "security/networkfirewall-loganalytics/nfwla39.png"
-header:
- overlay_image: "/security/networkfirewall-loganalytics/nfwla39.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- security/networkfirewall-loganalytics/nfwla47.png
 ---
 
 パロアルトネットワークスの次世代ファイアウォール技術を基に構築されたOCIクラウドネイティブのマネージド・ファイアウォール「OCI Network Firewall」が2022年7月にリリースされました。「OCI Network Firewall」はURLフィルタリングやTSL/SSL検査などの機能を提供します。

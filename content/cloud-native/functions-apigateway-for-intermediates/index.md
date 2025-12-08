@@ -4,6 +4,7 @@ description: "Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供
 tags:
 - サーバレス
 - 認証設定
+weight: 47
 ---
 
 このハンズオンでは、Oracle Functionsを利用してOCI API Gatewayが渡されたクライアントシークレットをチェックし、正しいクライアントシークレットが含まれているかどうかに基づいてリクエストを許可したり拒否したりするシンプルなAuthorizer Functionを作成します。  

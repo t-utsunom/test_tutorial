@@ -1,18 +1,11 @@
 ---
 title: "Logging AnalyticsでAutonomous Databaseのログを収集する"
 description: "Autonomous Databaseのログを収集するためのLogging Analyticsの設定方法について紹介します。"
-order: "150"
-layout: single
+weight: "120"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/logginganalytics_adb_log/img1.png"
-header:
- overlay_image: "/management/logginganalytics_adb_log/img1.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- management/logginganalytics_adb_log/img14.png
 ---
 
 **チュートリアル概要説明**  

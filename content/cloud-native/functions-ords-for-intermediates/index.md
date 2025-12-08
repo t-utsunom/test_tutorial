@@ -4,6 +4,7 @@ description: "Oracle Functionsは、Oracle Cloud Infrastructure(OCI)上で提供
 tags:
 - サーバレス
 - データベース
+weight: 45
 ---
 
 このセッションでは、Oracle FunctionsからORDS(Oracle REST Data Services)という仕組みを利用してATPに接続し、データを取得する方法について説明します。

@@ -3,15 +3,9 @@ title: "207: PythonによるADB上でのアプリ開発"
 description: "この章では開発言語としてpythonを想定し、Autonomous Databaseに対して接続する方法、およびデータベース操作を実行する方法を学びます。"
 weight: "3_207"
 layout: single
-#header:
-images:
-- "adb/adb207-appdev-python/image_top.png"
 tags:
 - データベース
 - アプリケーション開発
-#header:
-#  overlay_image: "../adb207-appdev-python/img_top.png"
-#  overlay_filter: rgba(34, 66, 55, 0.7)
 
 #link: https://community.oracle.com/tech/welcome/discussion/4474311
 ---

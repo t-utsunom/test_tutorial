@@ -1,14 +1,11 @@
 ---
 title: OCIのログをDataDogで監視する
 description: クラウド環境のシステム監視において、市場で人気のある監視ツールで運用を統合しているケースは少なくありません。OCIはDataDogを使用しているユーザーに対して、OCIの監査ログやサービスのログを連携し、DataDog上で監視・分析するためのソリューションを用意しています。これにより、既存運用に最小限の変更を加えるだけでOCIを含めたマルチクラウドのログ監視を実現できます。
-order: "110"
-layout: single
+weight: "110"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/logging_datadog/native.jpeg"
+- management/logging_datadog/native.jpeg
 ---
 このチュートリアルでは、DataDogにOCIのログを転送するための、オーバーヘッドが低く拡張性の高いソリューションを構成する方法をご紹介します。オブジェク・トストレージにファイルをアップロードした際に生成される書き込みログが、サービス・コネクタとファンクションを経由してDataDogに転送され、ダッシュボードに表示されるまでの流れをステップ・バイ・ステップで説明します。
 

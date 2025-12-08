@@ -1,18 +1,11 @@
 ---
 title: "Prometheus Node Exporterを利用した管理エージェントによるインスタンスのメトリック収集"
 description: "OCIの管理エージェントには、PrometheusのNode Exporterを利用したメトリックの収集機能が用意されています。こちらを使うことで標準では提供されていないメトリックの項目（Disk使用量など）をモニタリングで可視化したり、オンプレミスのサーバーのメトリックをモニタリングで可視化することが可能となります。"
-order: "155"
-layout: single
+weight: "155"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/monitoring_prometheus/prom1.png"
-header:
- overlay_image: "/management/monitoring_prometheus/prom1.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- management/monitoring_prometheus/prom11.PNG
 ---
 
 **チュートリアル概要説明**  

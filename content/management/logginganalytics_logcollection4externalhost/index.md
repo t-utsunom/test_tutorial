@@ -1,16 +1,11 @@
 ---
 title: "Logging Analytics：OCI外部のホストからOSログを収集する"
 description: "Logging Analyticsでは、エージェントを使用することでOCIだけでなく、オンプレミスやOCI外部のクラウドのホストからもログを収集することができます。"
-order: "010"
-layout: single
-
-
+weight: "10"
+tags:
+- 運用管理・監視
 images:
-- "management/logginganalytics_logcollection4externalhost/LA_LogcollectionFromEC2_18.png"
-header:
-  overlay_image: ""
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+- management/logginganalytics_logcollection4externalhost/LA_LogcollectionFromEC2_17.png
 ---
 
 このチュートリアルでは、サンプルとして、AWS EC2のOSログをエージェント経由で収集するための構成手順をご紹介します。同様の手順でオンプレミスのホストからログを取集する構成も可能です。  

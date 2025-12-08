@@ -1,18 +1,13 @@
 ---
 title: "OCI Network FirewallのSSLインスペクション（インバウンド検証モード）を行う"
 description: "本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、インバウンド検証モードの設定および動作を確認します。"
-layout: single
-order: "111"
+weight: "111"
 tags:
- - security
-
-
+- セキュリティ
+- ネットワーク
+- 脆弱性・脅威検知
 images:
-- "security/networkfirewall-sslinspect-inb/sslinb25.png"
-header:
- overlay_image: "/security/networkfirewall-sslinspect-inb/sslinb25.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- security/networkfirewall-sslinspect-inb/sslinb00.png
 ---
 
 OCI Network Firewallは2022年7月にリリースされた、パロアルトネットワークスの次世代ファイアウォール技術を基に構築されたOCIクラウドネイティブのマネージド・ファイアウォール・サービスです。

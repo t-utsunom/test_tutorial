@@ -1,10 +1,11 @@
 ---
 title: "OCIのLogging AnalyticsでOCIの監査ログを可視化・分析する"
 description: "トラブルシューティングの際、ログを即時に分析したい、という場面はありませんか？OCIのLogging Analyticsでは様々なログを可視化、分析する機能を提供します。実際にOCIの監査ログをLogging Analyticsで分析し、ユーザーアクティビティを可視化してみましょう。必要な操作は全てGUIから行うことができます。"
-order: "110"
-layout: single
+weight: "150"
 tags:
- - management
+- 運用管理・監視
+images:
+- management/audit-log-analytics/audit-loganalytics25.png
 ---
 
 OCI Observability&Managementのサービスの1つ、Logging Analyticsでは様々なログを可視化、分析する機能を提供します。

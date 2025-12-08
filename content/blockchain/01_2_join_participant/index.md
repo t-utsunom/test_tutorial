@@ -3,6 +3,9 @@ title: "Participant インスタンスをブロックチェーン・ネットワ
 description: "この文書は Oracle Blockchain Platform（OBP） のParticipantインスタンスをブロックチェーン・ネットワークに参加させ、ふたつの OBP インスタンスでブロックチェーン・ネットワークを構成する方法をステップ・バイ・ステップで紹介するチュートリアルです。"
 images:
 - "blockchain/01_2_join_participant/founder_step2.png"
+tags:
+- 初期設定
+weight: 11
 ---
 
 この文書は Oracle Blockchain Platform（OBP） の Participant インスタンスをブロックチェーン・ネットワークに参加させる方法をステップ・バイ・ステップで紹介するチュートリアルです。

@@ -1,17 +1,13 @@
 ---
 title: "Vaultサービスを使ってコンピュート・インスタンスのブート・ボリュームをユーザー管理の暗号鍵で暗号化する"
 description: "本チュートリアルは、Vaultサービスと連携してユーザー管理の暗号鍵を使ってコンピュート・インスタンスのブート・ボリュームを暗号化する手順を紹介します。"
-order: "120"
-layout: single
+weight: "120"
 tags:
- - intermediate
-
-
+- セキュリティ
+- ストレージ
+- コンピュート
 images:
-- "security/vault-compute/vault-compute06.png"
-header:
- overlay_image: "/security/vault-compute/vault-compute06.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
+- security/vault-compute/vault-compute05.png
 ---
 
 OCI Vaultはユーザーがセキュアに暗号鍵や、パスワードなどの”シークレット”を管理、運用できる鍵管理サービスです。

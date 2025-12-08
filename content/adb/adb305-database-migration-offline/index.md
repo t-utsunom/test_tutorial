@@ -4,7 +4,7 @@ description: "OCI Database Migration Serviceの移行の作成、検証、実行
 weight: "3_305"
 layout: single
 images:
-- "adb/adb305-database-migration-prep/teaser.png"
+- "adb/adb305-database-migration-offline/teaser.png"
 tags: 
   - データベース
   - 移行・テスト

@@ -3,6 +3,7 @@ title: "サンプルChaincodeの使い方"
 description: "この文書はOracle Blockchain Platformに付属するサンプルChaincodeのダウンロード方法、コンソールからの実行方法を説明します。"
 images:
 - "blockchain/93_1_sample_cc/console-samples-section.png"
+weight: 92
 ---
 
 この文書はOracle Blockchain Platformに付属するサンプルChaincodeのダウンロード方法、コンソールからの実行方法を紹介するチュートリアルです。

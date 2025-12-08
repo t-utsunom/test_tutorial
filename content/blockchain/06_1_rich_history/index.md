@@ -3,6 +3,7 @@ title: "リッチヒストリーデータベースの設定方法"
 description: "この文書はOracle Blockchain Platformで、ブロックチェーン台帳のデータを外部のOracle Databaseに複製する機能であるリッチヒストリーデータベース機能の設定方法を説明します。"
 images:
 - "blockchain/06_1_rich_history/rich_history_tables.png"
+weight: 60
 ---
 
 Oracle Blockchain Platformで、ブロックチェーン台帳のデータを外部のOracle Databaseに複製する機能であるリッチヒストリーデータベース機能の設定方法を説明します。

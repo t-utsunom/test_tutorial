@@ -4,7 +4,7 @@ description: "OCI Database Migration Serviceのオンライン移行に必要な
 weight: "3_306"
 layout: single
 images:
-- "adb/adb306-database-migration-prep/teaser.png"
+- "adb/adb306-database-migration-online/teaser.png"
 tags: 
   - データベース
   - 移行・テスト

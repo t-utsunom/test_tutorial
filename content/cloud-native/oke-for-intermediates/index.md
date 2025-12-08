@@ -4,6 +4,7 @@ description: "OKEを使ってサンプルアプリケーションのデプロイ
 tags:
 - コンテナ
 - アプリケーション開発
+weight: 22
 ---
 このワークショップでは、OCI DevOpsを利用してCI/CDパイプラインをセットアップし、Oracle Autonomous Transaction ProcessingをデータソースとしたJavaアプリケーションをOracle Container Engine for Kubernetes（OKE）にデプロイする一連の流れを体験することができます。
 

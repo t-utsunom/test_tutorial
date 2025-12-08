@@ -4,8 +4,6 @@ description: "ADBはOracle Cloud Infrastructure(OCI)の他のサービスと同�
 
 weight: "3_501"
 layout: single
-images:
-- "adb/adb501-ocicli/image_top.png"
 tags: 
   - データベース
   - CLI

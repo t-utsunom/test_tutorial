@@ -1,18 +1,11 @@
 ---
 title: "Base Database ServiceでDatabase Managementを有効化する"
 description: "OCIで利用しているBase Database Service（以下BaseDB）を監視するツールをお探しではありませんか？Database ManagementはOracle DBのメトリック監視はもちろん、ASH分析、SQLモニタリング、ADDM、ブロッキングセッションまで確認することができます。無償でご利用を開始いただけるオプションも提供していますので、是非BaseDBをご利用の方はDatabase Managementを有効化してみてください。"
-order: "120"
-layout: single
+weight: "120"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/dbcs-database-management/dbmgmt1.png"
-header:
- overlay_image: "/management/dbcs-database-management/dbmgmt1.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- management/dbcs-database-management/dbmgmt17.png
 ---
 
 OCI Observability & Managementのサービスの1つ、Database Managementでは、Enterprise Managerで提供されているパフォーマンス分析の機能を中心に、Oracle DBのパフォーマンスを監視することが可能です。本章では、OCIのDatabase Cloud ServiceでDatabase Managementを有効化する手順を紹介します。Base DBでDatabase Managementを有効化する場合、エージェントレスで利用を開始することが出来ます。

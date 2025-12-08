@@ -2,7 +2,7 @@ name: Build and deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - main  # 本番はmainブランチだけに限定
+      - master  # 本番はmainブランチだけに限定
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,10 +14,10 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.144.2'
+          hugo-version: '0.148.2'
           extended: true
       - name: Build
-        run: hugo --config hugo.toml
+        run: hugo
         working-directory: ./
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

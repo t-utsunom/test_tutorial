@@ -3,6 +3,9 @@ title: "Oracle Blockchain Platformのインスタンス作成"
 description: "この文書は Oracle Blockchain Platform（OBP） のインスタンス作成方法をステップ・バイ・ステップで紹介するチュートリアルです。"
 images:
 - "blockchain/01_1_create_instance/create_compartment_form.png"
+tags:
+- 初期設定
+weight: 10
 ---
 
 この文書は Oracle Blockchain Platform（OBP）のインスタンス作成方法をステップ・バイ・ステップで紹介するチュートリアルです。
