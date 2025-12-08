@@ -1,13 +1,17 @@
 ---
 title: "トンネル検査構成でOCI Network Firewallを構築する"
 description: "本チュートリアルでは「OCI Network Firewall」をトンネル検査構成で構築を行います"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 脆弱性・脅威検知
+ - security
+
+
 images:
-- security/networkfirewall-setup-tunnelinspection/tunnel00.png
+- "security/networkfirewall-setup-tunnelinspection/tunnel00.png"
+header:
+ overlay_image: "/security/networkfirewall-setup-tunnelinspection/tunnel00.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
 ---
 
 <!-- 

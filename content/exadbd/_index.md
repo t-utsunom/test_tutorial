@@ -1,5 +1,5 @@
 ---
-title: "Oracle AI Database編 - Exadata Database Service on Dedicated Infrastructure (ExaDB-D) を使ってみよう"
+title: "Oracle Database編 - Exadata Database Service on Dedicated Infrastructure (ExaDB-D) を使ってみよう"
 description: "多くのミッションクリティカルなシステムを支えるExadata Database Service on Dedicated Infrastructure (ExaDB-D)を学ぶチュートリアルです。インスタンスの作成から、運用管理までを一通り体験します。"
 permalink: /exadbd
 layout: single
@@ -7,6 +7,11 @@ tags:
   - "Database"
 show_excerpts: true
 toc: true
+---
+
+**Database 編のチュートリアル一覧に[もどる](/ocitutorials)**
+<br/>
+
 ---
 
 **前提条件**
@@ -25,7 +30,7 @@ toc: true
 
 <br/>
 # <span style="color: brown; ">■ Exadata Database Service on Dedicated Infrastructure (ExaDB-D) を使ってみよう</span>
-Oracle AI Databaseを動かすための最適な基盤として、リリースから10年以上経過し、多くのミッションクリティカルなシステムを支えるExadata !
+Oracle Databaseを動かすための最適な基盤として、リリースから10年以上経過し、多くのミッションクリティカルなシステムを支えるExadata !
 OCIであればExadataもサブスクリプションで使えます。インスタンスの作り方から、様々な使い方を学んでいただける内容になっています。
 
 - **[101: ExaDB-D を使おう](./exadb-d101-create-exadb-d/)**
@@ -34,18 +39,35 @@ OCIであればExadataもサブスクリプションで使えます。インス�
 
 - **[103: 自動バックアップを設定しよう](./exadb-d103-automatic-backup/)**
 
-- **[104: 任意のタイミングでバックップを作成してみよう](./exadb-d104-longterm-bakup/)**
+- **[104: バックアップからリストアしよう](./exadb-d104-backup-restore/)**
 
-- **[105: バックアップからリストアしよう](./exadb-d105-backup-restore/)**
+- **[105: スケーリングしよう](./exadb-d105-scaling/)**
 
-- **[106: スケーリングしよう](./exadb-d106-scaling/)**
+- **[106: データベースのバージョンを指定しよう](./exadb-d106-dbversion/)**
 
-- **[107: データベースのバージョンを指定しよう](./exadb-d107-dbversion/)**
+- **[107: パッチを適用しよう](./exadb-d107-patch/)**
 
-- **[108: パッチを適用しよう](./exadb-d108-patch/)**
+- **[108: Data Guard を構成しよう](./exadb-d108-dataguard/)**
 
-- **[109: Data Guard を構成しよう](./exadb-d109-dataguard/)**
+- **[109: ExaDB-D に Autonomous Recovery Service (RCV/ZRCV) をセットアップしよう](./exadb-d109-zrcv/)**
 
 - **[110:ExaDB-D のスタンバイ・データベースからバックアップを取得およびリストアしてみよう](./exadb-d110-dataguard-standby-bkup/)**
+
+- **[111:ExaDB-D で ZRCV の長期保管バックアップ（LTR）を作成してみよう](./exadb-d111-ltr/)**
+
+<br/>
+
+**Database 編のチュートリアル一覧に[もどる](/ocitutorials)**
+<br/>
+
+<!--
+
+## 移行編（公開準備中）
+## データ連携編
+## 運用管理編
+## Livelabsのお勧めコンテンツのご紹介
+## ADBに関するよくあるFAQ
+
+  -->
 
 <br/>

@@ -1,13 +1,18 @@
 ---
 title: "Vaultサービスを使ってBase Databaseをユーザー管理の暗号鍵で暗号化する"
 description: "本チュートリアルは、Vaultサービスと連携してユーザー管理の暗号鍵を使ってObject Storageを作成する手順を紹介します。"
-weight: "120"
+order: "120"
+layout: single
 tags:
-- セキュリティ
-- ストレージ
-- データベース
+ - intermediate
+
+
 images:
-- security/vault-basedatabase/vault-basedatabase06.png
+- "security/vault-basedatabase/vault-basedatabase01.png"
+header:
+ overlay_image: "/security/vault-basedatabase/vault-basedatabase01.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 OCI Vaultはユーザーがセキュアに暗号鍵や、パスワードなどの”シークレット”を管理、運用できる鍵管理サービスです。

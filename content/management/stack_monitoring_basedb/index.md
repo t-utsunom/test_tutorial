@@ -1,11 +1,11 @@
 ---
 title: "Stack Monitoring を使用してBaseDBのメトリックを可視化する"
 description: "BaseDBのメトリック監視には Monitoring が使用できますが、Stack Monitoring を使用することで、Monitoring では確認できないDB時間やフラッシュ・リカバリ領域の使用率などメトリックやメトリック拡張などの機能を利用することができるようになります。"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- 運用管理・監視
-images:
-- management/stack_monitoring_basedb/image17.png
+ - management
+
 ---
 
 **チュートリアル概要 :**  

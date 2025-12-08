@@ -3,9 +3,15 @@ title: "211: クローン機能を活用しよう"
 description: "ADBを簡単に複製することができる、クローン機能についてご紹介します。"
 weight: "3_211"
 layout: single
+#header:
+images:
+- "adb/adb211-clone/image_top.png"
 tags:
 - データベース
 - データ移行・データ同期
+#header:
+#  overlay_image: "../adb211-clone/img_top.png"
+#  overlay_filter: rgba(34, 66, 55, 0.7)
 ---
 
 <a id="anchor0"></a>

@@ -4,6 +4,8 @@ description: ""
 
 weight: "3_502"
 layout: single
+images:
+- "adb/adb502-report/image_top.png"
 tags: 
   - データベース
   - CLI

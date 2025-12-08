@@ -1,13 +1,18 @@
 ---
 title: "ハブアンドスポーク構成でOCI Network Firewallを構築する"
 description: "本チュートリアルでは「OCI Network Firewall」をハブアンドスポーク構成で構築を行います"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 脆弱性・脅威検知
+ - security
+
+
 images:
-- security/networkfirewall-setup-hubspoke/hubspoke01.png
+- "security/networkfirewall-setup-hubspoke/hubspoke02.png"
+header:
+ overlay_image: "/security/networkfirewall-setup-hubspoke/hubspoke02.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 <!-- 

@@ -1,13 +1,18 @@
 ---
 title: "OCI Network Firewallの動作を検証する"
 description: "本チュートリアルではサービス・リストとURLリストを設定し、OCI Network Firewallの動作を確認します。"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- セキュリティ
-- ネットワーク
-- 脆弱性・脅威検知
+ - security
+
+
 images:
-- security/networkfirewall-policycheck/nfw95.png
+- "security/networkfirewall-setup/nfw88.png"
+header:
+ overlay_image: "/security/networkfirewall-setup/nfw88.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 OCI Network FirewallはOracle Cloud Infrastructure (OCI) のクラウドネイティブなマネージド・ファイアウォールです。  

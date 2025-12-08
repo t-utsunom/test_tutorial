@@ -6,6 +6,11 @@ layout: single
 tags:
 - データベース
 - アプリケーション開発
+images:
+- "adb/adb206-appdev-nodejs/image_top.png"
+#header:
+#  overlay_image: "../adb206-appdev-nodejs/img_top.png"
+#  overlay_filter: rgba(34, 66, 55, 0.7)
 
 #link: https://community.oracle.com/tech/welcome/discussion/4474308
 ---

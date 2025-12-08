@@ -1,11 +1,11 @@
 ---
 title: "Stack Monitoring を使用して OCI Compute のメトリックを可視化する"
 description: "OCI Compute のメトリック監視には Monitoring が使用できますが、Stack Monitoring を使用することで、より詳細なメトリックを監視することができます。また、管理エージェントをインストールすることで、オンプレミスのサーバー監視も可能となります。"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- 運用管理・監視
-images:
-- management/stack_monitoring_install/SM_Metric2.PNG
+ - management
+
 ---
 
 **チュートリアル概要 :**  

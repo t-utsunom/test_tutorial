@@ -1,11 +1,11 @@
 ---
 title: "Stack Monitoring オンボーディング"
 description: "Stack Monitoringにはオンボーディング機能があり、ポリシー設定や動的グループの作成など手間のかかる初期設定を自動化して、すぐにサーバー監視を監視することができます。"
-weight: "110"
+order: "110"
+layout: single
 tags:
-- 運用管理・監視
-images:
-- management/stack_monitoring_onboarding/image02.png
+ - management
+
 ---
 
 

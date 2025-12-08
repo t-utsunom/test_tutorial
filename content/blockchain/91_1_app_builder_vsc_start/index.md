@@ -3,7 +3,6 @@ title: "Blockchain App Builder（Visual Studio Code拡張版）の基本的な�
 description: "この文書は Oracle Blockchain Platformの付属ツールであるBlockchain App BuilderのVisual Studio Code拡張版について、インストール～起動方法、Chaincodeの仕様の作成方法、Chaincodeコードの生成方法などの基本的な使い方を説明します。"
 images:
 - "blockchain/91_1_app_builder_vsc_start/BAB-Menu.png"
-weight: 91
 ---
 
 この文書は Oracle Blockchain Platform付属のChaincode開発・テスト・デプロイ補助ツールであるBlockchain App BuilderのVisual Studio Code拡張版について、ダウンロードとインストールの方法から、Chaincode仕様の作成方法やChaincodeコードの生成方法など、基本的な使い方を紹介するチュートリアルです。

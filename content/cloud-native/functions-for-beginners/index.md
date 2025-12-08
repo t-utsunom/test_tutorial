@@ -4,7 +4,6 @@ description: "OCI Functionsは、Oracle Cloud Infrastructure(OCI)上で提供さ
 tags:
 - サーバレス
 - コンテナ
-weight: 41
 ---
 OCI Functionsは、Oracleが提供するオープンソースのFaaSプラットフォームであるFn Projectのマネージドサービスです。  
 このエントリーでは、OCI Functions環境構築から動作確認までの手順を記します。

@@ -3,7 +3,6 @@ title: "複製先データベースでJSONを展開したビューを作成"
 description: "この文書はOracle Blockchain Platformのリッチヒストリーデータベース機能を用いてブロックチェーン台帳からデータベースに複製したデータをより使いやすくするため、JSONを展開しつつデータを抽出するビューを作成する方法を説明します。"
 images:
 - "blockchain/06_2_rich_history_view/rich_history_usage.png"
-weight: 61
 ---
 
 Oracle Blockchain Platformのリッチヒストリーデータベース機能を用いてブロックチェーン台帳からデータベースに複製したデータをより使いやすくするため、JSONを展開しつつデータを抽出するビューを作成する方法を説明します。

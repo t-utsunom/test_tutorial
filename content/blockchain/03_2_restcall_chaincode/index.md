@@ -3,7 +3,6 @@ title: "REST APIからChaincodeを実行する"
 description: "この文書ではOracle Blockchain Platform（OBP）でREST APIからChaincodeを実行する方法を説明します。"
 images:
 - "blockchain/03_1_deploy_chaincode/instantiate_cc_input.png"
-weight: 31
 ---
 
 この文書ではOracle Blockchain Platform（OBP）でREST APIからChaincodeを実行する方法を説明します。

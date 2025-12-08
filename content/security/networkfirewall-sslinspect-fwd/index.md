@@ -1,13 +1,18 @@
 ---
 title: "OCI Network FirewallのSSLインスペクション（転送プロキシモード）を行う"
 description: "本チュートリアルでは「OCI Network Firewallを構築する」の続編として、SSLインスペクションのうち、転送プロキシモードの設定および動作を確認します。"
-weight: "111"
+layout: single
+order: "111"
 tags:
-- セキュリティ
-- ネットワーク
-- 脆弱性・脅威検知
+ - security
+
+
 images:
-- security/networkfirewall-sslinspect-fwd/sslfwd00.png
+- "security/networkfirewall-sslinspect-fwd/sslfwd20.png"
+header:
+ overlay_image: "/security/networkfirewall-sslinspect-fwd/sslfwd20.png"
+ overlay_filter: rgba(34, 66, 55, 0.7)
+
 ---
 
 <!-- 

@@ -4,8 +4,6 @@ description: "OCIが提供するWebLogic Server for OKEを利用して、JavaEE�
 tags:
 - アプリケーション開発
 - コンテナ
-- 初期設定
-weight: 84
 ---
 
 前提条件

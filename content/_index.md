@@ -5,6 +5,16 @@ geekdocAlign: left
 geekdocAnchor: false
 ---
 
+<h2 class="gdoc-toppage-header2"> 準備 - Oracle Cloud の無料トライアルを申し込む </h2>
+
+- [Oracle Cloud 無料トライアルを申し込む](https://www.oracle.com/jp/cloud/free/)  
+  Oracle Cloud のほとんどのサービスが利用できるトライアル環境を取得することができます。このチュートリアルの内容を試すのに必要になりますので、まずは取得してみましょう。
+  ※認証のために SMS が受け取れる電話とクレジット・カードが必要です(希望しない限り課金はされませんのでご安心を!!)
+- [Oracle Cloud 無料トライアル サインアップガイド](https://faq.oracle.co.jp/app/answers/detail/a_id/6492)
+- [Oracle Cloud 無料トライアルに関するよくある質問(FAQ)](https://www.oracle.com/jp/cloud/free/faq/)
+
+<br>
+
 <h2 class="gdoc-toppage-header2"> OCIを触ってみよう</h2>
 
 {{< columns >}}
@@ -12,26 +22,16 @@ geekdocAnchor: false
 <h3> 1.&nbsp;<a href="./beginners">OCI入門編</a></h3>
 
 OCI の入門編チュートリアルです。
-無料トライアル環境の取得から、OCI コンソールの操作、コア・サービスの基本的なリソース作成まで学習できます。
+OCI コンソールの基本的な操作方法やネットワーク、ストレージなどの基本的なサービスについてを学習できます。
 
 <--->
 
 <h3> 2.&nbsp;<a href="./intermediates">OCI応用編</a></h3>
 
 OCI の応用編チュートリアルです。
-主にネットワークやコンピュート、ストレージなどの IaaS に関連する OCI のコア・サービスの応用的な使い方を学習できます。
-
+LoadBalancer や証明書サービスなどをはじめとした各 OCI サービスの応用的な使い方を学習できます。
 
 {{< /columns >}}
-
-<br>
-
-<h2 class="gdoc-toppage-header2"> ユースケース別チュートリアル</h2>
-
-<h3> {{< icon-oci "oci-in-practice" >}}&nbsp;<a href="./oci-in-practice">サービス連携編</a></h3>
-
-サービス連携チュートリアルです。
-ユースケース別にサービスを連携して利用する方法を学習できます。
 
 <br>
 
@@ -39,31 +39,31 @@ OCI の応用編チュートリアルです。
 
 {{< columns >}}
 
-<h3> {{< icon-oci "database" >}} &nbsp;Oracle AI Database </h3>
-Oracle AI Database関連サービスのチュートリアル
+<h3> {{< icon-oci "database" >}} &nbsp;Oracle Database </h3>
+Oracle Database関連サービスのチュートリアル
 
-- [Oracle Autonomous AI Database 編](./adb)  
+- [Autonomous Database 編](./adb)  
   Exadata 上で稼働する 自己稼働・自己保護・自己修復の自律型 Database
 
 - [Oracle AI Vector Search 編](./ai-vector-search)  
   Oracle AI Vector Search を学ぶチュートリアルです。Always Free ADB の作成から、様々な使い方までを一通り体験します。
 
 - [Base Database Service 編](./basedb)  
-  Base Database Service は、OCI 上で Oracle AI Database を手軽に使える、シンプルでベーシックなデータベース・サービスです。面倒な設定や複雑な運用なしで、すぐにデータベースの機能を活用できるのが特長です。
+  OCI 上で Oracle Database をシンプルに使えるベーシックなデータベース・サービス
 
 - [Exadata Database Service on Dedicated Infrastructure (ExaDB-D) 編](./exadbd)  
-  ExaDB-D は、数多くのミッションクリティカルなシステムを支えてきた Exadata 専用の高性能な基盤上で、Oracle AI Database を安心・安定して利用できるデータベース・サービスです。
+  Oracle Database が動く、多くのミッションクリティカルなシステムを支える Exadata を基盤としたデータベース・サービス
 
 - [Exadata Database Service on Exascale Infrastructure (ExaDB-XS)編](./exadb-xs)  
-  ExaDB-XS は、Exadata の高性能や信頼性といったメリットを、小規模でも重要なデータベース向けに、手頃なコストで利用できるデータベース・サービスです。無駄を抑えつつ、必要な性能と安心を確保したい場合に最適です。
+  Exadata Database Service のメリットを、小規模ながら重要度の劣らないデータベース向けに、より低いエントリーコストでご利用いただけるデータベース・サービス
 
 - [Full Stack Disaster Recovery(FSDR)編](./fsdr)  
-  FSDR を使えば、世界中どこからでもワンクリックで OCI リージョン間のコンピュート、データベース、アプリケーション移行やリカバリが可能です。複数のビジネスシステムのリカバリ作業を自動化でき、特別な管理サーバーや既存システムの再設計は不要。既存環境のまま、簡単・安心に災害対策を実現できます。
+  Exadata Database Service のメリットを、小規模ながら重要度の劣らないデータベース向けに、より低いエントリーコストでご利用いただけるデータベース・サービス
 
 ---
 
-<h3> {{< icon-oci "mysql" >}} &nbsp;<a href="./mysql">MySQL HeatWave編</a></h3>
-オラクルMySQLチームが開発、管理およびサポートする、MySQLサーバーに分析処理の高速化、機械学習の自動化、生成AIの実行基盤を統合したMySQL HeatWaveを学習できます。
+<h3> {{< icon-oci "mysql" >}} &nbsp;<a href="./mysql">MySQL Database Service編</a></h3>
+Oracle MySQLチームが開発、管理およびサポートするOCI上で提供されるMySQL Database Serviceを学習できます。
 
 <--->
 
