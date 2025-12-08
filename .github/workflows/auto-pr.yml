@@ -3,7 +3,7 @@ name: Auto PR on Push
 on:
   push:
     branches-ignore:
-      - master
+      - main
 
 jobs:
   raise_pull_request:
