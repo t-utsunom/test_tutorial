@@ -1,12 +1,11 @@
 ---
 title: "STREAM実行方法（BM.Optimized3.36編）"
-description: "本ドキュメントは、HPCワークロードの実行に最適なベアメタルインスタンスBM.Optimized3.36で、標準ベンチマークのSTREAMを実行する方法を解説します。"
-order: "2120"
-layout: single
-
-header:
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+description: "本ドキュメントは、第3世代Intel Xeonプロセッサを搭載するベア・メタル・シェイプBM.Optimized3.36で、メモリ帯域を計測する標準ベンチマークのSTREAMを実行する方法を解説します。"
+weight: "2120"
+tags:
+- hpc
+params:
+  author: Tsutomu Miyashita
 ---
 
 ***
@@ -14,7 +13,7 @@ header:
 
 本ドキュメントで解説する **[STREAM](https://www.cs.virginia.edu/stream/)** の実行は、 **[Intel oneAPI Base Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit.html)** に含まれるCコンパイラの **[Intel oneAPI DPC++/C++ Compiler](https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html#gs.jwxqxq)** で **STREAM** のソースコードをコンパイルして作成したバイナリを使用します。
 
-**STREAM** を実行するインスタンスは、 **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** を使用し、 **STREAM** の性能向上を目的に **NUMA nodes per socket** （以降 **NPS** と呼称します。）が **2** （以降 **NPS2** と呼称します。）となるようBIOSで設定します。
+**STREAM** を実行するインスタンスは、第3世代 **Intel Xeon** プロセッサを搭載するベア・メタル・シェイプ **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** を使用し、 **STREAM** の性能向上を目的に **NUMA nodes per socket** （以降 **NPS** と呼称します。）が **2** （以降 **NPS2** と呼称します。）となるようBIOSで設定します。
 
 
 以上より、本ドキュメントで解説する **STREAM** 実行は、以下の手順を経て行います。
@@ -39,11 +38,11 @@ header:
 ***
 # 1. BM.Optimized3.36インスタンス作成
 
-本章は、 **NPS** を **NPS2** とするようBIOSを設定し（※1）、OSに **Oracle Linux** 8.10ベースのHPC **[クラスタネットワーキングイメージ](/ocitutorials/hpc/#5-13-クラスタネットワーキングイメージ)** （※2）を使用して、 **BM.Optimized3.36** のインスタンスを作成します。
+本章は、 **NPS** を **NPS2** とするようBIOSを設定し（※1）、OSに **Oracle Linux** 8.10ベースのHPC **[クラスタネットワーキングイメージ](../../#5-13-クラスタネットワーキングイメージ)** （※2）を使用して、 **BM.Optimized3.36** のインスタンスを作成します。
 
-※1）**NPS** の設定方法は、 **[OCI HPCパフォーマンス関連情報](/ocitutorials/hpc/#2-oci-hpcパフォーマンス関連情報)** の **[パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法](/ocitutorials/hpc/benchmark/bios-setting/)** を参照してください。
+※1）**NPS** の設定方法は、 **[OCI HPCパフォーマンス関連情報](../../#2-oci-hpcパフォーマンス関連情報)** の **[パフォーマンスに関連するベアメタルインスタンスのBIOS設定方法](../../benchmark/bios-setting/)** を参照してください。
 
-※2）**[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/)** の **[1. クラスタネットワーキングイメージ一覧](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#1-クラスタネットワーキングイメージ一覧)** のイメージ **No.12** です。
+※2）**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](../../tech-knowhow/osimage-for-cluster/)** の **[1. クラスタネットワーキングイメージ一覧](../../tech-knowhow/osimage-for-cluster/#1-クラスタネットワーキングイメージ一覧)** のイメージ **No.12** です。
 
 インスタンスの作成は、 **[OCIチュートリアル](https://oracle-japan.github.io/ocitutorials/)** の **[その3 - インスタンスを作成する](https://oracle-japan.github.io/ocitutorials/beginners/creating-compute-instance)** の手順を参考にしてください。
 

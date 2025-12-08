@@ -1,12 +1,11 @@
 ---
 title: "クラスタ・ネットワークのトポロジーを考慮したノード間通信最適化方法"
 description: "クラスタ・ネットワークは、業界標準のRoCEv2を採用する高帯域・低遅延のRDMA対応インターコネクトネットワークサービスで、そのトポロジーがFat treeのため同一リーフスイッチに接続するノード間とスパインスイッチを介して異なるリーフスイッチに接続するノード間で、ノード間通信のレイテンシが大きく異なります。このため、この特性を意識して適切な計算/GPUノードにジョブを配置することで、レイテンシに影響を受け易いワークロードの性能や高並列実行時のスケーラビリティを改善できる場合があります。本パフォーマンス関連Tipsは、このクラスタ・ネットワークのレイテンシ特性を生かしてマルチノードジョブをクラスタ内に配置することで、ノード間通信性能を最適化する方法を解説します。"
-order: "223"
-layout: single
-
-header:
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+weight: "2203"
+tags:
+- hpc
+params:
+  author: Tsutomu Miyashita
 ---
 
 ***
@@ -39,9 +38,9 @@ header:
 
 本パフォーマンス関連Tipsは、HPCワークロード向けベアメタルシェイプ  **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** を **クラスタ・ネットワーク** でノード間接続するHPCクラスタと、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[Slurmによるリソース管理・ジョブ管理システム構築方法](/ocitutorials/hpc/tech-knowhow/setup-slurm-cluster/)** に従って構築された **Slurm** 環境を前提に、ノード間通信性能に最適なノード配置を自動的に行う **Slurm** クラスタの構築方法を、以下のステップに従い解説します。
 
-1. **クラスタ・ネットワーク** トポロジー特定
-2. **Topology-aware resource allocation** セットアップ
-3. **Topology-aware resource allocation** 稼働確認
+1. **[クラスタ・ネットワークトポロジー特定](#1-クラスタネットワークトポロジー特定)**
+2. **[Topology-aware resource allocationセットアップ](#2-topology-aware-resource-allocationセットアップ)**
+3. **[Topology-aware resource allocation稼働確認](#3-topology-aware-resource-allocation稼働確認)**
 
 ***
 # 1. クラスタ・ネットワークトポロジー特定

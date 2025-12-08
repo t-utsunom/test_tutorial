@@ -4,6 +4,7 @@ description: "OCI DevOpsでアプリケーション開発におけるCI/CDを学
 tags:
 - 運用管理・監視
 - アプリケーション開発
+weight: 11
 ---
 
 OCI DevOps は、OCI 上に CI/CD 環境を構築するマネージドサービスです。このハンズオンでは、OCI上のComputeに対する CI/CD パイプラインの構築手順を記します。

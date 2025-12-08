@@ -1,16 +1,11 @@
 ---
 title: "Logging Analytics：OCIコンピュートからOSのログを収集する"
 description: "Logging Analyticsではエージェントを使用することで、OCIだけでなくオンプレミスや他社IasSなど、様々な監視対象のホストから継続的にログを収集することができます。"
-order: "010"
-layout: single
-
-
+weight: "10"
+tags:
+- 運用管理・監視
 images:
-- "management/logginganalytics_logcollection4ocivm/LA_logcollection4ocivm-22.png"
-header:
-  overlay_image: ""
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+- management/logginganalytics_logcollection4ocivm/LA_logcollection4ocivm-22.png
 ---
 
 このチュートリアルでは、OCIコンピュートからOSのログをエージェント経由で取得するための設定手順をご紹介します。

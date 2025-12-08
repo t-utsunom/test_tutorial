@@ -1,14 +1,7 @@
 ---
 title: "アイデンティティ チュートリアル"
 description: "OCIのユーザー認証・アクセス制御を統合的に管理するIAM・IDaaSを提供するOCI Identity Domainsについて学習できるチュートリアルです。"
-permalink: /identity/
-layout: single
-# layout: collection
-# entries_layout: grid
-# tags: "security"
-show_excerpts: true
-# classes: wide
-toc: true
+geekdocNav: false
 ---
 
 Oracle Cloud Infrastructureは、設計段階からセキュリティを考慮して開発されたクラウドサービスになります。
@@ -74,3 +67,6 @@ Oracle Cloud Infrastructureは、設計段階からセキュリティを考慮�
 
 + **[OCI IAM Identity DomainsでCSVファイルからユーザーとグループをインポートする](https://speakerdeck.com/oracle4engineer/identity-domain-importing-using-csv-file)**  
    本チュートリアルは外部のページで、OCI IAM Identity Domainsで提供されているサンプルファイルを利用したユーザーとグループをインポートするための設定手順を紹介しています。
+
++ **[OCI IAM Identity Domainsでユーザー自身にてMFAの要素管理を行う](https://speakerdeck.com/oracle4engineer/identity-domains-selfservice-mfa-factor-management)**  
+   本チュートリアルは外部のページで、OCI IAM Identity Domainsにてユーザーが自身のMFA要素を管理(確認、追加など)する手順を紹介しています。

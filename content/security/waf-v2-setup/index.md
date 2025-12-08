@@ -1,18 +1,13 @@
 ---
 title: "OCI Load Balancerに直接アタッチするタイプのWeb Application Firewallを構成する"
 description: "OCIのVLoad Balancerを使用してVCN内に構築されているアプリケーションをOCIのWeb Application Firewallで保護する手順を紹介します。"
-order: "100"
-layout: single
+weight: "100"
 tags:
- - intermediate
-
-
+- セキュリティ
+- ネットワーク
+- 初期設定
 images:
-- "security/waf-v2-setup/wafv2-19.png"
-header:
- overlay_image: "/security/waf-v2-setup/wafv2-19.png"
- overlay_filter: rgba(34, 66,55, 0.7)
-weight: 111
+- security/waf-v2-setup/wafv2-03.png
 ---
 
 OCIでは、OCI Load Balancerに直接デプロイするWAF、”WAFポリシー”と、お客様のアプリケーションのドメインに構築するWAF、”エッジポリシー”の2種類のWAFを提供しています。

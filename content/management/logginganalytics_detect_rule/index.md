@@ -1,16 +1,11 @@
 ---
 title: "検出ルールを作成してアラート通知を設定する"
 description: "Logging Analyticsでは、検出ルールという機能を使用してログベースのアラート通知を設定することができます。"
-order: "010"
-layout: single
-
-
+weight: "10"
+tags:
+- 運用管理・監視
 images:
-- "management/logginganalytics_logcollection4ocivm/LA_logcollection4ocivm-22.png"
-header:
-  overlay_image: ""
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+- management/logginganalytics_detect_rule/image16.png
 ---
 
 このチュートリアルでは、OCIコンピュートのOSログに検出ルールを設定し、Monitoringのアラームへ連携するための設定手順をご紹介します。

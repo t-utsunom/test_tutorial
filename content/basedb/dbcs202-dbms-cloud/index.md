@@ -3,26 +3,25 @@ title: "202:DBMS_CLOUDを使ってObject StorageのデータをBaseDBから参�
 description: "DBMS_CLOUD PL/SQLパッケージを利用して、Object StorageのデータをBase Database Service (BaseDB)から参照する手順について紹介します。"
 order: "1_202"
 
-
 images:
-- "basedb/dbcs202-dbms-cloud/External-table.png"
+  - "basedb/dbcs202-dbms-cloud/External-table.png"
 header:
   overlay_image: "/basedb/dbcs202-dbms-cloud/External-table.png"
   overlay_filter: rgba(34, 66, 55, 0.7)
-  
 #link: https://community.oracle.com/tech/welcome/discussion/4474283/
 ---
 
 <a id="anchor0"></a>
 
 # はじめに
-DBMS_CLOUDはオブジェクト・ストレージのデータを操作するための包括的なサポートを提供するPL/SQLパッケージです。 
 
-DBMS_CLOUDはAutonomous Database (ADB) に実装されているPL/SQLパッケージですが、手動インストールすることでBaseDBでも利用可能です。  
+DBMS_CLOUD はオブジェクト・ストレージのデータを操作するための包括的なサポートを提供する PL/SQL パッケージです。
 
-ADBでDBMS_CLOUDを利用する方法は[202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)](../../adb/adb202-dataload-dbms-cloud)で学ぶことができます。  
+DBMS_CLOUD は Autonomous Database (ADB) に実装されている PL/SQL パッケージですが、手動インストールすることで BaseDB でも利用可能です。
 
-ここでは、DBMS_CLOUDパッケージを利用してObject StorageのデータをBase Database Service (BaseDB)から外部表として参照する手順をご紹介します。　　
+ADB で DBMS_CLOUD を利用する方法は[202: コマンドラインから大量データをロードしてみよう(DBMS_CLOUD)](../../adb/adb202-dataload-dbms-cloud)で学ぶことができます。
+
+ここでは、DBMS_CLOUD パッケージを利用して Object Storage のデータを Base Database Service (BaseDB)から外部表として参照する手順をご紹介します。
 
 このチュートリアルで実行する内容のイメージは以下の通りです。
 ![image](External-table.png)
@@ -30,59 +29,39 @@ ADBでDBMS_CLOUDを利用する方法は[202: コマンドラインから大量�
 <br>
 
 **前提条件 :**
-+ Oracle Database 19.9以上 もしくは　Oracle Database 21.3以上
 
-+ PDBにユーザーが作成されていて、そのユーザーに接続可能であること
+- Oracle Database 19.9 以上 もしくは　 Oracle Database 21.3 以上
 
-+ [101: Oracle Cloud で Oracle Database を使おう](../dbcs101-create-db) を通じて Oracle Database の作成が完了していること
+- PDB にユーザーが作成されていて、そのユーザーに接続可能であること
 
-+ 以下にリンクされているサンプルデータのCSVファイルをダウンロードしていること
-	+ [サンプルデータファイルのダウンロードリンク](/ocitutorials/basedb/dbcs202-dbms-cloud/ocitutorials_sales.csv)
+- [101: Oracle Cloud で Oracle AI Database を使おう](../dbcs101-create-db) を通じて Oracle AI Database の作成が完了していること
 
-+ [その7 - オブジェクト・ストレージを使う](../../beginners/object-storage) を通じてバケットの作成・データファイル(CSV)のアップロードが完了していること
-   
+- 以下にリンクされているサンプルデータの CSV ファイルをダウンロードしていること
+
+  - [サンプルデータファイルのダウンロードリンク](/ocitutorials/basedb/dbcs202-dbms-cloud/ocitutorials_sales.csv)
+
+- [その 7 - オブジェクト・ストレージを使う](../../beginners/object-storage) を通じてバケットの作成・データファイル(CSV)のアップロードが完了していること
 
 <br>
-
-**目次**
-
-- [1. 事前準備](#1-事前準備)
-- [2. DBMS_CLOUD PL/SQLパッケージのダウンロード](#2-dbms_cloud-plsqlパッケージのインストール)
-- [3. Walletの作成](#3-walletの作成)
-- [4. Walletの場所の設定](#4-walletの場所の設定)
-- [5. ACEs(Access Control Entries)の作成](#5-acesaccess-control-entriesの作成)
-- [6. DBMS_CLOUDの設定を検証](#6-dbms_cloudの設定を検証)
-- [7. ユーザ・ロールへの権限付与](#7-ユーザ・ロールへの権限付与)
-    - [7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)
-    - [7-2. ロールへの権限付与](#7-2-ロールへの権限付与)
-- [8. ユーザ・ロールのためのACEsを設定](#8-ユーザ・ロールのためのACEsを設定)
-    - [8-1. ユーザへのACEs設定](#8-1-ユーザへのACEs設定)
-    - [8-2. ロールへのACEs設定](#8-2-ロールへのACEs設定)
-- [9. クレデンシャルの作成と検証](#9-クレデンシャルの作成と検証)
-- [10. 外部表を作成しオブジェクトストレージのファイルを参照する](#10-外部表を作成しオブジェクトストレージのファイルを参照する)
-
 <br>
 **所要時間 :** 約1時間30分
 <br>
 
-
 # 1. 事前準備　
-
 
 ## 1. 関連ファイルのダウンロードと保存先の作成
 
 まずは使用するファイルとそれらの保存先を作成します。  
-以下の表に従ってoracleユーザでファイルを保存するディレクトリを用意します。
+以下の表に従って oracle ユーザでファイルを保存するディレクトリを用意します。
 
 **関連ファイルの保存先**
 
- No. | パス | 格納するもの | 目的 |
--|-|-|-
-1 | /home/oracle/dbc (作成要) | 作成した8個のSQLファイル(下記) | SQLスクリプト格納先 |
-2 | /home/oracle/cert (作成要) | 	dbc_certs.tar | 証明書格納先 |
-3 | /opt/oracle/dcs/commonstore/wallets/ssl (作成要) | Wallet格納先 |
-4 | $ORACLE_HOME/network/admin | sqlnet.ora | 　|
-
+| No. | パス                                             | 格納するもの                       | 目的                 |
+| --- | ------------------------------------------------ | ---------------------------------- | -------------------- |
+| 1   | /home/oracle/dbc (作成要)                        | 作成した 8 個の SQL ファイル(下記) | SQL スクリプト格納先 |
+| 2   | /home/oracle/cert (作成要)                       | dbc_certs.tar                      | 証明書格納先         |
+| 3   | /opt/oracle/dcs/commonstore/wallets/ssl (作成要) | Wallet 格納先                      |
+| 4   | $ORACLE_HOME/network/admin                       | sqlnet.ora                         | 　                   |
 
 次に以下のファイルを作成します。  
 ダウンロード・リンクからスクリプトをダウンロードし、各ファイルを作成します。  
@@ -90,40 +69,39 @@ ADBでDBMS_CLOUDを利用する方法は[202: コマンドラインから大量�
 
 **作成する関連ファイル**
 
- No. | ファイル名 | 目的 | ダウンロード・リンク | 格納先 |
--|-|-|-|-
-1  | dbms_cloud_install.sql | DBMS_CLOUDのインストール | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/dbms_cloud_install.sql) |/home/oracle/dbc |
-2  | dbc_aces.sql | Access Control Entries (ACEs)の設定 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/dbc_aces.sql) | /home/oracle/dbc |
-3  | verify_aces.sql | ACEs設定後の確認 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/verify_aces.sql) | /home/oracle/dbc |
-4  | grant_user.sql | 指定ユーザに権限を付与 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/grant_user.sql) | /home/oracle/dbc |
-5  | grant_role.sql | 指定ユーザにロールを付与 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/grant_role.sql) | /home/oracle/dbc |
-6  | config_aces_for_user.sql | 指定ユーザにACEsを設定 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/config_aces_for_user.sql) | /home/oracle/dbc |
-7 | config_aces_for_role.sql | 指定ロールにACEsを設定 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/config_aces_for_role.sql) | /home/oracle/dbc |
-8 | validate_user_config.sql | 設定した権限を検証 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/validate_user_config.sql) | /home/oracle/dbc |
-9 | dbc_certs.tar | 証明書 | [ダウンロード](https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar) | /home/oracle/cert |
+| No. | ファイル名               | 目的                                | ダウンロード・リンク                                                                                                                                                     | 格納先            |
+| --- | ------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| 1   | dbms_cloud_install.sql   | DBMS_CLOUD のインストール           | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/dbms_cloud_install.sql)                                                                                           | /home/oracle/dbc  |
+| 2   | dbc_aces.sql             | Access Control Entries (ACEs)の設定 | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/dbc_aces.sql)                                                                                                     | /home/oracle/dbc  |
+| 3   | verify_aces.sql          | ACEs 設定後の確認                   | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/verify_aces.sql)                                                                                                  | /home/oracle/dbc  |
+| 4   | grant_user.sql           | 指定ユーザに権限を付与              | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/grant_user.sql)                                                                                                   | /home/oracle/dbc  |
+| 5   | grant_role.sql           | 指定ユーザにロールを付与            | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/grant_role.sql)                                                                                                   | /home/oracle/dbc  |
+| 6   | config_aces_for_user.sql | 指定ユーザに ACEs を設定            | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/config_aces_for_user.sql)                                                                                         | /home/oracle/dbc  |
+| 7   | config_aces_for_role.sql | 指定ロールに ACEs を設定            | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/config_aces_for_role.sql)                                                                                         | /home/oracle/dbc  |
+| 8   | validate_user_config.sql | 設定した権限を検証                  | [ダウンロード](/ocitutorials/basedb/dbcs202-dbms-cloud/validate_user_config.sql)                                                                                         | /home/oracle/dbc  |
+| 9   | dbc_certs.tar            | 証明書                              | [ダウンロード](https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar) | /home/oracle/cert |
 
-<!-- {{< hint type=note title="参考" >}} DBMS_CLOUDパッケージで使用可能なスクリプトは[SQLサンプル(GitHub)](https://github.com/oracle-devrel/technology-engineering/tree/main/data-platform/core-converged-db/hybrid-partitioned/dbms_cloud/files)からもダウンロード可能です。 
+<!-- {{< hint type=note title="参考" >}} DBMS_CLOUDパッケージで使用可能なスクリプトは[SQLサンプル(GitHub)](https://github.com/oracle-devrel/technology-engineering/tree/main/data-platform/core-converged-db/hybrid-partitioned/dbms_cloud/files)からもダウンロード可能です。
 {{< /hint >}} -->
 
-## 2. OCIユーザ確認と認証トークンの作成
+## 2. OCI ユーザ確認と認証トークンの作成
 
-OCIのコンソールに移り、画面右上の人型のマークが表示されている箇所をクリックします。  
+OCI のコンソールに移り、画面右上の人型のマークが表示されている箇所をクリックします。  
 <br>
 さらに、展開されたメニューの「プロファイル」の下のユーザ名部分をクリックします。
 
 ![image](dbms-cloud02.png)
 
-遷移した画面の一番上にある文字列がOCIユーザのIDです。これをコピーし、手元のテキストエディタなどにペーストしておきます。
+遷移した画面の一番上にある文字列が OCI ユーザの ID です。これをコピーし、手元のテキストエディタなどにペーストしておきます。
 
 ![image](dbms-cloud03.png)
-
 
 次に、認証トークンを作成します。
 
 ユーザの詳細画面を下にスクロールし、左側の「リソース」メニューで、"認証トークン"をクリックします。そして、"トークンの生成"をクリックします。
 ![image](dbms-cloud04.png)
 
-“説明”に”DBMS_CLOUD用トークン”と入力し、”トークンの生成”をクリックします。
+“説明”に”DBMS_CLOUD 用トークン”と入力し、”トークンの生成”をクリックします。
 
 ![image](dbms-cloud05.png)
 
@@ -133,20 +111,23 @@ OCIのコンソールに移り、画面右上の人型のマークが表示さ�
 
 <br>
 
-# 2. DBMS_CLOUD PL/SQLパッケージのインストール
+# 2. DBMS_CLOUD PL/SQL パッケージのインストール
 
-## 1. DBMS_CLOUD PL/SQLパッケージをインストールします。
+## 1. DBMS_CLOUD PL/SQL パッケージをインストールします。
 
-**実行コマンド**　　
+**実行コマンド**
 
-以下のコマンドは、DBMS_CLOUD PL/SQLパッケージをインストールするコマンドです。ここでは、SYSユーザのパスワードが必要です。
+以下のコマンドは、DBMS_CLOUD PL/SQL パッケージをインストールするコマンドです。ここでは、SYS ユーザのパスワードが必要です。
+
 ```sh
 $ORACLE_HOME/perl/bin/perl $ORACLE_HOME/rdbms/admin/catcon.pl -u sys/<SYSユーザのパスワード> --force_pdb_mode 'READ WRITE' -b dbms_cloud_install -d /home/oracle/dbc -l /home/oracle/dbc dbms_cloud_install.sql
 ```
-※\<SYSユーザのパスワード>にSYSユーザのパスワードを入れてください。
+
+※\<SYS ユーザのパスワード>に SYS ユーザのパスワードを入れてください。
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo dbc]$ pwd
 /home/oracle/dbc
@@ -159,6 +140,7 @@ catcon::set_log_file_base_path: catcon: See [/home/oracle/dbc/dbms_cloud_install
 
 catcon.pl: completed successfully
 ```
+
 <br>
 
 ## 2. インストール時に問題が起こっていないことを確認します。
@@ -167,13 +149,16 @@ catcon.pl: completed successfully
 
 **実行コマンド**
 
-以下のコマンドは、/home/oracle/dbc配下のログファイルにエラーが出力されているか確認するコマンドです。
+以下のコマンドは、/home/oracle/dbc 配下のログファイルにエラーが出力されているか確認するコマンドです。
+
 ```sh
 grep -i error dbms*.log dbms*.lst
 ```
+
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo dbc]$ grep -i error dbms*.log dbms*.lst
 dbms_cloud_install0.log:No errors.
@@ -182,21 +167,25 @@ dbms_cloud_install0.log:No errors.
 dbms_cloud_install0.log:No errors.
 [oracle@data-momo dbc]$
 ```
+
 <br>
 No errorsという記載があれば大丈夫です。
 <br>
 
-## 3. CDBに接続し、インストール後の結果を確認します。
+## 3. CDB に接続し、インストール後の結果を確認します。
 
-**実行コマンド**　　
+**実行コマンド**
 
-SQL*PlusでCDBにrootユーザで接続し、以下のコマンドを実行します。以下のコマンドはcdb_objectsから'DBMS_CLOUD'というオブジェクトを検索・表示するコマンドです。
+SQL\*Plus で CDB に root ユーザで接続し、以下のコマンドを実行します。以下のコマンドは cdb_objects から'DBMS_CLOUD'というオブジェクトを検索・表示するコマンドです。
+
 ```sh
 select con_id, owner, object_name, status, sharing, oracle_maintained from cdb_objects where object_name = 'DBMS_CLOUD' order by con_id;
 ```
+
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo dbc]$ sqlplus / as sysdba
 
@@ -229,22 +218,26 @@ SQL> select con_id, owner, object_name, status, sharing, oracle_maintained from 
 
 6 rows selected.
 ```
+
 <br>
 DBMS_CLOUDが正常にインストールされていると`STAUS`カラムに`VALID`と表示されます。
 <br>
 
-## 4. PDBでも同じように確認します。
+## 4. PDB でも同じように確認します。
 
-**実行コマンド**　　
+**実行コマンド**
 
-CDBで実施した確認をPDBでも行います。
-SYSユーザでCDBからPDBに接続先を切り替え、以下のコマンドはを実行します。
+CDB で実施した確認を PDB でも行います。
+SYS ユーザで CDB から PDB に接続先を切り替え、以下のコマンドはを実行します。
+
 ```sh
 select owner, object_name, status, sharing, oracle_maintained from dba_objects where object_name = 'DBMS_CLOUD';
 ```
+
 <br>
 
 **実行例**
+
 ```sh
 SQL> alter session set container=DB1218_pdb1;
 
@@ -267,20 +260,22 @@ C##CLOUD$SERVICE     DBMS_CLOUD      VALID   METADATA LINK      Y
 SQL>
 ```
 
-DBMS_CLOUDが正常にインストールされていると`STAUS`カラムに`VALID`と表示されます。
+DBMS_CLOUD が正常にインストールされていると`STAUS`カラムに`VALID`と表示されます。
 <br>
 
-確認が出来たら、SQL*Plusを一度出ます。
+確認が出来たら、SQL\*Plus を一度出ます。
 
 **実行例**
+
 ```sh
 SQL>exit
 ```
+
 <br>
 
-# 3. Walletの作成
+# 3. Wallet の作成
 
-## 1. 次にHTTPSでオブジェクトストレージにアクセスするため、Walletファイルを準備します。
+## 1. 次に HTTPS でオブジェクトストレージにアクセスするため、Wallet ファイルを準備します。
 
 こちらの[ダウンロードリンク](https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar)から証明書をダウンロードし、解凍します。※ダウウンロードリンクは[1. 事前準備](#1-事前準備)の「作成する関連ファイル>証明書」と同じものです。
 <br>
@@ -288,15 +283,19 @@ SQL>exit
 **実行コマンド**
 
 以下のコマンドで証明書を格納するディレクトリ(/home/oracle/cert)まで移動します。
+
 ```sh
 cd /home/oracle/cert
 ```
-以下のコマンドはダウンロードから証明書が入っているファイル(圧縮済み)をダウンロードするコマンドです。/home/oracle/certで圧縮された証明書をダウンロードします。
+
+以下のコマンドはダウンロードから証明書が入っているファイル(圧縮済み)をダウンロードするコマンドです。/home/oracle/cert で圧縮された証明書をダウンロードします。
+
 ```sh
 wget https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar
 ```
 
 **実行例**
+
 ```sh
 [oracle@data-momo cert]$ wget https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar
 --2023-12-19 10:56:13--  https://objectstorage.us-phoenix-1.oraclecloud.com/p/QsLX1mx9A-vnjjohcC7TIK6aTDFXVKr0Uogc2DAN-Rd7j6AagsmMaQ3D3Ti4a9yU/n/adwcdemo/b/CERTS/o/dbc_certs.tar
@@ -313,18 +312,22 @@ dbc_certs.tar                         100%[=====================================
 
 ファイルのダウンロードが完了したら、解凍します。
 
-**実行コマンド**　　
+**実行コマンド**
 
 まず、以下のコマンドでファイルがダウンロードされていることを確認します。
+
 ```sh
 ll
 ```
+
 そして、以下のコマンドで圧縮されているファイルを解凍します。
+
 ```sh
  tar xvf dbc_certs.tar
 ```
 
 **実行例**
+
 ```sh
 [oracle@data-momo cert]$ ll
 total 232
@@ -339,23 +342,28 @@ XRamp.cer
 [oracle@data-momo cert]$
 ```
 
-## 2. tarファイル解凍後、以下のコマンドを実施し、[事前準備](#1-事前準備)で作成したWallet格納用のディレクトリにWalletファイルを作成します。
+## 2. tar ファイル解凍後、以下のコマンドを実施し、事前準備で作成した Wallet 格納用のディレクトリに Wallet ファイルを作成します。
 
 **実行コマンド**
 
-以下のコマンドでWalletを格納するディレクトリ(/opt/oracle/dcs/commonstore/wallets/ssl)に移動します。　
+以下のコマンドで Wallet を格納するディレクトリ(/opt/oracle/dcs/commonstore/wallets/ssl)に移動します。
+
 ```sh
 cd /opt/oracle/dcs/commonstore/wallets/ssl
 ```
-そして、以下のコマンドでディレクトリにWalletを作成します。<Wallet用のパスワード>にはWallet用のご自身のパスワードを入力してください。
+
+そして、以下のコマンドでディレクトリに Wallet を作成します。<Wallet 用のパスワード>には Wallet 用のご自身のパスワードを入力してください。
+
 ```sh
 orapki wallet create -wallet . -pwd <Wallet用のパスワード> -auto_login
 ```
+
 <br>
 \<Wallet用のパスワード>にはWalletに使用するパスワード入力します。
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo cert]$ cd /opt/oracle/dcs/commonstore/wallets/ssl
 [oracle@data-momo ssl]$ orapki wallet create -wallet . -pwd <Wallet用のパスワード> -auto_login
@@ -365,16 +373,18 @@ Copyright (c) 2004, 2023, Oracle and/or its affiliates. All rights reserved.
 
 Operation is successfully completed.
 ```
+
 <br>
 Walletが作成されました。
 <br>
 
-## 3. 以下のコマンドを実行し、tarファイルの証明書をWalletに追加していきます。
+## 3. 以下のコマンドを実行し、tar ファイルの証明書を Wallet に追加していきます。
 
 **実行コマンド**
 
-以下コマンドを実行すると、dbc_certs.tarに入っている証明書を自動で先ほど作成したWalletに追加されます。
-実行はWalletがある/opt/oracle/dcs/commonstore/wallets/sslで実行します。
+以下コマンドを実行すると、dbc_certs.tar に入っている証明書を自動で先ほど作成した Wallet に追加されます。
+実行は Wallet がある/opt/oracle/dcs/commonstore/wallets/ssl で実行します。
+
 ```sh
 #! /bin/bash
 for i in /home/oracle/cert/*.cer
@@ -382,11 +392,13 @@ do
 orapki wallet add -wallet . -trusted_cert -cert "$i" -pwd <Wallet用のパスワード>
 done
 ```
+
 <br>
 \<Wallet用のパスワードにはWalletのパスワードを入力します。
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo ssl]$ #! /bin/bash
 [oracle@data-momo ssl]$ for i in /home/oracle/cert/*.cer
@@ -422,17 +434,20 @@ Operation is successfully completed.
 
 証明書の数が多いので、全て追加し終わるまで少し時間がかかります。
 
-## 4. 作成されたWalletを確認します。
+## 4. 作成された Wallet を確認します。
 
 **実行コマンド**
 
-以下のコマンドでWalletの中を表示し、証明書が追加されていることを確認します。
+以下のコマンドで Wallet の中を表示し、証明書が追加されていることを確認します。
+
 ```sh
 orapki wallet display -wallet .
 ```
+
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo ssl]$ pwd
 /opt/oracle/dcs/commonstore/wallets/ssl
@@ -447,33 +462,41 @@ Trusted Certificates:
 <省略>
 Subject:        CN=Starfield Services Root Certificate Authority - G2,O=Starfield Technologies\, Inc.,L=Scottsdale,ST=Arizona,C=US
 ```
+
 <br>
 
-# 4. Walletの場所の設定
+# 4. Wallet の場所の設定
 
-sqlnet.oraの以下の箇所を編集し、作成されたWalletファイルを利用出来るようにします。
+sqlnet.ora の以下の箇所を編集し、作成された Wallet ファイルを利用出来るようにします。
 
-※RACの場合、全ノードで実施してください。
+※RAC の場合、全ノードで実施してください。
 <br>
 
 **実行コマンド**
-以下のコマンドで/u01/app/oracle/product/19.0.0.0/dbhome_1/network/adminに移動します。
+以下のコマンドで/u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin に移動します。
+
 ```sh
 cd /u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin
 ```
-そして、以下のコマンドでsqlnet.oraを開き、編集します。
 
-**sqlnet.oraの編集(追加)箇所**
+そして、以下のコマンドで sqlnet.ora を開き、編集します。
+
+**sqlnet.ora の編集(追加)箇所**
+
 ```sh
 vi sqlnet.ora
 ```
-以下をsqlnet.oraに追記します。
+
+以下を sqlnet.ora に追記します。
+
 ```sh
 WALLET_LOCATION=(SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY=/opt/oracle/dcs/commonstore/wallets/ssl)))
 ```
+
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo admin]$ pwd
 /u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin
@@ -482,20 +505,21 @@ WALLET_LOCATION=(SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY=/opt/oracle/dcs/com
 #ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY=/opt/oracle/dcs/commonstore/wallets/tde/$ORACLE_UNQNAME)))
 <省略>
 ```
+
 <br>
 
 # 5. ACEs(Access Control Entries)の作成
 
-HTTPSでオブジェクト・ストレージとの通信を許可するため、ACEsの作成をします。
-ACEsを作成するには、**dbc_aces.sql**で以下の箇所を編集してから、スクリプトを実行します。
+HTTPS でオブジェクト・ストレージとの通信を許可するため、ACEs の作成をします。
+ACEs を作成するには、**dbc_aces.sql**で以下の箇所を編集してから、スクリプトを実行します。
 <br>
 
-**dbc_aces.sqlの編集個所**  
+**dbc_aces.sql の編集個所**  
 [関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から**dbc_aces.sql**をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後
--|-
-`define sslwalletdir=<Set SSL Wallet Directory>`|`define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`
+| 編集前                                           | 編集後                                                        |
+| ------------------------------------------------ | ------------------------------------------------------------- |
+| `define sslwalletdir=<Set SSL Wallet Directory>` | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl` |
 
 <br>
 編集後、SYSでCDBにログインし、dbc_aces.sqlを実行します。
@@ -503,16 +527,19 @@ Proxyを使わないは空欄のままEnterキーを押してください。
 <br>
 
 **実行コマンド**
+
 ```sh
 sqlplus / as sysdba
 ```
+
 ```sh
 @dbc_aces.sql
 ```
 
-以下の実行例ではSYSユーザーでdbc_aces.sqlを実行しています。
+以下の実行例では SYS ユーザーで dbc_aces.sql を実行しています。
 
 **実行例**
+
 ```sh
 [oracle@data-momo dbc]$ sqlplus / as sysdba
 
@@ -574,10 +601,13 @@ Session altered.
 
 **実行コマンド**
 以下のコマンドで設定内を確認します。
+
 ```sh
 select * from database_properties where property_name in ('SSL_WALLET','HTTP_PROXY');
 ```
+
 **実行例**
+
 ```sh
 SQL> select * from database_properties where property_name in ('SSL_WALLET','HTTP_PROXY');
 
@@ -585,22 +615,23 @@ PROPERTY_NAME   PROPERTY_VALUE                           DESCRIPTION
 --------------- ---------------------------------------- ------------------------------
 SSL_WALLET      /opt/oracle/dcs/commonstore/wallets/ssl  Location of SSL Wallet
 ```
+
 <br>
 
-# 6. DBMS_CLOUDの設定を検証
+# 6. DBMS_CLOUD の設定を検証
 
-ここまで、Walletの作成とACEsの設定を実施したので、それらが正しく設定されているかどうかを検証します。
+ここまで、Wallet の作成と ACEs の設定を実施したので、それらが正しく設定されているかどうかを検証します。
 検証には**verify_aces.sql**を使用します。
 <br>
 
-**verify_aces.sqlの編集個所** 
-[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)からverify_aces.sqlをダウンロードし、以下の箇所を編集します。 
+**verify_aces.sql の編集個所**
+[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から verify_aces.sql をダウンロードし、以下の箇所を編集します。
 
- 編集前 | 編集後 |
--|-
-`define sslwalletdir=<Set SSL Wallet Directory>` | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl` |
-`define sslwalletpwd=<Set SSL Wallet password>` | `define sslwalletpwd=<Wallet作成時、指定したパスワード>` |
- GET_PAGE('https://objectstorage.eu-frankfurt-1.oci.customer-oci.com'); | GET_PAGE('https://objectstorage.<リージョン識別子>.oci.customer-oci.com'); |
+| 編集前                                                                 | 編集後                                                                     |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `define sslwalletdir=<Set SSL Wallet Directory>`                       | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`              |
+| `define sslwalletpwd=<Set SSL Wallet password>`                        | `define sslwalletpwd=<Wallet作成時、指定したパスワード>`                   |
+| GET_PAGE('https://objectstorage.eu-frankfurt-1.oci.customer-oci.com'); | GET_PAGE('https://objectstorage.<リージョン識別子>.oci.customer-oci.com'); |
 
 <br>
 
@@ -608,18 +639,21 @@ SSL_WALLET      /opt/oracle/dcs/commonstore/wallets/ssl  Location of SSL Wallet
 各リージョンのリージョン識別子は[リージョンおよび可用性ドメインについて](https://docs.oracle.com/ja-jp/iaas/Content/General/Concepts/regions.htm)から確認できます。
 環境に合ったものを使用してください。
 
-編集後、SYSユーザでCDBかPDBにログインし、**verify_aces.sql**を実行します。
+編集後、SYS ユーザで CDB か PDB にログインし、**verify_aces.sql**を実行します。
 <br>
 **実行コマンド**
+
 ```sh
 sqlplus / as sysdba
 ```
+
 ```sh
 @verify_aces.sql
 ```
 
 **実行例**
-※実行例はCDBで実行しています。
+※実行例は CDB で実行しています。
+
 ```sh
 [oracle@data-momo dbc]$ sqlplus / as sysdba
 
@@ -664,10 +698,11 @@ Procedure dropped.
 
 SQL>
 ```
+
 <br>
 実行の結果、**"valid response"**が表示されるのを確認します。
 
-確認出来たら、DBMS_CLOUDのインストールと設定は完了です。
+確認出来たら、DBMS_CLOUD のインストールと設定は完了です。
 
 <br>
 
@@ -676,41 +711,42 @@ SQL>
 次に、対象ユーザへの権限付与を行います。
 <br>
 
-対象ユーザへ権限付与をする方法は2つあります。   
+対象ユーザへ権限付与をする方法は 2 つあります。  
 以下、どちらかを選択してください。
 
 {{< hint type=important >}}
-※選択する方法によって使用するスクリプトが異なるので注意してください。 
+※選択する方法によって使用するスクリプトが異なるので注意してください。
 {{< /hint >}}
 
-**A：** 直接対象ユーザにDBMS_CLOUDの利用権限を付与(grant_user.sqlを実行)　→ [7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)へ
+**A：** 直接対象ユーザに DBMS_CLOUD の利用権限を付与(grant_user.sql を実行)　 → [7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)へ
 
-**B：** 対象ユーザに付与されたロールに、DBMS_CLOUDの利用権限を付与(grant_role.sqlを実行)　→ [7-2. ロールへの権限付与](#7-2-ロールへの権限付与)へ
+**B：** 対象ユーザに付与されたロールに、DBMS_CLOUD の利用権限を付与(grant_role.sql を実行)　 → [7-2. ロールへの権限付与](#7-2-ロールへの権限付与)へ
 
 <br>
 
 ## 7-1. A ユーザへの権限付与
 
-A. 直接対象ユーザにDBMS_CLOUDの利用権限を付与(**grant_user.sql**を実行)を実行する場合、以下の操作を行います。
+A. 直接対象ユーザに DBMS_CLOUD の利用権限を付与(**grant_user.sql**を実行)を実行する場合、以下の操作を行います。
 
 <br>
 まず、DBMS_CLOUDを利用するユーザとして、PDBにUSER1を作成します。そして、USER1に権限を付与します。
 USER1に権限付与をするためにgrant_user.sqlの以下の箇所を編集します。
 <br>
 
-**grant_user.sqlの編集**
+**grant_user.sql の編集**
 
-[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)からgrant_user.sqlをダウンロードし、以下の箇所を編集します。 
+[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から grant_user.sql をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後|
--|-
-define username='SCOTT'|define username='USER1'
+| 編集前                  | 編集後                  |
+| ----------------------- | ----------------------- |
+| define username='SCOTT' | define username='USER1' |
 
 <br>
 編集後、SYSかSYSTEMユーザでPDBにログインし、grant_user.sqlを実行します。
 以下のコマンドはユーザーにDBMS_CLOUDを利用する権限を与えるコマンドです。
 
 **実行例**
+
 ```sh
 @grant_user.sql
 ```
@@ -718,6 +754,7 @@ define username='SCOTT'|define username='USER1'
 <br>
 
 **実行例**
+
 ```sh
 [oracle@data-momo dbc]$ sqlplus / as sysdba
 
@@ -761,64 +798,63 @@ Grant succeeded.
 
 SQL>
 ```
+
 <br>
 
 ## 7-2. **B** ロールへの権限付与
 
-B. 対象ユーザに付与されたロールに、DBMS_CLOUDの利用権限を付与(**grant_role.sql**を実行)を実行する場合、以下の操作を行います。
+B. 対象ユーザに付与されたロールに、DBMS_CLOUD の利用権限を付与(**grant_role.sql**を実行)を実行する場合、以下の操作を行います。
 
-まず、DBMS_CLOUDを利用するユーザとして、PDBにUSER1を作成します。そして、ロールを作成し、USER1にロールを付与します。
-ロールを作成し、USER1にロールを付与するために、grant_role.sqlの以下の箇所を編集します。
+まず、DBMS_CLOUD を利用するユーザとして、PDB に USER1 を作成します。そして、ロールを作成し、USER1 にロールを付与します。
+ロールを作成し、USER1 にロールを付与するために、grant_role.sql の以下の箇所を編集します。
 <br>
 
-**grant_role.sqlの編集個所**
+**grant_role.sql の編集個所**
 
-[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)からgrant_role.sqlをダウンロードし、以下の箇所を編集します。 
+[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から grant_role.sql をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後|
--|-
-`define userrole='CLOUD_USER'`|`define userrole='<dbms-cloud-role>'`
-define username='SCOTT'|define username='USER1'
+| 編集前                         | 編集後                                |
+| ------------------------------ | ------------------------------------- |
+| `define userrole='CLOUD_USER'` | `define userrole='<dbms-cloud-role>'` |
+| define username='SCOTT'        | define username='USER1'               |
 
-※\<dbms-cloud-role>にはDBMS_CLOUDに利用するロール名を入力します。
+※\<dbms-cloud-role>には DBMS_CLOUD に利用するロール名を入力します。
 
-
-編集後、SYSかSYSTEMユーザでPDBにログインし、grant_role.sqlを実行します。
+編集後、SYS か SYSTEM ユーザで PDB にログインし、grant_role.sql を実行します。
 
 <br>
 
-# 8. ユーザ・ロールのためのACEsを設定
+# 8. ユーザ・ロールのための ACEs を設定
 
-Access Control Entries (ACEs) の設定をユーザ・ロールにします。設定方法は2つあります。
+Access Control Entries (ACEs) の設定をユーザ・ロールにします。設定方法は 2 つあります。
 
 「7.ユーザ・ロールへの権限付与」で選択した方法に応じて、どちらかを選択してください。
 
+**A：** [7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)を実行した場合、config_aces_for_user.sql を編集・実行し、ACEs を設定します　 → 　[8-1. ユーザへの ACEs 設定](#8-1-ユーザへのACEs設定)へ
 
-**A：** [7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)を実行した場合、config_aces_for_user.sqlを編集・実行し、ACEsを設定します　→　[8-1. ユーザへのACEs設定](#8-1-ユーザへのACEs設定)へ
+**B：** [7-2. ロールへの権限付与](#7-2-ロールへの権限付与)を実行した場合、config_aces_for_role.sql を編集・実行し、ACEs を設定します。→ 　[8-2. ロールへの ACEs 設定](#8-2-ロールへのACEs設定)へ
 
-**B：** [7-2. ロールへの権限付与](#7-2-ロールへの権限付与)を実行した場合、config_aces_for_role.sqlを編集・実行し、ACEsを設定します。→　[8-2. ロールへのACEs設定](#8-2-ロールへのACEs設定)へ
+## 8-1. **A**ユーザへの ACEs 設定
 
+[7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)を実行した場合、以下の操作を行い ACEs を設定します。
 
-## 8-1.  **A**ユーザへのACEs設定
-
-[7-1. ユーザへの権限付与](#7-1-ユーザへの権限付与)を実行した場合、以下の操作を行いACEsを設定します。
-
-対象ユーザにACEsの設定をするために、**config_aces_for_user.sql**を編集します。
+対象ユーザに ACEs の設定をするために、**config_aces_for_user.sql**を編集します。
 <br>
 
-**config_aces_for_user.sqlの編集箇所**
+**config_aces_for_user.sql の編集箇所**
 
-[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)からconfig_aces_for_user.sqlをダウンロードし、以下の箇所を編集します。 
+[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から config_aces_for_user.sql をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後|
--|-
-define username='SCOTT'|define username='USER1'
-`define sslwalletdir=<Set SSL Wallet Directory>`|`define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`
+| 編集前                                           | 編集後                                                        |
+| ------------------------------------------------ | ------------------------------------------------------------- |
+| define username='SCOTT'                          | define username='USER1'                                       |
+| `define sslwalletdir=<Set SSL Wallet Directory>` | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl` |
 
-編集後、SYSかSYSTEMユーザでPDBにログインし、config_aces_for_user.sqlを実行します。
+編集後、SYS か SYSTEM ユーザで PDB にログインし、config_aces_for_user.sql を実行します。
 <br>
 
 **実行例**
+
 ```sh
 SQL*Plus: Release 19.0.0.0.0 - Production on Tue Dec 19 12:02:26 2023
 Version 19.21.0.0.0
@@ -866,49 +902,49 @@ PL/SQL procedure successfully completed.
 
 Session altered.
 ```
+
 <br>
 
-## 8-2.  **B** ロールへのACEs設定
+## 8-2. **B** ロールへの ACEs 設定
 
-[7-2. ロールへの権限付与](#7-2-ロールへの権限付与)を実行した場合、以下の操作を行いACEsを設定します。
+[7-2. ロールへの権限付与](#7-2-ロールへの権限付与)を実行した場合、以下の操作を行い ACEs を設定します。
 
-対象ロールにACEsの設定をするために、**config_aces_for_role.sql**を編集します。
+対象ロールに ACEs の設定をするために、**config_aces_for_role.sql**を編集します。
 <br>
 
-**config_aces_for_role.sqlの編集箇所**
+**config_aces_for_role.sql の編集箇所**
 
-[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)からconfig_aces_for_role.sqlをダウンロードし、以下の箇所を編集します。 
+[関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から config_aces_for_role.sql をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後|
--|-
-`define cloudrole=CLOUD_USER` | `define cloudrole=<dbms-cloud-role>`
-`define sslwalletdir=<Set SSL Wallet Directory>`|`define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`
+| 編集前                                           | 編集後                                                        |
+| ------------------------------------------------ | ------------------------------------------------------------- |
+| `define cloudrole=CLOUD_USER`                    | `define cloudrole=<dbms-cloud-role>`                          |
+| `define sslwalletdir=<Set SSL Wallet Directory>` | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl` |
 
-※\<dbms-cloud-role>にはDBMS_CLOUDに利用するロール名を入力します。
+※\<dbms-cloud-role>には DBMS_CLOUD に利用するロール名を入力します。
 
-編集後、SYSかSYSTEMユーザでPDBにログインし、config_aces_for_user.sqlを実行します。
+編集後、SYS か SYSTEM ユーザで PDB にログインし、config_aces_for_user.sql を実行します。
 
 <br>
 
 # 9. クレデンシャルの作成と検証
 
-DBMS_CLOUDを利用し、クレデンシャルを作成します。
+DBMS_CLOUD を利用し、クレデンシャルを作成します。
 <br>
-クレデンシャルはOCIオブジェクト・ストレージ上のデータをアクセスするために使用します。 
+クレデンシャルは OCI オブジェクト・ストレージ上のデータをアクセスするために使用します。
 <br>
 
 {{< hint type=important title="DBMS_CLOUD利用時の権限" >}}
-DBMS_CLOUDを使う権限が正しく付与されていない場合、クレデンシャルは作れません。   クレデンシャルが作成できない場合は、DBMS_CLOUDの権限を確認してください。 
+DBMS_CLOUD を使う権限が正しく付与されていない場合、クレデンシャルは作れません。 クレデンシャルが作成できない場合は、DBMS_CLOUD の権限を確認してください。
 {{< /hint >}}
 
+ここでは、[1 事前準備](#1-事前準備)で確認した、**OCI ユーザ ID**と**認証トークン**が必要です。
 
-ここでは、[1 事前準備](#1-事前準備)で確認した、**OCIユーザID**と**認証トークン**が必要です。
-
-対象ユーザ(USER1)でPDBにログインし、以下のスクリプトを実行してクレデンシャルを作成します。
+対象ユーザ(USER1)で PDB にログインし、以下のスクリプトを実行してクレデンシャルを作成します。
 <br>
 
 **実行コマンド**
-以下はDBMS_CLOUDを利用して、クレデンシャルを作成するスクリプトです。
+以下は DBMS_CLOUD を利用して、クレデンシャルを作成するスクリプトです。
 `<クレデンシャルの名前（任意の名前）>`、`<OCIユーザーID>`、`<認証トークン>`はご自身の情報を入力してください。
 各項目の情報の取得方法は実行例の下に記載しています。
 
@@ -922,10 +958,12 @@ password => '<認証トークン>'
 END;
 /
 ```
+
 <br>
 
 **実行例**
-以下の実行例ではSCOTTユーザでPDBにログインし、MY_CREDという名前のクレデンシャルを作成しています。
+以下の実行例では SCOTT ユーザで PDB にログインし、MY_CRED という名前のクレデンシャルを作成しています。
+
 ```sql
 [oracle@data-momo dbc]$ sqlplus SCOTT/<SCOTTのパスワード>@DB1218_pdb1
 
@@ -961,21 +999,23 @@ PL/SQL procedure successfully completed.
 
 SQL>
 ```
+
 <br>
 クレデンシャルが作成されました。
 <br>
 クレデンシャルの作成後、OCI上のバケットをアクセスし、オブジェクトの一覧を取得します。
 
-今回は以下のバケットに格納されているSCVファイルを使用します。
+今回は以下のバケットに格納されている SCV ファイルを使用します。
 <br>
 
 **バケット情報**
+
 - バケット名：TutorialBucket1
 
 - オブジェクト名：ocitutorials_sales.csv 　※サンプルデータは**前提条件**からダウンロード可能です。
 
 - オブジェクトの中身：
-<br>
+  <br>
 
 ```sh
 "C","CHANNEL_LONG","CHANNEL_CLASS"
@@ -985,31 +1025,35 @@ C,"Catalog","Indirect"
 I,"Internet","Indirect"
 P,"Partners","Others"
 ```
+
 <br>
 
-以下のコマンドでOCI上のバケットをアクセスし、オブジェクトの一覧を取得します。
+以下のコマンドで OCI 上のバケットをアクセスし、オブジェクトの一覧を取得します。
 
 **実行コマンド**
 
 以下は、先ほど作成したクレデンシャルを利用し、オブジェクト・ストレージのバケットにアクセスするコマンドです。
 <br>
-このコマンドで、バケットの中に正常にアクセスできるか確認します。※URLにはファイル名を含める必要はありません
-URIの詳細は[こちら](https://docs.oracle.com/ja-jp/iaas/autonomous-database/doc/cloud-storage-uris.html)
+このコマンドで、バケットの中に正常にアクセスできるか確認します。※URL にはファイル名を含める必要はありません
+URI の詳細は[こちら](https://docs.oracle.com/ja-jp/iaas/autonomous-database/doc/cloud-storage-uris.html)
+
 ```sql
 select * from dbms_cloud.list_objects(<'クレデンシャル名'>,'<オブジェクト・ストレージのバケットのURL>');
 ```
-URLは「オブジェクト・ストレージ」→ 「バケットの詳細」→ 「オブジェクトの詳細」から確認できます。
+
+URL は「オブジェクト・ストレージ」→ 「バケットの詳細」→ 「オブジェクトの詳細」から確認できます。
 
 ![image](dbms-cloud09.png)
 <br>
 
-※URLにはファイル名を含める必要はありません
+※URL にはファイル名を含める必要はありません
 
 {{< hint type=important >}}
-オブジェクト・ストレージへアクセスする際はOracle Cloud Infrastructure Object StorageのネイティブURI形式をご利用ください。 BaseDBで利用するDBMS_CLOUDパッケージではオブジェクト・ストレージの専用エンドポイントはサポートされていません。 
+オブジェクト・ストレージへアクセスする際は Oracle Cloud Infrastructure Object Storage のネイティブ URI 形式をご利用ください。 BaseDB で利用する DBMS_CLOUD パッケージではオブジェクト・ストレージの専用エンドポイントはサポートされていません。
 {{< /hint >}}
 
 **実行例**
+
 ```sql
 SQL> select * from dbms_cloud.list_objects('MY_CRED','https://objectstorage.ap-osaka-1.oraclecloud.com/n/orasejapan/b/TutorialBucket1/o/');
 
@@ -1018,30 +1062,31 @@ OBJECT_NAME                         BYTES CHECKSUM                              
 ocitutorials_sales.csv                138 42453210533f0c80d3c8ea65e08caa9e                              12-JUN-24 03.20.09.488000 AM +00:00
 ```
 
-バケットの中に、ocitutorials_sales.csvというオブジェクトがあることが確認できました。
+バケットの中に、ocitutorials_sales.csv というオブジェクトがあることが確認できました。
 
 さらに、今のユーザの設定を検証するために**validate_user_config.sql**の内容を編集してから、実行します。
 
-**validate_user_config.sqlの編集箇所**
+**validate_user_config.sql の編集箇所**
 
 [関連ファイルのダウンロードと保存先の作成](#1-関連ファイルのダウンロードと保存先の作成)から**validate_user_config.sql**をダウンロードし、以下の箇所を編集します。
 
-編集前|編集後|
--|-
-define username='SCOTT'|define username='USER1'
-`define sslwalletdir=<Set SSL Wallet Directory>`|`define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`
-`define sslwalletpwd=<Set SSL Wallet password>`|`define sslwalletpwd=<Walletのパスワード>`
-GET_PAGE('https://objectstorage.eu-frankfurt-1.customer-oci.com');|GET_PAGE('https://objectstorage.<リージョン識別子>.oci.customer-oci.com');
+| 編集前                                                             | 編集後                                                                     |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| define username='SCOTT'                                            | define username='USER1'                                                    |
+| `define sslwalletdir=<Set SSL Wallet Directory>`                   | `define sslwalletdir=/opt/oracle/dcs/commonstore/wallets/ssl`              |
+| `define sslwalletpwd=<Set SSL Wallet password>`                    | `define sslwalletpwd=<Walletのパスワード>`                                 |
+| GET_PAGE('https://objectstorage.eu-frankfurt-1.customer-oci.com'); | GET_PAGE('https://objectstorage.<リージョン識別子>.oci.customer-oci.com'); |
 
 ※`<リージョン識別子>`はリージョン識別子に置き換えます。
 各リージョンのリージョン識別子は[リージョンおよび可用性ドメインについて](https://docs.oracle.com/ja-jp/iaas/Content/General/Concepts/regions.htm)から確認できます。
 環境に合ったものを使用してください。
 
-編集後、USER1ユーザでPDBにログインし、**validate_user_config.sql**を実行します。
+編集後、USER1 ユーザで PDB にログインし、**validate_user_config.sql**を実行します。
 <br>
 
 **実行例**
-以下の実行例ではUSER1ユーザでPDBにログインし、validate_user_config.sqlを実行しています。
+以下の実行例では USER1 ユーザで PDB にログインし、validate_user_config.sql を実行しています。
+
 ```sql
 [oracle@data-momo dbc]$ sqlplus USER1/<USER1のパスワード>@DB1218_pdb1
 
@@ -1081,6 +1126,7 @@ Procedure dropped.
 
 SQL>
 ```
+
 スクリプトの結果、**"valid response"**が表示されるのを確認します。
 
 これでユーザの設定が正常にされていることが確認できました。
@@ -1088,15 +1134,15 @@ SQL>
 
 # 10. 外部表を作成し、オブジェクト・ストレージのファイルを参照する
 
-次にDBMS_CLOUDパッケージの機能であるDBMS_CLOUD.CREATE_EXTERNAL_TABLEを利用し、外部表としてオブジェクト・ストレージ上のファイルを参照・定義します。
+次に DBMS_CLOUD パッケージの機能である DBMS_CLOUD.CREATE_EXTERNAL_TABLE を利用し、外部表としてオブジェクト・ストレージ上のファイルを参照・定義します。
 <br>
 
 **実行コマンド**
 
-以下のコマンドで、DBMS_CLOUD.CREATE_EXTERNAL_TABLEを利用して、外部表としてオブジェクト・ストレージ上のファイルを参照・定義します。
+以下のコマンドで、DBMS_CLOUD.CREATE_EXTERNAL_TABLE を利用して、外部表としてオブジェクト・ストレージ上のファイルを参照・定義します。
 
 ```sql
-begin DBMS_CLOUD.CREATE_EXTERNAL_TABLE(table_name=>'TUTORIAL_SALES', 
+begin DBMS_CLOUD.CREATE_EXTERNAL_TABLE(table_name=>'TUTORIAL_SALES',
                       credential_name => '<クレデンシャル名>',
                         file_uri_list => '<オブジェクト・ストレージ上のcsvファイルのパス>',
                                format => json_object('delimiter' value ',' ),
@@ -1106,17 +1152,19 @@ begin DBMS_CLOUD.CREATE_EXTERNAL_TABLE(table_name=>'TUTORIAL_SALES',
 end;
 /
 ```
+
 ※`<オブジェクト・ストレージ上のファイルのパス>`は「オブジェクト・ストレージ」→ 「バケットの詳細」→ 「オブジェクトの詳細」から確認できます。
 <br>
 
-**※今回はファイル名までURLに含めてください。**
+**※今回はファイル名まで URL に含めてください。**
 
 ![image](dbms-cloud09.png)
 <br>
 
 **実施例**
+
 ```sql
-begin DBMS_CLOUD.CREATE_EXTERNAL_TABLE(table_name=>'TUTORIAL_SALES', 
+begin DBMS_CLOUD.CREATE_EXTERNAL_TABLE(table_name=>'TUTORIAL_SALES',
                       credential_name => 'MY_CRED',
                         file_uri_list => 'https://objectstorage.ap-osaka-1.oraclecloud.com/n/orasejapan/b/dbms_tutorial/o/ocitutorials_sales.csv',
                                format => json_object('delimiter' value ',' ),
@@ -1132,12 +1180,13 @@ SQL>
 ```
 
 {{< hint type=important >}}
-オブジェクト・ストレージへアクセスする際はOracle Cloud Infrastructure Object StorageのネイティブURI形式をご利用ください。 BaseDBで利用するDBMS_CLOUDパッケージではオブジェクト・ストレージの専用エンドポイントはサポートされていません。 
+オブジェクト・ストレージへアクセスする際は Oracle Cloud Infrastructure Object Storage のネイティブ URI 形式をご利用ください。 BaseDB で利用する DBMS_CLOUD パッケージではオブジェクト・ストレージの専用エンドポイントはサポートされていません。
 {{< /hint >}}
 
 次に、データのロードを正常に行えるように以下のコマンドを実行します。
 
 **実行コマンド**
+
 ```sql
  ALTER TABLE <テーブル名> REJECT LIMIT UNLIMITED;
 ```
@@ -1153,6 +1202,7 @@ Table altered.
 
 SQL>
 ```
+
 最後にテーブルの中にデータが入っていることを確認します。
 
 **実行コマンド**
@@ -1182,9 +1232,9 @@ P Partners             Others</code>
 
 オブジェクト・ストレージ上のファイルのデータを確認できました！
 
-DBMS_CLOUDパッケージではデータをBaseDBにコピーする機能もご利用いただけます。
+DBMS_CLOUD パッケージではデータを BaseDB にコピーする機能もご利用いただけます。
 <br>
-DBMS_CLOUDパッケージの詳しい機能はこちらの[マニュアル](https://docs.oracle.com/cd/F19136_01/arpls/DBMS_CLOUD.html) をご参照ください。
+DBMS_CLOUD パッケージの詳しい機能はこちらの[マニュアル](https://docs.oracle.com/cd/F19136_01/arpls/DBMS_CLOUD.html) をご参照ください。
 <br>
 以上で、この章の作業は完了です。
 
@@ -1192,15 +1242,12 @@ DBMS_CLOUDパッケージの詳しい機能はこちらの[マニュアル](http
 
 # 参考資料
 
-* [マニュアル] [PL/SQLパッケージおよびタイプ・リファレンス：37 DBMS_CLOUD](https://docs.oracle.com/cd/F19136_01/arpls/DBMS_CLOUD.html#GUID-6CCC322D-26A9-47E7-8FF5-5FF23807C968) 
+- [マニュアル] [PL/SQL パッケージおよびタイプ・リファレンス：37 DBMS_CLOUD](https://docs.oracle.com/cd/F19136_01/arpls/DBMS_CLOUD.html#GUID-6CCC322D-26A9-47E7-8FF5-5FF23807C968)
 
-* [ブログ] [全てのデータベース・サービスからオブジェクト・ストレージへのアクセスを可能にするDBMS_CLOUD](https://blogs.oracle.com/oracle4engineer/post/ja-oracle-object-storage-access-for-all-oracle-databases-with-dbmscloud) 
+- [ブログ] [全てのデータベース・サービスからオブジェクト・ストレージへのアクセスを可能にする DBMS_CLOUD](https://blogs.oracle.com/oracle4engineer/post/ja-oracle-object-storage-access-for-all-oracle-databases-with-dbmscloud)
 
-* [MOS note] インストールガイド：How To Setup And Use DBMS_CLOUD Package (Doc ID 2748362.1)
+- [MOS note] インストールガイド：How To Setup And Use DBMS_CLOUD Package (Doc ID 2748362.1)
 
-* [MOS note] トラブルシューティング：Troubleshooting Of DBMS_CLOUD (Doc ID 2778782.1)
-
-<br>
+- [MOS note] トラブルシューティング：Troubleshooting Of DBMS_CLOUD (Doc ID 2778782.1)
 
 <br>
-[ページトップへ戻る](#anchor0)

@@ -1,11 +1,11 @@
 ---
 title: "Stack Monitoringでメトリック拡張を設定する"
 description: "Stack Monitoring ではユーザ独自のメトリックを監視できるメトリック拡張の機能が使用できます。メトリック拡張の機能を利用することで、OSコマンドやSQLで取得できるメトリックを Stack Monitoring で監視できます。"
-order: "110"
-layout: single
+weight: "110"
 tags:
- - management
-
+- 運用管理・監視
+images:
+- management/stack_monitoring_metric_extention/image11.png
 ---
 
 

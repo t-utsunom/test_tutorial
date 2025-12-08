@@ -5,6 +5,7 @@ tags:
 - アプリケーション開発
 - サーバレス
 - コンテナ
+weight: 13
 ---
 
 OCI DevOps は、OCI 上に CI/CD 環境を構築するマネージドサービスです。このハンズオンでは、Oracle Functions に対する CI/CD パイプラインの構築手順を記します。

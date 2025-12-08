@@ -4,9 +4,8 @@ description: "OCI Full Stack Disaster Recoveryは、世界中のどこからで�
 order: "110"
 layout: single
 
-
 images:
-- "fsdr/fsdr101/fsdr_component.png"
+  - "fsdr/fsdr101/fsdr_component.png"
 header:
   overlay_image: "/fsdr/fsdr101/fsdr_component.png"
   overlay_filter: rgba(34, 66, 55, 0.7)
@@ -23,7 +22,7 @@ FSDR は以下の要素で構成されます。
 - **ディザスタ・リカバリ保護グループ(DR 保護グループ)**
 
   DR 保護グループは、フル・スタック・アプリケーションのすべてのコンポーネントをグループ化し、すべてのコンポーネントをまとめてリカバリしてフル・スタック・アプリケーションをリストアできるようにします。
-  DR 保護グループに追加できるコンポーネントは、FSDR が対応しているコンピュート・インスタンス、ボリューム・グループ、Oracle Database などの OCI リソースです。
+  DR 保護グループに追加できるコンポーネントは、FSDR が対応しているコンピュート・インスタンス、ボリューム・グループ、Oracle AI Database などの OCI リソースです。
   これらのリソースは、DR 保護グループのメンバーと呼ばれます。
   DR 保護グループは、プライマリ・リージョン(本番環境)とスタンバイ・リージョン(災害対策環境)にそれぞれ 1 つずつ作成し、それらは関連付けされます。
 
@@ -54,19 +53,6 @@ FSDR は以下の要素で構成されます。
     DR ドリルを停止する DR 計画のタイプです。これにより、ドリルの開始で前に作成した本番スタックのレプリカが削除されます。
 
 本チュートリアルでは、FSDR を用いて OCI リソースを DR 保護グループのメンバーに追加し、スイッチオーバー計画を発行して実行するまでの流れをご紹介します。
-
-<br>
-
-**目次**
-
-- [1. 準備作業(バケットの作成)](#anchor1)
-- [2. DR 保護グループの作成](#anchor2)
-- [3. DR 保護グループの関連付け](#anchor3)
-- [4. OCI リソースを DR 保護グループのメンバーに追加](#anchor4)
-- [5. DR 計画の作成](#anchor5)
-- [6. DR 計画の実行](#anchor6)
-
-<br>
 
 **前提条件 :**
 
@@ -278,7 +264,7 @@ Autonomous Database (ADB)を DR 保護グループのメンバーに追加する
 
 **前提条件 :** Tokyo リージョンに作成済の ADB があること。
 
-1.  メニューから**Oracle Database → 　 Autonomous Database**を選択し、有効な管理権限を持つコンパートメントを選択します。
+1.  メニューから**Oracle AI Database → 　 Autonomous Database**を選択し、有効な管理権限を持つコンパートメントを選択します。
 
     ![ナビゲーション・メニュー](fsdr_adbs1.png)
 

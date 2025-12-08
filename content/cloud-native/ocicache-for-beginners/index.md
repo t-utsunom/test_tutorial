@@ -3,6 +3,7 @@ title: "OCI Cacheを使ってみよう"
 description: "Oracleが提供するフルマネージドのRedisサービスであるOCI Cacheを体験していただけるチュートリアルです。"
 tags:
 - データベース
+weight: 100
 ---
 
 このチュートリアルでは、Oracleが提供するフルマネージドのRedisサービスであるOCI Cacheを、プロビジョニングから実際にredis-cliを用いて操作するところまでを体験していただけます。

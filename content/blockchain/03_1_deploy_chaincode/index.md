@@ -3,6 +3,7 @@ title: "Chaincodeをデプロイする"
 description: "この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法を説明します。"
 images:
 - "blockchain/03_1_deploy_chaincode/instantiate_cc_input.png"
+weight: 30
 ---
 
 この文書ではOracle Blockchain Platform（OBP）でChaincodeをデプロイし、実行可能にする方法をステップ・バイ・ステップで紹介するチュートリアルです。

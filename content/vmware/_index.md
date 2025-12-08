@@ -1,14 +1,6 @@
 ---
 title: "Oracle Cloud VMware Solution編"
 description: "OCI上でVMwareの仮想化環境を利用できる Oracle Cloud VMware Solution (OCVS) 関連のチュートリアル、ガイド、ブログなどへのリンク集です"
-permalink: /vmware/
-layout: single
-tags: 
-   - "vmware"
-show_excerpts: true
-toc: true
-date: "2023-10-04"
-lastmod: "2023-10-04"
 ---
 
 Oracle Cloud VMware Solution(OCVS)は、Oracle Cloud Infrastructure(OCI)上でVMwareの仮想化基盤を利用することができるクラウドサービスです。OCIネイティブサービス群と同様に顧客テナンシのVCN上のベアメタル・インスタンスに直接デプロイされるため、ESXi、vCenterなどVMware製品の使い勝手はそのままに、OCIが備える高性能なコンピュート、低遅延のネットワーク、耐久性のあるブロック・ボリュームなどを活用し、オンプレミスVMware環境の移行先やL2延伸によるリソース拡張先としてOCIを利用することができます。

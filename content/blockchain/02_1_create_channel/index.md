@@ -3,6 +3,7 @@ title: "Channelを作成し、インスタンスおよびPeerノードを参加�
 description: "この文書は Oracle Blockchain Platform（OBP）で Channel を作成する方法、および Channel への インスタンスとPeer ノードの追加をステップ・バイ・ステップで紹介するチュートリアルです。"
 images:
 - "blockchain/02_1_create_channel/founder_create_channel_result.png"
+weight: 20
 ---
 
 この文書は Oracle Blockchain Platform（OBP）で Channel を作成する方法、および Channel への インスタンスとPeer ノードの追加をステップ・バイ・ステップで紹介するチュートリアルです。

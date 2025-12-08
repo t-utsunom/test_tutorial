@@ -1,16 +1,11 @@
 ---
 title: "GPUインスタンスで分散機械学習環境を構築する"
-description: "GPUを搭載するインスタンスで分散機械学習環境を構築してみましょう。このチュートリアルは、大規模な機械学習ワークロードを実行するための分散機械学習環境を、複数のGPUを搭載するGPUインスタンスをはじめとする分散機械学習環境に必要なリソースを順次OCIコンソールから作成しながら構築します。"
+description: "複数のGPUを搭載するインスタンスで分散機械学習環境を構築してみましょう。このチュートリアルは、複数のGPUを必要とする大規模な機械学習ワークロードを実行するための分散機械学習環境を、複数のGPUを搭載するGPUインスタンスをはじめとする分散機械学習環境に必要なリソースを順次OCIコンソールから作成しながら構築します。"
 weight: "1220"
-layout: single
-
-
-images:
-- "hpc/spinup-ml-instance-cntnd/architecture_diagram.png"
-header:
-  overlay_image: "/hpc/spinup-ml-instance-cntnd/architecture_diagram.png"
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+tags:
+- hpc
+params:
+  author: Tsutomu Miyashita
 ---
 <style>
 table, th, td {
@@ -49,7 +44,7 @@ table, th, td {
 **注意 :** 本コンテンツ内の画面ショットは、現在のOCIコンソール画面と異なっている場合があります。
 
 ***
-# 1. GPUノード作成事前作業
+# 1. 事前作業
 
 ## 1-0. 概要
 
@@ -57,7 +52,6 @@ table, th, td {
 
 ## 1-1. 仮想クラウド・ネットワーク作成
 
-本章は、GPUノードをTCP接続する **仮想クラウド・ネットワーク** を作成します。  
 **仮想クラウド・ネットワーク** の作成は、 **[OCIチュートリアル](https://oracle-japan.github.io/ocitutorials/)** の **[その2 - クラウドに仮想ネットワーク(VCN)を作る](https://oracle-japan.github.io/ocitutorials/beginners/creating-vcn)** の手順に従い、以下のリソースを作成します。
 
 - **仮想クラウド・ネットワーク**
@@ -87,9 +81,7 @@ table, th, td {
 
 ## 1-2. Bastionノード作成
 
-本章は、GPUノードにログインする際の踏み台となるBastinノードを作成し、必要なセットアップ作業を実施します。
-
-Bastionノードの作成は、 **[OCIチュートリアル](https://oracle-japan.github.io/ocitutorials/)** の  **[その3 - インスタンスを作成する](https://oracle-japan.github.io/ocitutorials/beginners/creating-compute-instance)** の手順を参考に、ご自身の要件に沿ったインスタンスを先の手順で **仮想クラウド・ネットワーク** を作成した **コンパートメント** とパブリックサブネットを指定して作成します。  
+Bastionノードの作成は、 **[OCIチュートリアル](https://oracle-japan.github.io/ocitutorials/)** の  **[その3 - インスタンスを作成する](https://oracle-japan.github.io/ocitutorials/beginners/creating-compute-instance)** の手順を参考に、ご自身の要件に沿ったインスタンスを先の手順で **仮想クラウド・ネットワーク** を作成した **コンパートメント** を指定して作成します。  
 本チュートリアルは、以下属性のインスタンスをBastionノードとして作成します。
 
 - **名前** ： bastion
@@ -134,14 +126,14 @@ $
 
 本チュートリアルは、GPUノードに **BM.GPU4.8** を使用しますが、 **BM.GPU3.8 / BM.GPU.A100-v2.8** の場合で手順が異なる箇所は、その旨明記します。
 
-GPUノードの作成は、デプロイ後のカスタマイズ作業を軽減する目的で **[cloud-init](/ocitutorials/hpc/#5-11-cloud-init)** を使用するため、以下の手順を経て行います。
+GPUノードの作成は、デプロイ後のカスタマイズ作業を軽減する目的で **[cloud-init](../#5-11-cloud-init)** を使用するため、以下の手順を経て行います。
 
 1. **cloud-init** 設定ファイル（ **cloud-config** ）作成
 2. GPUノード作成
 
 ## 2-1. cloud-init設定ファイル作成
 
-本章は、 **[cloud-init](/ocitutorials/hpc/#5-11-cloud-init)** 設定ファイル（ **cloud-config** ）を作成します。
+本章は、 **[cloud-init](../#5-11-cloud-init)** 設定ファイル（ **cloud-config** ）を作成します。
 
 本チュートリアルは、 **cloud-init** を以下の目的で使用します。
 
@@ -257,7 +249,7 @@ OCIコンソールにログインし、GPUノードをデプロイするリー�
 
 	![画面ショット](console_page10.png)
 
-	- **cloud-initスクリプト** ：先に作成した **[cloud-init](/ocitutorials/hpc/#5-11-cloud-init)** 設定ファイル（ **cloud-config** ）を選択（ **参照** ボタンでファイルを選択）  
+	- **cloud-initスクリプト** ：先に作成した **[cloud-init](../#5-11-cloud-init)** 設定ファイル（ **cloud-config** ）を選択（ **参照** ボタンでファイルを選択）  
 
 	![画面ショット](console_page11.png)
 
@@ -285,7 +277,7 @@ $ ssh -oStrictHostKeyChecking=accept-new 10.0.1.76
 
 ## 3.2. cloud-init完了確認
 
-**[cloud-init](/ocitutorials/hpc/#5-11-cloud-init)** は、GPUノードが起動してSSHログインできる状態であってもその処理が継続している可能性があるため、以下コマンドでそのステータスを表示し、 **done** となっていることで **cloud-init** の処理完了を確認します。  
+**[cloud-init](../#5-11-cloud-init)** は、GPUノードが起動してSSHログインできる状態であってもその処理が継続している可能性があるため、以下コマンドでそのステータスを表示し、 **done** となっていることで **cloud-init** の処理完了を確認します。  
 ステータスが **running** の場合は、 **cloud-init** の処理が継続中のため、処理が完了するまで待ちます。
 
 ```sh
@@ -346,7 +338,7 @@ $
 以下コマンドをGPUノードのopcユーザで実行し、 **containerd** と **NVIDIA Container Toolkit** をインストールします。
 
 ```sh
-$ cd ~ && wget https://github.com/containerd/containerd/releases/download/v2.0.3/containerd-2.0.3-linux-amd64.tar.gz
+$ mkdir ~/`hostname` && cd ~/`hostname` && wget https://github.com/containerd/containerd/releases/download/v2.0.3/containerd-2.0.3-linux-amd64.tar.gz
 $ sudo tar -C /usr/local -xvf ./containerd-2.0.3-linux-amd64.tar.gz
 $ sudo wget -P /usr/lib/systemd/system/ https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
 $ sudo systemctl daemon-reload
@@ -355,22 +347,23 @@ $ sudo install -m 755 ./runc.amd64 /usr/local/sbin/runc
 $ wget https://github.com/containernetworking/plugins/releases/download/v1.6.2/cni-plugins-linux-amd64-v1.6.2.tgz
 $ sudo mkdir -p /opt/cni/bin && sudo tar -C /opt/cni/bin -xvf ./cni-plugins-linux-amd64-v1.6.2.tgz
 $ wget https://github.com/containerd/nerdctl/releases/download/v2.0.3/nerdctl-2.0.3-linux-amd64.tar.gz
-$ sudo tar -C /usr/local/bin/ -xvf ./nerdctl-2.0.3-linux-amd64.tar.gz 
+$ sudo tar -C /usr/local/bin/ -xvf ./nerdctl-2.0.3-linux-amd64.tar.gz
 $ sudo sed -i '/^Defaults    secure_path/s/$/:\/usr\/local\/bin/g' /etc/sudoers
 $ sudo dnf install -y nvidia-container-toolkit
 ```
 
-次に、以下コマンドをGPUノードのopcユーザで実行し、一般ユーザ権限で **containerd** 上にコンテナを起動するために必要なソフトウェアをインストールします。
+次に、以下コマンドをGPUノードのopcユーザで実行し、一般ユーザ権限で **containerd** 上にコンテナを起動するために必要なソフトウェアをインストールします。  
+なおmakeコマンドの並列数は、当該ノードのコア数に合わせて調整します。
 
 ```sh
 $ wget https://go.dev/dl/go1.24.1.linux-amd64.tar.gz
 $ sudo tar -C /usr/local/ -xvf ./go1.24.1.linux-amd64.tar.gz
-$ export PATH=$PATH:/usr/local/go/bin
+$ export PATH=/usr/local/go/bin:$PATH
 $ sudo dnf install -y git slirp4netns libseccomp libseccomp-devel
 $ git clone https://github.com/rootless-containers/rootlesskit
-$ cd rootlesskit && make && sudo make install
-$ cd ~ && git clone https://github.com/rootless-containers/bypass4netns
-$ cd bypass4netns && make && sudo make install
+$ cd rootlesskit && make -j 128 && sudo make install
+$ cd ~/`hostname` && git clone https://github.com/rootless-containers/bypass4netns
+$ cd bypass4netns && make -j 128 && sudo make install
 ```
 
 次に、以下コマンドをGPUノードのopcユーザで実行し、コンテナを起動するユーザ **usera** を作成、BastionノードのopcユーザからSSHログインするための公開鍵の登録を行います。
@@ -477,6 +470,16 @@ Wed Mar 19 01:42:33 2025
 |  No running processes found                                                             |
 +-----------------------------------------------------------------------------------------+
 
+$
+```
+
+なお、 **usera** のホームディレクトリがNFS上に置かれている場合、前述のコマンドが以下のメッセージでエラーする点に留意します。
+
+```sh
+$ nerdctl run --rm --gpus all --annotation nerdctl/bypass4netns=true nvcr.io/nvidia/base/ubuntu:22.04_20240212 nvidia-smi
+nvcr.io/nvidia/base/ubuntu:22.04_20240212:                                        resolved       |++++++++++++++++++++++++++++++++++++++| 
+:
+FATA[0003] failed to extract layer sha256:d101c9453715a978a2a520f553588e77dfb4236762175eba61c5c264a449c75d: mount callback failed on /var/lib/containerd/tmpmounts/containerd-mount3405457249: failed to Lchown "/var/lib/containerd/tmpmounts/containerd-mount3405457249/etc/gshadow" for UID 0, GID 42: lchown /var/lib/containerd/tmpmounts/containerd-mount3405457249/etc/gshadow: operation not permitted 
 $
 ```
 

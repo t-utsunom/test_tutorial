@@ -3,6 +3,8 @@ title: "WebLogic Server for OCI(14.1.2)をプロビジョニングしてみよ�
 description: "OCIが提供するWebLogic Server for OCI(14.1.2)のプロビジョニングを体験していただけるコンテンツです。"
 tags:
 - アプリケーション開発
+- 初期設定
+weight: 81
 ---
 
 本ハンズオンでは、以下の構成を作成します。  

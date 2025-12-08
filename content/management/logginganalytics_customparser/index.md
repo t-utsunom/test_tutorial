@@ -1,18 +1,11 @@
 ---
 title: "カスタム・パーサーを作成してOCI Logging Analyticsで未対応のログを分析する"
 description: "Logging Analyticsでは250を超えるログの解析文「パーサー」が定義されているため、主要なシステムのログはすぐに分析をすることができます。しかし万が一、分析したいログのパーサーが定義されていない場合、ユーザーが手動でパーサーを作成することができます。カスタム・パーサーの作成は画面UIからの操作だけで完了するため、非常に簡単です。本チュートリアルではカスタム・パーサーの作成手順を紹介します。"
-order: "150"
-layout: single
+weight: "150"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/logginganalytics_customparser/LA_customparser5.png"
-header:
- overlay_image: "/management/logginganalytics_customparser/LA_customparser5.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- management/logginganalytics_customparser/LA_customparser13.png
 ---
 
 OCI Observability & Management のサービスの1つ、Logging Analyticsでは様々なログを可視化、分析する機能を提供します。[OCIのLogging AnalyticsでOCIの監査ログを可視化・分析する](https://oracle-japan.github.io/ocitutorials/intermediates/audit-log-analytics/)では、事前に定義されていたOCI Audit Logのパーサー（解析文）を使用してOCIの監査ログを解析し、分析しました。

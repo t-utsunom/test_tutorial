@@ -1,18 +1,10 @@
 ---
 title: "トラブル解決に向けた技術サポート(SR)活用のコツ"
 description: "Oracleサポート、カスタマーサクセスサービス(CSS)によりトラブル解決を支援します。トラブルをできるだけ早く解決するために技術サポート（SR）を効果的に利用するポイントを解説しています。"
-order: "010"
-layout: single
-
-
+weight: 010
 images:
-- "support-service/tips-support-cust-success/img1mos.png"
-header:
-  overlay_image: "/support-service/tips-support-cust-success/img1mos.png"
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
-
-aliases: "/ocitutorials/support-service/tips-support-cust-success/"
+- "support-service/img1mos.png"
+aliases: "/support-service/tips-support-cust-success/"
 ---
 
 <a id="anchor0"></a>

@@ -3,6 +3,7 @@ title: "Helidon(MP)を始めてみよう"
 description: "Helidon MPは、Oracleが提供するMicroProfile準拠のマイクロサービスの開発に適したJavaアプリケーションフレームワークです。こちらのハンズオンは、サンプルアプリケーションの構築を通して、Helidonの特徴や使いやすさを学んでいただけるコンテンツになっています。"
 tags:
 - アプリケーション開発
+weight: 70
 ---
 
 **チュートリアル一覧に戻る :** [Oracle Cloud Infrastructure チュートリアル](../..)

@@ -2,20 +2,15 @@
 title: "HPCクラスタを構築する(スタティッククラスタ自動構築編)"
 description: "HPCクラスタを構築してみましょう。このチュートリアルを終了すると、HPC向けIntel Ice Lakeプロセッサを搭載したベアメタル計算ノードをRoCEv2インターコネクトで接続した典型的な構成のHPCクラスタを、OCIコンソールから簡単に構築することが出来るようになります。"
 weight: "1130"
-layout: single
-
-
-images:
-- "hpc/spinup-hpc-cluster/architecture_diagram.png"
-header:
-  overlay_image: "/hpc/spinup-hpc-cluster/architecture_diagram.png"
-  overlay_filter: rgba(34, 66, 55, 0.7)
-#link: https://community.oracle.com/tech/welcome/discussion/4474261/
+tags:
+- hpc
+params:
+  author: Tsutomu Miyashita
 ---
 
-Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバーヘッドの無いHPC用途に特化したベアメタルシェイプと、これらを高速・低遅延で接続するインターコネクトネットワークサービスの **[クラスタ・ネットワーク](/ocitutorials/hpc/#5-1-クラスタネットワーク)** を提供しており、HPCワークロードを実行するHPCクラスタを構築するには最適なクラウドサービスです。
+Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバーヘッドの無いHPC用途に特化したベアメタルシェイプと、これらを高速・低遅延で接続するインターコネクトネットワークサービスの **[クラスタ・ネットワーク](../#5-1-クラスタネットワーク)** を提供しており、HPCワークロードを実行するHPCクラスタを構築するには最適なクラウドサービスです。
 
-このチュートリアルは、 **[マーケットプレイス](/ocitutorials/hpc/#5-5-マーケットプレイス)** から無償で利用可能な **[HPCクラスタスタック](/ocitutorials/hpc/#5-10-hpcクラスタスタック)** を利用し、以下構成の典型的なHPCクラスタを構築します。
+このチュートリアルは、 **[マーケットプレイス](../#5-5-マーケットプレイス)** から無償で利用可能な **[HPCクラスタスタック](../#5-10-hpcクラスタスタック)** を利用し、以下構成の典型的なHPCクラスタを構築します。
 
 - 計算ノード： HPCワークロード向けIntel Ice Lakeプロセッサ搭載ベアメタルシェイプの **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)**
 - インターコネクトネットワーク: **クラスタ・ネットワーク** （ノード当たり100 Gbps x 1）
@@ -29,7 +24,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 またこのチュートリアルでは、構築したHPCクラスタに対して以下を実施し、その手順を解説します。
 
-- **[Intel MPI Benchmark](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-mpi-benchmarks.html)** によるインターコネクト性能確認
+- **[Intel MPI Benchmarks](https://github.com/intel/mpi-benchmarks)** によるインターコネクト性能確認
 - クラスタ構築後のワークロード増加を想定した計算ノード追加
 - ハードウェア障害の発生を想定した特定計算ノードの入れ替え
 
@@ -47,8 +42,8 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 1-0. 概要
 
-本章は、 **[HPCクラスタスタック](/ocitutorials/hpc/#5-10-hpcクラスタスタック)** を利用し、HPCクラスタを作成します。  
-**HPCクラスタスタック** は、 **[リソース・マネージャ](/ocitutorials/hpc/#5-2-リソースマネージャ)** に作成する **[スタック](/ocitutorials/hpc/#5-3-スタック)** からHPCクラスタを作成するため、これを許可する **IAMポリシー** が必要です。  
+本章は、 **[HPCクラスタスタック](../#5-10-hpcクラスタスタック)** を利用し、HPCクラスタを作成します。  
+**HPCクラスタスタック** は、 **[リソース・マネージャ](../#5-2-リソースマネージャ)** に作成する **[スタック](../#5-3-スタック)** からHPCクラスタを作成するため、これを許可する **IAMポリシー** が必要です。  
 よって本章では、以下の手順でHPCクラスタを作成します。
 
 - **IAMポリシー** 作成
@@ -58,7 +53,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 1-1. IAMポリシー作成
 
-本章は、 **[リソース・マネージャ](/ocitutorials/hpc/#5-2-リソースマネージャ)** に作成する **[スタック](/ocitutorials/hpc/#5-3-スタック)** からHPCクラスタを作成するための **IAMポリシー** を作成します。
+本章は、 **[リソース・マネージャ](../#5-2-リソースマネージャ)** に作成する **[スタック](../#5-3-スタック)** からHPCクラスタを作成するための **IAMポリシー** を作成します。
 
 1. OCIコンソールにログインし、 **アイデンティティとセキュリティ** → **ポリシー** とメニューを辿ります。
 
@@ -87,10 +82,10 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 1-2. スタックの作成
 
-本章は、 **[HPCクラスタスタック](/ocitutorials/hpc/#5-10-hpcクラスタスタック)** を基に、前述のHPCクラスタを構築するための **[スタック](/ocitutorials/hpc/#5-3-スタック)** を作成します。  
+本章は、 **[HPCクラスタスタック](../#5-10-hpcクラスタスタック)** を基に、前述のHPCクラスタを構築するための **[スタック](../#5-3-スタック)** を作成します。  
 このチュートリアルで使用する **HPCクラスタスタック** は、バージョン **2.10.4.1** です。
 
-1. 以下 **[マーケットプレイス](/ocitutorials/hpc/#5-5-マーケットプレイス)** の **HPCクラスタスタック** のページにアクセスします。
+1. 以下 **[マーケットプレイス](../#5-5-マーケットプレイス)** の **HPCクラスタスタック** のページにアクセスします。
 
    [https://cloud.oracle.com/marketplace/application/67628143/](https://cloud.oracle.com/marketplace/application/67628143/)
 
@@ -131,7 +126,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
     - **Hyperthreading enabled :** チェックオフ
     - **Image version :** HPC_OL8（※3）
    
-   ※3）このイメージの詳細は、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/)** の **[2-2. HPCクラスタスタックを使用する方法](/ocitutorials/hpc/tech-knowhow/osimage-for-cluster/#2-2-hpcクラスタスタックを使用する方法)** を参照ください。
+   ※3）このイメージの詳細は、 **[OCI HPCテクニカルTips集](../#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](../tech-knowhow/osimage-for-cluster/)** の **[2-2. HPCクラスタスタックを使用する方法](../tech-knowhow/osimage-for-cluster/#2-2-hpcクラスタスタックを使用する方法)** を参照ください。
 
    ![画面ショット](stack_page04.png)
 
@@ -182,7 +177,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 1-3. スタックの計画
 
-本章は、完成した **[スタック](/ocitutorials/hpc/#5-3-スタック)** を計画し、どのようなリソースがデプロイされるか確認します。
+本章は、完成した **[スタック](../#5-3-スタック)** を計画し、どのようなリソースがデプロイされるか確認します。
 
 1. 作成したスタックの以下 **スタックの詳細** 画面で、 **計画** ボタンをクリックします。
 
@@ -202,7 +197,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 1-4. スタックの適用
 
-本章は、計画で作成されるリソースに問題が無いことを確認した **[スタック](/ocitutorials/hpc/#5-3-スタック)** に対し、適用を行いHPCクラスタをデプロイします。
+本章は、計画で作成されるリソースに問題が無いことを確認した **[スタック](../#5-3-スタック)** に対し、適用を行いHPCクラスタをデプロイします。
 
 1. 以下 **スタックの詳細** 画面で、 **適用** ボタンをクリックします。
 
@@ -231,7 +226,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 1. Bastionノードログイン
 
-   Bastionノードへのログインは、 **[スタック](/ocitutorials/hpc/#5-3-スタック)** 適用時の以下 **ログ** フィールドの最後に表示されているBastionノードのIPアドレスを使用し、インターネットを介してopcユーザでSSHログインします。
+   Bastionノードへのログインは、 **[スタック](../#5-3-スタック)** 適用時の以下 **ログ** フィールドの最後に表示されているBastionノードのIPアドレスを使用し、インターネットを介してopcユーザでSSHログインします。
 
    ![画面ショット](stack_page15.png)
 
@@ -256,7 +251,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
    計算ノードは、プライベートサブネットに接続されており、インターネット経由ログインすることが出来ないため、Bastionノードを経由してログインします。
 
-   計算ノードのホスト名は、Bastionノードの **/etc/opt/oci-hpc** ディレクトリ以下のファイルに格納されており、 **hostfile.tcp** と **hostfile.rdma** がそれぞれプライベートサブネット接続と **[クラスタ・ネットワーク](/ocitutorials/hpc/#5-1-クラスタネットワーク)** サブネット接続に使用するIPアドレスに対応するホスト名です。  
+   計算ノードのホスト名は、Bastionノードの **/etc/opt/oci-hpc** ディレクトリ以下のファイルに格納されており、 **hostfile.tcp** と **hostfile.rdma** がそれぞれプライベートサブネット接続と **[クラスタ・ネットワーク](../#5-1-クラスタネットワーク)** サブネット接続に使用するIPアドレスに対応するホスト名です。  
    このため、Bastionノードから計算ノードへのログインは、 **hostfile.tcp** ファイルに格納されているホスト名を使用し、opcユーザでSSHログインします。
 
    ```sh
@@ -273,7 +268,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 4. **pdsh** インストール・セットアップ
 
    以降実施する計算ノードの確認作業を **[pdsh](https://github.com/chaos/pdsh)** を使用して効率よく進めるため、以下コマンドをBastionノードのopcユーザで実行し、 **pdsh** をインストール・セットアップします。  
-   **pdsh** の詳細は、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[pdshで効率的にクラスタ管理オペレーションを実行](/ocitutorials/hpc/tech-knowhow/cluster-with-pdsh/)** を参照ください。  
+   **pdsh** の詳細は、 **[OCI HPCテクニカルTips集](../#3-oci-hpcテクニカルtips集)** の **[pdshで効率的にクラスタ管理オペレーションを実行](../tech-knowhow/cluster-with-pdsh/)** を参照ください。  
    なおこの手順は、該当する手順を全ての計算ノードで実施する場合、必要ありません。
 
    ```sh
@@ -325,7 +320,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 ***
 # 3. LDAPユーザ作成
 
-本章は、 **[HPCクラスタスタック](/ocitutorials/hpc/#5-10-hpcクラスタスタック)** が作成したLDAP統合ユーザ管理環境にLDAPユーザを作成し、このユーザでインターネットからBastionノードにSSHログイン出来ることを確認します。
+本章は、 **[HPCクラスタスタック](../#5-10-hpcクラスタスタック)** が作成したLDAP統合ユーザ管理環境にLDAPユーザを作成し、このユーザでインターネットからBastionノードにSSHログイン出来ることを確認します。
 
 このLDAP統合ユーザ管理環境は、BastionノードがLDAPサーバ兼クライアントで計算ノードがLDAPクライアントです。
 
@@ -376,7 +371,7 @@ Oracle Cloud Infrastructure（以降OCIと記載）は、仮想化オーバー�
 
 ## 4-0. 概要
 
-本章は、先に作成したLDAPユーザを使ってMPIプログラムを **Slurm** を介してバッチジョブとして投入し、構築したHPCクラスタのインターコネクト性能を **Intel MPI Benchmark** で確認します。
+本章は、先に作成したLDAPユーザを使ってMPIプログラムを **Slurm** を介してバッチジョブとして投入し、構築したHPCクラスタのインターコネクト性能を **Intel MPI Benchmarks** で確認します。
 
 ここでは、2ノードのPing-Pong性能を計測しており、以下性能が出ています。
 
@@ -466,9 +461,9 @@ $ cat stdout.1
 
 この計算ノード追加は、OCIコンソールから実施する追加2ノード分のOCIリソース構築フェーズと、Bastionノードのコマンドラインから実施する **Ansible** のOSレベルカスタマイズフェーズを、個別に実行することで行います。
 
-OCIリソース構築フェーズは、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードの追加・削除・入れ替え方法](/ocitutorials/hpc/tech-knowhow/cluster-resize/)** の **[2. ノード数を増やす](/ocitutorials/hpc/tech-knowhow/cluster-resize/#2-ノード数を増やす)** の手順を実施します。
+OCIリソース構築フェーズは、 **[OCI HPCテクニカルTips集](../#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードの追加・削除・入れ替え方法](../tech-knowhow/cluster-resize/)** の **[2. ノード数を増やす](../tech-knowhow/cluster-resize/#2-ノード数を増やす)** の手順を実施します。
 
-OCIリソース構築フェーズが終了した段階は、追加した計算ノード用インスタンスのデプロイが完了し既存 **[クラスタ・ネットワーク](/ocitutorials/hpc/#5-1-クラスタネットワーク)** に物理的に接続されOSが起動した状態で、未だ **Slurm** のジョブを実行可能な状態になっていません。
+OCIリソース構築フェーズが終了した段階は、追加した計算ノード用インスタンスのデプロイが完了し既存 **[クラスタ・ネットワーク](../#5-1-クラスタネットワーク)** に物理的に接続されOSが起動した状態で、未だ **Slurm** のジョブを実行可能な状態になっていません。
 
 次に、 **Ansible** によるOSレベルカスタマイズを行います。
 
@@ -509,7 +504,7 @@ Bastionノードのopcユーザで以下コマンドを実行し、追加され�
 
 ## 6-0. 概要
 
-本章は、先に作成したLDAPユーザを使ってMPIプログラムを **Slurm** を介してバッチジョブとして投入し、追加後の4ノードHPCクラスタのインターコネクト性能を **Intel MPI Benchmark** で確認します。
+本章は、先に作成したLDAPユーザを使ってMPIプログラムを **Slurm** を介してバッチジョブとして投入し、追加後の4ノードHPCクラスタのインターコネクト性能を **Intel MPI Benchmarks** で確認します。
 
 ここでは、4ノードのAlltoall性能を計測しています。
 
@@ -649,9 +644,9 @@ $
 
 この計算ノード入れ替えは、OCIコンソールから実施するOCIリソースレベルの計算ノード入れ替えフェーズと、Bastionノードのコマンドラインから実施する **Ansible** によるOSレベルの新計算ノードカスタマイズフェーズを、個別に実行することで行います。
 
-OCIリソースレベルの計算ノード入れ替えフェーズは、 **[OCI HPCテクニカルTips集](/ocitutorials/hpc/#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードの追加・削除・入れ替え方法](/ocitutorials/hpc/tech-knowhow/cluster-resize/)** の **[3. ノードを置き換える](/ocitutorials/hpc/tech-knowhow/cluster-resize/#3-ノードを置き換える)** の手順を実施します。
+OCIリソースレベルの計算ノード入れ替えフェーズは、 **[OCI HPCテクニカルTips集](../#3-oci-hpcテクニカルtips集)** の **[計算/GPUノードの追加・削除・入れ替え方法](../tech-knowhow/cluster-resize/)** の **[3. ノードを置き換える](../tech-knowhow/cluster-resize/#3-ノードを置き換える)** の手順を実施します。
 
-OCIリソースレベルの計算ノード入れ替えフェーズが終了した段階は、置き換え後の新計算ノード用インスタンスのデプロイが完了し既存 **[クラスタ・ネットワーク](/ocitutorials/hpc/#5-1-クラスタネットワーク)** に物理的に接続されOSが起動した状態で、未だ **Slurm** のジョブを実行可能な状態になっていません。
+OCIリソースレベルの計算ノード入れ替えフェーズが終了した段階は、置き換え後の新計算ノード用インスタンスのデプロイが完了し既存 **[クラスタ・ネットワーク](../#5-1-クラスタネットワーク)** に物理的に接続されOSが起動した状態で、未だ **Slurm** のジョブを実行可能な状態になっていません。
 
 次に、 **Ansible** によるOSレベルカスタマイズを行います。
 
@@ -691,12 +686,12 @@ Bastionノードのopcユーザで以下コマンドを実行し、置き換え�
 
 以上で、 **Ansible** のOSレベルカスタマイズフェーズは完了し、計算ノードの置き換えは完了です。
 
-再度 **[6. MPIプログラム実行（4ノード編）](#6-mpiプログラム実行4ノード編)** に従い **Intel MPI Benchmark** を実行し、インターコネクト性能が十分出ていることを確認します。
+再度 **[6. MPIプログラム実行（4ノード編）](#6-mpiプログラム実行4ノード編)** に従い **Intel MPI Benchmarks** を実行し、インターコネクト性能が十分出ていることを確認します。
 
 ***
 # 8. HPCクラスタ削除
 
-本章は、 **[スタック](/ocitutorials/hpc/#5-3-スタック)** を破棄することで、構築したHPCクラスタを削除します。
+本章は、 **[スタック](../#5-3-スタック)** を破棄することで、構築したHPCクラスタを削除します。
 
 以降の手順は、本チュートリアルで作成したOCI上のリソースをすべて削除するため、 **LDAPユーザのホームディレクトリ用途で作成したファイル・ストレージに格納されているデータが全て消失** します。
 

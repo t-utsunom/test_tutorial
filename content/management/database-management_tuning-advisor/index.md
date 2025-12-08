@@ -1,8 +1,11 @@
 ---
 title: "OCI Database ManagementのSQLチューニング・アドバイザでパフォーマンス・チューニングをする"
 description: "OCI Database ManagementにはSQLチューニング・アドバイザの機能があります。SQLのチューニング方法に関するアドバイスや推奨事項を得ることができます。またアドバイスされた推奨事項をSQLチューニング・アドバイザの画面から実装できます。"
-order: "170"
+weight: "170"
 tags:
+- 運用管理・監視
+images:
+- management/database-management_tuning-advisor/image06.png
 ---
 
 **チュートリアル概要 :**  

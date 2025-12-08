@@ -1,18 +1,11 @@
 ---
 title: "Logging Analytics オンボーディング"
 description: "Logging Analyticsを使用開始するには、ポリシーやリソースの作成など、事前準備が必要となります。オンボーディングを使用することで、必要なポリシーとリソースが自動的に作成されるため、すぐにログの分析を開始することができます。"
-order: "120"
-layout: single
+weight: "120"
 tags:
- - management
-
-
+- 運用管理・監視
 images:
-- "management/logginganalytics_onboarding/LA_Onboarding-10.png"
-header:
- overlay_image: "/management/logginganalytics_onboarding/LA_Onboarding-10.png"
- overlay_filter: rgba(34, 66, 55, 0.7)
-
+- management/logginganalytics_onboarding/LA_Onboarding-03.png
 ---
 
 チュートリアル概要
