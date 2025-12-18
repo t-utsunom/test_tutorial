@@ -49,8 +49,6 @@ Slurmクライアントは、 **[OCI HPCテクニカルTips集](../../#3-oci-hpc
 
 GPUノードは、単一GPUノードの場合は **[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[UbuntuをOSとするHPC/機械学習ワークロード向けGPUインスタンス構築方法](../gpu-with-ubuntu/)** の手順に従いインスタンスの作成とGPU関連ソフトウェアをインストールし、 **[クラスタ・ネットワーク](../../#5-1-クラスタネットワーク)** に接続されたGPUクラスタの場合は **[OCI HPCチュートリアル集](../../#1-oci-hpcチュートリアル集)** の **[GPUクラスタを構築する(Ubuntu OS編)](../../spinup-gpu-cluster-withubuntu)** の手順に従い構築します。
 
-またSlurmクライアントとGPUノードは、 **[OCI HPCパフォーマンス関連情報](../../#2-oci-hpcパフォーマンス関連情報)** の **[OSU Micro-Benchmarks実行方法（BM.GPU4.8/BM.GPU.A100-v2.8編）](../../benchmark/run-omb-gpu/)** の **[1. OSU Micro-Benchmarksインストール・セットアップ](../../benchmark/run-omb-gpu/#1-osu-micro-benchmarksインストールセットアップ)** の手順に従い、 **[3. 稼働確認](#3-稼働確認)** で使用する **OSU Micro-Benchmarks** をインストールします。
-
 本テクニカルTipsの各サブシステムのホスト名は、以下とします。  
 以降の章では、これらのホスト名を自身の環境に置き換えて使用して下さい。
 
@@ -376,7 +374,7 @@ PartitionName=sltest Nodes=ALL DefMemPerGPU=250000 Default=YES MaxTime=INFINITE 
 ※7）ここで指定しているGPU当たりのホストメモリ量以上のジョブを投入する場合は、以下のようにジョブが使用する総ホストメモリ量を **- –mem=xxxx** オプションで指定します。
 
 ```sh
-$ srun -p sltest --gres=gpu:nvidia_a100-sxm4-40gb:4 --mem=1500000M ./a.out
+$ srun -p sltest --gres=gpu:nvidia_a100-sxm4-40gb:4 --mem=1500000G ./a.out
 ```
 
 [ **slurmdbd.conf** ]
@@ -490,6 +488,9 @@ $ echo "export PATH=/opt/slurm/sbin:/opt/slurm/bin:\$PATH" | tee -a ~/.bashrc
 - 使用したGPUリソースがジョブアカウンティング情報に記録されることを確認
 - 設定したGPU/CPUアフィニティが想定通りに行われることを確認
 
+なお、 **[OSU Micro-Benchmarks](https://mvapich.cse.ohio-state.edu/benchmarks/)** をSlurmクライアントとGPUノードに予めインストール・セットアップしておきます。  
+この手順は、 **[OCI HPCパフォーマンス関連情報](../../#2-oci-hpcパフォーマンス関連情報)** の **[OSU Micro-Benchmarks実行方法（BM.GPU4.8/BM.GPU.A100-v2.8編）](../../benchmark/run-omb-gpu/)** の **[1. OSU Micro-Benchmarksインストール・セットアップ](../../benchmark/run-omb-gpu/#1-osu-micro-benchmarksインストールセットアップ)** を参照してください。
+
 以下コマンドをSlurmクライアントの **Slurm** 利用ユーザで実行し、 **Slurm** が割り当てるGPU数が **- -gres** オプションの指定通りとなっていることを確認します。  
 また、最後のコマンドの出力から、GPU番号とそのPCIバスIDの8個の組み合わせを記録しておきます。
 
@@ -583,7 +584,7 @@ srun bash -c 'echo -n "Rank $SLURM_PROCID Node $SLURM_NODEID Core "; taskset -cp
 ```
 
 次に、以下コマンドをSlurmクライアントの **Slurm** 利用ユーザで実行し、投入した2本のジョブが同時に実行中になること、先の8枚のGPUを使用した **nvidia-smi** コマンドの出力と比較し割り当てられたGPUとCPUコアが同一ソケットに接続するものであることを確認します。  
-なお、GPUノードに使用している **BM.GPU4.8** は、CPUソケットを2個搭載し、ソケット番号0側にGPU番号0～3とCPUコア番号0～31を収容し、ソケット番号1側にGPU番号4～7とCPUコア番号32～63を収容することに留意します。
+なお、GPUノードに使用している **BM.GPU4.8** は、CPUソケットを2個搭載し、ソケット番号0側にGPU番号0～3とCPUコア番号0～31を収容し、ソケット番号1側にGPU番号4～7とCPUコア番号32～63を収容します。
 
 ```sh
 $ for i in `seq 1 2`; do sbatch gpu_affinity.sh; done

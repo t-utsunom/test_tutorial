@@ -104,14 +104,8 @@ Oracle Cloud Infrastructureは、設計段階からセキュリティを考慮�
 ## Oracle Data Safe
 <!-- 500 -->
 
-+ **[Oracle Data Safeを設定する](./datasafe-setup/)**  
-   Oracle Data Safeを設定する手順についてまとめています。
-
-+ **[セキュリティ・アセスメント機能でセキュリティ構成を評価する](./datasafe-security-assessment/)**  
-   本チュートリアルは「Oracle Data Safeを設定する」の続編として、セキュリティ・アセスメントの設定および動作を確認します。
-
-+ **[機密データをマスキングする](./datasafe-masking/)**  
-   本チュートリアルは「Oracle Data Safeを設定する」の続編として、データ・マスキングの設定および動作を確認します。
++ **[Oracle Data SafeをBaseDBに設定する](./datasafe-setup/)**  
+   Oracle Data SafeをBaseDBに設定する手順についてまとめています。
 
 <br>
 

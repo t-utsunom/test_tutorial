@@ -213,7 +213,7 @@ div.wrapper {
 	flex-direction: column;
 	min-height: 100vh;
 	color: var(--body-font-color);
-	background-image: url('/ocitutorials/img/background/oc-background.png');
+	background-image: url('/test_tutorial/img/background/oc-background.png');
   background-repeat: repeat;
   background-attachment: scroll;
 	font-weight: normal
@@ -361,30 +361,4 @@ div.wrapper.is_home {
   .gdoc-brand__title {
     display: none;
   }
-}
-
-
-/* ----------------------------- */
-/* -- ナビゲーション  */
-/* ----------------------------- */
-.page-nav-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  gap: 4.5rem;
-  align-items: center;
-  margin: 1rem 0; 
-}
-
-.gdoc-page__nav--prev {
-  text-align: left;
-}
-.nav-prev__div {
-  margin: .2rem;
-}
-
-.gdoc-page__nav--next {
-  text-align: right;
-}
-.nav-next__div {
-  margin: .2rem;
 }

@@ -1,7 +1,7 @@
 # defaultContentLanguage = 'ja'
-baseURL = '/ocitutorials/'
+baseURL = '/test_tutorial/'
 # languageCode = 'ja'
-publishDir = "public/ocitutorials"
+publishDir = "public/test_tutorial"
 # title = 'OCIチュートリアルaaaaa'
 # theme = "hugo-geekdoc"
 
@@ -17,7 +17,7 @@ publishDir = "public/ocitutorials"
 
 # enableGitInfo = true
 
-# geekdocRepo = "https://github.com/oracle-japan/ocitutorials"
+# geekdocRepo = "https://github.com/t-utsunom/test_tutorial"
 
 # Needed for mermaid shortcodes
 # [markup]

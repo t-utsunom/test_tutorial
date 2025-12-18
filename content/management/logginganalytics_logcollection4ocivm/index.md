@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics：OCIコンピュートからOSのログを収集する"
-description: "Log Analyticsではエージェントを使用することで、OCIだけでなくオンプレミスや他社IasSなど、様々な監視対象のホストから継続的にログを収集することができます。"
+title: "Logging Analytics：OCIコンピュートからOSのログを収集する"
+description: "Logging Analyticsではエージェントを使用することで、OCIだけでなくオンプレミスや他社IasSなど、様々な監視対象のホストから継続的にログを収集することができます。"
 weight: "10"
 tags:
 - 運用管理・監視
@@ -16,9 +16,9 @@ images:
 ・OCIコンピュートが作成済であること  
 このチュートリアルではOSはOracle Linux 8を前提としています。
 
-・Log Analyticsが有効化されていること    
-このチュートリアルでは、オンボーディング機能を使用してポリシーやLog Analyticsのリソースが作成済みであることを前提としています。  
-オンボーディング機能については[Log Analyticsの有効化](https://oracle-japan.github.io/ocitutorials/management/logginganalytics_onboarding/)を参照ください。  
+・Logging Analyticsが有効化されていること    
+このチュートリアルでは、オンボーディング機能を使用してポリシーやLogging Analyticsのリソースが作成済みであることを前提としています。  
+オンボーディング機能については[こちらの記事](https://oracle-japan.github.io/ocitutorials/management/logginganalytics_onboarding/)を参照ください。  
 
 ポリシーやリソースの作成はマニュアルで設定しても問題ありません。  
 マニュアルで設定する場合は以下のドキュメントを参照ください。  
@@ -45,52 +45,41 @@ OCIコンソールのメニューから「監視および管理」を選択し�
 エージェント名をクリックして詳細画面へ進みます。
 ![画像02](LA_logcollection4ocivm-02.png)
 
-「プラグインのデプロイ」をクリックし、「Log Analytics」にチェックを入れます。
+「プラグインのデプロイ」をクリックし、「Logging Analytics」にチェックを入れます。
 ![画像03](LA_logcollection4ocivm-03.png)
   
 ![画像04](LA_logcollection4ocivm-04.png)
 
 <br>
 
-# 2. 動的グループの作成とポリシーの追加
+# 2. ポリシーの変更
 -------------------
+オンボーディングで自動作成されるポリシーの一部を変更します。
 OCIコンソールのメニューから「アイデンティティとセキュリティ」を選択し、「ドメイン」をクリックして詳細画面へ進みます。
 ![画像05](LA_logcollection4ocivm-05.png)
- 
+
+「Default」ドメイン内にある「動的グループ」を編集します。
 ![画像06](LA_logcollection4ocivm-06.png)
+  
+![画像07](LA_logcollection4ocivm-07.png)
 
-「動的グループ」を作成します。
-![画像23](image23.png)
-
-動的グループ名と説明を入力します。ここでは以下のようにします。
-- 動的グループ名：Management-Agent-Dynamic-Group
-- 説明：demo
-
-一致ルールに以下のように記入します。
-```
-ALL {resource.type='managementagent', resource.compartment.id='<management_agent_compartment_OCID>'}
-```
-`<management_agent_compartment_OCID>` については、管理エージェントが配置されているコンパートメントのOCIDを記入してください。
-
-![画像24](image24.png)
+一致ルールを「下で定義したいずれかのルールに一致」に変更します。
+![画像08](LA_logcollection4ocivm-08.png)
+  
+![画像09](LA_logcollection4ocivm-09.png)
 
 アイデンティティのトップ画面に戻り、「ポリシー」をクリックして詳細画面へ進みます。
 ![画像10](LA_logcollection4ocivm-10.png)
 
-Log Analyticsの有効化で自動作成された「logging_analytics_automatic_injection_policies」を編集します。
+「logging_analytics_automatic_injection_policies」を編集します。
 ![画像11](LA_logcollection4ocivm-11.png)
 
-以下のポリシーを追加します。
-```
-ALLOW DYNAMIC-GROUP Management-Agent-Dynamic-Group TO USE METRICS IN TENANCY
-ALLOW DYNAMIC-GROUP Management-Agent-Dynamic-Group TO {LOG_ANALYTICS_LOG_GROUP_UPLOAD_LOGS} IN TENANCY
-```
+以下のようにポリシーのWhere句を in tenancy に変更します。
+![画像12](LA_logcollection4ocivm-12.png)
 
-<!--
 {{< hint type=note title="Note" >}}
-オンボーディング機能では、管理エージェントを「Management-Agents」というコンパートメントで管理するように自動設定されますが、OCIコンピュートで有効化する管理エージェントはOCIコンピュートと同じコンパートメントに割り当てられるため、管理エージェントがLog Analyticsへログをアップロードできるようにするためには、上記のようにポリシーを変更する必要があります。 
+オンボーディング機能では、管理エージェントを「Management-Agents」というコンパートメントで管理するように自動設定されますが、OCIコンピュートで有効化する管理エージェントはOCIコンピュートと同じコンパートメントに割り当てられるため、管理エージェントがLogging Analyticsへログをアップロードできるようにするためには、上記のようにポリシーを変更する必要があります。 
 {{< /hint >}}
--->
 
 <br>
 
@@ -117,7 +106,7 @@ Oracle Cloudエージェントを使用して管理エージェントを有効�
 # 4. エンティティとログソースを関連付ける
 ----------------
 OCIコンソールのメニューから「監視および管理」を選択し、  
-「Log Analytics」の「管理」をクリックします。
+「Logging Analytics」の「管理」をクリックします。
 ![画像13](LA_logcollection4ocivm-13.png)
 
 「エンティティ」をクリックし、詳細画面へ進みます。
@@ -126,7 +115,7 @@ OCIコンソールのメニューから「監視および管理」を選択し�
 OCIコンピュートのエンティティが作成されていることを確認します。
 ![画像15](LA_logcollection4ocivm-15.png)
 
-Log Analyticsの管理画面で「データの追加」をクリックします。
+Logging Analyticsの管理画面で「データの追加」をクリックします。
 ![画像16](LA_logcollection4ocivm-16.png)
 
 「Linuxコア・ログ」をクリックします。

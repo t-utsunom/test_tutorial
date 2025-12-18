@@ -8,9 +8,10 @@ params:
   author: Tsutomu Miyashita
 ---
 
+***
 # 0. 概要
 
-本ドキュメントで解説する **[Intel MPI Benchmarks](https://github.com/intel/mpi-benchmarks)** の実行は、 **GitHub** から提供される **Intel MPI Benchmarks** を **[OpenMPI](https://www.open-mpi.org/)** で実行する方法と、 **[Intel oneAPI HPC Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit.html)** に含まれる **Intel MPI Benchmarks** と **[Intel MPI Library](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html)** を使用する方法を解説します。
+本ドキュメントで解説する **[Intel MPI Benchmarks](https://github.com/intel/mpi-benchmarks)** の実行は、 **GitHub** から提供される **Intel MPI Benchmarks** を **[OpenMPI](https://www.open-mpi.org/)** で実行する方法と、 **[Intel oneAPI HPC Toolkit](https://www.xlsoft.com/jp/products/intel/oneapi/hpc/index.html)** に含まれる **Intel MPI Benchmarks** と **[Intel MPI Library](https://www.xlsoft.com/jp/products/intel/cluster/mpi/index.html)** を使用する方法を解説します。
 
 **Intel MPI Benchmarks** の実行は、以下3種類を解説します。
 
@@ -20,59 +21,56 @@ params:
 
 本ドキュメントで **Intel MPI Benchmarks** を実行するHPCクラスタは、第3世代 **Intel Xeon** プロセッサを搭載するベア・メタル・シェイプ **[BM.Optimized3.36](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/computeshapes.htm#bm-hpc-optimized)** 4インスタンスを **[クラスタ・ネットワーク](../../#5-1-クラスタネットワーク)** で接続した構成とし、 **[OCI HPCチュートリアル集](../../#1-oci-hpcチュートリアル集)** のカテゴリ **[HPC/GPUクラスタ](../../#1-1-hpcgpuクラスタ)** のチュートリアルの手順に従う等により、ノード間でMPIが実行できるよう予め構築しておきます。
 
-本ドキュメントは、以下の環境で **Intel MPI Benchmarks** PingPongを実行し、
+本ドキュメントは、以下の環境で **Intel MPI Benchmarks** PingPongを実行し、以下の性能が出ています。
 
-- **シェイプ** ： **BM.Optimized3.36**
-- **イメージ** ：  
-**Oracle Linux** 8.10 / 9.5ベースのHPC **[クラスタネットワーキングイメージ](../../#5-13-クラスタネットワーキングイメージ)** （※1）/  
-**[プラットフォーム・イメージ](../../#5-17-プラットフォームイメージ)** **[Oracle-Linux-10.0-2025.10.23-0](https://docs.oracle.com/en-us/iaas/images/oracle-linux-10x/oracle-linux-10-0-2025-10-23-0.htm)**
+[実行環境]
+- シェイプ : **BM.Optimized3.36** （搭載コア数36）
+- OS ： **Oracle Linux** 8.10 / 9.5ベースのHPC **[クラスタネットワーキングイメージ](../../#5-13-クラスタネットワーキングイメージ)** （※1）
 - **OpenMPI** ： 5.0.8（※2）
-- **Intel MPI Library** ： 2025.3.0
-- **Intel MPI Benchmarks** ： 2025.10
+- **Intel MPI Library** ： 2021.3.0
+- **Intel MPI Benchmarks** ： 2021.10
 
 ※1）**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[クラスタネットワーキングイメージの選び方](../../tech-knowhow/osimage-for-cluster/)** の **[1. クラスタネットワーキングイメージ一覧](../../tech-knowhow/osimage-for-cluster/#1-クラスタネットワーキングイメージ一覧)** のイメージ **No.12** / **No.13** です。  
 ※2） **[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 8編）](../../tech-knowhow/build-openmpi/)** / **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）](../../tech-knowhow/build-openmpi-ol9/)** に従って構築された **OpenMPI** です。
 
-以下の性能が出ています。
+[実行結果（ **OpenMPI** ）]
+- レイテンシ: 1.68 usec
+- 帯域幅（256 MiBメッセージサイズ）: 12,238 MB/s
 
-- **OpenMPI** （ **Oracle Linux** 9.5）
-    - レイテンシ: 1.66 usec
-    - 帯域幅（256 MiBメッセージサイズ）: 12,238 MB/s
+[実行結果（ **Intel MPI Library** ）]
+- レイテンシ: 1.68 usec
+- 帯域幅（256 MiBメッセージサイズ）: 12,236 MB/s
 
-- **Intel MPI Library** （ **Oracle Linux** 9.5）
-    - レイテンシ: 1.71 usec
-    - 帯域幅（256 MiBメッセージサイズ）: 12,248 MB/s
-
+***
 # 1. OpenMPIでIntel MPI Benchmarksを実行する場合
 
 ## 1-0. 概要
 
 本章は、 **OpenMPI** を使用して **Intel MPI Benchmarks** を実行する方法を、以下の順に解説します。
 
-1. **[OpenMPIインストール](#1-1-openmpiインストール)**
-2. **[Intel MPI Benchmarksインストール](#1-2-intel-mpi-benchmarksインストール)**
-3. **[Intel MPI Benchmarks実行](#1-3-intel-mpi-benchmarks実行)**
+1. **OpenMPI** インストール
+2. **Intel MPI Benchmarks** インストール
+3. **Intel MPI Benchmarks** 実行
 
-## 1-1. OpenMPIインストール
+## 1-1. OpenMPIインストール  
 
-**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 8編）](../../tech-knowhow/build-openmpi/)** / **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）](../../tech-knowhow/build-openmpi-ol9/)** / **[Oracle Linuxプラットフォーム・イメージベースのHPCワークロード実行環境構築方法](../../tech-knowhow/build-oraclelinux-hpcenv/)** に従い、  **Intel MPI Benchmarks** を実行する全てのノードに **OpenMPI** をインストールします。
+**[OCI HPCテクニカルTips集](../../#3-oci-hpcテクニカルtips集)** の **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 8編）](../../tech-knowhow/build-openmpi/)** か **[Slurm環境での利用を前提とするUCX通信フレームワークベースのOpenMPI構築方法（Oracle Linux 9編）](../../tech-knowhow/build-openmpi-ol9/)** に従い、  **Intel MPI Benchmarks** を実行する全てのノードに **OpenMPI** をインストールします。
 
 ## 1-2. Intel MPI Benchmarksインストール
 
 以下コマンドを **Intel MPI Benchmarks** を実行する全てのノードのopcユーザで実行し、 **Intel MPI Benchmarks** を **/opt/openmpi/tests/imb** ディレクトリにインストールします。  
-なおmakeコマンドの並列数は、当該ノードのコア数に合わせて調整します。また、 **Oracle Linux** のバージョンにより実行するコマンドが異なる点に留意します。
+なおmakeコマンドの並列数は、当該ノードのコア数に合わせて調整します。
 
 ```sh
-$ mkdir -p ~/`hostname` && cd ~/`hostname` && wget https://github.com/intel/mpi-benchmarks/archive/refs/tags/IMB-v2021.10.tar.gz
+$ mkdir ~/`hostname` && cd ~/`hostname` && wget https://github.com/intel/mpi-benchmarks/archive/refs/tags/IMB-v2021.10.tar.gz
 $ tar -xvf ./IMB-v2021.10.tar.gz
 $ module load openmpi
-$ cd mpi-benchmarks-IMB-v2021.10 && make -j 36 CC=mpicc CXX=mpicxx all # For Oracle Linux 8 and 9
-$ cd mpi-benchmarks-IMB-v2021.10 && make -j 36 CC=mpicc CXX=mpicxx all CXXFLAGS=-Wno-error=template-id-cdtor # For Oracle Linux 10
+$ cd mpi-benchmarks-IMB-v2021.10 && make -j 36 CC=mpicc CXX=mpicxx all
 $ sudo mkdir -p /opt/openmpi/tests/imb && sudo cp ./IMB* /opt/openmpi/tests/imb/
 ```
 
 次に、以下のファイルを **/usr/share/Modules/modulefiles/imb** で作成します。  
-このファイルは、 **[Environment Modules](https://envmodules.io/)** にモジュール名 **imb** を登録し、これをロードすることで **Intel MPI Benchmarks** 利用環境の設定を可能にします
+このファイルは、 **Environment modules** にモジュール名 **imb** を登録し、これをロードすることで **Intel MPI Benchmarks** 利用環境の設定が可能になります
 
 ```sh
 #%Module1.0
@@ -93,7 +91,7 @@ prepend-path PATH $pkg_root
 
 ## 1-3. Intel MPI Benchmarks実行
 
-### 1-3-1. 1ノード内全コアを使用するAlltoall
+## 1-3-1. 1ノード内全コアを使用するAlltoall
 
 以下コマンドを対象ノードで **Intel MPI Benchmarks** 実行ユーザで実行します。  
 ここでは、1ノード36プロセスのAlltoall所要時間をメッセージサイズ32 MiBで計測しています。
@@ -104,7 +102,7 @@ $ mpirun -n 36 IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 allto
 #----------------------------------------------------------------
 #    Intel(R) MPI Benchmarks 2021.10, MPI-1 part
 #----------------------------------------------------------------
-# Date                  : Wed Oct 29 11:43:37 2025
+# Date                  : Wed Oct 15 11:44:25 2025
 # Machine               : x86_64
 # System                : Linux
 # Release               : 5.14.0-503.40.1.el9_5.x86_64
@@ -136,7 +134,7 @@ $ mpirun -n 36 IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 allto
 #----------------------------------------------------------------
        #bytes #repetitions  t_min[usec]  t_max[usec]  t_avg[usec]
             0         1000         0.03         0.03         0.03
-     33554432            1    403195.19    412855.49    408578.26
+     33554432            1    404586.22    415032.49    410026.69
 
 
 # All processes entering MPI_Finalize
@@ -144,19 +142,19 @@ $ mpirun -n 36 IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 allto
 $
 ```
 
-### 1-3-2. 2ノード間のPingPong
+## 1-3-2. 2ノード間のPingPong
 
 以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
-ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは **1.66 usec** ）、帯域幅は256 MiBメッセージの帯域幅（ここでは **12,238.33 MB/s** ）を以ってその結果とします。
+ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは **1.68 usec** ）、帯域幅は256 MiBメッセージの帯域幅（ **12,237.89 MB/s** ）を以ってその結果とします。
 
 ```sh
 $ module load openmpi imb
 $ mpirun -n 2 -N 1 -hostfile ~/hostlist.txt -x UCX_NET_DEVICES=mlx5_2:1 -x PATH IMB-MPI1 -msglog 28:28 pingpong
-[inst-ckorz-x9-ol905:16363] SET UCX_NET_DEVICES=mlx5_2:1
+[inst-vvb7u-x9-ol905:12579] SET UCX_NET_DEVICES=mlx5_2:1
 #----------------------------------------------------------------
 #    Intel(R) MPI Benchmarks 2021.10, MPI-1 part
 #----------------------------------------------------------------
-# Date                  : Wed Oct 29 11:35:42 2025
+# Date                  : Wed Oct 15 11:43:04 2025
 # Machine               : x86_64
 # System                : Linux
 # Release               : 5.14.0-503.40.1.el9_5.x86_64
@@ -187,8 +185,8 @@ $ mpirun -n 2 -N 1 -hostfile ~/hostlist.txt -x UCX_NET_DEVICES=mlx5_2:1 -x PATH 
 # #processes = 2 
 #---------------------------------------------------
        #bytes #repetitions      t[usec]   Mbytes/sec
-            0         1000         1.66         0.00
-    268435456            1     21933.99     12238.33
+            0         1000         1.68         0.00
+    268435456            1     21934.78     12237.89
 
 
 # All processes entering MPI_Finalize
@@ -196,7 +194,7 @@ $ mpirun -n 2 -N 1 -hostfile ~/hostlist.txt -x UCX_NET_DEVICES=mlx5_2:1 -x PATH 
 $
 ```
 
-### 1-3-3. 4ノード間のAllreduce
+## 1-3-3. 4ノード間のAllreduce
 
 以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
 ここでは、4ノード144プロセス（ノードあたり36プロセス）を使用したAllreduceの所要時間をメッセージサイズ256 MiBで計測しています。
@@ -248,6 +246,7 @@ $ mpirun -n 144 -N 36 -hostfile ~/hostlist.txt -x UCX_NET_DEVICES=mlx5_2:1 -x PA
 $
 ```
 
+***
 # 2. Intel MPI LibraryでIntel MPI Benchmarksを実行する場合
 
 ## 2-0. 概要
@@ -255,9 +254,9 @@ $
 本章は、 **Intel MPI Library** を使用して **Intel MPI Benchmarks** を実行する方法を解説します。  
 具体的には、以下の作業を実施します。
 
-1. **[Intel oneAPI HPC Toolkitインストール](#2-1-intel-oneapi-hpc-toolkitインストール)**
-2. **[ホストリストファイル作成](#2-2-ホストリストファイル作成)**
-3. **[Intel MPI Benchmarks実行](#2-3-intel-mpi-benchmarks実行)**
+1. **Intel oneAPI HPC Toolkit** インストール
+2. ホストリストファイル作成
+3. **Intel MPI Benchmarks** 実行
 
 ## 2-1. Intel oneAPI HPC Toolkitインストール
 
@@ -266,7 +265,7 @@ $
 ```sh
 $ sudo yum-config-manager --add-repo https://yum.repos.intel.com/oneapi
 $ sudo rpm --import https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
-$ sudo dnf install -y intel-basekit-2025.3.0 intel-hpckit-2025.3.0
+$ sudo dnf install -y intel-basekit-2021.3.0 intel-hpckit-2021.3.0
 ```
 
 ## 2-2. ホストリストファイル作成
@@ -275,19 +274,18 @@ $ sudo dnf install -y intel-basekit-2025.3.0 intel-hpckit-2025.3.0
 
 ## 2-3. Intel MPI Benchmarks実行
 
-### 2-3-1. 1ノード内全コアを使用するAlltoall
-
-以下コマンドを対象ノードで **Intel MPI Benchmarks** 実行ユーザで実行します。  
-ここでは、1ノード36プロセスのAlltoall所要時間をメッセージサイズ32 MiBで計測しています。
+以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
+ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは1.60 usec）、帯域幅は256 MiBメッセージの帯域幅（12,277.42 MB/s）を以ってその結果とします。
 
 ```sh
 $ source /opt/intel/oneapi/setvars.sh
  
 :: initializing oneAPI environment ...
-   -bash: BASH_VERSION = 5.1.8(1)-release
+   -bash: BASH_VERSION = 4.4.20(1)-release
    args: Using "$@" for setvars.sh arguments: 
 :: advisor -- latest
 :: ccl -- latest
+:: clck -- latest
 :: compiler -- latest
 :: dal -- latest
 :: debugger -- latest
@@ -295,76 +293,28 @@ $ source /opt/intel/oneapi/setvars.sh
 :: dnnl -- latest
 :: dpcpp-ct -- latest
 :: dpl -- latest
+:: inspector -- latest
+:: intelpython -- latest
 :: ipp -- latest
 :: ippcp -- latest
-:: ishmem -- latest
+:: itac -- latest
 :: mkl -- latest
 :: mpi -- latest
 :: tbb -- latest
-:: umf -- latest
+:: vpl -- latest
 :: vtune -- latest
 :: oneAPI environment initialized ::
  
-$ mpirun -n 36 IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 alltoall
-#----------------------------------------------------------------
-#    Intel(R) MPI Benchmarks 2021.10, MPI-1 part
-#----------------------------------------------------------------
-# Date                  : Wed Oct 29 11:44:56 2025
-# Machine               : x86_64
-# System                : Linux
-# Release               : 5.14.0-503.40.1.el9_5.x86_64
-# Version               : #1 SMP PREEMPT_DYNAMIC Wed Apr 30 02:45:06 PDT 2025
-# MPI Version           : 4.1
-# MPI Thread Environment: 
-
-
-# Calling sequence was: 
-
-# IMB-MPI1 -msglog 25:25 -mem 2.3G -off_cache 39,64 -npmin 36 alltoall 
-
-# Minimum message length in bytes:   0
-# Maximum message length in bytes:   33554432
-#
-# MPI_Datatype                   :   MPI_BYTE 
-# MPI_Datatype for reductions    :   MPI_FLOAT 
-# MPI_Op                         :   MPI_SUM  
-# 
-# 
-
-# List of Benchmarks to run:
-
-# Alltoall
-
-#----------------------------------------------------------------
-# Benchmarking Alltoall 
-# #processes = 36 
-#----------------------------------------------------------------
-       #bytes #repetitions  t_min[usec]  t_max[usec]  t_avg[usec]
-            0         1000         0.02         0.02         0.02
-     33554432            1    405147.77    408777.64    406716.85
-
-
-# All processes entering MPI_Finalize
-
-$
-```
-
-### 2-3-2. 2ノード間のPingPong
-
-以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
-ここでは、2ノードを使用したPingPongをメッセージサイズ0バイトと256 MiBで計測し、レイテンシは0バイトメッセージの所要時間（ここでは **1.71 usec** ）、帯域幅は256 MiBメッセージの帯域幅（ここでは **12,248.01 MB/s** ）を以ってその結果とします。
-
-```sh
 $ mpirun -n 2 -ppn 1 -hostfile ~/hostlist.txt -genv UCX_NET_DEVICES=mlx5_2:1 IMB-MPI1 -msglog 27:28 pingpong
 #----------------------------------------------------------------
-#    Intel(R) MPI Benchmarks 2021.10, MPI-1 part
+#    Intel(R) MPI Benchmarks 2021.2, MPI-1 part
 #----------------------------------------------------------------
-# Date                  : Wed Oct 29 11:31:23 2025
+# Date                  : Thu Jun 20 16:45:47 2024
 # Machine               : x86_64
 # System                : Linux
-# Release               : 5.14.0-503.40.1.el9_5.x86_64
-# Version               : #1 SMP PREEMPT_DYNAMIC Wed Apr 30 02:45:06 PDT 2025
-# MPI Version           : 4.1
+# Release               : 4.18.0-513.11.0.1.el8_9.x86_64
+# Version               : #1 SMP Thu Jan 11 11:30:45 PST 2024
+# MPI Version           : 3.1
 # MPI Thread Environment: 
 
 
@@ -390,9 +340,9 @@ $ mpirun -n 2 -ppn 1 -hostfile ~/hostlist.txt -genv UCX_NET_DEVICES=mlx5_2:1 IMB
 # #processes = 2 
 #---------------------------------------------------
        #bytes #repetitions      t[usec]   Mbytes/sec
-            0         1000         1.71         0.00
-    134217728            1     10963.55     12242.18
-    268435456            1     21916.67     12248.01
+            0         1000         1.60         0.00
+    134217728            1     10935.56     12273.51
+    268435456            1     21864.16     12277.42
 
 
 # All processes entering MPI_Finalize
@@ -400,9 +350,7 @@ $ mpirun -n 2 -ppn 1 -hostfile ~/hostlist.txt -genv UCX_NET_DEVICES=mlx5_2:1 IMB
 $
 ```
 
-### 2-3-3. 4ノード間のAllreduce
-
-以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
+次に、以下コマンドを **Intel MPI Benchmarks** を実行するユーザで何れか1ノードで実行します。  
 ここでは、4ノード144プロセス（ノードあたり36プロセス）を使用したAllreduceの所要時間をメッセージサイズ256 MiBで計測しています。
 
 
