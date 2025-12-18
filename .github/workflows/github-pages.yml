@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main  # 必要に応じて 'master' に変更可
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
 jobs:
   build-deploy:
