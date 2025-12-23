@@ -9,8 +9,9 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
+      contents: read
       pages: write
+      id-token: write
     steps:
       # 1. リポジトリのチェックアウト
       - name: Checkout repository
